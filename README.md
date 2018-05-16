@@ -1,0 +1,1 @@
+# snapaddy-mapping-documentation
