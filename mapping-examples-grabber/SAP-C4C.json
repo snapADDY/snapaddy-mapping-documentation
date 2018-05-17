@@ -1,0 +1,89 @@
+{
+    "integrations": {
+        "sap_c4c": {
+            "mappings": {
+                "lead": {
+                    "AccountCity": "{{ city }}",
+                    "AccountCountry": "{{countryCode}}",
+                    "AccountPostalAddressElementsStreetName": "{{street}}",
+                    "AccountPostalAddressElementsStreetPostalCode": "{{zip}}",
+                    "AccountState": "{{stateCode}}",
+                    "AccountWebsite": "{{website}}",
+                    "Name": "{{ topic }}",
+                    "ContactFirstName": "{{firstName}}",
+                    "ContactLastName": "{{lastName}}",
+                    "ContactPhone": "{{ phone }}",
+                    "ContactMobile": "{{ mobile }}",
+                    "ContactEMail": "{{ email }}",
+                    "ContactGenderCode": "{{ execute(formatGenderCode) }}",
+                    "Company": "{{organization}}",
+                    "OriginTypeCode": "{{lead_source}}",
+                    "PriorityCode": "{{lead_priority}}",
+                    "QualificationLevelCode": "{{lead_qualification}}",
+                    "UserStatusCode": "{{lead_status}}",
+                    "Note": "{{note}}"
+                },
+                "contact": {
+                    "AccountID": "{{account_shortID}}",
+                    "AccountUUID": "{{account_uuid}}",
+                    "AccountName": "{{ organization }}",
+                    "FirstName": "{{firstName}}",
+                    "LastName": "{{lastName}}",
+                    "Phone": "{{ phone }}",
+                    "Fax": "{{ fax }}",
+                    "Mobile": "{{ mobile }}",
+                    "Email": "{{ email }}",
+                    "GenderCode": "{{ execute(formatGenderCode) }}",
+                    "CategoryCode": "{{ contact_category }}",
+                    "RoleCode": "{{ contact_rolecode }}",
+                    "TitleCode": "{{ execute(formatTitleCode) }}",
+                    "JobTitle": "{{ position }}",
+                    "StatusCode": "{{contact_status}}",
+                    "ContactPersonalAddress": [
+                        {
+                            "City": "{{city}}",
+                            "CountryCode": "{{countryCode}}",
+                            "State": "{{stateCode}}",
+                            "Street": " {{street}}",
+                            "PostalCode": "{{zip}}",
+                            "EMail": "{{ email }}",
+                            "Mobile": "{{mobile}}",
+                            "Fax": "{{fax}}",
+                            "Phone": "{{phone}}",
+                            "MainPersonalAddress": true
+                        }
+                    ]
+                },
+                "account": {
+                    "AccountName": "{{ organization }}",
+                    "Phone": "{{ phone }}",
+                    "Fax": "{{ fax }}",
+                    "Mobile": "{{ mobile }}",
+                    "Email": "{{ email }}",
+                    "Web": "{{ website }}",
+                    "StreetName": "{{ street }}",
+                    "StreetPostalCode": "{{zip}}",
+                    "CityName": "{{ city }}",
+                    "CountryCode": "{{countryCode}}",
+                    "RegionCode": "{{stateCode}}",
+                    "RoleCode": "{{account_type}}",
+                    "StatusCode": "{{account_status}}"
+                }
+            },
+            "code": {
+                "functions": {
+                    "formatTitleCode": [
+                        "if(address.gender == 0)",
+                        "return '0002';",
+                        "else if(address.gender == 1)",
+                        "return '0001';"
+                    ],
+                    "formatGenderCode": [
+                        "return  (address.gender+1).toString();",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

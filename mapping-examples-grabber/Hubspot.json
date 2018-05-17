@@ -1,0 +1,132 @@
+{
+    "hubspot": {
+        "mappings": {
+            "contact": {
+                "properties": [
+                    {
+                        "property": "email",
+                        "value": "{{email}}"
+                    },
+                    {
+                        "property": "salutation",
+                        "value": "{{salutation}}"
+                    },
+                    {
+                        "property": "firstname",
+                        "value": "{{firstName}}"
+                    },
+                    {
+                        "property": "lastname",
+                        "value": "{{lastName}}"
+                    },
+                    {
+                        "property": "company",
+                        "value": "{{organization}}"
+                    },
+                    {
+                        "property": "phone",
+                        "value": "{{phone}}"
+                    },
+                    {
+                        "property": "mobilephone",
+                        "value": "{{mobile}}"
+                    },
+                    {
+                        "property": "fax",
+                        "value": "{{fax}}"
+                    },
+                    {
+                        "property": "jobtitle",
+                        "value": "{{position}}"
+                    },
+                    {
+                        "property": "address",
+                        "value": "{{street}}"
+                    },
+                    {
+                        "property": "city",
+                        "value": "{{city}}"
+                    },
+                    {
+                        "property": "state",
+                        "value": "{{state}}"
+                    },
+                    {
+                        "property": "zip",
+                        "value": "{{zip}}"
+                    },
+                    {
+                        "property": "country",
+                        "value": "{{country}}"
+                    }
+                ]
+            },
+            "company": {
+                "properties": [
+                    {
+                        "name": "name",
+                        "value": "{{organization}}"
+                    },
+                    {
+                        "name": "address",
+                        "value": "{{street}}"
+                    },
+                    {
+                        "name": "city",
+                        "value": "{{city}}"
+                    },
+                    {
+                        "name": "state",
+                        "value": "{{state}}"
+                    },
+                    {
+                        "name": "zip",
+                        "value": "{{zip}}"
+                    },
+                    {
+                        "name": "country",
+                        "value": "{{country}}"
+                    },
+                    {
+                        "name": "website",
+                        "value": "{{website}}"
+                    }
+                ]
+            },
+            "deal": {
+                "associations": {
+                    "associatedCompanyIds": "{{deal_associated_companies}}",
+                    "associatedVids": "{{deal_associated_contacts}}"
+                },
+                "properties": [
+                    {
+                        "name": "dealname",
+                        "value": "{{deal_title}}"
+                    },
+                    {
+                        "name": "pipeline",
+                        "value": "{{deal_pipeline}}"
+                    },
+                    {
+                        "name": "dealstage",
+                        "value": "{{deal_stage}}"
+                    },
+                    {
+                        "name": "amount",
+                        "value": "{{deal_value}}"
+                    }
+                ]
+            }
+        },
+        "code": {
+            "contact": {
+                "post": [
+                    "mappedObject.properties = mappedObject.properties.filter(function(p) {",
+                    "  return (p.property !== 'email' || (p.value && p.value.length > 0))",
+                    "});",
+                    "return mappedObject;"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "integrations": {
+        "pipedrive": {
+            "mappings": {
+                "person": {
+                    "name": "{{firstName}} {{lastName}}",
+                    "org_id": "{{ org_id || _delete }}",
+                    "phone": [
+                        {
+                            "label": "Phone",
+                            "value": "{{ phone || null }}",
+                            "primary": true
+                        },
+                        {
+                            "label": "Mobile",
+                            "value": "{{ mobile || null }}",
+                            "primary": false
+                        },
+                        {
+                            "label": "Fax",
+                            "value": "{{ fax || null }}",
+                            "primary": false
+                        }
+                    ],
+                    "email": [
+                        {
+                            "label": "",
+                            "value": "{{ email }}",
+                            "primary": true
+                        }
+                    ]
+                },
+                "organization": {
+                    "name": "{{organization}}",
+                    "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
+                },
+                "deal": {
+                    "title": "{{deal_title}}",
+                    "value": "{{deal_value}}",
+                    "currency": "{{deal_currency}}",
+                    "stage_id": "{{deal_stage}}",
+                    "person_id": "{{person_id || _delete}}",
+                    "org_id": "{{org_id || _delete}}"
+                }
+            }
+        }
+    }
+}

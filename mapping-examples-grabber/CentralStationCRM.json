@@ -1,0 +1,132 @@
+    "integrations": {
+        "centralstation": {
+            "mappings": {
+                "person": {
+                    "person": {
+                        "name": "{{lastName}}",
+                        "first_name": "{{firstName}}",
+                        "gender": "{{(gender === -1) ? (null) : ((gender === 0) ? ('male_user') : ('female_user'))}}",
+                        "salutation": "{{(gender === -1) ? (null) : ((gender === 0) ? ('Herr') : ('Frau'))}}",
+                        "title": "{{title}}",
+                        "tels_attributes": {
+                            "0": {
+                                "id": "{{ person.phone_id }}",
+                                "name": "{{phone}}",
+                                "atype": "office"
+                            },
+                            "1": {
+                                "id": "{{ person.mobile_id }}",
+                                "name": "{{mobile}}",
+                                "atype": "mobile"
+                            },
+                            "2": {
+                                "id": "{{ person.fax_id }}",
+                                "name": "{{fax}}",
+                                "atype": "fax"
+                            }
+                        },
+                        "emails_attributes": {
+                            "0": {
+                                "id": "{{ person.email_id }}",
+                                "name": "{{email}}",
+                                "atype": "office"
+                            }
+                        },
+                        "addrs_attributes": {
+                            "0": {
+                                "id": "{{person.addrs_id}}",
+                                "street": "{{street}}",
+                                "zip": "{{zip}}",
+                                "city": "{{city}}",
+                                "country": "{{country}}",
+                                "atype": "work_hq"
+                            }
+                        },
+                        "sms_attributes": {
+                            "0": {
+                                "id": "{{person.xing_id}}",
+                                "name": "{{ social.xing.url }}",
+                                "atype": "xing"
+                            },
+                            "1": {
+                                "id": "{{person.linkedin_id}}",
+                                "name": "{{ social.linkedin.url }}",
+                                "atype": "linkedin"
+                            },
+                            "2": {
+                                "id": "{{person.facebook_id}}",
+                                "name": "{{ social.facebook.url }}",
+                                "atype": "facebook"
+                            },
+                            "3": {
+                                "id": "{{person.twitter_id}}",
+                                "name": "{{ social.twitter.url }}",
+                                "atype": "twitter"
+                            }
+                        },
+                        "positions_attributes": {
+                            "0": {
+                                "id": "{{person.position_id}}",
+                                "name": "{{position}}",
+                                "company_id": "{{company_id}}",
+                                "atype": "office",
+                                "primary_function": "true",
+                                "former": "false"
+                            }
+                        }
+                    }
+                },
+                "company": {
+                    "company": {
+                        "name": "{{ organization }}",
+                        "tels_attributes": {
+                            "0": {
+                                "id": "{{ company.phone_id }}",
+                                "name": "{{phone}}",
+                                "atype": "office"
+                            },
+                            "1": {
+                                "id": "{{ company.mobile_id }}",
+                                "name": "{{mobile}}",
+                                "atype": "mobile"
+                            },
+                            "2": {
+                                "id": "{{ company.fax_id }}",
+                                "name": "{{fax}}",
+                                "atype": "fax"
+                            }
+                        },
+                        "addrs_attributes": {
+                            "0": {
+                                "id": "{{company.addrs_id}}",
+                                "street": "{{street}}",
+                                "zip": "{{zip}}",
+                                "city": "{{city}}",
+                                "country": "{{country}}",
+                                "atype": "work_hq"
+                            }
+                        },
+                        "homepages_attributes": {
+                            "0": {
+                                "id": "{{ company.website_id }}",
+                                "name": "{{website}}",
+                                "atype": "office"
+                            }
+                        }
+                    }
+                },
+                "deal": {
+                    "deal": {
+                        "name": "{{ deal_title }}",
+                        "value": "{{ deal_value }}",
+                        "value_type": "{{ deal_value_type }}",
+                        "value_count": "{{ deal_value_count || 0 }}",
+                        "target_date": "{{ deal_date }}",
+                        "description": "{{ deal_description}}",
+                        "person_ids_set": "{{person_id}}",
+                        "company_id": "{{company_id}}"
+                    }
+                }
+            }
+        }
+    }

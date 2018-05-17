@@ -1,0 +1,275 @@
+"integrations": {
+    "weclapp": {
+        "mappings": {
+            "contact": {
+                "customAttributes": [
+                    {
+                        "attributeDefinitionId": "1958",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_kategorie}}"
+                            }
+                        ]
+                    },
+                    {
+                        "attributeDefinitionId": "152912",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_erreichbarkeit}}"
+                            }
+                        ]
+                    }
+                ],
+                "description": "{{ note }}",
+                "personCompany": "{{ organization }}",
+                "email": "{{ email }}",
+                "personRole": "{{ position }}",
+                "salutation": "{{ gender == -1? ('') : (gender == 0? ('MR') : ('MRS')) }}",
+                "title": "{{ title }}",
+                "website": "{{ website }}",
+                "firstName": "{{ firstName }}",
+                "lastName": "{{ lastName }}",
+                "phone": "{{ phone }}",
+                "mobilePhone1": "{{ mobile }}",
+                "fax": "{{ fax }}",
+                "addresses": [
+                    {
+                        "city": "{{city || otherAddress.city || ''}}",
+                        "state": "{{state || otherAddress.state || ''}}",
+                        "street1": "{{street || otherAddress.street || ''}}",
+                        "zipcode": "{{zip || otherAddress.zip || ''}}",
+                        "countryCode": "{{country || otherAddress.country || ''}}",
+                        "primeAddress": true
+                    }
+                ]
+            },
+            "lead_organization": {
+                "description": "{{ note }}",
+                "partyType": "ORGANIZATION",
+                "company": "{{organization}}",
+                "primaryContactId": "{{contact_person_id || _delete}}",
+                "contacts": "{{otherContacts || _delete}}",
+                "salesChannel": "{{salesChannel}}",
+                "leadStatus": "{{leadStatus}}",
+                "email": "{{email}}",
+                "website": "{{website}}",
+                "phone": "{{phone}}",
+                "mobilePhone1": "{{mobile}}",
+                "fax": "{{fax}}",
+                "addresses": [
+                    {
+                        "city": "{{city || otherAddress.city || ''}}",
+                        "state": "{{state || otherAddress.state || ''}}",
+                        "street1": "{{street || otherAddress.street || ''}}",
+                        "zipcode": "{{zip || otherAddress.zip || ''}}",
+                        "countryCode": "{{country || otherAddress.country || ''}}",
+                        "primeAddress": true
+                    }
+                ]
+            },
+            "lead": {
+                "customAttributes": [
+                    {
+                        "attributeDefinitionId": "1590",
+                        "selectedValueId": "{{c_anzahlmitarbeiter}}"
+                    },
+                    {
+                        "attributeDefinitionId": "1583",
+                        "selectedValueId": "{{c_spezifizierungvertriebsweg}}"
+                    },
+                    {
+                        "attributeDefinitionId": "1582",
+                        "stringValue": "{{c_funktionimunternehmen}}"
+                    },
+                    {
+                        "attributeDefinitionId": "1624",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_interessiertan}}"
+                            }
+                        ]
+                    },
+                    {
+                        "attributeDefinitionId": "1958",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_kategorie}}"
+                            }
+                        ]
+                    },
+                    {
+                        "attributeDefinitionId": "153052",
+                        "selectedValueId": "{{c_messe}}"
+                    }
+                ],
+                "description": "{{ note }}",
+                "partyType": "PERSON",
+                "salutation": "{{ gender == -1? ('') : (gender == 0? ('MR') : ('MRS')) }}",
+                "title": "{{title}}",
+                "firstName": "{{firstName}}",
+                "lastName": "{{lastName}}",
+                "personRole": "{{position}}",
+                "personCompany": "{{organization}}",
+                "salesChannel": "{{salesChannel}}",
+                "leadStatus": "{{leadStatus}}",
+                "email": "{{email}}",
+                "website": "{{website}}",
+                "phone": "{{phone}}",
+                "mobilePhone1": "{{mobile}}",
+                "fax": "{{fax}}",
+                "addresses": [
+                    {
+                        "city": "{{city || otherAddress.city || ''}}",
+                        "state": "{{state || otherAddress.state || ''}}",
+                        "street1": "{{street || otherAddress.street || ''}}",
+                        "zipcode": "{{zip || otherAddress.zip || ''}}",
+                        "countryCode": "{{country || otherAddress.country || ''}}",
+                        "primeAddress": true
+                    }
+                ]
+            },
+            "customer_organization": {
+                "customAttributes": [
+                    {
+                        "attributeDefinitionId": "1583",
+                        "selectedValueId": "{{c_spezifizierungvertriebsweg}}"
+                    },
+                    {
+                        "attributeDefinitionId": "1958",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_kategorie}}"
+                            }
+                        ]
+                    },
+                    {
+                        "attributeDefinitionId": "153052",
+                        "selectedValueId": "{{c_messe}}"
+                    }
+                ],
+                "description": "{{ note }}",
+                "partyType": "ORGANIZATION",
+                "company": "{{organization}}",
+                "primaryContactId": "{{contact_person_id || _delete}}",
+                "contacts": "{{otherContacts || _delete}}",
+                "salesChannel": "{{salesChannel}}",
+                "email": "{{email}}",
+                "website": "{{website}}",
+                "phone": "{{phone}}",
+                "mobilePhone1": "{{mobile}}",
+                "fax": "{{fax}}",
+                "addresses": [
+                    {
+                        "city": "{{city || otherAddress.city || ''}}",
+                        "state": "{{state || otherAddress.state || ''}}",
+                        "street1": "{{street || otherAddress.street || ''}}",
+                        "zipcode": "{{zip || otherAddress.zip || ''}}",
+                        "countryCode": "{{country || otherAddress.country || ''}}",
+                        "primeAddress": true
+                    }
+                ]
+            },
+            "customer": {
+                "customAttributes": [
+                    {
+                        "attributeDefinitionId": "1583",
+                        "selectedValueId": "{{c_spezifizierungvertriebsweg}}"
+                    },
+                    {
+                        "attributeDefinitionId": "1958",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_kategorie}}"
+                            }
+                        ]
+                    },
+                    {
+                        "attributeDefinitionId": "153052",
+                        "selectedValueId": "{{c_messe}}"
+                    }
+                ],
+                "description": "{{ note }}",
+                "partyType": "PERSON",
+                "salutation": "{{ gender == -1? ('') : (gender == 0? ('MR') : ('MRS')) }}",
+                "title": "{{title}}",
+                "firstName": "{{firstName}}",
+                "lastName": "{{lastName}}",
+                "personRole": "{{position}}",
+                "personCompany": "{{organization}}",
+                "salesChannel": "{{salesChannel}}",
+                "email": "{{email}}",
+                "website": "{{website}}",
+                "phone": "{{phone}}",
+                "mobilePhone1": "{{mobile}}",
+                "fax": "{{fax}}",
+                "addresses": [
+                    {
+                        "city": "{{city || otherAddress.city || ''}}",
+                        "state": "{{state || otherAddress.state || ''}}",
+                        "street1": "{{street || otherAddress.street || ''}}",
+                        "zipcode": "{{zip || otherAddress.zip || ''}}",
+                        "countryCode": "{{country || otherAddress.country || ''}}",
+                        "primeAddress": true
+                    }
+                ]
+            },
+            "supplier": {
+                "customAttributes": [
+                    {
+                        "attributeDefinitionId": "48551",
+                        "selectedValues": [
+                            {
+                                "id": "{{c_bezugsprodukt}}"
+                            }
+                        ]
+                    }
+                ],
+                "description": "{{ note }}",
+                "partyType": "ORGANIZATION",
+                "company": "{{organization}}",
+                "primaryContactId": "{{contact_person_id || _delete}}",
+                "contacts": "{{otherContacts || _delete}}",
+                "email": "{{email}}",
+                "website": "{{website}}",
+                "phone": "{{phone}}",
+                "mobilePhone1": "{{mobile}}",
+                "fax": "{{fax}}",
+                "addresses": [
+                    {
+                        "city": "{{city || otherAddress.city || ''}}",
+                        "state": "{{state || otherAddress.state || ''}}",
+                        "street1": "{{street || otherAddress.street || ''}}",
+                        "zipcode": "{{zip || otherAddress.zip || ''}}",
+                        "countryCode": "{{country || otherAddress.country || ''}}",
+                        "primeAddress": true
+                    }
+                ]
+            }
+        }
+    }
+}
+
+
+
+
+// CustomFeld-Mapping:           
+"customAttributes": [
+    // Textfeld
+    {
+        "attributeDefinitionId": "1582",
+        "stringValue": "{{c_funktionimunternehmen}}"
+    },
+    //SingleSelect
+    {
+        "attributeDefinitionId": "1590",
+        "selectedValueId": "{{c_anzahlmitarbeiter}}"
+    },
+    //MultiSelect
+    {
+        "attributeDefinitionId": "1624",
+        "selectedValues": [
+            {
+                "id": "{{c_interessiertan}}"
+            }
+        ]
+    }

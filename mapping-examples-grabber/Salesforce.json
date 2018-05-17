@@ -1,0 +1,67 @@
+{
+    "integrations": {
+        "salesforce": {
+            "mappings": {
+                "lead": {
+                    "LeadSource": "{{ selectedLeadSource }}",
+                    "LastName": "{{lastName}}",
+                    "FirstName": "{{firstName}}",
+                    "Salutation": "{{ execute(salutationFunction) }}",
+                    "Title": "{{position}}",
+                    "Company": "{{organization}}",
+                    "Street": "{{street}}",
+                    "City": "{{city}}",
+                    "State": "{{state}}",
+                    "PostalCode": "{{zip}}",
+                    "Country": "{{country}}",
+                    "Phone": "{{phone}}",
+                    "MobilePhone": "{{mobile}}",
+                    "Fax": "{{fax}}",
+                    "Email": "{{email}}",
+                    "Website": "{{website}}",
+                    "Status": "{{selectedLeadStatus}}",
+                    "RecordTypeId": "{{selectedLeadRecordType || _delete}}"
+                },
+                "contact": {
+                    "AccountId": "{{accountId}}",
+                    "LastName": "{{lastName}}",
+                    "FirstName": "{{firstName}}",
+                    "Title": "{{position}}",
+                    "Salutation": "{{ execute(salutationFunction) }}",
+                    "MailingStreet": "{{street}}",
+                    "MailingCity": "{{city}}",
+                    "MailingState": "{{state}}",
+                    "MailingPostalCode": "{{zip}}",
+                    "MailingCountry": "{{country}}",
+                    "MobilePhone": "{{mobile}}",
+                    "Phone": "{{phone}}",
+                    "Fax": "{{fax}}",
+                    "Email": "{{email}}",
+                    "RecordTypeId": "{{selectedContactRecordType || _delete}}"
+                },
+                "account": {
+                    "Name": "{{organization}}",
+                    "RecordTypeId": "{{selectedAccountRecordType || _delete}}",
+                    "BillingStreet": "{{street}}",
+                    "BillingCity": "{{city}}",
+                    "BillingState": "{{state}}",
+                    "BillingPostalCode": "{{zip}}",
+                    "BillingCountry": "{{country}}",
+                    "ShippingStreet": "{{street}}",
+                    "ShippingCity": "{{city}}",
+                    "ShippingState": "{{state}}",
+                    "ShippingPostalCode": "{{zip}}",
+                    "ShippingCountry": "{{country}}",
+                    "Phone": "{{phone || mobile}}",
+                    "Fax": "{{fax}}",
+                    "Website": "{{website}}"
+                }
+            },
+            "code": {
+                "functions": {
+                    "salutationFunction": "if(address.gender === 0) { return 'Herr'; } else if (address.gender === 1){ return 'Frau'; } else { return ''; }"
+                }
+            }
+        }
+    }
+}
