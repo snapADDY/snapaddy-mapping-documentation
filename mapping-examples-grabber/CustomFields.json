@@ -1,0 +1,54 @@
+    "customFields": [
+        {
+            "type": "INPUT",
+            "id": "c_",
+            "label": {
+                "DE": "",
+                "GB": ""
+            },
+            "properties": {
+                "defaultValue": ""
+            }
+        },
+        {
+            "type": "SELECT",
+            "id": "c_",
+            "label": {
+                "DE": "",
+                "GB": ""
+            },
+            "properties": {
+                "defaultValue": "",
+                "options": [
+                    {
+                        "label": {
+                            "DE": "",
+                            "GB": ""
+                        },
+                        "value": ""
+                    }
+                ]
+            }
+        },
+        {
+            "type": "MULTI_SELECT",
+            "id": "c_",
+            "label": {
+                "DE": "",
+                "GB": ""
+            },
+            "properties": {
+                "defaultValue": "",
+                "options": [
+                    {
+                        "label": {
+                            "DE": "",
+                            "GB": ""
+                        },
+                        "value": ""
+                    }
+                ]
+            }
+        }
+       
+    ],
