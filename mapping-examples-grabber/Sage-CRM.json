@@ -2,6 +2,7 @@
   "sage": {
     "mappings": {
       "lead": {
+        "assigneduserid": "{{ userId || _delete}}",
         "personsalutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
         "personfirstname": "{{ firstName }}",
         "personlastname": "{{ lastName }}",
@@ -46,36 +47,54 @@
           ]
         },
         "email": {
-          "entityname": "email",
-          "records": [
-            {
-              "emailaddress": "{{ email || _delete }}",
-              "type": "business"
-            }
-          ]
-        },
-        "phone": {
-          "entityname": "phone",
-          "records": [
-            {
-              "countrycode": "{{ phone_countrycode || _delete }}",
-              "areacode": "{{ phone_areacode || _delete }}",
-              "number": "{{ phone_number || _delete }}",
-              "type": "business"
-            },
-            {
-              "countrycode": "{{ fax_countrycode || _delete }}",
-              "areacode": "{{ fax_areacode || _delete }}",
-              "number": "{{ fax_number || _delete }}",
-              "type": "fax"
-            },
-            {
-              "countrycode": "{{ mobile_countrycode || _delete }}",
-              "areacode": "{{ mobile_areacode || _delete }}",
-              "number": "{{ mobile_number || _delete }}",
-              "type": "mobile"
-            }
-          ]
+          "title": "{{ title  || _delete }}",
+          "titlecode": "{{ position || _delete }}",
+          "website": "{{ website || _delete }}",
+          "address": {
+            "entityname": "address",
+            "records": [
+              {
+                "address1": "{{ street || _delete }}",
+                "city": "{{ city || _delete }}",
+                "state": "{{ state || _delete }}",
+                "postcode": "{{ zip || _delete }}",
+                "country": "{{ country || _delete }}",
+                "type": "Business"
+              }
+            ]
+          },
+          "email": {
+            "entityname": "email",
+            "records": [
+              {
+                "emailaddress": "{{ email || _delete }}",
+                "type": "business"
+              }
+            ]
+          },
+          "phone": {
+            "entityname": "phone",
+            "records": [
+              {
+                "countrycode": "{{ phone_countrycode || _delete }}",
+                "areacode": "{{ phone_areacode || _delete }}",
+                "number": "{{ phone_number || _delete }}",
+                "type": "business"
+              },
+              {
+                "countrycode": "{{ fax_countrycode || _delete }}",
+                "areacode": "{{ fax_areacode || _delete }}",
+                "number": "{{ fax_number || _delete }}",
+                "type": "fax"
+              },
+              {
+                "countrycode": "{{ mobile_countrycode || _delete }}",
+                "areacode": "{{ mobile_areacode || _delete }}",
+                "number": "{{ mobile_number || _delete }}",
+                "type": "mobile"
+              }
+            ]
+          }
         }
       },
       "company": {
@@ -128,11 +147,6 @@
             }
           ]
         }
-      },
-      "account": {
-        "name": "{{ organization }}",
-        "primaryuserid": "{{ userId }}",
-        "website": "{{ website }}"
       }
     }
   }
