@@ -1,5 +1,4 @@
 ---
-theme: jekyll-theme-slate
 layout: default
 title: Hank Quinlan, Horrible Cop
 ---
