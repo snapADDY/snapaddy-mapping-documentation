@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Hank Quinlan, Horrible Cop
 ---
 <div class="blurb">
