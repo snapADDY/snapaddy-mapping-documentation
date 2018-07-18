@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Hank Quinlan, Horrible Cop
 ---
 <div class="blurb">
