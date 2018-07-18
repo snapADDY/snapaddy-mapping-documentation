@@ -1,8 +1,3 @@
----
-layout: default
-title: pageA
----
-
 1. Mapping Examples
 
     // Example address object:
