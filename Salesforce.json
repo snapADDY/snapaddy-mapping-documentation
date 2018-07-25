@@ -59,7 +59,7 @@
                     "Phone": "{{phone}}",
                     "Fax": "{{fax}}",
                     "Email": "{{email}}",
-                    "RecordTypeId": "{{ }"
+                    "RecordTypeId": "{{ }}"
                 },
                 "account": {
                     "Name": "{{organization}}",
@@ -254,7 +254,7 @@
                         "Email": "{{email}}",
                         "Website": "{{website}}",
                         "Status": "{{ }}",
-                        "RecordTypeId": "{{ }"
+                        "RecordTypeId": "{{ }}"
                     },
                     "contact": {
                         "LastName": "{{lastName}}",
