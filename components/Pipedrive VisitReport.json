@@ -1,0 +1,329 @@
+"components": {
+    "*": {
+        "default": [
+            {
+                "type": "person",
+                "duplicateCheckName": "contact",
+                "label": {
+                    "en": "Person",
+                    "EN": "Person",
+                    "de": "Person",
+                    "DE": "Person"
+                },
+                "fields": {
+                    "name": {
+                        "id": "name",
+                        "type": "input",
+                        "label": {
+                            "en": "Name",
+                            "de": ""
+                        },
+                        "properties": {
+                            "required": true
+                        }
+                    },
+                    "phone": {
+                        "id": "phone",
+                        "type": "pipedriveArray",
+                        "label": {
+                            "en": "Phone",
+                            "de": ""
+                        },
+                        "properties": {
+                            "options": [
+                                {
+                                    "label": "PHONE",
+                                    "value": "PHONE"
+                                },
+                                {
+                                    "label": "MOBILE",
+                                    "value": "MOBILE"
+                                },
+                                {
+                                    "label": "FAX",
+                                    "value": "FAX"
+                                }
+                            ]
+                        }
+                    },
+                    "email": {
+                        "id": "email",
+                        "type": "pipedriveArray",
+                        "label": {
+                            "en": "Email",
+                            "de": ""
+                        },
+                        "properties": {
+                            "options": [
+                                {
+                                    "label": "EMAIL",
+                                    "value": "EMAIL"
+                                }
+                            ]
+                        }
+                    },
+                    "org_id": {
+                        "id": "org_id",
+                        "type": "input",
+                        "label": {
+                            "en": "OrgId",
+                            "de": ""
+                        },
+                        "properties": {
+                            "hidden": true,
+                            "identifier": true
+                        }
+                    }
+                },
+                "search": {
+                    "ids": [
+                        "name",
+                        "email"
+                    ]
+                },
+                "mainTemplate": "{{name}}",
+                "detailsTemplate": "{{org_name}}"
+            },
+            {
+                "type": "organization",
+                "duplicateCheckName": "account",
+                "label": {
+                    "en": "Organization",
+                    "EN": "Organization",
+                    "de": "Organisation",
+                    "DE": "Organisation"
+                },
+                "fields": {
+                    "name": {
+                        "id": "name",
+                        "type": "input",
+                        "label": {
+                            "en": "Name",
+                            "de": ""
+                        },
+                        "properties": {
+                            "required": true
+                        }
+                    },
+                    "address": {
+                        "id": "address",
+                        "type": "input",
+                        "label": {
+                            "en": "Address",
+                            "de": ""
+                        },
+                        "properties": {}
+                    }
+                },
+                "search": {
+                    "ids": [
+                        "name"
+                    ]
+                },
+                "mainTemplate": "{{name}}",
+                "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
+            },
+            {
+                "type": "deal",
+                "label": {
+                    "en": "Deal",
+                    "en-GB": "Deal",
+                    "de": "Geschäft",
+                    "de-DE": "Geschäft"
+                },
+                "fields": {
+                    "title": {
+                        "id": "title",
+                        "type": "input",
+                        "label": {
+                            "en": "Title",
+                            "de": ""
+                        },
+                        "properties": {
+                            "required": true
+                        }
+                    },
+                    "value": {
+                        "id": "value",
+                        "type": "input",
+                        "label": {
+                            "en": "Value",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "currency": {
+                        "id": "currency",
+                        "type": "select",
+                        "label": {
+                            "en": "Currency",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "stage_id": {
+                        "id": "stage_id",
+                        "type": "select",
+                        "label": {
+                            "en": "StageId",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "person_id": {
+                        "id": "person_id",
+                        "type": "input",
+                        "label": {
+                            "en": "PersonId",
+                            "de": ""
+                        },
+                        "properties": {
+                            "hidden": true,
+                            "identifier": true
+                        }
+                    },
+                    "org_id": {
+                        "id": "org_id",
+                        "type": "input",
+                        "label": {
+                            "en": "OrgId",
+                            "de": ""
+                        },
+                        "properties": {
+                            "hidden": true,
+                            "identifier": true
+                        }
+                    }
+                },
+                "search": {
+                    "ids": [
+                        "title"
+                    ]
+                },
+                "mainTemplate": "{{title}}",
+                "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
+            },
+            {
+                "type": "activity",
+                "label": {
+                    "en": "Activity",
+                    "EN": "Activity",
+                    "de": "Activity",
+                    "DE": "Activity"
+                },
+                "fields": {
+                    "subject": {
+                        "id": "subject",
+                        "type": "input",
+                        "label": {
+                            "en": "subject",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "done": {
+                        "id": "done",
+                        "type": "input",
+                        "label": {
+                            "en": "done",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "due_date": {
+                        "id": "due_date",
+                        "type": "input",
+                        "label": {
+                            "en": "due_date",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "due_time": {
+                        "id": "due_time",
+                        "type": "input",
+                        "label": {
+                            "en": "due_time",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "duration": {
+                        "id": "duration",
+                        "type": "input",
+                        "label": {
+                            "en": "duration",
+                            "de": ""
+                        },
+                        "properties": {}
+                    },
+                    "type": {
+                        "id": "type",
+                        "type": "select",
+                        "label": {
+                            "en": "type",
+                            "de": ""
+                        },
+                        "properties": {
+                            "options": [],
+                            "defaultValue": "meeting"
+                        }
+                    },
+                    "deal_id": {
+                        "id": "deal_id",
+                        "type": "input",
+                        "label": {
+                            "en": "deal_id",
+                            "de": ""
+                        },
+                        "properties": {
+                            "hidden": true,
+                            "identifier": true
+                        }
+                    },
+                    "person_id": {
+                        "id": "person_id",
+                        "type": "input",
+                        "label": {
+                            "en": "person_id",
+                            "de": ""
+                        },
+                        "properties": {
+                            "hidden": true,
+                            "identifier": true
+                        }
+                    },
+                    "org_id": {
+                        "id": "org_id",
+                        "type": "input",
+                        "label": {
+                            "en": "org_id",
+                            "de": ""
+                        },
+                        "properties": {
+                            "hidden": true,
+                            "identifier": true
+                        }
+                    },
+                    "note": {
+                        "id": "note",
+                        "type": "textArea",
+                        "label": {
+                            "en": "note",
+                            "de": ""
+                        },
+                        "properties": {}
+                    }
+                },
+                "search": {
+                    "ids": [
+                        "subject",
+                        "type"
+                    ]
+                },
+                "mainTemplate": "{{subject}}",
+                "detailsTemplate": "{{type}}"
+            }
+        ]
+    }
+}
