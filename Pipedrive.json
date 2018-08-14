@@ -647,7 +647,7 @@
                             "type": "activity",
                             "label": {
                                 "en": "Activity",
-                                "de": "Activity",
+                                "de": "Activity"
                             },
                             "fields": {},
                             "search": {
