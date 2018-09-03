@@ -45,7 +45,7 @@
                     "RecordTypeId": "{{ }}"
                 },
                 "contact": {
-                    "AccountId": "{{accountId}}",
+             
                     "LastName": "{{lastName}}",
                     "FirstName": "{{firstName}}",
                     "Title": "{{position}}",
