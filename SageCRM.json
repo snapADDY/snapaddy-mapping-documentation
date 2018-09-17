@@ -42,6 +42,7 @@
                     "companyname": "{{ organization }}",
                     "source": "{{ }}",
                     "status": "{{ }}",
+                    "stage": "{{ }}",
                     "description": "{{ }}",
                     "details": "{{note || _delete}}"
                 },
@@ -1164,6 +1165,7 @@
                         "companyname": "{{ organization }}",
                         "source": "{{ }}",
                         "status": "{{ }}",
+                        "stage": "{{ }}",
                         "description": "{{ }}",
                         "details": "{{note || _delete}}"
                     },
