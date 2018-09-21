@@ -1,0 +1,941 @@
+        "defaultExport": {
+            "components": {
+                "lead": [
+                    {
+                        "type": "lead",
+                        "duplicateCheckName": "lead",
+                        "label": {
+                            "en": "Lead",
+                            "de": "Lead"
+                        },
+                        "fields": {
+                            "Id": {
+                                "id": "Id",
+                                "type": "input",
+                                "label": {
+                                    "en": "Id",
+                                    "de": "Id"
+                                },
+                                "properties": {
+                                    "hidden": true,
+                                    "identifier": true
+                                }
+                            },
+                            "Status": {
+                                "id": "Status",
+                                "type": "select",
+                                "label": {
+                                    "en": "Status",
+                                    "de": "Lead-Status"
+                                },
+                                "properties": {
+                                    "required": false
+                                }
+                            },
+                            "LeadSource": {
+                                "id": "LeadSource",
+                                "type": "select",
+                                "label": {
+                                    "en": "LeadSource",
+                                    "de": "Lead-Quelle"
+                                },
+                                "properties": {
+                                    "required": false
+                                }
+                            },
+                            "RecordTypeId": {
+                                "id": "RecordTypeId",
+                                "type": "select",
+                                "label": {
+                                    "en": "RecordType",
+                                    "de": "Datensatztyp"
+                                },
+                                "properties": {
+                                    "hidden": false,
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Salutation": {
+                                "id": "Salutation",
+                                "type": "select",
+                                "label": {
+                                    "en": "Salutation",
+                                    "de": "Anrede"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": "",
+                                    "options": [
+                                        {
+                                            "label": {
+                                                "en": "",
+                                                "de": ""
+                                            },
+                                            "value": -1
+                                        },
+                                        {
+                                            "label": {
+                                                "en": "Mr",
+                                                "de": "Herr"
+                                            },
+                                            "value": 0
+                                        },
+                                        {
+                                            "label": {
+                                                "en": "Mrs",
+                                                "de": "Frau"
+                                            },
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            },
+                            "FirstName": {
+                                "id": "FirstName",
+                                "type": "input",
+                                "label": {
+                                    "en": "FirstName",
+                                    "de": "Vorname"
+                                },
+                                "properties": {
+                                    "required": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "LastName": {
+                                "id": "LastName",
+                                "type": "input",
+                                "label": {
+                                    "en": "LastName",
+                                    "de": "Nachname"
+                                },
+                                "properties": {
+                                    "required": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Name": {
+                                "id": "Name",
+                                "type": "input",
+                                "label": {
+                                    "en": "Name",
+                                    "de": "Name"
+                                },
+                                "properties": {
+                                    "hidden": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Title": {
+                                "id": "Title",
+                                "type": "input",
+                                "label": {
+                                    "en": "Title",
+                                    "de": "Titel"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Company": {
+                                "id": "Company",
+                                "type": "input",
+                                "label": {
+                                    "en": "Company",
+                                    "de": "Firma"
+                                },
+                                "properties": {
+                                    "required": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Street": {
+                                "id": "Street",
+                                "type": "input",
+                                "label": {
+                                    "en": "Street",
+                                    "de": "Straße"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "City": {
+                                "id": "City",
+                                "type": "input",
+                                "label": {
+                                    "en": "City",
+                                    "de": "Stadt"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "State": {
+                                "id": "State",
+                                "type": "input",
+                                "label": {
+                                    "en": "State",
+                                    "de": "Bundesland"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "PostalCode": {
+                                "id": "PostalCode",
+                                "type": "input",
+                                "label": {
+                                    "en": "PostalCode",
+                                    "de": "PLZ"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Country": {
+                                "id": "Country",
+                                "type": "input",
+                                "label": {
+                                    "en": "Country",
+                                    "de": "Land"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Phone": {
+                                "id": "Phone",
+                                "type": "input",
+                                "label": {
+                                    "en": "Phone",
+                                    "de": "Telefon"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MobilePhone": {
+                                "id": "MobilePhone",
+                                "type": "input",
+                                "label": {
+                                    "en": "MobilePhone",
+                                    "de": "Mobiltelefon"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Fax": {
+                                "id": "Fax",
+                                "type": "input",
+                                "label": {
+                                    "en": "Fax",
+                                    "de": "Fax"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Email": {
+                                "id": "Email",
+                                "type": "input",
+                                "label": {
+                                    "en": "Email",
+                                    "de": "E-Mail"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Website": {
+                                "id": "Website",
+                                "type": "input",
+                                "label": {
+                                    "en": "Website",
+                                    "de": "Website"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            }
+                        },
+                        "search": {
+                            "ids": [
+                                "FirstName",
+                                "LastName"
+                            ]
+                        },
+                        "mainTemplate": "{{ FirstName }} {{ LastName }}",
+                        "detailsTemplate": "{{ Company }}"
+                    },
+                    {
+                        "type": "campaignMember",
+                        "label": {
+                            "de": "Kampagnenmitglied",
+                            "en": "Campaignmember"
+                        },
+                        "fields": {
+                            "CampaignId": {
+                                "id": "CampaignId",
+                                "label": {
+                                    "de": "",
+                                    "en": ""
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "LeadId": {
+                                "id": "LeadId",
+                                "label": {
+                                    "de": "",
+                                    "en": ""
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "ContactId": {
+                                "id": "ContactId",
+                                "label": {
+                                    "de": "",
+                                    "en": ""
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            }
+                        },
+                        "detailsTemplate": "",
+                        "mainTemplate": ""
+                    },
+                    {
+                        "type": "task",
+                        "label": {
+                            "de": "Aufgabe",
+                            "en": "Task"
+                        },
+                        "fields": {
+                            "WhatId": {
+                                "id": "WhatId",
+                                "label": {
+                                    "de": "Bezug zu",
+                                    "en": "Related To"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "WhoId": {
+                                "id": "WhoId",
+                                "label": {
+                                    "de": "Name",
+                                    "en": "Name"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "ActivityDate": {
+                                "id": "ActivityDate",
+                                "label": {
+                                    "de": "Fälligkeitsdatum",
+                                    "en": "Due date"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Description": {
+                                "id": "Description",
+                                "label": {
+                                    "de": "Beschreibung",
+                                    "en": "Due date"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Priority": {
+                                "id": "Priority",
+                                "label": {
+                                    "de": "Priorität",
+                                    "en": "Priority"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Status": {
+                                "id": "Status",
+                                "label": {
+                                    "de": "Status",
+                                    "en": "Status"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Subject": {
+                                "id": "Subject",
+                                "label": {
+                                    "de": "Thema",
+                                    "en": "Subject"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            }
+                        },
+                        "search": {
+                            "ids": [
+                                "Subject"
+                            ]
+                        },
+                        "detailsTemplate": "",
+                        "mainTemplate": ""
+                    }
+                ],
+                "contact_account": [
+                    {
+                        "type": "contact",
+                        "duplicateCheckName": "contact",
+                        "label": {
+                            "en": "Contact",
+                            "GB": "Contact",
+                            "de": "Kontakt",
+                            "DE": "Kontakt"
+                        },
+                        "fields": {
+                            "Id": {
+                                "id": "Id",
+                                "type": "input",
+                                "label": {
+                                    "en": "Id",
+                                    "de": "Id"
+                                },
+                                "properties": {
+                                    "hidden": true,
+                                    "identifier": true
+                                }
+                            },
+                            "RecordTypeId": {
+                                "id": "RecordTypeId",
+                                "type": "select",
+                                "label": {
+                                    "en": "RecordType",
+                                    "de": "Datensatztyp"
+                                },
+                                "properties": {
+                                    "hidden": false,
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "AccountId": {
+                                "id": "AccountId",
+                                "type": "input",
+                                "label": {
+                                    "en": "AccountId",
+                                    "de": "AccountId"
+                                },
+                                "properties": {
+                                    "hidden": true,
+                                    "required": false,
+                                    "defaultValue": "",
+                                    "identifier": true
+                                }
+                            },
+                            "Salutation": {
+                                "id": "Salutation",
+                                "type": "select",
+                                "label": {
+                                    "en": "Salutation",
+                                    "de": "Anrede"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "FirstName": {
+                                "id": "FirstName",
+                                "type": "input",
+                                "label": {
+                                    "en": "FirstName",
+                                    "de": "Vorname"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "LastName": {
+                                "id": "LastName",
+                                "type": "input",
+                                "label": {
+                                    "en": "LastName",
+                                    "de": "Nachname"
+                                },
+                                "properties": {
+                                    "required": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Name": {
+                                "id": "Name",
+                                "type": "input",
+                                "label": {
+                                    "en": "Name",
+                                    "de": "Name"
+                                },
+                                "properties": {
+                                    "hidden": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Title": {
+                                "id": "Title",
+                                "type": "input",
+                                "label": {
+                                    "en": "Title",
+                                    "de": "Titel"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MailingStreet": {
+                                "id": "MailingStreet",
+                                "type": "input",
+                                "label": {
+                                    "en": "MailingStreet",
+                                    "de": "Straße (Postanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MailingCity": {
+                                "id": "MailingCity",
+                                "type": "input",
+                                "label": {
+                                    "en": "MailingCity",
+                                    "de": "Stadt (Postanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MailingState": {
+                                "id": "MailingState",
+                                "type": "input",
+                                "label": {
+                                    "en": "MailingState",
+                                    "de": "Bundesland (Postanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MailingPostalCode": {
+                                "id": "MailingPostalCode",
+                                "type": "input",
+                                "label": {
+                                    "en": "MailingPostalCode",
+                                    "de": "PLZ (Postanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MailingCountry": {
+                                "id": "MailingCountry",
+                                "type": "input",
+                                "label": {
+                                    "en": "MailingCountry",
+                                    "de": "Land (Postanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "MobilePhone": {
+                                "id": "MobilePhone",
+                                "type": "input",
+                                "label": {
+                                    "en": "MobilePhone",
+                                    "de": "Mobiltelefon"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Phone": {
+                                "id": "Phone",
+                                "type": "input",
+                                "label": {
+                                    "en": "Phone",
+                                    "de": "Telefon"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Fax": {
+                                "id": "Fax",
+                                "type": "input",
+                                "label": {
+                                    "en": "Fax",
+                                    "de": "Fax"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Email": {
+                                "id": "Email",
+                                "type": "input",
+                                "label": {
+                                    "en": "Email",
+                                    "de": "Email"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            }
+                        },
+                        "search": {
+                            "ids": [
+                                "FirstName",
+                                "LastName"
+                            ]
+                        },
+                        "mainTemplate": "{{ FirstName }} {{ LastName }}",
+                        "detailsTemplate": "{{ Email }}"
+                    },
+                    {
+                        "type": "account",
+                        "duplicateCheckName": "account",
+                        "label": {
+                            "en": "Account",
+                            "GB": "Account",
+                            "de": "Account",
+                            "DE": "Account"
+                        },
+                        "fields": {
+                            "Id": {
+                                "id": "Id",
+                                "type": "input",
+                                "label": {
+                                    "en": "Id",
+                                    "de": "Id"
+                                },
+                                "properties": {
+                                    "hidden": true,
+                                    "identifier": true
+                                }
+                            },
+                            "RecordTypeId": {
+                                "id": "RecordTypeId",
+                                "type": "select",
+                                "label": {
+                                    "en": "RecordType",
+                                    "de": "Datensatztyp"
+                                },
+                                "properties": {
+                                    "hidden": false,
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Name": {
+                                "id": "Name",
+                                "type": "input",
+                                "label": {
+                                    "en": "Name",
+                                    "de": "Name"
+                                },
+                                "properties": {
+                                    "required": true,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "BillingStreet": {
+                                "id": "BillingStreet",
+                                "type": "input",
+                                "label": {
+                                    "en": "BillingStreet",
+                                    "de": "Straße (Rechnungsanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "BillingCity": {
+                                "id": "BillingCity",
+                                "type": "input",
+                                "label": {
+                                    "en": "BillingCity",
+                                    "de": "Stadt (Rechnungsanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "BillingState": {
+                                "id": "BillingState",
+                                "type": "input",
+                                "label": {
+                                    "en": "BillingState",
+                                    "de": "Bundesland (Rechnungsanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "BillingPostalCode": {
+                                "id": "BillingPostalCode",
+                                "type": "input",
+                                "label": {
+                                    "en": "BillingPostalCode",
+                                    "de": "PLZ (Rechnungsanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "BillingCountry": {
+                                "id": "BillingCountry",
+                                "type": "input",
+                                "label": {
+                                    "en": "BillingCountry",
+                                    "de": "Land (Rechnungsanschrift)"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Phone": {
+                                "id": "Phone",
+                                "type": "input",
+                                "label": {
+                                    "en": "Phone",
+                                    "de": "Telefon"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Fax": {
+                                "id": "Fax",
+                                "type": "input",
+                                "label": {
+                                    "en": "Fax",
+                                    "de": "Fax"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            },
+                            "Website": {
+                                "id": "Website",
+                                "type": "input",
+                                "label": {
+                                    "en": "Website",
+                                    "de": "Website"
+                                },
+                                "properties": {
+                                    "required": false,
+                                    "defaultValue": ""
+                                }
+                            }
+                        },
+                        "search": {
+                            "ids": [
+                                "Name"
+                            ]
+                        },
+                        "mainTemplate": "{{ Name }}",
+                        "detailsTemplate": "{{ BillingPostalCode ? (BillingPostalCode + ' - ') : '' }} {{BillingCity}}"
+                    },
+                    {
+                        "type": "campaignMember",
+                        "label": {
+                            "de": "Kampagnenmitglied",
+                            "en": "Campaignmember"
+                        },
+                        "fields": {
+                            "CampaignId": {
+                                "id": "CampaignId",
+                                "label": {
+                                    "de": "",
+                                    "en": ""
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "LeadId": {
+                                "id": "LeadId",
+                                "label": {
+                                    "de": "",
+                                    "en": ""
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "ContactId": {
+                                "id": "ContactId",
+                                "label": {
+                                    "de": "",
+                                    "en": ""
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            }
+                        },
+                        "detailsTemplate": "",
+                        "mainTemplate": ""
+                    },
+                    {
+                        "type": "task",
+                        "label": {
+                            "de": "Aufgabe",
+                            "en": "Task"
+                        },
+                        "fields": {
+                            "WhatId": {
+                                "id": "WhatId",
+                                "label": {
+                                    "de": "Bezug zu",
+                                    "en": "Related To"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "WhoId": {
+                                "id": "WhoId",
+                                "label": {
+                                    "de": "Name",
+                                    "en": "Name"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "ActivityDate": {
+                                "id": "ActivityDate",
+                                "label": {
+                                    "de": "Fälligkeitsdatum",
+                                    "en": "Due date"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Description": {
+                                "id": "Description",
+                                "label": {
+                                    "de": "Beschreibung",
+                                    "en": "Due date"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Priority": {
+                                "id": "Priority",
+                                "label": {
+                                    "de": "Priorität",
+                                    "en": "Priority"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Status": {
+                                "id": "Status",
+                                "label": {
+                                    "de": "Status",
+                                    "en": "Status"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            },
+                            "Subject": {
+                                "id": "Subject",
+                                "label": {
+                                    "de": "Thema",
+                                    "en": "Subject"
+                                },
+                                "type": "input",
+                                "properties": {
+                                    "hidden": true
+                                }
+                            }
+                        },
+                        "search": {
+                            "ids": [
+                                "Subject"
+                            ]
+                        },
+                        "detailsTemplate": "",
+                        "mainTemplate": ""
+                    }
+                ]
+            }
+        }
