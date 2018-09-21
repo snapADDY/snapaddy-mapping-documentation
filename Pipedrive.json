@@ -46,17 +46,11 @@
                             "value": "{{ email }}",
                             "primary": true
                         }
-                    ],
-                    "ID_XING": "{{ social.xing.url }}",
-                    "ID_LINKEDIN": "{{ social.linkedin.url }}",
-                    "ID_ANREDE": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-                    "ID_POSITION": "{{ position }}"
+                    ]
                 },
                 "organization": {
                     "name": "{{organization}}",
-                    "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}",
-                    "ID_USTID": "{{vat}}",
-                    "ID_WEBSITE": "{{website}}"
+                    "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
                 },
                 "deal": {
                     "title": "{{deal_title}}",
@@ -65,6 +59,9 @@
                     "stage_id": "{{deal_stage}}",
                     "person_id": "{{person_id || _delete}}",
                     "org_id": "{{org_id || _delete}}"
+                },
+                "note": {
+                    "note": "{{note}}"
                 }
             },
             "workflows": {
@@ -490,9 +487,51 @@
         "visitreport": {
             "mappings": {
                 "*": {
-                    "person": {},
-                    "organization": {},
-                    "deal": {},
+                    "mappings": {
+                        "person": {
+                            "name": "{{firstName}} {{lastName}}",
+                            "org_id": "{{ org_id || _delete }}",
+                            "phone": [
+                                {
+                                    "label": "Phone",
+                                    "value": "{{ phone || null }}",
+                                    "primary": true
+                                },
+                                {
+                                    "label": "Mobile",
+                                    "value": "{{ mobile || null }}",
+                                    "primary": false
+                                },
+                                {
+                                    "label": "Fax",
+                                    "value": "{{ fax || null }}",
+                                    "primary": false
+                                }
+                            ],
+                            "email": [
+                                {
+                                    "label": "",
+                                    "value": "{{ email }}",
+                                    "primary": true
+                                }
+                            ]
+                        },
+                        "organization": {
+                            "name": "{{organization}}",
+                            "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
+                        },
+                        "deal": {
+                            "title": "{{deal_title}}",
+                            "value": "{{deal_value}}",
+                            "currency": "{{deal_currency}}",
+                            "stage_id": "{{deal_stage}}",
+                            "person_id": "{{person_id || _delete}}",
+                            "org_id": "{{org_id || _delete}}"
+                        },
+                        "note": {
+                            "note": "{{ execute(getVisitreportNote)}}"
+                        }
+                    },
                     "activity": {}
                 }
             },
@@ -599,7 +638,6 @@
                             "label": {
                                 "de": "Person",
                                 "en": "Person"
-                                
                             },
                             "fields": {},
                             "search": {
@@ -617,7 +655,6 @@
                             "label": {
                                 "de": "Organisation",
                                 "en": "Organization"
-                                
                             },
                             "fields": {},
                             "search": {
@@ -662,6 +699,20 @@
                     ]
                 }
             }
+        },
+        "code": {
+            "getVisitreportNote": [
+                "var note = address.note || '';",
+                "if (address.visitreport && address.visitreport.result) {",
+                "  note += 'VisitReport\\n\\n';",
+                "  var result = address.visitreport.result;",
+                "  for (var key in result) {",
+                "    note += result[key].question + ' = ' + result[key].text + '\n';",
+                "  }",
+                "}",
+                "return note;"
+            ]
+
         }
     }
 }
