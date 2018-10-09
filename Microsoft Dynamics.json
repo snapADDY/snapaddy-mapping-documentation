@@ -441,6 +441,183 @@
                     "return note.replace(/\"/g,'\\\\\"');"
                 ]
             }
+        },
+        "duplicateCheck": {
+          "settings": {},
+          "pipeline": {
+            "stages": [
+              {
+                "tasks": [
+                  {
+                    "entity": "lead",
+                    "tree": {
+                      "operator": "or",
+                      "subconditions": [
+                        {
+                          "field": "EMailAddress1",
+                          "operator": "allIn",
+                          "value": "{{address.email}}",
+                          "filters": [
+                            "return !isEmailGeneric(address.email)"
+                          ]
+                        },
+                        {
+                          "operator": "and",
+                          "subconditions": [
+                            {
+                              "field": "FirstName",
+                              "operator": "allIn",
+                              "value": "{{address.firstName}}"
+                            },
+                            {
+                              "field": "LastName",
+                              "operator": "allIn",
+                              "value": "{{address.lastName}}"
+                            },
+                            {
+                              "field": "CompanyName",
+                              "operator": "allIn",
+                              "value": "{{address.organization}}"
+                            }
+                          ],
+                          "filters": [
+                            "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "entity": "contact",
+                    "tree": {
+                      "operator": "or",
+                      "subconditions": [
+                        {
+                          "field": "EMailAddress1",
+                          "operator": "allIn",
+                          "value": "{{address.email}}",
+                          "filters": [
+                            "return !isEmailGeneric(address.email)"
+                          ]
+                        },
+                        {
+                          "operator": "and",
+                          "subconditions": [
+                            {
+                              "field": "FirstName",
+                              "operator": "allIn",
+                              "value": "{{address.firstName}}"
+                            },
+                            {
+                              "field": "LastName",
+                              "operator": "allIn",
+                              "value": "{{address.lastName}}"
+                            }
+                          ],
+                          "filters": [
+                            "return address.firstName.length >= 3 || address.lastName.length >= 3"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "entity": "account",
+                    "tree": {
+                      "operator": "OR",
+                      "subconditions": [
+                        {
+                          "field": "WebSiteURL",
+                          "operator": "allIn",
+                          "value": "{{address.website}}",
+                          "filters": [
+                            "return (getDomainFromURL(address.website) || '').length >= 3"
+                          ]
+                        },
+                        {
+                          "field": "Name",
+                          "operator": "allIn",
+                          "value": "{{address.organization}}",
+                          "filters": [
+                            "return address.organization.length >= 3"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "results": [],
+                "post": [
+                  [
+                    "var sorted = pipeline.stages[0].results[0].duplicates;",
+                    "for (var i = 0; i < sorted.length; i++) {",
+                    " var e = sorted[i];",
+                    " e._sortKey = 0;",
+                    " if (e.FullName.toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
+                    "   e._sortKey++;",
+                    " }",
+                    " if (e.FullName.toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
+                    "   e._sortKey++;",
+                    " }",
+                    " if ((e.Company || '').trim().toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
+                    "   e._sortKey = e._sortKey + 3;",
+                    " }",
+                    "}",
+                    "sorted.sort(function(a, b) { return a._sortKey > b._sortKey ? -1 : 1 });",
+                    "pipeline.stages[0].results[0].duplicates = sorted;",
+                    "pipeline.stages[0].results[0].suggested = sorted[0];",
+                    "return pipeline;"
+                  ],
+                  [
+                    "var sorted = pipeline.stages[0].results[1].duplicates;",
+                    "for (var i = 0; i < sorted.length; i++) {",
+                    " var e = sorted[i];",
+                    " e._sortKey = 0",
+                    " if (e.FullName.toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
+                    "   e._sortKey++;",
+                    " }",
+                    " if (e.FullName.toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
+                    "   e._sortKey++;",
+                    " }",
+                    " if ((e.Company || '').trim().toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
+                    "   e._sortKey = e._sortKey + 3;",
+                    " }",
+                    "}",
+                    "sorted.sort(function(a, b) { return a._sortKey > b._sortKey ? -1 : 1 });",
+                    "pipeline.stages[0].results[1].duplicates = sorted;",
+                    "pipeline.stages[0].results[1].suggested = sorted[0];",
+                    "return pipeline;"
+                  ],
+                  [
+                    "var sorted = pipeline.stages[0].results[2].duplicates;",
+                    "for (var i = 0; i < sorted.length; i++) {",
+                    " var e = sorted[i];",
+                    " e._sortKey = 0",
+                    " if ((e.Company || '').toLowerCase().indexOf(address.organization) > -1) {",
+                    "   e._sort_key += 3",
+                    " }",
+                    " if (e.Address1_PostalCode === address.zip || e.Address1_City === address.city) {",
+                    "   e._sortKey += 2;",
+                    " } else if (e.Address1_PostalCode || e.Address1_City) {",
+                    "   e._sortKey += 1;",
+                    " }",
+                    "}",
+                    "sorted.sort(function(a, b) { return a._sortKey > b._sortKey ? -1 : 1 });",
+                    "pipeline.stages[0].results[2].duplicates = sorted;",
+                    "pipeline.stages[0].results[2].suggested = sorted[0];",
+                    "return pipeline;"
+                  ]
+                ]
+              }
+            ],
+            "mapResults": [
+              "return {",
+              "  lead: pipeline.stages[0].results[0],",
+              "  contact: pipeline.stages[0].results[1],",
+              "  account: pipeline.stages[0].results[2],",
+              "}"
+            ]
+          }
         }
     }
 }
