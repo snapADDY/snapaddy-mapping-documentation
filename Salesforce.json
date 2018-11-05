@@ -1,472 +1,472 @@
 {
-    "salesforce": {
-        "meta": {
-            "lead": {
-                "apiName": "Lead",
-                "idProperty": "Id"
-            },
-            "contact": {
-                "apiName": "Contact",
-                "idProperty": "Id"
-            },
-            "account": {
-                "apiName": "Account",
-                "idProperty": "Id"
-            },
-            "campaignMember": {
-                "apiName": "CampaignMember",
-                "idProperty": "Id"
-            },
-            "task": {
-                "apiName": "Task",
-                "idProperty": "Id"
-            }
+  "salesforce": {
+    "meta": {
+      "lead": {
+        "apiName": "Lead",
+        "idProperty": "Id"
+      },
+      "contact": {
+        "apiName": "Contact",
+        "idProperty": "Id"
+      },
+      "account": {
+        "apiName": "Account",
+        "idProperty": "Id"
+      },
+      "campaignMember": {
+        "apiName": "CampaignMember",
+        "idProperty": "Id"
+      },
+      "task": {
+        "apiName": "Task",
+        "idProperty": "Id"
+      }
+    },
+    "defaultExport": {
+      "mappings": {
+        "lead": {
+          "LeadSource": "{{ }}",
+          "LastName": "{{lastName}}",
+          "FirstName": "{{firstName}}",
+          "Salutation": "{{ execute(salutationFunction) }}",
+          "Title": "{{position}}",
+          "Company": "{{organization}}",
+          "Street": "{{street}}",
+          "City": "{{city}}",
+          "State": "{{state}}",
+          "PostalCode": "{{zip}}",
+          "Country": "{{country}}",
+          "Phone": "{{phone}}",
+          "MobilePhone": "{{mobile}}",
+          "Fax": "{{fax}}",
+          "Email": "{{email}}",
+          "Website": "{{website}}",
+          "Status": "{{ }}",
+          "RecordTypeId": "{{ }}"
         },
-        "defaultExport": {
-            "mappings": {
-                "lead": {
-                    "LeadSource": "{{ }}",
-                    "LastName": "{{lastName}}",
-                    "FirstName": "{{firstName}}",
-                    "Salutation": "{{ execute(salutationFunction) }}",
-                    "Title": "{{position}}",
-                    "Company": "{{organization}}",
-                    "Street": "{{street}}",
-                    "City": "{{city}}",
-                    "State": "{{state}}",
-                    "PostalCode": "{{zip}}",
-                    "Country": "{{country}}",
-                    "Phone": "{{phone}}",
-                    "MobilePhone": "{{mobile}}",
-                    "Fax": "{{fax}}",
-                    "Email": "{{email}}",
-                    "Website": "{{website}}",
-                    "Status": "{{ }}",
-                    "RecordTypeId": "{{ }}"
-                },
-                "contact": {
-                    "LastName": "{{lastName}}",
-                    "FirstName": "{{firstName}}",
-                    "Title": "{{position}}",
-                    "Salutation": "{{ execute(salutationFunction) }}",
-                    "MailingStreet": "{{street}}",
-                    "MailingCity": "{{city}}",
-                    "MailingState": "{{state}}",
-                    "MailingPostalCode": "{{zip}}",
-                    "MailingCountry": "{{country}}",
-                    "MobilePhone": "{{mobile}}",
-                    "Phone": "{{phone}}",
-                    "Fax": "{{fax}}",
-                    "Email": "{{email}}",
-                    "RecordTypeId": "{{ }}"
-                },
-                "account": {
-                    "Name": "{{organization}}",
-                    "RecordTypeId": "{{ }}",
-                    "BillingStreet": "{{street}}",
-                    "BillingCity": "{{city}}",
-                    "BillingState": "{{state}}",
-                    "BillingPostalCode": "{{zip}}",
-                    "BillingCountry": "{{country}}",
-                    "ShippingStreet": "{{street}}",
-                    "ShippingCity": "{{city}}",
-                    "ShippingState": "{{state}}",
-                    "ShippingPostalCode": "{{zip}}",
-                    "ShippingCountry": "{{country}}",
-                    "Phone": "{{phone || mobile}}",
-                    "Fax": "{{fax}}",
-                    "Website": "{{website}}"
-                }
-            },
-            "workflows": {
-                "lead": [
-                    {
-                        "entity": "lead"
-                    },
-                    {
-                        "entity": "campaignMember",
-                        "dependsOn": [
-                            {
-                                "field": "LeadId",
-                                "entity": "lead"
-                            }
-                        ],
-                        "onError": "skip"
-                    },
-                    {
-                        "entity": "task",
-                        "dependsOn": [
-                            {
-                                "field": "LeadId",
-                                "entity": "lead"
-                            }
-                        ]
-                    },
-                    {
-                        "entity": "attachments",
-                        "config": {
-                            "bcImage": {
-                                "entities": [
-                                    "lead"
-                                ],
-                                "name": "VCard front.jpg"
-                            },
-                            "bcImageBackside": {
-                                "entities": [
-                                    "lead"
-                                ],
-                                "name": "VCard back.jpg"
-                            },
-                            "drawing": {
-                                "entities": [
-                                    "lead"
-                                ],
-                                "name": "Drawing.jpg"
-                            },
-                            "image": {
-                                "entities": [
-                                    "lead"
-                                ],
-                                "name": "Profile image.jpg"
-                            },
-                            "attachments": {
-                                "entities": [
-                                    "lead"
-                                ],
-                                "name": {
-                                    "*": "Attachment_${i}.png",
-                                    "PDF": "Attachment_${i}.pdf",
-                                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
-                                }
-                            },
-                            "note": {
-                                "entities": [
-                                    "lead"
-                                ],
-                                "name": "Note"
-                            }
-                        }
-                    }
-                ],
-                "contact_account": [
-                    {
-                        "entity": "account"
-                    },
-                    {
-                        "entity": "contact",
-                        "dependsOn": [
-                            {
-                                "field": "AccountId",
-                                "entity": "account"
-                            }
-                        ]
-                    },
-                    {
-                        "entity": "campaignMember",
-                        "dependsOn": [
-                            {
-                                "field": "ContactId",
-                                "entity": "contact"
-                            }
-                        ],
-                        "onError": "skip"
-                    },
-                    {
-                        "entity": "task",
-                        "dependsOn": [
-                            {
-                                "field": "ContactId",
-                                "entity": "contact"
-                            }
-                        ]
-                    },
-                    {
-                        "entity": "attachments",
-                        "config": {
-                            "bcImage": {
-                                "entities": [
-                                    "contact"
-                                ],
-                                "name": "VCard front.jpg"
-                            },
-                            "bcImageBackside": {
-                                "entities": [
-                                    "contact"
-                                ],
-                                "name": "VCard back.jpg"
-                            },
-                            "drawing": {
-                                "entities": [
-                                    "contact"
-                                ],
-                                "name": "Drawing.jpg"
-                            },
-                            "image": {
-                                "entities": [
-                                    "contact"
-                                ],
-                                "name": "Profile image.jpg"
-                            },
-                            "attachments": {
-                                "entities": [
-                                    "contact"
-                                ],
-                                "name": {
-                                    "*": "Attachment_${i}.png",
-                                    "PDF": "Attachment_${i}.pdf",
-                                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
-                                }
-                            },
-                            "note": {
-                                "entities": [
-                                    "contact"
-                                ],
-                                "name": "Note"
-                            }
-                        }
-                    }
-                ]
-            },
-            "components": {
-                "lead": [],
-                "contact_account": []
-            }
+        "contact": {
+          "LastName": "{{lastName}}",
+          "FirstName": "{{firstName}}",
+          "Title": "{{position}}",
+          "Salutation": "{{ execute(salutationFunction) }}",
+          "MailingStreet": "{{street}}",
+          "MailingCity": "{{city}}",
+          "MailingState": "{{state}}",
+          "MailingPostalCode": "{{zip}}",
+          "MailingCountry": "{{country}}",
+          "MobilePhone": "{{mobile}}",
+          "Phone": "{{phone}}",
+          "Fax": "{{fax}}",
+          "Email": "{{email}}",
+          "RecordTypeId": "{{ }}"
         },
-        "visitreport": {
-            "mappings": {
-                "*": {
-                    "lead": {
-                        "LeadSource": "{{}}",
-                        "LastName": "{{lastName}}",
-                        "FirstName": "{{firstName}}",
-                        "Salutation": "{{ execute(salutationFunction) }}",
-                        "Title": "{{position}}",
-                        "Company": "{{organization}}",
-                        "Street": "{{street}}",
-                        "City": "{{city}}",
-                        "State": "{{state}}",
-                        "PostalCode": "{{zip}}",
-                        "Country": "{{country}}",
-                        "Phone": "{{phone}}",
-                        "MobilePhone": "{{mobile}}",
-                        "Fax": "{{fax}}",
-                        "Email": "{{email}}",
-                        "Website": "{{website}}",
-                        "Status": "{{ }}",
-                        "RecordTypeId": "{{ }}"
-                    },
-                    "contact": {
-                        "LastName": "{{lastName}}",
-                        "FirstName": "{{firstName}}",
-                        "Title": "{{position}}",
-                        "Salutation": "{{ execute(salutationFunction) }}",
-                        "MailingStreet": "{{street}}",
-                        "MailingCity": "{{city}}",
-                        "MailingState": "{{state}}",
-                        "MailingPostalCode": "{{zip}}",
-                        "MailingCountry": "{{country}}",
-                        "MobilePhone": "{{mobile}}",
-                        "Phone": "{{phone}}",
-                        "Fax": "{{fax}}",
-                        "Email": "{{email}}",
-                        "RecordTypeId": "{{ }}"
-                    },
-                    "account": {
-                        "Name": "{{organization}}",
-                        "RecordTypeId": "{{ }}",
-                        "BillingStreet": "{{street}}",
-                        "BillingCity": "{{city}}",
-                        "BillingState": "{{state}}",
-                        "BillingPostalCode": "{{zip}}",
-                        "BillingCountry": "{{country}}",
-                        "ShippingStreet": "{{street}}",
-                        "ShippingCity": "{{city}}",
-                        "ShippingState": "{{state}}",
-                        "ShippingPostalCode": "{{zip}}",
-                        "ShippingCountry": "{{country}}",
-                        "Phone": "{{phone || mobile}}",
-                        "Fax": "{{fax}}",
-                        "Website": "{{website}}"
-                    },
-                    "campaignMember": {
-                        "CampaignId": "{{ visitreport.campaignId }}"
-                    }
-                }
-            },
-            "workflows": {
-                "*": {
-                    "lead": [
-                        {
-                            "entity": "lead"
-                        },
-                        {
-                            "entity": "campaignMember",
-                            "dependsOn": [
-                                {
-                                    "field": "LeadId",
-                                    "entity": "lead"
-                                }
-                            ],
-                            "onError": "skip"
-                        },
-                        {
-                            "entity": "task",
-                            "dependsOn": [
-                                {
-                                    "field": "LeadId",
-                                    "entity": "lead"
-                                }
-                            ]
-                        },
-                        {
-                            "entity": "attachments",
-                            "config": {
-                                "bcImage": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": "VCard front.jpg"
-                                },
-                                "bcImageBackside": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": "VCard back.jpg"
-                                },
-                                "visitreport_pdf": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": "VisitReport"
-                                },
-                                "drawing": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": "Drawing.jpg"
-                                },
-                                "image": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": "Profile image.jpg"
-                                },
-                                "attachments": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": {
-                                        "*": "Attachment_${i}.png",
-                                        "PDF": "Attachment_${i}.pdf",
-                                        "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
-                                    }
-                                },
-                                "note": {
-                                    "entities": [
-                                        "lead"
-                                    ],
-                                    "name": "Note"
-                                }
-                            }
-                        }
-                    ],
-                    "contact_account": [
-                        {
-                            "entity": "account"
-                        },
-                        {
-                            "entity": "contact",
-                            "dependsOn": [
-                                {
-                                    "field": "AccountId",
-                                    "entity": "account"
-                                }
-                            ]
-                        },
-                        {
-                            "entity": "campaignMember",
-                            "dependsOn": [
-                                {
-                                    "field": "ContactId",
-                                    "entity": "contact"
-                                }
-                            ],
-                            "onError": "skip"
-                        },
-                        {
-                            "entity": "task",
-                            "dependsOn": [
-                                {
-                                    "field": "ContactId",
-                                    "entity": "contact"
-                                }
-                            ]
-                        },
-                        {
-                            "entity": "attachments",
-                            "config": {
-                                "bcImage": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": "VCard front.jpg"
-                                },
-                                "visitreport_pdf": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": "VisitReport"
-                                },
-                                "bcImageBackside": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": "VCard back.jpg"
-                                },
-                                "drawing": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": "Drawing.jpg"
-                                },
-                                "image": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": "Profile image.jpg"
-                                },
-                                "attachments": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": {
-                                        "*": "Attachment_${i}.png",
-                                        "PDF": "Attachment_${i}.pdf",
-                                        "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
-                                    }
-                                },
-                                "note": {
-                                    "entities": [
-                                        "contact"
-                                    ],
-                                    "name": "Note"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            "components": {
-                "*": {
-                    "lead": [],
-                    "contact_account": []
-                }
-            }
-        },
-        "code": {
-            "functions": {
-                "salutationFunction": "if(address.gender === 0) { return 'Herr'; } else if (address.gender === 1){ return 'Frau'; } else { return ''; }"
-            }
+        "account": {
+          "Name": "{{organization}}",
+          "RecordTypeId": "{{ }}",
+          "BillingStreet": "{{street}}",
+          "BillingCity": "{{city}}",
+          "BillingState": "{{state}}",
+          "BillingPostalCode": "{{zip}}",
+          "BillingCountry": "{{country}}",
+          "ShippingStreet": "{{street}}",
+          "ShippingCity": "{{city}}",
+          "ShippingState": "{{state}}",
+          "ShippingPostalCode": "{{zip}}",
+          "ShippingCountry": "{{country}}",
+          "Phone": "{{phone || mobile}}",
+          "Fax": "{{fax}}",
+          "Website": "{{website}}"
         }
+      },
+      "workflows": {
+        "lead": [
+          {
+            "entity": "lead"
+          },
+          {
+            "entity": "campaignMember",
+            "dependsOn": [
+              {
+                "field": "LeadId",
+                "entity": "lead"
+              }
+            ],
+            "onError": "skip"
+          },
+          {
+            "entity": "task",
+            "dependsOn": [
+              {
+                "field": "LeadId",
+                "entity": "lead"
+              }
+            ]
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "VCard front.jpg"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "VCard back.jpg"
+              },
+              "drawing": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "Drawing.jpg"
+              },
+              "image": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "Profile image.jpg"
+              },
+              "attachments": {
+                "entities": [
+                  "lead"
+                ],
+                "name": {
+                  "*": "Attachment_${i}.png",
+                  "PDF": "Attachment_${i}.pdf",
+                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                }
+              },
+              "note": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "Note"
+              }
+            }
+          }
+        ],
+        "contact_account": [
+          {
+            "entity": "account"
+          },
+          {
+            "entity": "contact",
+            "dependsOn": [
+              {
+                "field": "AccountId",
+                "entity": "account"
+              }
+            ]
+          },
+          {
+            "entity": "campaignMember",
+            "dependsOn": [
+              {
+                "field": "ContactId",
+                "entity": "contact"
+              }
+            ],
+            "onError": "skip"
+          },
+          {
+            "entity": "task",
+            "dependsOn": [
+              {
+                "field": "ContactId",
+                "entity": "contact"
+              }
+            ]
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "VCard front.jpg"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "VCard back.jpg"
+              },
+              "drawing": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Drawing.jpg"
+              },
+              "image": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Profile image.jpg"
+              },
+              "attachments": {
+                "entities": [
+                  "contact"
+                ],
+                "name": {
+                  "*": "Attachment_${i}.png",
+                  "PDF": "Attachment_${i}.pdf",
+                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                }
+              },
+              "note": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Note"
+              }
+            }
+          }
+        ]
+      },
+      "components": {
+        "lead": [],
+        "contact_account": []
+      }
+    },
+    "visitreport": {
+      "mappings": {
+        "*": {
+          "lead": {
+            "LeadSource": "{{}}",
+            "LastName": "{{lastName}}",
+            "FirstName": "{{firstName}}",
+            "Salutation": "{{ execute(salutationFunction) }}",
+            "Title": "{{position}}",
+            "Company": "{{organization}}",
+            "Street": "{{street}}",
+            "City": "{{city}}",
+            "State": "{{state}}",
+            "PostalCode": "{{zip}}",
+            "Country": "{{country}}",
+            "Phone": "{{phone}}",
+            "MobilePhone": "{{mobile}}",
+            "Fax": "{{fax}}",
+            "Email": "{{email}}",
+            "Website": "{{website}}",
+            "Status": "{{ }}",
+            "RecordTypeId": "{{ }}"
+          },
+          "contact": {
+            "LastName": "{{lastName}}",
+            "FirstName": "{{firstName}}",
+            "Title": "{{position}}",
+            "Salutation": "{{ execute(salutationFunction) }}",
+            "MailingStreet": "{{street}}",
+            "MailingCity": "{{city}}",
+            "MailingState": "{{state}}",
+            "MailingPostalCode": "{{zip}}",
+            "MailingCountry": "{{country}}",
+            "MobilePhone": "{{mobile}}",
+            "Phone": "{{phone}}",
+            "Fax": "{{fax}}",
+            "Email": "{{email}}",
+            "RecordTypeId": "{{ }}"
+          },
+          "account": {
+            "Name": "{{organization}}",
+            "RecordTypeId": "{{ }}",
+            "BillingStreet": "{{street}}",
+            "BillingCity": "{{city}}",
+            "BillingState": "{{state}}",
+            "BillingPostalCode": "{{zip}}",
+            "BillingCountry": "{{country}}",
+            "ShippingStreet": "{{street}}",
+            "ShippingCity": "{{city}}",
+            "ShippingState": "{{state}}",
+            "ShippingPostalCode": "{{zip}}",
+            "ShippingCountry": "{{country}}",
+            "Phone": "{{phone || mobile}}",
+            "Fax": "{{fax}}",
+            "Website": "{{website}}"
+          },
+          "campaignMember": {
+            "CampaignId": "{{ visitreport.campaignId }}"
+          }
+        }
+      },
+      "workflows": {
+        "*": {
+          "lead": [
+            {
+              "entity": "lead"
+            },
+            {
+              "entity": "campaignMember",
+              "dependsOn": [
+                {
+                  "field": "LeadId",
+                  "entity": "lead"
+                }
+              ],
+              "onError": "skip"
+            },
+            {
+              "entity": "task",
+              "dependsOn": [
+                {
+                  "field": "LeadId",
+                  "entity": "lead"
+                }
+              ]
+            },
+            {
+              "entity": "attachments",
+              "config": {
+                "bcImage": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "VCard front.jpg"
+                },
+                "bcImageBackside": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "VCard back.jpg"
+                },
+                "visitreport_pdf": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "VisitReport"
+                },
+                "drawing": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "Drawing.jpg"
+                },
+                "image": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "Profile image.jpg"
+                },
+                "attachments": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": {
+                    "*": "Attachment_${i}.png",
+                    "PDF": "Attachment_${i}.pdf",
+                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  }
+                },
+                "note": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "Note"
+                }
+              }
+            }
+          ],
+          "contact_account": [
+            {
+              "entity": "account"
+            },
+            {
+              "entity": "contact",
+              "dependsOn": [
+                {
+                  "field": "AccountId",
+                  "entity": "account"
+                }
+              ]
+            },
+            {
+              "entity": "campaignMember",
+              "dependsOn": [
+                {
+                  "field": "ContactId",
+                  "entity": "contact"
+                }
+              ],
+              "onError": "skip"
+            },
+            {
+              "entity": "task",
+              "dependsOn": [
+                {
+                  "field": "ContactId",
+                  "entity": "contact"
+                }
+              ]
+            },
+            {
+              "entity": "attachments",
+              "config": {
+                "bcImage": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "VCard front.jpg"
+                },
+                "visitreport_pdf": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "VisitReport"
+                },
+                "bcImageBackside": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "VCard back.jpg"
+                },
+                "drawing": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Drawing.jpg"
+                },
+                "image": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Profile image.jpg"
+                },
+                "attachments": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": {
+                    "*": "Attachment_${i}.png",
+                    "PDF": "Attachment_${i}.pdf",
+                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  }
+                },
+                "note": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Note"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "components": {
+        "*": {
+          "lead": [],
+          "contact_account": []
+        }
+      }
+    },
+    "code": {
+      "functions": {
+        "salutationFunction": "if(address.gender === 0) { return 'Herr'; } else if (address.gender === 1){ return 'Frau'; } else { return ''; }"
+      }
     }
+  }
 }

@@ -1,66 +1,66 @@
 {
-    "customFields": [
-        {
-            "type": "INPUT",
-            "id": "c_",
+  "customFields": [
+    {
+      "type": "INPUT",
+      "id": "c_",
+      "label": {
+        "DE": "",
+        "GB": ""
+      },
+      "properties": {
+        "defaultValue": ""
+      }
+    },
+    {
+      "type": "SELECT",
+      "id": "c_",
+      "label": {
+        "DE": "",
+        "GB": ""
+      },
+      "properties": {
+        "defaultValue": "",
+        "options": [
+          {
             "label": {
-                "DE": "",
-                "GB": ""
+              "DE": "",
+              "GB": ""
             },
-            "properties": {
-                "defaultValue": ""
-            }
-        },
-        {
-            "type": "SELECT",
-            "id": "c_",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "MULTI_SELECT",
+      "id": "c_",
+      "label": {
+        "DE": "",
+        "GB": ""
+      },
+      "properties": {
+        "defaultValue": "",
+        "options": [
+          {
             "label": {
-                "DE": "",
-                "GB": ""
+              "DE": "",
+              "GB": ""
             },
-            "properties": {
-                "defaultValue": "",
-                "options": [
-                    {
-                        "label": {
-                            "DE": "",
-                            "GB": ""
-                        },
-                        "value": ""
-                    }
-                ]
-            }
-        },
-        {
-            "type": "MULTI_SELECT",
-            "id": "c_",
-            "label": {
-                "DE": "",
-                "GB": ""
-            },
-            "properties": {
-                "defaultValue": "",
-                "options": [
-                    {
-                        "label": {
-                            "DE": "",
-                            "GB": ""
-                        },
-                        "value": ""
-                    }
-                ]
-            }
-        },
-        {
-            "type": "DATE",
-            "id": "c_",
-            "label": {
-                "DE": "",
-                "GB": ""
-            },
-            "properties": {
-                "defaultValue": ""
-            }
-        }
-    ]
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "DATE",
+      "id": "c_",
+      "label": {
+        "DE": "",
+        "GB": ""
+      },
+      "properties": {
+        "defaultValue": ""
+      }
+    }
+  ]
 }

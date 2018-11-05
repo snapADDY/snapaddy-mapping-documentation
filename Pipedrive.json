@@ -1,475 +1,466 @@
 {
-    "pipedrive": {
-        "meta": {
-            "organization": {
-                "apiName": "organizations",
-                "idProperty": "id"
+  "pipedrive": {
+    "meta": {
+      "organization": {
+        "apiName": "organizations",
+        "idProperty": "id"
+      },
+      "person": {
+        "apiName": "persons",
+        "idProperty": "id"
+      },
+      "deal": {
+        "apiName": "deals",
+        "idProperty": "id"
+      },
+      "activity": {
+        "apiName": "activities",
+        "idProperty": "id"
+      }
+    },
+    "defaultExport": {
+      "mappings": {
+        "person": {
+          "name": "{{firstName}} {{lastName}}",
+          "org_id": "{{ org_id || _delete }}",
+          "phone": [
+            {
+              "label": "Phone",
+              "value": "{{ phone || null }}",
+              "primary": true
             },
+            {
+              "label": "Mobile",
+              "value": "{{ mobile || null }}",
+              "primary": false
+            },
+            {
+              "label": "Fax",
+              "value": "{{ fax || null }}",
+              "primary": false
+            }
+          ],
+          "email": [
+            {
+              "label": "",
+              "value": "{{ email }}",
+              "primary": true
+            }
+          ]
+        },
+        "organization": {
+          "name": "{{organization}}",
+          "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
+        },
+        "deal": {
+          "title": "{{deal_title}}",
+          "value": "{{deal_value}}",
+          "currency": "{{deal_currency}}",
+          "stage_id": "{{deal_stage}}",
+          "person_id": "{{person_id || _delete}}",
+          "org_id": "{{org_id || _delete}}"
+        },
+        "note": {
+          "note": "{{note}}"
+        }
+      },
+      "workflows": {
+        "default": [
+          {
+            "entity": "organization"
+          },
+          {
+            "entity": "person",
+            "dependsOn": [
+              {
+                "field": "org_id",
+                "entity": "organization"
+              }
+            ]
+          },
+          {
+            "entity": "deal",
+            "dependsOn": [
+              {
+                "field": "org_id",
+                "entity": "organization"
+              },
+              {
+                "field": "person_id",
+                "entity": "person"
+              }
+            ]
+          },
+          {
+            "entity": "activity",
+            "dependsOn": [
+              {
+                "field": "org_id",
+                "entity": "organization"
+              },
+              {
+                "field": "person_id",
+                "entity": "person"
+              },
+              {
+                "field": "deal_id",
+                "entity": "deal"
+              }
+            ]
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "person"
+                ],
+                "name": "VCard front.jpg"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "person"
+                ],
+                "name": "VCard back.jpg"
+              },
+              "image": {
+                "entities": [
+                  "person"
+                ],
+                "name": "Profile image.jpg"
+              },
+              "drawing": {
+                "entities": [
+                  "person"
+                ],
+                "name": "Drawing.jpg"
+              },
+              "attachments": {
+                "entities": [
+                  "person"
+                ],
+                "name": {
+                  "*": "Attachment_${i}.png",
+                  "PDF": "Attachment_${i}.pdf",
+                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                }
+              },
+              "note": {
+                "entities": [
+                  "deal",
+                  "person"
+                ],
+                "name": "Note"
+              }
+            }
+          }
+        ]
+      },
+      "components": {
+        "default": [
+          {
+            "type": "person",
+            "duplicateCheckName": "contact",
+            "label": {
+              "en": "Person",
+              "EN": "Person",
+              "de": "Person",
+              "DE": "Person"
+            },
+            "fields": {},
+            "search": {
+              "ids": [
+                "name",
+                "email"
+              ]
+            },
+            "mainTemplate": "{{name}}",
+            "detailsTemplate": "{{org_name}}"
+          },
+          {
+            "type": "organization",
+            "duplicateCheckName": "account",
+            "label": {
+              "en": "Organization",
+              "EN": "Organization",
+              "de": "Organisation",
+              "DE": "Organisation"
+            },
+            "fields": {},
+            "search": {
+              "ids": [
+                "name"
+              ]
+            },
+            "mainTemplate": "{{name}}",
+            "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
+          },
+          {
+            "type": "deal",
+            "label": {
+              "en": "Deal",
+              "en-GB": "Deal",
+              "de": "Geschäft",
+              "de-DE": "Geschäft"
+            },
+            "fields": {},
+            "search": {
+              "ids": [
+                "title"
+              ]
+            },
+            "mainTemplate": "{{title}}",
+            "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
+          },
+          {
+            "type": "activity",
+            "label": {
+              "en": "Activity",
+              "EN": "Activity",
+              "de": "Activity",
+              "DE": "Activity"
+            },
+            "fields": {},
+            "search": {
+              "ids": [
+                "subject",
+                "type"
+              ]
+            },
+            "mainTemplate": "{{subject}}",
+            "detailsTemplate": "{{type}}"
+          }
+        ]
+      }
+    },
+    "visitreport": {
+      "mappings": {
+        "*": {
+          "mappings": {
             "person": {
-                "apiName": "persons",
-                "idProperty": "id"
+              "name": "{{firstName}} {{lastName}}",
+              "org_id": "{{ org_id || _delete }}",
+              "phone": [
+                {
+                  "label": "Phone",
+                  "value": "{{ phone || null }}",
+                  "primary": true
+                },
+                {
+                  "label": "Mobile",
+                  "value": "{{ mobile || null }}",
+                  "primary": false
+                },
+                {
+                  "label": "Fax",
+                  "value": "{{ fax || null }}",
+                  "primary": false
+                }
+              ],
+              "email": [
+                {
+                  "label": "",
+                  "value": "{{ email }}",
+                  "primary": true
+                }
+              ]
+            },
+            "organization": {
+              "name": "{{organization}}",
+              "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
             },
             "deal": {
-                "apiName": "deals",
-                "idProperty": "id"
+              "title": "{{deal_title}}",
+              "value": "{{deal_value}}",
+              "currency": "{{deal_currency}}",
+              "stage_id": "{{deal_stage}}",
+              "person_id": "{{person_id || _delete}}",
+              "org_id": "{{org_id || _delete}}"
             },
-            "activity": {
-                "apiName": "activities",
-                "idProperty": "id"
+            "note": {
+              "note": "{{ execute(getVisitreportNote)}}"
             }
-        },
-        "defaultExport": {
-            "mappings": {
-                "person": {
-                    "name": "{{firstName}} {{lastName}}",
-                    "org_id": "{{ org_id || _delete }}",
-                    "phone": [
-                        {
-                            "label": "Phone",
-                            "value": "{{ phone || null }}",
-                            "primary": true
-                        },
-                        {
-                            "label": "Mobile",
-                            "value": "{{ mobile || null }}",
-                            "primary": false
-                        },
-                        {
-                            "label": "Fax",
-                            "value": "{{ fax || null }}",
-                            "primary": false
-                        }
-                    ],
-                    "email": [
-                        {
-                            "label": "",
-                            "value": "{{ email }}",
-                            "primary": true
-                        }
-                    ]
+          },
+          "activity": {}
+        }
+      },
+      "workflows": {
+        "*": {
+          "default": [
+            {
+              "entity": "organization"
+            },
+            {
+              "entity": "person",
+              "dependsOn": [
+                {
+                  "field": "org_id",
+                  "entity": "organization"
+                }
+              ]
+            },
+            {
+              "entity": "deal",
+              "dependsOn": [
+                {
+                  "field": "org_id",
+                  "entity": "organization"
                 },
-                "organization": {
-                    "name": "{{organization}}",
-                    "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
+                {
+                  "field": "person_id",
+                  "entity": "person"
+                }
+              ]
+            },
+            {
+              "entity": "activity",
+              "dependsOn": [
+                {
+                  "field": "org_id",
+                  "entity": "organization"
                 },
-                "deal": {
-                    "title": "{{deal_title}}",
-                    "value": "{{deal_value}}",
-                    "currency": "{{deal_currency}}",
-                    "stage_id": "{{deal_stage}}",
-                    "person_id": "{{person_id || _delete}}",
-                    "org_id": "{{org_id || _delete}}"
+                {
+                  "field": "person_id",
+                  "entity": "person"
+                },
+                {
+                  "field": "deal_id",
+                  "entity": "deal"
+                }
+              ]
+            },
+            {
+              "entity": "attachments",
+              "config": {
+                "bcImage": {
+                  "entities": [
+                    "person"
+                  ],
+                  "name": "VCard front.jpg"
+                },
+                "bcImageBackside": {
+                  "entities": [
+                    "person"
+                  ],
+                  "name": "VCard back.jpg"
+                },
+                "image": {
+                  "entities": [
+                    "person"
+                  ],
+                  "name": "Profile image.jpg"
+                },
+                "drawing": {
+                  "entities": [
+                    "person"
+                  ],
+                  "name": "Drawing.jpg"
+                },
+                "attachments": {
+                  "entities": [
+                    "person"
+                  ],
+                  "name": {
+                    "*": "Attachment_${i}.png",
+                    "PDF": "Attachment_${i}.pdf",
+                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  }
                 },
                 "note": {
-                    "note": "{{note}}"
+                  "entities": [
+                    "deal",
+                    "person"
+                  ],
+                  "name": "Note"
                 }
-            },
-            "workflows": {
-                "default": [
-                    {
-                        "entity": "organization"
-                    },
-                    {
-                        "entity": "person",
-                        "dependsOn": [
-                            {
-                                "field": "org_id",
-                                "entity": "organization"
-                            }
-                        ]
-                    },
-                    {
-                        "entity": "deal",
-                        "dependsOn": [
-                            {
-                                "field": "org_id",
-                                "entity": "organization"
-                            },
-                            {
-                                "field": "person_id",
-                                "entity": "person"
-                            }
-                        ]
-                    },
-                    {
-                        "entity": "activity",
-                        "dependsOn": [
-                            {
-                                "field": "org_id",
-                                "entity": "organization"
-                            },
-                            {
-                                "field": "person_id",
-                                "entity": "person"
-                            },
-                            {
-                                "field": "deal_id",
-                                "entity": "deal"
-                            }
-                        ]
-                    },
-                    {
-                        "entity": "attachments",
-                        "config": {
-                            "bcImage": {
-                                "entities": [
-                                    "person"
-                                ],
-                                "name": "VCard front.jpg"
-                            },
-                            "bcImageBackside": {
-                                "entities": [
-                                    "person"
-                                ],
-                                "name": "VCard back.jpg"
-                            },
-                            "image": {
-                                "entities": [
-                                    "person"
-                                ],
-                                "name": "Profile image.jpg"
-                            },
-                            "drawing": {
-                                "entities": [
-                                    "person"
-                                ],
-                                "name": "Drawing.jpg"
-                            },
-                            "attachments": {
-                                "entities": [
-                                    "person"
-                                ],
-                                "name": {
-                                    "*": "Attachment_${i}.png",
-                                    "PDF": "Attachment_${i}.pdf",
-                                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
-                                }
-                            },
-                            "note": {
-                                "entities": [
-                                    "deal",
-                                    "person"
-                                ],
-                                "name": "Note"
-                            }
-                        }
-                    }
-                ]
-            },
-            "components": {
-                "default": [
-                    {
-                        "type": "person",
-                        "duplicateCheckName": "contact",
-                        "label": {
-                            "en": "Person",
-                            "EN": "Person",
-                            "de": "Person",
-                            "DE": "Person"
-                        },
-                        "fields": {
-                    
-                        },
-                        "search": {
-                            "ids": [
-                                "name",
-                                "email"
-                            ]
-                        },
-                        "mainTemplate": "{{name}}",
-                        "detailsTemplate": "{{org_name}}"
-                    },
-                    {
-                        "type": "organization",
-                        "duplicateCheckName": "account",
-                        "label": {
-                            "en": "Organization",
-                            "EN": "Organization",
-                            "de": "Organisation",
-                            "DE": "Organisation"
-                        },
-                        "fields": {
-            
-                        },
-                        "search": {
-                            "ids": [
-                                "name"
-                            ]
-                        },
-                        "mainTemplate": "{{name}}",
-                        "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
-                    },
-                    {
-                        "type": "deal",
-                        "label": {
-                            "en": "Deal",
-                            "en-GB": "Deal",
-                            "de": "Geschäft",
-                            "de-DE": "Geschäft"
-                        },
-                        "fields": {
-                   
-                        },
-                        "search": {
-                            "ids": [
-                                "title"
-                            ]
-                        },
-                        "mainTemplate": "{{title}}",
-                        "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
-                    },
-                    {
-                        "type": "activity",
-                        "label": {
-                            "en": "Activity",
-                            "EN": "Activity",
-                            "de": "Activity",
-                            "DE": "Activity"
-                        },
-                        "fields": {
-             
-                        },
-                        "search": {
-                            "ids": [
-                                "subject",
-                                "type"
-                            ]
-                        },
-                        "mainTemplate": "{{subject}}",
-                        "detailsTemplate": "{{type}}"
-                    }
-                ]
+              }
             }
-        },
-        "visitreport": {
-            "mappings": {
-                "*": {
-                    "mappings": {
-                        "person": {
-                            "name": "{{firstName}} {{lastName}}",
-                            "org_id": "{{ org_id || _delete }}",
-                            "phone": [
-                                {
-                                    "label": "Phone",
-                                    "value": "{{ phone || null }}",
-                                    "primary": true
-                                },
-                                {
-                                    "label": "Mobile",
-                                    "value": "{{ mobile || null }}",
-                                    "primary": false
-                                },
-                                {
-                                    "label": "Fax",
-                                    "value": "{{ fax || null }}",
-                                    "primary": false
-                                }
-                            ],
-                            "email": [
-                                {
-                                    "label": "",
-                                    "value": "{{ email }}",
-                                    "primary": true
-                                }
-                            ]
-                        },
-                        "organization": {
-                            "name": "{{organization}}",
-                            "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
-                        },
-                        "deal": {
-                            "title": "{{deal_title}}",
-                            "value": "{{deal_value}}",
-                            "currency": "{{deal_currency}}",
-                            "stage_id": "{{deal_stage}}",
-                            "person_id": "{{person_id || _delete}}",
-                            "org_id": "{{org_id || _delete}}"
-                        },
-                        "note": {
-                            "note": "{{ execute(getVisitreportNote)}}"
-                        }
-                    },
-                    "activity": {}
-                }
-            },
-            "workflows": {
-                "*": {
-                    "default": [
-                        {
-                            "entity": "organization"
-                        },
-                        {
-                            "entity": "person",
-                            "dependsOn": [
-                                {
-                                    "field": "org_id",
-                                    "entity": "organization"
-                                }
-                            ]
-                        },
-                        {
-                            "entity": "deal",
-                            "dependsOn": [
-                                {
-                                    "field": "org_id",
-                                    "entity": "organization"
-                                },
-                                {
-                                    "field": "person_id",
-                                    "entity": "person"
-                                }
-                            ]
-                        },
-                        {
-                            "entity": "activity",
-                            "dependsOn": [
-                                {
-                                    "field": "org_id",
-                                    "entity": "organization"
-                                },
-                                {
-                                    "field": "person_id",
-                                    "entity": "person"
-                                },
-                                {
-                                    "field": "deal_id",
-                                    "entity": "deal"
-                                }
-                            ]
-                        },
-                        {
-                            "entity": "attachments",
-                            "config": {
-                                "bcImage": {
-                                    "entities": [
-                                        "person"
-                                    ],
-                                    "name": "VCard front.jpg"
-                                },
-                                "bcImageBackside": {
-                                    "entities": [
-                                        "person"
-                                    ],
-                                    "name": "VCard back.jpg"
-                                },
-                                "image": {
-                                    "entities": [
-                                        "person"
-                                    ],
-                                    "name": "Profile image.jpg"
-                                },
-                                "drawing": {
-                                    "entities": [
-                                        "person"
-                                    ],
-                                    "name": "Drawing.jpg"
-                                },
-                                "attachments": {
-                                    "entities": [
-                                        "person"
-                                    ],
-                                    "name": {
-                                        "*": "Attachment_${i}.png",
-                                        "PDF": "Attachment_${i}.pdf",
-                                        "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
-                                    }
-                                },
-                                "note": {
-                                    "entities": [
-                                        "deal",
-                                        "person"
-                                    ],
-                                    "name": "Note"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            "components": {
-                "*": {
-                    "default": [
-                        {
-                            "type": "person",
-                            "duplicateCheckName": "contact",
-                            "label": {
-                                "de": "Person",
-                                "en": "Person"
-                            },
-                            "fields": {},
-                            "search": {
-                                "ids": [
-                                    "name",
-                                    "email"
-                                ]
-                            },
-                            "mainTemplate": "{{name}}",
-                            "detailsTemplate": "{{org_name}}"
-                        },
-                        {
-                            "type": "organization",
-                            "duplicateCheckName": "account",
-                            "label": {
-                                "de": "Organisation",
-                                "en": "Organization"
-                            },
-                            "fields": {},
-                            "search": {
-                                "ids": [
-                                    "name"
-                                ]
-                            },
-                            "mainTemplate": "{{name}}",
-                            "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
-                        },
-                        {
-                            "type": "deal",
-                            "label": {
-                                "en": "Deal",
-                                "de": "Geschäft"
-                            },
-                            "fields": {},
-                            "search": {
-                                "ids": [
-                                    "title"
-                                ]
-                            },
-                            "mainTemplate": "{{title}}",
-                            "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
-                        },
-                        {
-                            "type": "activity",
-                            "label": {
-                                "en": "Activity",
-                                "de": "Activity"
-                            },
-                            "fields": {},
-                            "search": {
-                                "ids": [
-                                    "subject",
-                                    "type"
-                                ]
-                            },
-                            "mainTemplate": "{{subject}}",
-                            "detailsTemplate": "{{type}}"
-                        }
-                    ]
-                }
-            }
-        },
-        "code": {
-            "getVisitreportNote": [
-                "var note = address.note || '';",
-                "if (address.visitreport && address.visitreport.result) {",
-                "  note += 'VisitReport\\n\\n';",
-                "  var result = address.visitreport.result;",
-                "  for (var key in result) {",
-                "    note += result[key].question + ' = ' + result[key].text + '\n';",
-                "  }",
-                "}",
-                "return note;"
-            ]
-
+          ]
         }
+      },
+      "components": {
+        "*": {
+          "default": [
+            {
+              "type": "person",
+              "duplicateCheckName": "contact",
+              "label": {
+                "de": "Person",
+                "en": "Person"
+              },
+              "fields": {},
+              "search": {
+                "ids": [
+                  "name",
+                  "email"
+                ]
+              },
+              "mainTemplate": "{{name}}",
+              "detailsTemplate": "{{org_name}}"
+            },
+            {
+              "type": "organization",
+              "duplicateCheckName": "account",
+              "label": {
+                "de": "Organisation",
+                "en": "Organization"
+              },
+              "fields": {},
+              "search": {
+                "ids": [
+                  "name"
+                ]
+              },
+              "mainTemplate": "{{name}}",
+              "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
+            },
+            {
+              "type": "deal",
+              "label": {
+                "en": "Deal",
+                "de": "Geschäft"
+              },
+              "fields": {},
+              "search": {
+                "ids": [
+                  "title"
+                ]
+              },
+              "mainTemplate": "{{title}}",
+              "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
+            },
+            {
+              "type": "activity",
+              "label": {
+                "en": "Activity",
+                "de": "Activity"
+              },
+              "fields": {},
+              "search": {
+                "ids": [
+                  "subject",
+                  "type"
+                ]
+              },
+              "mainTemplate": "{{subject}}",
+              "detailsTemplate": "{{type}}"
+            }
+          ]
+        }
+      }
+    },
+    "code": {
+      "getVisitreportNote": [
+        "var note = address.note || '';",
+        "if (address.visitreport && address.visitreport.result) {",
+        "  note += 'VisitReport\\n\\n';",
+        "  var result = address.visitreport.result;",
+        "  for (var key in result) {",
+        "    note += result[key].question + ' = ' + result[key].text + '\n';",
+        "  }",
+        "}",
+        "return note;"
+      ]
     }
+  }
 }

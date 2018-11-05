@@ -1,247 +1,243 @@
 {
-    "duplicateCheck":{
-        "settings":{
-
-        },
-        "pipeline":{
-            "stages":[
-                {
-                    "tasks":[
-                        {
-                            "entity":"lead",
-                            "tree":{
-                                "operator":"or",
-                                "subconditions":[
-                                    {
-                                        "field":"EMailAddress1",
-                                        "operator":"allIn",
-                                        "value":"{{address.email}}",
-                                        "filters":[
-                                            "return !isEmailGeneric(address.email)"
-                                        ]
-                                    },
-                                    {
-                                        "operator":"and",
-                                        "subconditions":[
-                                            {
-                                                "field":"FirstName",
-                                                "operator":"allIn",
-                                                "value":"{{address.firstName}}"
-                                            },
-                                            {
-                                                "field":"LastName",
-                                                "operator":"allIn",
-                                                "value":"{{address.lastName}}"
-                                            },
-                                            {
-                                                "field":"CompanyName",
-                                                "operator":"allIn",
-                                                "value":"{{address.organization}}"
-                                            }
-                                        ],
-                                        "filters":[
-                                            "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "missingDataLabel":"NO_EMAIL_OR_NAME_AND_COMPANY_ENTERED"
-                        },
-                        {
-                            "entity":"contact",
-                            "tree":{
-                                "operator":"or",
-                                "subconditions":[
-                                    {
-                                        "field":"EMailAddress1",
-                                        "operator":"allIn",
-                                        "value":"{{address.email}}",
-                                        "filters":[
-                                            "return !isEmailGeneric(address.email)"
-                                        ]
-                                    },
-                                    {
-                                        "operator":"and",
-                                        "subconditions":[
-                                            {
-                                                "field":"FirstName",
-                                                "operator":"allIn",
-                                                "value":"{{address.firstName}}"
-                                            },
-                                            {
-                                                "field":"LastName",
-                                                "operator":"allIn",
-                                                "value":"{{address.lastName}}"
-                                            }
-                                        ],
-                                        "filters":[
-                                            "return address.firstName.length >= 3 || address.lastName.length >= 3"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "missingDataLabel":"NO_EMAIL_OR_NAME_ENTERED"
-                        },
-                        {
-                            "entity":"account",
-                            "tree":{
-                                "operator":"OR",
-                                "subconditions":[
-                                    {
-                                        "field":"WebSiteURL",
-                                        "operator":"allIn",
-                                        "value":"{{address.website}}",
-                                        "filters":[
-                                            "return (getDomainFromURL(address.website) || '').length >= 3"
-                                        ]
-                                    },
-                                    {
-                                        "field":"Name",
-                                        "operator":"allIn",
-                                        "value":"{{address.organization}}",
-                                        "filters":[
-                                            "return address.organization.length >= 3"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "missingDataLabel":"NO_WEBSITE_OR_NAME_ENTERED"
-                        }
-                    ],
-                    "results":[
-
-                    ],
-                    "post":[
-                        [
-                            "var sorted = pipeline.stages[0].results[0].duplicates;",
-                            "for (var i = 0; i < sorted.length; i++) {",
-                            "  var e = sorted[i];",
-                            "  e._sortKey = 0;",
-                            "",
-                            "",
-                            "  // Name exact match ",
-                            "  if (e.FirstName.toLowerCase() === address.firstName.toLowerCase()) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "  if (e.LastName.toLowerCase() === address.lastName.toLowerCase()) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "",
-                            "",
-                            "  // Name includes match ",
-                            "  if (e.FullName.toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
-                            "    e._sortKey++;",
-                            "  }",
-                            "  if (e.FullName.toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
-                            "    e._sortKey++;",
-                            "  }",
-                            "",
-                            "",
-                            "  // Company exact match ",
-                            "  if ((e.CompanyName || '').trim().toLowerCase() === address.organization.trim().toLowerCase()) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "",
-                            "  // Company includes match ",
-                            "  if ((e.CompanyName || '').trim().toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
-                            "    e._sortKey++;",
-                            "  }",
-                            "}",
-                            "",
-                            "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-                            "",
-                            "pipeline.stages[0].results[0].duplicates = sorted;",
-                            "pipeline.stages[0].results[0].suggested = sorted[0];",
-                            "return pipeline;"
-                        ],
-                        [
-                            "var sorted = pipeline.stages[0].results[1].duplicates;",
-                            "for (var i = 0; i < sorted.length; i++) {",
-                            "  var e = sorted[i];",
-                            "  e._sortKey = 0",
-                            "",
-                            "",
-                            "  // Name exact match ",
-                            "  if (e.FirstName.toLowerCase() === address.firstName.toLowerCase()) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "  if (e.LastName.toLowerCase() === address.lastName.toLowerCase()) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "",
-                            "",
-                            "  // Name includes match ",
-                            "  if (e.FullName.toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
-                            "    e._sortKey++;",
-                            "  }",
-                            "  if (e.FullName.toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
-                            "    e._sortKey++;",
-                            "  }",
-                            "",
-                            "",
-                            "  var companyName = (e.Company || (e.ParentCustomerId && e.ParentCustomerId.Name) || '').trim().toLowerCase()",
-                            "  // Company exact match ",
-                            "  if (companyName === address.organization.trim().toLowerCase()) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "  // Company includes match ",
-                            "  if (companyName.indexOf(address.organization.toLowerCase()) > -1) {",
-                            "    e._sortKey++;",
-                            "  }",
-                            "}",
-                            "",
-                            "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-                            "",
-                            "pipeline.stages[0].results[1].duplicates = sorted;",
-                            "pipeline.stages[0].results[1].suggested = sorted[0];",
-                            "return pipeline;"
-                        ],
-                        [
-                            "var sorted = pipeline.stages[0].results[2].duplicates;",
-                            "for (var i = 0; i < sorted.length; i++) {",
-                            "  var e = sorted[i];",
-                            "  e._sortKey = 0",
-                            "  // Company exact match ",
-                            "  if ((e.Name || '').toLowerCase() === address.organization.toLowerCase()) {",
-                            "    e._sort_key += 2",
-                            "  }",
-                            "  // Company includes match ",
-                            "  if ((e.Name || '').toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
-                            "    e._sort_key++",
-                            "  }",
-                            "",
-                            "",
-                            "  // Website exact match ",
-                            "  if ((e.WebSiteURL || '').toLowerCase() === address.website.toLowerCase()) {",
-                            "    e._sort_key += 2",
-                            "  }",
-                            "  // Website includes match ",
-                            "  if ((e.WebSiteURL || '').toLowerCase().indexOf(address.website.toLowerCase()) > -1) {",
-                            "    e._sort_key++",
-                            "  }",
-                            "",
-                            "",
-                            "  if (e.Address1_PostalCode === address.zip || e.Address1_City === address.city) {",
-                            "    e._sortKey += 2;",
-                            "  }",
-                            "}",
-                            "",
-                            "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-                            "",
-                            "pipeline.stages[0].results[2].duplicates = sorted;",
-                            "pipeline.stages[0].results[2].suggested = sorted[0];",
-                            "return pipeline;"
-                        ]
+  "duplicateCheck": {
+    "settings": {},
+    "pipeline": {
+      "stages": [
+        {
+          "tasks": [
+            {
+              "entity": "lead",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "EMailAddress1",
+                    "operator": "allIn",
+                    "value": "{{address.email}}",
+                    "filters": [
+                      "return !isEmailGeneric(address.email)"
                     ]
-                }
+                  },
+                  {
+                    "operator": "and",
+                    "subconditions": [
+                      {
+                        "field": "FirstName",
+                        "operator": "allIn",
+                        "value": "{{address.firstName}}"
+                      },
+                      {
+                        "field": "LastName",
+                        "operator": "allIn",
+                        "value": "{{address.lastName}}"
+                      },
+                      {
+                        "field": "CompanyName",
+                        "operator": "allIn",
+                        "value": "{{address.organization}}"
+                      }
+                    ],
+                    "filters": [
+                      "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_AND_COMPANY_ENTERED"
+            },
+            {
+              "entity": "contact",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "EMailAddress1",
+                    "operator": "allIn",
+                    "value": "{{address.email}}",
+                    "filters": [
+                      "return !isEmailGeneric(address.email)"
+                    ]
+                  },
+                  {
+                    "operator": "and",
+                    "subconditions": [
+                      {
+                        "field": "FirstName",
+                        "operator": "allIn",
+                        "value": "{{address.firstName}}"
+                      },
+                      {
+                        "field": "LastName",
+                        "operator": "allIn",
+                        "value": "{{address.lastName}}"
+                      }
+                    ],
+                    "filters": [
+                      "return address.firstName.length >= 3 || address.lastName.length >= 3"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_ENTERED"
+            },
+            {
+              "entity": "account",
+              "tree": {
+                "operator": "OR",
+                "subconditions": [
+                  {
+                    "field": "WebSiteURL",
+                    "operator": "allIn",
+                    "value": "{{address.website}}",
+                    "filters": [
+                      "return (getDomainFromURL(address.website) || '').length >= 3"
+                    ]
+                  },
+                  {
+                    "field": "Name",
+                    "operator": "allIn",
+                    "value": "{{address.organization}}",
+                    "filters": [
+                      "return address.organization.length >= 3"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_WEBSITE_OR_NAME_ENTERED"
+            }
+          ],
+          "results": [],
+          "post": [
+            [
+              "var sorted = pipeline.stages[0].results[0].duplicates;",
+              "for (var i = 0; i < sorted.length; i++) {",
+              "  var e = sorted[i];",
+              "  e._sortKey = 0;",
+              "",
+              "",
+              "  // Name exact match ",
+              "  if (e.FirstName.toLowerCase() === address.firstName.toLowerCase()) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "  if (e.LastName.toLowerCase() === address.lastName.toLowerCase()) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "",
+              "",
+              "  // Name includes match ",
+              "  if (e.FullName.toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "  if (e.FullName.toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "",
+              "",
+              "  // Company exact match ",
+              "  if ((e.CompanyName || '').trim().toLowerCase() === address.organization.trim().toLowerCase()) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "",
+              "  // Company includes match ",
+              "  if ((e.CompanyName || '').trim().toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "}",
+              "",
+              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
+              "",
+              "pipeline.stages[0].results[0].duplicates = sorted;",
+              "pipeline.stages[0].results[0].suggested = sorted[0];",
+              "return pipeline;"
             ],
-            "mapResults":[
-                "return {",
-                "  lead: pipeline.stages[0].results[0],",
-                "  contact: pipeline.stages[0].results[1],",
-                "  account: pipeline.stages[0].results[2],",
-                "}"
+            [
+              "var sorted = pipeline.stages[0].results[1].duplicates;",
+              "for (var i = 0; i < sorted.length; i++) {",
+              "  var e = sorted[i];",
+              "  e._sortKey = 0",
+              "",
+              "",
+              "  // Name exact match ",
+              "  if (e.FirstName.toLowerCase() === address.firstName.toLowerCase()) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "  if (e.LastName.toLowerCase() === address.lastName.toLowerCase()) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "",
+              "",
+              "  // Name includes match ",
+              "  if (e.FullName.toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "  if (e.FullName.toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "",
+              "",
+              "  var companyName = (e.Company || (e.ParentCustomerId && e.ParentCustomerId.Name) || '').trim().toLowerCase()",
+              "  // Company exact match ",
+              "  if (companyName === address.organization.trim().toLowerCase()) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "  // Company includes match ",
+              "  if (companyName.indexOf(address.organization.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "}",
+              "",
+              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
+              "",
+              "pipeline.stages[0].results[1].duplicates = sorted;",
+              "pipeline.stages[0].results[1].suggested = sorted[0];",
+              "return pipeline;"
+            ],
+            [
+              "var sorted = pipeline.stages[0].results[2].duplicates;",
+              "for (var i = 0; i < sorted.length; i++) {",
+              "  var e = sorted[i];",
+              "  e._sortKey = 0",
+              "  // Company exact match ",
+              "  if ((e.Name || '').toLowerCase() === address.organization.toLowerCase()) {",
+              "    e._sort_key += 2",
+              "  }",
+              "  // Company includes match ",
+              "  if ((e.Name || '').toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
+              "    e._sort_key++",
+              "  }",
+              "",
+              "",
+              "  // Website exact match ",
+              "  if ((e.WebSiteURL || '').toLowerCase() === address.website.toLowerCase()) {",
+              "    e._sort_key += 2",
+              "  }",
+              "  // Website includes match ",
+              "  if ((e.WebSiteURL || '').toLowerCase().indexOf(address.website.toLowerCase()) > -1) {",
+              "    e._sort_key++",
+              "  }",
+              "",
+              "",
+              "  if (e.Address1_PostalCode === address.zip || e.Address1_City === address.city) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "}",
+              "",
+              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
+              "",
+              "pipeline.stages[0].results[2].duplicates = sorted;",
+              "pipeline.stages[0].results[2].suggested = sorted[0];",
+              "return pipeline;"
             ]
+          ]
         }
+      ],
+      "mapResults": [
+        "return {",
+        "  lead: pipeline.stages[0].results[0],",
+        "  contact: pipeline.stages[0].results[1],",
+        "  account: pipeline.stages[0].results[2],",
+        "}"
+      ]
     }
+  }
 }
