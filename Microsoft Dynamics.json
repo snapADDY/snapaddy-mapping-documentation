@@ -256,10 +256,6 @@
             "Address1_StateOrProvince": "{{ state }}",
             "GenderCode": {
               "Value": "{{ execute(genderMapping) }}"
-            },
-            "ParentCustomerId": {
-              "Id": "{{ _account.AccountId }}",
-              "LogicalName": "account"
             }
           },
           "account": {
