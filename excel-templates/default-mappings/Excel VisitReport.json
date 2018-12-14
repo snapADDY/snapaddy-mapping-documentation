@@ -25,7 +25,10 @@
             "PLZ": "{{ zip }}",
             "Bundesland": "{{ state }}",
             "Land": "{{ country }}",
-            "Anzahl von Anhängen": "{{ attachments.length + (drawing? 1 : 0) }}"
+            "Anzahl von Anhängen": "{{ attachments.length + (drawing? 1 : 0) }}",
+            "Geprüft am": "{{ (checked && checkedAt)? checkedAt : '' }}",
+            "Geprüft von": "{{ (checked && checkedBy)? checkedBy : '' }}",
+            "Notiz": "{{ note }}"
           }
         }
       }
