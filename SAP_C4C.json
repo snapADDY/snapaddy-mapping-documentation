@@ -167,12 +167,6 @@
                 ],
                 "name": "VCard back"
               },
-              "visitreport_pdf": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "VisitReport"
-              },
               "drawing": {
                 "entities": [
                   "lead"
@@ -237,12 +231,6 @@
                   "contact"
                 ],
                 "name": "VCard back"
-              },
-              "visitreport_pdf": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "VisitReport"
               },
               "drawing": {
                 "entities": [

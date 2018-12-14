@@ -145,6 +145,12 @@
                   "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
+              "visitreport_pdf": {
+                "entities": [
+                  "person"
+                ],
+                "name": "VisitReport"
+              },
               "note": {
                 "entities": [
                   "deal",
@@ -365,6 +371,12 @@
                     "PDF": "Attachment_${i}.pdf",
                     "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
+                },
+                "visitreport_pdf": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "VisitReport"
                 },
                 "note": {
                   "entities": [

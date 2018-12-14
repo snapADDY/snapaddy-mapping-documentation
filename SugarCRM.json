@@ -511,7 +511,7 @@
                 },
                 "visitreport_pdf": {
                   "entities": [
-                    "lead"
+                    "contact"
                   ],
                   "name": "VisitReport"
                 },
@@ -567,7 +567,7 @@
                 },
                 "visitreport_pdf": {
                   "entities": [
-                    "lead"
+                    "prospect"
                   ],
                   "name": "VisitReport"
                 },
