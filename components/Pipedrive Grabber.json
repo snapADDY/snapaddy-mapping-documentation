@@ -81,8 +81,8 @@
             "email"
           ]
         },
-        "mainTemplate": "{{name}}",
-        "detailsTemplate": "{{org_name}}"
+        "mainTemplate": "{{ name }}",
+        "detailsTemplate": "{{ org_name }}"
       },
       {
         "type": "organization",
@@ -120,7 +120,7 @@
             "name"
           ]
         },
-        "mainTemplate": "{{name}}",
+        "mainTemplate": "{{ name }}",
         "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
       },
       {
@@ -198,8 +198,8 @@
             "title"
           ]
         },
-        "mainTemplate": "{{title}}",
-        "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
+        "mainTemplate": "{{ title }}",
+        "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{ org_name }}"
       },
       {
         "type": "activity",
@@ -319,8 +319,8 @@
             "type"
           ]
         },
-        "mainTemplate": "{{subject}}",
-        "detailsTemplate": "{{type}}"
+        "mainTemplate": "{{ subject }}",
+        "detailsTemplate": "{{ type }}"
       }
     ]
   }

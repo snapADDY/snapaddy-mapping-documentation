@@ -129,7 +129,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -200,7 +200,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -326,8 +326,14 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
+                },
+                "visitreport_pdf": {
+                  "entities": [
+                    "lead"
+                  ],
+                  "name": "VisitReport"
                 },
                 "note": {
                   "entities": [
@@ -397,8 +403,14 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
+                },
+                "visitreport_pdf": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "VisitReport"
                 },
                 "note": {
                   "entities": [

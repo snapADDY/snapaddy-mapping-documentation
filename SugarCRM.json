@@ -21,75 +21,75 @@
     "defaultExport": {
       "mappings": {
         "lead": {
-          "email1": "{{email}}",
+          "email1": "{{ email }}",
           "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-          "first_name": "{{firstName}}",
-          "last_name": "{{lastName}}",
-          "title": "{{position}}",
-          "account_name": "{{organization}}",
-          "website": "{{website}}",
-          "phone_work": "{{phone}}",
-          "phone_mobile": "{{mobile}}",
-          "phone_fax": "{{fax}}",
-          "primary_address_street": "{{street}}",
-          "primary_address_city": "{{city}}",
-          "primary_address_state": "{{state}}",
-          "primary_address_postalcode": "{{zip}}",
-          "primary_address_country": "{{country}}",
+          "first_name": "{{ firstName }}",
+          "last_name": "{{ lastName }}",
+          "title": "{{ position }}",
+          "account_name": "{{ organization }}",
+          "website": "{{ website }}",
+          "phone_work": "{{ phone }}",
+          "phone_mobile": "{{ mobile }}",
+          "phone_fax": "{{ fax }}",
+          "primary_address_street": "{{ street }}",
+          "primary_address_city": "{{ city }}",
+          "primary_address_state": "{{ state }}",
+          "primary_address_postalcode": "{{ zip }}",
+          "primary_address_country": "{{ country }}",
           "lead_source": "{{ }}",
           "status": "{{ }}"
         },
         "contact": {
-          "email1": "{{email}}",
+          "email1": "{{ email }}",
           "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-          "first_name": "{{firstName}}",
-          "last_name": "{{lastName}}",
-          "title": "{{position}}",
-          "website": "{{website}}",
-          "phone_work": "{{phone}}",
-          "phone_mobile": "{{mobile}}",
-          "phone_fax": "{{fax}}",
-          "primary_address_street": "{{street}}",
-          "primary_address_city": "{{city}}",
-          "primary_address_state": "{{state}}",
-          "primary_address_postalcode": "{{zip}}",
-          "primary_address_country": "{{country}}",
-          "account_name": "{{organization}}"
+          "first_name": "{{ firstName }}",
+          "last_name": "{{ lastName }}",
+          "title": "{{ position }}",
+          "website": "{{ website }}",
+          "phone_work": "{{ phone }}",
+          "phone_mobile": "{{ mobile }}",
+          "phone_fax": "{{ fax }}",
+          "primary_address_street": "{{ street }}",
+          "primary_address_city": "{{ city }}",
+          "primary_address_state": "{{ state }}",
+          "primary_address_postalcode": "{{ zip }}",
+          "primary_address_country": "{{ country }}",
+          "account_name": "{{ organization }}"
         },
         "account": {
-          "name": "{{organization}}",
-          "email1": "{{email}}",
-          "phone_fax": "{{fax}}",
-          "phone_office": "{{phone}}",
-          "website": "{{website}}",
-          "account_type": "{{account_type}}",
-          "industry": "{{account_industry}}",
-          "billing_address_street": "{{street}}",
-          "billing_address_city": "{{city}}",
-          "billing_address_postalcode": "{{zip}}",
-          "billing_address_state": "{{state}}",
-          "billing_address_country": "{{country}}",
-          "shipping_address_street": "{{street}}",
-          "shipping_address_city": "{{city}}",
-          "shipping_address_postalcode": "{{zip}}",
-          "shipping_address_state": "{{state}}",
-          "shipping_address_country": "{{country}}"
+          "name": "{{ organization }}",
+          "email1": "{{ email }}",
+          "phone_fax": "{{ fax }}",
+          "phone_office": "{{ phone }}",
+          "website": "{{ website }}",
+          "account_type": "{{ account_type }}",
+          "industry": "{{ account_industry }}",
+          "billing_address_street": "{{ street }}",
+          "billing_address_city": "{{ city }}",
+          "billing_address_postalcode": "{{ zip }}",
+          "billing_address_state": "{{ state }}",
+          "billing_address_country": "{{ country }}",
+          "shipping_address_street": "{{ street }}",
+          "shipping_address_city": "{{ city }}",
+          "shipping_address_postalcode": "{{ zip }}",
+          "shipping_address_state": "{{ state }}",
+          "shipping_address_country": "{{ country }}"
         },
         "prospect": {
-          "email1": "{{email}}",
+          "email1": "{{ email }}",
           "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-          "first_name": "{{firstName}}",
-          "last_name": "{{lastName}}",
-          "title": "{{position}}",
-          "account_name": "{{organization}}",
-          "phone_work": "{{phone}}",
-          "phone_mobile": "{{mobile}}",
-          "phone_fax": "{{fax}}",
-          "primary_address_street": "{{street}}",
-          "primary_address_city": "{{city}}",
-          "primary_address_state": "{{state}}",
-          "primary_address_postalcode": "{{zip}}",
-          "primary_address_country": "{{country}}"
+          "first_name": "{{ firstName }}",
+          "last_name": "{{ lastName }}",
+          "title": "{{ position }}",
+          "account_name": "{{ organization }}",
+          "phone_work": "{{ phone }}",
+          "phone_mobile": "{{ mobile }}",
+          "phone_fax": "{{ fax }}",
+          "primary_address_street": "{{ street }}",
+          "primary_address_city": "{{ city }}",
+          "primary_address_state": "{{ state }}",
+          "primary_address_postalcode": "{{ zip }}",
+          "primary_address_country": "{{ country }}"
         }
       },
       "workflows": {
@@ -131,7 +131,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -190,7 +190,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -240,7 +240,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -339,75 +339,75 @@
       "mappings": {
         "*": {
           "lead": {
-            "email1": "{{email}}",
+            "email1": "{{ email }}",
             "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-            "first_name": "{{firstName}}",
-            "last_name": "{{lastName}}",
-            "title": "{{position}}",
-            "account_name": "{{organization}}",
-            "website": "{{website}}",
-            "phone_work": "{{phone}}",
-            "phone_mobile": "{{mobile}}",
-            "phone_fax": "{{fax}}",
-            "primary_address_street": "{{street}}",
-            "primary_address_city": "{{city}}",
-            "primary_address_state": "{{state}}",
-            "primary_address_postalcode": "{{zip}}",
-            "primary_address_country": "{{country}}",
+            "first_name": "{{ firstName }}",
+            "last_name": "{{ lastName }}",
+            "title": "{{ position }}",
+            "account_name": "{{ organization }}",
+            "website": "{{ website }}",
+            "phone_work": "{{ phone }}",
+            "phone_mobile": "{{ mobile }}",
+            "phone_fax": "{{ fax }}",
+            "primary_address_street": "{{ street }}",
+            "primary_address_city": "{{ city }}",
+            "primary_address_state": "{{ state }}",
+            "primary_address_postalcode": "{{ zip }}",
+            "primary_address_country": "{{ country }}",
             "lead_source": "{{ }}",
             "status": "{{ }}"
           },
           "contact": {
-            "email1": "{{email}}",
+            "email1": "{{ email }}",
             "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-            "first_name": "{{firstName}}",
-            "last_name": "{{lastName}}",
-            "title": "{{position}}",
-            "website": "{{website}}",
-            "phone_work": "{{phone}}",
-            "phone_mobile": "{{mobile}}",
-            "phone_fax": "{{fax}}",
-            "primary_address_street": "{{street}}",
-            "primary_address_city": "{{city}}",
-            "primary_address_state": "{{state}}",
-            "primary_address_postalcode": "{{zip}}",
-            "primary_address_country": "{{country}}",
-            "account_name": "{{organization}}"
+            "first_name": "{{ firstName }}",
+            "last_name": "{{ lastName }}",
+            "title": "{{ position }}",
+            "website": "{{ website }}",
+            "phone_work": "{{ phone }}",
+            "phone_mobile": "{{ mobile }}",
+            "phone_fax": "{{ fax }}",
+            "primary_address_street": "{{ street }}",
+            "primary_address_city": "{{ city }}",
+            "primary_address_state": "{{ state }}",
+            "primary_address_postalcode": "{{ zip }}",
+            "primary_address_country": "{{ country }}",
+            "account_name": "{{ organization }}"
           },
           "account": {
-            "name": "{{organization}}",
-            "email1": "{{email}}",
-            "phone_fax": "{{fax}}",
-            "phone_office": "{{phone}}",
-            "website": "{{website}}",
-            "account_type": "{{account_type}}",
-            "industry": "{{account_industry}}",
-            "billing_address_street": "{{street}}",
-            "billing_address_city": "{{city}}",
-            "billing_address_postalcode": "{{zip}}",
-            "billing_address_state": "{{state}}",
-            "billing_address_country": "{{country}}",
-            "shipping_address_street": "{{street}}",
-            "shipping_address_city": "{{city}}",
-            "shipping_address_postalcode": "{{zip}}",
-            "shipping_address_state": "{{state}}",
-            "shipping_address_country": "{{country}}"
+            "name": "{{ organization }}",
+            "email1": "{{ email }}",
+            "phone_fax": "{{ fax }}",
+            "phone_office": "{{ phone }}",
+            "website": "{{ website }}",
+            "account_type": "{{ account_type }}",
+            "industry": "{{ account_industry }}",
+            "billing_address_street": "{{ street }}",
+            "billing_address_city": "{{ city }}",
+            "billing_address_postalcode": "{{ zip }}",
+            "billing_address_state": "{{ state }}",
+            "billing_address_country": "{{ country }}",
+            "shipping_address_street": "{{ street }}",
+            "shipping_address_city": "{{ city }}",
+            "shipping_address_postalcode": "{{ zip }}",
+            "shipping_address_state": "{{ state }}",
+            "shipping_address_country": "{{ country }}"
           },
           "prospect": {
-            "email1": "{{email}}",
+            "email1": "{{ email }}",
             "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
-            "first_name": "{{firstName}}",
-            "last_name": "{{lastName}}",
-            "title": "{{position}}",
-            "account_name": "{{organization}}",
-            "phone_work": "{{phone}}",
-            "phone_mobile": "{{mobile}}",
-            "phone_fax": "{{fax}}",
-            "primary_address_street": "{{street}}",
-            "primary_address_city": "{{city}}",
-            "primary_address_state": "{{state}}",
-            "primary_address_postalcode": "{{zip}}",
-            "primary_address_country": "{{country}}"
+            "first_name": "{{ firstName }}",
+            "last_name": "{{ lastName }}",
+            "title": "{{ position }}",
+            "account_name": "{{ organization }}",
+            "phone_work": "{{ phone }}",
+            "phone_mobile": "{{ mobile }}",
+            "phone_fax": "{{ fax }}",
+            "primary_address_street": "{{ street }}",
+            "primary_address_city": "{{ city }}",
+            "primary_address_state": "{{ state }}",
+            "primary_address_postalcode": "{{ zip }}",
+            "primary_address_country": "{{ country }}"
           }
         }
       },
@@ -457,7 +457,7 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
                 },
                 "note": {
@@ -511,7 +511,7 @@
                 },
                 "visitreport_pdf": {
                   "entities": [
-                    "lead"
+                    "contact"
                   ],
                   "name": "VisitReport"
                 },
@@ -522,7 +522,7 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
                 },
                 "note": {
@@ -567,7 +567,7 @@
                 },
                 "visitreport_pdf": {
                   "entities": [
-                    "lead"
+                    "prospect"
                   ],
                   "name": "VisitReport"
                 },
@@ -578,7 +578,7 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
                 },
                 "note": {

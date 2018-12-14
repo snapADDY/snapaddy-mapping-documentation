@@ -21,7 +21,7 @@
     "defaultExport": {
       "mappings": {
         "person": {
-          "name": "{{firstName}} {{lastName}}",
+          "name": "{{ firstName }} {{ lastName }}",
           "org_id": "{{ org_id || _delete }}",
           "phone": [
             {
@@ -49,19 +49,19 @@
           ]
         },
         "organization": {
-          "name": "{{organization}}",
-          "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
+          "name": "{{ organization }}",
+          "address": "{{ street }} {{ zip }} {{ city }} {{ state }} {{ country }}"
         },
         "deal": {
-          "title": "{{deal_title}}",
-          "value": "{{deal_value}}",
-          "currency": "{{deal_currency}}",
-          "stage_id": "{{deal_stage}}",
-          "person_id": "{{person_id || _delete}}",
-          "org_id": "{{org_id || _delete}}"
+          "title": "{{ deal_title }}",
+          "value": "{{ deal_value }}",
+          "currency": "{{ deal_currency }}",
+          "stage_id": "{{ deal_stage }}",
+          "person_id": "{{ person_id || _delete }}",
+          "org_id": "{{ org_id || _delete }}"
         },
         "note": {
-          "note": "{{note}}"
+          "note": "{{ note }}"
         }
       },
       "workflows": {
@@ -142,8 +142,14 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
+              },
+              "visitreport_pdf": {
+                "entities": [
+                  "person"
+                ],
+                "name": "VisitReport"
               },
               "note": {
                 "entities": [
@@ -174,8 +180,8 @@
                 "email"
               ]
             },
-            "mainTemplate": "{{name}}",
-            "detailsTemplate": "{{org_name}}"
+            "mainTemplate": "{{ name }}",
+            "detailsTemplate": "{{ org_name }}"
           },
           {
             "type": "organization",
@@ -192,7 +198,7 @@
                 "name"
               ]
             },
-            "mainTemplate": "{{name}}",
+            "mainTemplate": "{{ name }}",
             "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
           },
           {
@@ -209,8 +215,8 @@
                 "title"
               ]
             },
-            "mainTemplate": "{{title}}",
-            "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
+            "mainTemplate": "{{ title }}",
+            "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{ org_name }}"
           },
           {
             "type": "activity",
@@ -227,8 +233,8 @@
                 "type"
               ]
             },
-            "mainTemplate": "{{subject}}",
-            "detailsTemplate": "{{type}}"
+            "mainTemplate": "{{ subject }}",
+            "detailsTemplate": "{{ type }}"
           }
         ]
       }
@@ -238,7 +244,7 @@
         "*": {
           "mappings": {
             "person": {
-              "name": "{{firstName}} {{lastName}}",
+              "name": "{{ firstName }} {{ lastName }}",
               "org_id": "{{ org_id || _delete }}",
               "phone": [
                 {
@@ -266,19 +272,19 @@
               ]
             },
             "organization": {
-              "name": "{{organization}}",
-              "address": "{{street}} {{zip}} {{city}} {{state}} {{country}}"
+              "name": "{{ organization }}",
+              "address": "{{ street }} {{ zip }} {{ city }} {{ state }} {{ country }}"
             },
             "deal": {
-              "title": "{{deal_title}}",
-              "value": "{{deal_value}}",
-              "currency": "{{deal_currency}}",
-              "stage_id": "{{deal_stage}}",
-              "person_id": "{{person_id || _delete}}",
-              "org_id": "{{org_id || _delete}}"
+              "title": "{{ deal_title }}",
+              "value": "{{ deal_value }}",
+              "currency": "{{ deal_currency }}",
+              "stage_id": "{{ deal_stage }}",
+              "person_id": "{{ person_id || _delete }}",
+              "org_id": "{{ org_id || _delete }}"
             },
             "note": {
-              "note": "{{ execute(getVisitreportNote)}}"
+              "note": "{{ execute(getVisitreportNote) }}"
             }
           },
           "activity": {}
@@ -363,8 +369,14 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
+                },
+                "visitreport_pdf": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "VisitReport"
                 },
                 "note": {
                   "entities": [
@@ -395,8 +407,8 @@
                   "email"
                 ]
               },
-              "mainTemplate": "{{name}}",
-              "detailsTemplate": "{{org_name}}"
+              "mainTemplate": "{{ name }}",
+              "detailsTemplate": "{{ org_name }}"
             },
             {
               "type": "organization",
@@ -411,7 +423,7 @@
                   "name"
                 ]
               },
-              "mainTemplate": "{{name}}",
+              "mainTemplate": "{{ name }}",
               "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
             },
             {
@@ -426,8 +438,8 @@
                   "title"
                 ]
               },
-              "mainTemplate": "{{title}}",
-              "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{org_name}}"
+              "mainTemplate": "{{ title }}",
+              "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{ org_name }}"
             },
             {
               "type": "activity",
@@ -442,8 +454,8 @@
                   "type"
                 ]
               },
-              "mainTemplate": "{{subject}}",
-              "detailsTemplate": "{{type}}"
+              "mainTemplate": "{{ subject }}",
+              "detailsTemplate": "{{ type }}"
             }
           ]
         }

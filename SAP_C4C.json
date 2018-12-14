@@ -167,12 +167,6 @@
                 ],
                 "name": "VCard back"
               },
-              "visitreport_pdf": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "VisitReport"
-              },
               "drawing": {
                 "entities": [
                   "lead"
@@ -192,7 +186,7 @@
                 "name": {
                   "*": "Attachment_${i}",
                   "PDF": "Attachment_${i}",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                 }
               },
               "note": {
@@ -238,12 +232,6 @@
                 ],
                 "name": "VCard back"
               },
-              "visitreport_pdf": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "VisitReport"
-              },
               "drawing": {
                 "entities": [
                   "contact"
@@ -263,7 +251,7 @@
                 "name": {
                   "*": "Attachment_${i}",
                   "PDF": "Attachment_${i}",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                 }
               },
               "note": {
@@ -444,7 +432,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {
@@ -515,7 +503,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {
