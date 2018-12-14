@@ -192,7 +192,7 @@
                 "name": {
                   "*": "Attachment_${i}",
                   "PDF": "Attachment_${i}",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                 }
               },
               "note": {
@@ -263,7 +263,7 @@
                 "name": {
                   "*": "Attachment_${i}",
                   "PDF": "Attachment_${i}",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                 }
               },
               "note": {
@@ -444,7 +444,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {
@@ -515,7 +515,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {

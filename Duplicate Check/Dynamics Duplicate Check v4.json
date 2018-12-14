@@ -13,7 +13,7 @@
                   {
                     "field": "EMailAddress1",
                     "operator": "allIn",
-                    "value": "{{address.email}}",
+                    "value": "{{ address.email }}",
                     "filters": [
                       "return !isEmailGeneric(address.email)"
                     ]

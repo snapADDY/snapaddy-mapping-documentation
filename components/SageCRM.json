@@ -1,0 +1,995 @@
+{
+  "sage": {
+    "defaultExport": {
+      "components": {
+        "lead": [
+          {
+            "type": "lead",
+            "duplicateCheckName": "lead",
+            "label": {
+              "en": "Lead",
+              "de": "Interessent"
+            },
+            "fields": {
+              "leadid": {
+                "id": "leadid",
+                "type": "input",
+                "label": {
+                  "en": "id",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "assigneduserid": {
+                "id": "assigneduserid",
+                "type": "input",
+                "label": {
+                  "en": "Zugewiesen an",
+                  "de": "Assigned to"
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "personsalutation": {
+                "id": "personsalutation",
+                "type": "select",
+                "label": {
+                  "en": "Salutation",
+                  "de": "Anrede"
+                },
+                "properties": {}
+              },
+              "personfirstname": {
+                "id": "personfirstname",
+                "type": "input",
+                "label": {
+                  "en": "Firstname",
+                  "de": "Vorname"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "personlastname": {
+                "id": "personlastname",
+                "type": "input",
+                "label": {
+                  "en": "Lastname",
+                  "de": "Nachname"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "companywebsite": {
+                "id": "companywebsite",
+                "type": "input",
+                "label": {
+                  "en": "Website",
+                  "de": "Website"
+                },
+                "properties": {}
+              },
+              "persontitle": {
+                "id": "persontitle",
+                "type": "input",
+                "label": {
+                  "en": "Title",
+                  "de": "Titel"
+                },
+                "properties": {}
+              },
+              "personemail": {
+                "id": "personemail",
+                "type": "input",
+                "label": {
+                  "en": "Email",
+                  "de": "E-Mail"
+                },
+                "properties": {}
+              },
+              "personphonecountrycode": {
+                "id": "personphonecountrycode",
+                "type": "input",
+                "label": {
+                  "en": "Phone - Countrycode",
+                  "de": "Telefon - Landesvorwahl"
+                },
+                "properties": {}
+              },
+              "personphoneareacode": {
+                "id": "personphoneareacode",
+                "type": "input",
+                "label": {
+                  "en": "Phone - AreaCode",
+                  "de": "Telefon - Ortsvorwahl"
+                },
+                "properties": {}
+              },
+              "personphonenumber": {
+                "id": "personphonenumber",
+                "type": "input",
+                "label": {
+                  "en": "Phone",
+                  "de": "Telefonnummer"
+                },
+                "properties": {}
+              },
+              "personfaxcountrycode": {
+                "id": "personfaxcountrycode",
+                "type": "input",
+                "label": {
+                  "en": "Fax - Countrycode",
+                  "de": "Fax - Landesvorwahl"
+                },
+                "properties": {}
+              },
+              "personfaxareacode": {
+                "id": "personfaxareacode",
+                "type": "input",
+                "label": {
+                  "en": "Fax - AreaCode",
+                  "de": "Fax - Ortsvorwahl"
+                },
+                "properties": {}
+              },
+              "personfaxnumber": {
+                "id": "personfaxnumber",
+                "type": "input",
+                "label": {
+                  "en": "Fax",
+                  "de": "Faxnummer"
+                },
+                "properties": {}
+              },
+              "companyaddress1": {
+                "id": "companyaddress1",
+                "type": "input",
+                "label": {
+                  "en": "Address 1",
+                  "de": "Adresse 1"
+                },
+                "properties": {}
+              },
+              "companycity": {
+                "id": "companycity",
+                "type": "input",
+                "label": {
+                  "en": "City",
+                  "de": "Stadt"
+                },
+                "properties": {}
+              },
+              "companypostcode": {
+                "id": "companypostcode",
+                "type": "input",
+                "label": {
+                  "en": "Zip",
+                  "de": "PLZ"
+                },
+                "properties": {}
+              },
+              "companystate": {
+                "id": "companystate",
+                "type": "input",
+                "label": {
+                  "en": "State",
+                  "de": "Bundesland"
+                },
+                "properties": {}
+              },
+              "companycountry": {
+                "id": "companycountry",
+                "type": "input",
+                "label": {
+                  "en": "Country",
+                  "de": "Land"
+                },
+                "properties": {}
+              },
+              "companyname": {
+                "id": "companyname",
+                "type": "input",
+                "label": {
+                  "en": "Companyname",
+                  "de": "Firmenname"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "source": {
+                "id": "source",
+                "type": "select",
+                "label": {
+                  "en": "Source",
+                  "de": "Quelle"
+                },
+                "properties": {}
+              },
+              "status": {
+                "id": "status",
+                "type": "select",
+                "label": {
+                  "en": "Status",
+                  "de": "Status"
+                },
+                "properties": {}
+              },
+              "stage": {
+                "id": "stage",
+                "type": "select",
+                "label": {
+                  "en": "Stage",
+                  "de": "Phase"
+                },
+                "properties": {}
+              },
+              "description": {
+                "id": "description",
+                "type": "input",
+                "label": {
+                  "en": "Description",
+                  "de": "Beschreibung"
+                },
+                "properties": {}
+              },
+              "details": {
+                "id": "details",
+                "type": "textArea",
+                "label": {
+                  "en": "Details",
+                  "de": "Details"
+                },
+                "properties": {}
+              }
+            },
+            "search": {
+              "ids": [
+                "personfirstname",
+                "personlastname"
+              ]
+            },
+            "mainTemplate": "{{ personsalutation }} {{ personfirstname }} {{ personlastname }}",
+            "detailsTemplate": "{{ company }}"
+          }
+        ],
+        "contact_account": [
+          {
+            "type": "contact",
+            "duplicateCheckName": "contact",
+            "label": {
+              "en": "Person",
+              "de": "Person"
+            },
+            "fields": {
+              "personid": {
+                "id": "personid",
+                "type": "input",
+                "label": {
+                  "en": "id",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "primaryaddressid": {
+                "id": "primaryaddressid",
+                "type": "input",
+                "label": {
+                  "en": "primaryaddressid",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "gender": {
+                "id": "gender",
+                "type": "select",
+                "label": {
+                  "en": "Gender",
+                  "de": "Geschlecht"
+                },
+                "properties": {}
+              },
+              "salutation": {
+                "id": "salutation",
+                "type": "select",
+                "label": {
+                  "en": "Salutation",
+                  "de": "Anrede"
+                },
+                "properties": {}
+              },
+              "firstname": {
+                "id": "firstname",
+                "type": "input",
+                "label": {
+                  "en": "Firstname",
+                  "de": "Vorname"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "lastname": {
+                "id": "lastname",
+                "type": "input",
+                "label": {
+                  "en": "LastName",
+                  "de": "Nachname"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "titlecode": {
+                "id": "titlecode",
+                "type": "select",
+                "label": {
+                  "en": "Position",
+                  "de": "Funktion"
+                },
+                "properties": {}
+              },
+              "title": {
+                "id": "title",
+                "type": "input",
+                "label": {
+                  "en": "Title",
+                  "de": "Titel"
+                },
+                "properties": {}
+              },
+              "website": {
+                "id": "website",
+                "type": "input",
+                "label": {
+                  "en": "Website",
+                  "de": "Website"
+                },
+                "properties": {}
+              },
+              "companyid": {
+                "id": "companyid",
+                "type": "input",
+                "label": {
+                  "en": "companyid",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true
+                }
+              },
+              "source": {
+                "id": "source",
+                "type": "select",
+                "label": {
+                  "en": "Source",
+                  "de": "Quelle"
+                },
+                "properties": {}
+              },
+              "status": {
+                "id": "status",
+                "type": "select",
+                "label": {
+                  "en": "Status",
+                  "de": "Status"
+                },
+                "properties": {}
+              },
+              "email": {
+                "id": "email",
+                "label": {
+                  "en": "Email",
+                  "de": "E-Mail"
+                },
+                "type": "sageSubEmail",
+                "properties": {
+                  "options": [
+                    {
+                      "id": "emailaddress",
+                      "label": {
+                        "en": "Address",
+                        "de": "Adresse"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "type",
+                      "label": {
+                        "en": "Type",
+                        "de": "Typ"
+                      },
+                      "type": "select",
+                      "properties": {
+                        "options": [
+                          {
+                            "label": {
+                              "en": "Business",
+                              "de": "Geschäftlich"
+                            },
+                            "value": "business"
+                          },
+                          {
+                            "label": {
+                              "en": "Home",
+                              "de": "Privat"
+                            },
+                            "value": "home"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "phone": {
+                "id": "phone",
+                "label": {
+                  "en": "Phone",
+                  "de": "Telefonnummer"
+                },
+                "type": "sageSubPhone",
+                "properties": {
+                  "options": [
+                    {
+                      "id": "countrycode",
+                      "label": {
+                        "en": "Countrycode",
+                        "de": "Ländervorwahl"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "areacode",
+                      "label": {
+                        "en": "Areacode",
+                        "de": "Ortsvorwahl"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "number",
+                      "label": {
+                        "en": "Phone",
+                        "de": "Telefonnummer"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "type",
+                      "label": {
+                        "en": "Type",
+                        "de": "Typ"
+                      },
+                      "type": "select",
+                      "properties": {
+                        "options": [
+                          {
+                            "label": {
+                              "en": "Business",
+                              "de": "Geschäftlich"
+                            },
+                            "value": "business"
+                          },
+                          {
+                            "label": {
+                              "en": "Fax",
+                              "de": "Fax"
+                            },
+                            "value": "fax"
+                          },
+                          {
+                            "label": {
+                              "en": "Home",
+                              "de": "Privat"
+                            },
+                            "value": "home"
+                          },
+                          {
+                            "label": {
+                              "en": "Mobile",
+                              "de": "Mobil"
+                            },
+                            "value": "mobile"
+                          },
+                          {
+                            "label": {
+                              "en": "Pager",
+                              "de": "Pager"
+                            },
+                            "value": "pager"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "address": {
+                "id": "address",
+                "label": {
+                  "en": "Primary address",
+                  "de": "Hauptadresse"
+                },
+                "type": "sageSubAddress",
+                "properties": {
+                  "options": [
+                    {
+                      "id": "address1",
+                      "label": {
+                        "en": "Address 1",
+                        "de": "Adresse 1"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address2",
+                      "label": {
+                        "en": "Address 2",
+                        "de": "Adresse 2"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address3",
+                      "label": {
+                        "en": "Address 3",
+                        "de": "Adresse 3"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address4",
+                      "label": {
+                        "en": "Address 4",
+                        "de": "Adresse 4"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address5",
+                      "label": {
+                        "en": "Address 5",
+                        "de": "Adresse 5"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "city",
+                      "label": {
+                        "en": "City",
+                        "de": "Stadt"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "postcode",
+                      "label": {
+                        "en": "Zip",
+                        "de": "PLZ"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "state",
+                      "label": {
+                        "en": "State",
+                        "de": "Bundesland"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "country",
+                      "label": {
+                        "en": "Country",
+                        "de": "Land"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "type",
+                      "label": {
+                        "en": "Type",
+                        "de": "Typ"
+                      },
+                      "type": "multiselect",
+                      "properties": {
+                        "options": [
+                          {
+                            "label": {
+                              "en": "Business",
+                              "de": "Geschäftlich"
+                            },
+                            "value": "business"
+                          },
+                          {
+                            "label": {
+                              "en": "Billing",
+                              "de": "Rechnungsadresse"
+                            },
+                            "value": "billing"
+                          },
+                          {
+                            "label": {
+                              "en": "Shipping",
+                              "de": "Lieferadresse"
+                            },
+                            "value": "shipping"
+                          },
+                          {
+                            "label": {
+                              "en": "home",
+                              "de": "Privat"
+                            },
+                            "value": "home"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "search": {
+              "ids": [
+                "firstname",
+                "lastname"
+              ]
+            },
+            "mainTemplate": "{{ salutation }} {{ firstname }} {{ lastname }}",
+            "detailsTemplate": "{{ email.records[0].emailaddress }}"
+          },
+          {
+            "type": "company",
+            "duplicateCheckName": "account",
+            "label": {
+              "en": "Company",
+              "GB": "Company",
+              "de": "Firma",
+              "DE": "Firma"
+            },
+            "fields": {
+              "companyid": {
+                "id": "companyid",
+                "type": "input",
+                "label": {
+                  "en": "id",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "primaryuserid": {
+                "id": "primaryuserid",
+                "type": "input",
+                "label": {
+                  "en": "primaryuserid",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "primaryaddressid": {
+                "id": "primaryaddressid",
+                "type": "input",
+                "label": {
+                  "en": "primaryaddressid",
+                  "de": ""
+                },
+                "properties": {
+                  "hidden": true,
+                  "identifier": true
+                }
+              },
+              "name": {
+                "id": "name",
+                "type": "input",
+                "label": {
+                  "en": "Name",
+                  "de": "Name"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "website": {
+                "id": "website",
+                "type": "input",
+                "label": {
+                  "en": "Website",
+                  "de": "Website"
+                },
+                "properties": {}
+              },
+              "status": {
+                "id": "status",
+                "type": "input",
+                "label": {
+                  "en": "Status",
+                  "de": "Status"
+                },
+                "properties": {}
+              },
+              "email": {
+                "id": "email",
+                "label": {
+                  "en": "Email",
+                  "de": "E-Mail"
+                },
+                "type": "sageSubEmail",
+                "properties": {
+                  "options": [
+                    {
+                      "id": "emailaddress",
+                      "label": {
+                        "en": "Address",
+                        "de": "Adresse"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "type",
+                      "label": {
+                        "en": "Type",
+                        "de": "Typ"
+                      },
+                      "type": "select",
+                      "properties": {
+                        "options": [
+                          {
+                            "label": {
+                              "en": "Business",
+                              "de": "Geschäftlich"
+                            },
+                            "value": "business"
+                          },
+                          {
+                            "label": {
+                              "en": "Home",
+                              "de": "Privat"
+                            },
+                            "value": "home"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "phone": {
+                "id": "phone",
+                "label": {
+                  "en": "Phone",
+                  "de": "Telefonnummer"
+                },
+                "type": "sageSubPhone",
+                "properties": {
+                  "options": [
+                    {
+                      "id": "countrycode",
+                      "label": {
+                        "en": "Countrycode",
+                        "de": "Ländervorwahl"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "areacode",
+                      "label": {
+                        "en": "Areacode",
+                        "de": "Ortsvorwahl"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "number",
+                      "label": {
+                        "en": "Phone",
+                        "de": "Telefonnummer"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "type",
+                      "label": {
+                        "en": "Type",
+                        "de": "Typ"
+                      },
+                      "type": "select",
+                      "properties": {
+                        "options": [
+                          {
+                            "label": {
+                              "en": "Business",
+                              "de": "Geschäftlich"
+                            },
+                            "value": "business"
+                          },
+                          {
+                            "label": {
+                              "en": "Fax",
+                              "de": "Fax"
+                            },
+                            "value": "fax"
+                          },
+                          {
+                            "label": {
+                              "en": "Home",
+                              "de": "Privat"
+                            },
+                            "value": "home"
+                          },
+                          {
+                            "label": {
+                              "en": "Mobile",
+                              "de": "Mobil"
+                            },
+                            "value": "mobile"
+                          },
+                          {
+                            "label": {
+                              "en": "Pager",
+                              "de": "Pager"
+                            },
+                            "value": "pager"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "address": {
+                "id": "address",
+                "label": {
+                  "en": "Primary address",
+                  "de": "Hauptadresse"
+                },
+                "type": "sageSubAddress",
+                "properties": {
+                  "options": [
+                    {
+                      "id": "address1",
+                      "label": {
+                        "en": "Address 1",
+                        "de": "Adresse 1"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address2",
+                      "label": {
+                        "en": "Address 2",
+                        "de": "Adresse 2"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address3",
+                      "label": {
+                        "en": "Address 3",
+                        "de": "Adresse 3"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address4",
+                      "label": {
+                        "en": "Address 4",
+                        "de": "Adresse 4"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "address5",
+                      "label": {
+                        "en": "Address 5",
+                        "de": "Adresse 5"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "city",
+                      "label": {
+                        "en": "City",
+                        "de": "Stadt"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "postcode",
+                      "label": {
+                        "en": "Zip",
+                        "de": "PLZ"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "state",
+                      "label": {
+                        "en": "State",
+                        "de": "Bundesland"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "country",
+                      "label": {
+                        "en": "Country",
+                        "de": "Land"
+                      },
+                      "type": "input"
+                    },
+                    {
+                      "id": "type",
+                      "label": {
+                        "en": "Type",
+                        "de": "Typ"
+                      },
+                      "type": "multiselect",
+                      "properties": {
+                        "options": [
+                          {
+                            "label": {
+                              "en": "Business",
+                              "de": "Geschäftlich"
+                            },
+                            "value": "business"
+                          },
+                          {
+                            "label": {
+                              "en": "Billing",
+                              "de": "Rechnungsadresse"
+                            },
+                            "value": "billing"
+                          },
+                          {
+                            "label": {
+                              "en": "Shipping",
+                              "de": "Lieferadresse"
+                            },
+                            "value": "shipping"
+                          },
+                          {
+                            "label": {
+                              "en": "home",
+                              "de": "Privat"
+                            },
+                            "value": "home"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "search": {
+              "ids": [
+                "name"
+              ]
+            },
+            "mainTemplate": "{{ name }}",
+            "detailsTemplate": "{{ address.records[0].postcode }} {{ address.records[0].city }}"
+          }
+        ]
+      }
+    }
+  }
+}

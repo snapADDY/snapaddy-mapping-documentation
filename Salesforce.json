@@ -26,56 +26,56 @@
       "mappings": {
         "lead": {
           "LeadSource": "{{ }}",
-          "LastName": "{{lastName}}",
-          "FirstName": "{{firstName}}",
+          "LastName": "{{ lastName }}",
+          "FirstName": "{{ firstName }}",
           "Salutation": "{{ execute(salutationFunction) }}",
-          "Title": "{{position}}",
-          "Company": "{{organization}}",
-          "Street": "{{street}}",
-          "City": "{{city}}",
-          "State": "{{state}}",
-          "PostalCode": "{{zip}}",
-          "Country": "{{country}}",
-          "Phone": "{{phone}}",
-          "MobilePhone": "{{mobile}}",
-          "Fax": "{{fax}}",
-          "Email": "{{email}}",
-          "Website": "{{website}}",
+          "Title": "{{ position }}",
+          "Company": "{{ organization }}",
+          "Street": "{{ street }}",
+          "City": "{{ city }}",
+          "State": "{{ state }}",
+          "PostalCode": "{{ zip }}",
+          "Country": "{{ country }}",
+          "Phone": "{{ phone }}",
+          "MobilePhone": "{{ mobile }}",
+          "Fax": "{{ fax }}",
+          "Email": "{{ email }}",
+          "Website": "{{ website }}",
           "Status": "{{ }}",
           "RecordTypeId": "{{ }}"
         },
         "contact": {
-          "LastName": "{{lastName}}",
-          "FirstName": "{{firstName}}",
-          "Title": "{{position}}",
+          "LastName": "{{ lastName }}",
+          "FirstName": "{{ firstName }}",
+          "Title": "{{ position }}",
           "Salutation": "{{ execute(salutationFunction) }}",
-          "MailingStreet": "{{street}}",
-          "MailingCity": "{{city}}",
-          "MailingState": "{{state}}",
-          "MailingPostalCode": "{{zip}}",
-          "MailingCountry": "{{country}}",
-          "MobilePhone": "{{mobile}}",
-          "Phone": "{{phone}}",
-          "Fax": "{{fax}}",
-          "Email": "{{email}}",
+          "MailingStreet": "{{ street }}",
+          "MailingCity": "{{ city }}",
+          "MailingState": "{{ state }}",
+          "MailingPostalCode": "{{ zip }}",
+          "MailingCountry": "{{ country }}",
+          "MobilePhone": "{{ mobile }}",
+          "Phone": "{{ phone }}",
+          "Fax": "{{ fax }}",
+          "Email": "{{ email }}",
           "RecordTypeId": "{{ }}"
         },
         "account": {
-          "Name": "{{organization}}",
+          "Name": "{{ organization }}",
           "RecordTypeId": "{{ }}",
-          "BillingStreet": "{{street}}",
-          "BillingCity": "{{city}}",
-          "BillingState": "{{state}}",
-          "BillingPostalCode": "{{zip}}",
-          "BillingCountry": "{{country}}",
-          "ShippingStreet": "{{street}}",
-          "ShippingCity": "{{city}}",
-          "ShippingState": "{{state}}",
-          "ShippingPostalCode": "{{zip}}",
-          "ShippingCountry": "{{country}}",
-          "Phone": "{{phone || mobile}}",
-          "Fax": "{{fax}}",
-          "Website": "{{website}}"
+          "BillingStreet": "{{ street }}",
+          "BillingCity": "{{ city }}",
+          "BillingState": "{{ state }}",
+          "BillingPostalCode": "{{ zip }}",
+          "BillingCountry": "{{ country }}",
+          "ShippingStreet": "{{ street }}",
+          "ShippingCity": "{{ city }}",
+          "ShippingState": "{{ state }}",
+          "ShippingPostalCode": "{{ zip }}",
+          "ShippingCountry": "{{ country }}",
+          "Phone": "{{ phone || mobile }}",
+          "Fax": "{{ fax }}",
+          "Website": "{{ website }}"
         }
       },
       "workflows": {
@@ -136,7 +136,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -214,7 +214,7 @@
                 "name": {
                   "*": "Attachment_${i}.png",
                   "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                 }
               },
               "note": {
@@ -236,57 +236,57 @@
       "mappings": {
         "*": {
           "lead": {
-            "LeadSource": "{{}}",
-            "LastName": "{{lastName}}",
-            "FirstName": "{{firstName}}",
+            "LeadSource": "{{ }}",
+            "LastName": "{{ lastName }}",
+            "FirstName": "{{ firstName }}",
             "Salutation": "{{ execute(salutationFunction) }}",
-            "Title": "{{position}}",
-            "Company": "{{organization}}",
-            "Street": "{{street}}",
-            "City": "{{city}}",
-            "State": "{{state}}",
-            "PostalCode": "{{zip}}",
-            "Country": "{{country}}",
-            "Phone": "{{phone}}",
-            "MobilePhone": "{{mobile}}",
-            "Fax": "{{fax}}",
-            "Email": "{{email}}",
-            "Website": "{{website}}",
+            "Title": "{{ position }}",
+            "Company": "{{ organization }}",
+            "Street": "{{ street }}",
+            "City": "{{ city }}",
+            "State": "{{ state }}",
+            "PostalCode": "{{ zip }}",
+            "Country": "{{ country }}",
+            "Phone": "{{ phone }}",
+            "MobilePhone": "{{ mobile }}",
+            "Fax": "{{ fax }}",
+            "Email": "{{ email }}",
+            "Website": "{{ website }}",
             "Status": "{{ }}",
             "RecordTypeId": "{{ }}"
           },
           "contact": {
-            "LastName": "{{lastName}}",
-            "FirstName": "{{firstName}}",
-            "Title": "{{position}}",
+            "LastName": "{{ lastName }}",
+            "FirstName": "{{ firstName }}",
+            "Title": "{{ position }}",
             "Salutation": "{{ execute(salutationFunction) }}",
-            "MailingStreet": "{{street}}",
-            "MailingCity": "{{city}}",
-            "MailingState": "{{state}}",
-            "MailingPostalCode": "{{zip}}",
-            "MailingCountry": "{{country}}",
-            "MobilePhone": "{{mobile}}",
-            "Phone": "{{phone}}",
-            "Fax": "{{fax}}",
-            "Email": "{{email}}",
+            "MailingStreet": "{{ street }}",
+            "MailingCity": "{{ city }}",
+            "MailingState": "{{ state }}",
+            "MailingPostalCode": "{{ zip }}",
+            "MailingCountry": "{{ country }}",
+            "MobilePhone": "{{ mobile }}",
+            "Phone": "{{ phone }}",
+            "Fax": "{{ fax }}",
+            "Email": "{{ email }}",
             "RecordTypeId": "{{ }}"
           },
           "account": {
-            "Name": "{{organization}}",
+            "Name": "{{ organization }}",
             "RecordTypeId": "{{ }}",
-            "BillingStreet": "{{street}}",
-            "BillingCity": "{{city}}",
-            "BillingState": "{{state}}",
-            "BillingPostalCode": "{{zip}}",
-            "BillingCountry": "{{country}}",
-            "ShippingStreet": "{{street}}",
-            "ShippingCity": "{{city}}",
-            "ShippingState": "{{state}}",
-            "ShippingPostalCode": "{{zip}}",
-            "ShippingCountry": "{{country}}",
-            "Phone": "{{phone || mobile}}",
-            "Fax": "{{fax}}",
-            "Website": "{{website}}"
+            "BillingStreet": "{{ street }}",
+            "BillingCity": "{{ city }}",
+            "BillingState": "{{ state }}",
+            "BillingPostalCode": "{{ zip }}",
+            "BillingCountry": "{{ country }}",
+            "ShippingStreet": "{{ street }}",
+            "ShippingCity": "{{ city }}",
+            "ShippingState": "{{ state }}",
+            "ShippingPostalCode": "{{ zip }}",
+            "ShippingCountry": "{{ country }}",
+            "Phone": "{{ phone || mobile }}",
+            "Fax": "{{ fax }}",
+            "Website": "{{ website }}"
           },
           "campaignMember": {
             "CampaignId": "{{ visitreport.campaignId }}"
@@ -358,7 +358,7 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
                 },
                 "note": {
@@ -442,7 +442,7 @@
                   "name": {
                     "*": "Attachment_${i}.png",
                     "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i}).pdf"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
                   }
                 },
                 "note": {

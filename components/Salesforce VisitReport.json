@@ -799,7 +799,7 @@
               ]
             },
             "mainTemplate": "{{ Name }}",
-            "detailsTemplate": "{{ BillingPostalCode ? (BillingPostalCode + ' - ') : '' }} {{BillingCity}}"
+            "detailsTemplate": "{{ BillingPostalCode ? (BillingPostalCode + ' - ') : '' }} {{ BillingCity }}"
           },
           {
             "type": "campaignMember",
