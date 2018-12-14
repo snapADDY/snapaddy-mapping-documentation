@@ -1,0 +1,40 @@
+{
+  "excel": {
+    "defaultExport": {
+      "mappings": {
+        "data": {
+          "Anrede": "{{}}",
+          "Titel": "{{ title }}",
+          "Position": "{{ position }}",
+          "Vorname": "{{ lastName }}",
+          "Nachname": "{{ lastName }}",
+          "E-mail": "{{ email }}",
+          "Firma": "{{ organization }}",
+          "Website": "{{ website }}",
+          "PO Box": "{{ poBox }}",
+          "Ust-IdNr.": "{{ vat }}",
+          "Telefon": "{{ phone }}",
+          "Mobil": "{{ mobile }}",
+          "Fax": "{{ fax }}",
+          "Straße": "{{ street }}",
+          "Adresszusatz": "{{ street2 }}",
+          "Stadt": "{{ city }}",
+          "PLZ": "{{ zip }}",
+          "Bundesland": "{{ state }}",
+          "Land": "{{ country }}",
+          "Notiz": "{{ note }}",
+          "Branche": "{{ industry }}",
+          "Firmengröße": "{{ companySize }}",
+          "Umsatz": "{{ revenue }}"
+        }
+      }
+    },
+    "code": {
+      "data": {
+        "pre": [],
+        "post": []
+      },
+      "functions": {}
+    }
+  }
+}
