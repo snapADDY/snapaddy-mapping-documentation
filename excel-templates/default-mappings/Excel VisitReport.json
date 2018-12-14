@@ -1,0 +1,41 @@
+{
+  "excel": {
+    "visitreport": {
+      "mappings": {
+        "*": {
+          "data": {
+            "Erstellt am": "{{ created }}",
+            "Erstellt von": "{{ createdByName || createdBy }}",
+            "Report ID": "{{ ('0000' + index).substr(-4) }}",
+            "Anrede": "{{}}",
+            "Titel": "{{ title }}",
+            "Position": "{{ position }}",
+            "Vorname": "{{ lastName }}",
+            "Nachname": "{{ lastName }}",
+            "E-mail": "{{ email }}",
+            "Firma": "{{ organization }}",
+            "Website": "{{ website }}",
+            "PO Box": "{{ poBox }}",
+            "Ust-IdNr.": "{{ vat }}",
+            "Telefon": "{{ phone }}",
+            "Mobil": "{{ mobile }}",
+            "Fax": "{{ fax }}",
+            "Straße": "{{ street }}",
+            "Stadt": "{{ city }}",
+            "PLZ": "{{ zip }}",
+            "Bundesland": "{{ state }}",
+            "Land": "{{ country }}",
+            "Anzahl von Anhängen": "{{ attachments.length + (drawing? 1 : 0) }}"
+          }
+        }
+      }
+    },
+    "code": {
+      "data": {
+        "pre": [],
+        "post": []
+      },
+      "functions": {}
+    }
+  }
+}
