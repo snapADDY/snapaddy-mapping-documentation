@@ -179,17 +179,22 @@
         "lead": [
           {
             "entity": "lead"
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "note": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "snapADDY Grabber Note"
+              }
+            }
           }
         ],
         "contact_account": [
           {
-            "entity": "company",
-            "dependsOn": [
-              {
-                "field": "accountid",
-                "entity": "account"
-              }
-            ]
+            "entity": "company"
           },
           {
             "entity": "contact",
@@ -199,6 +204,17 @@
                 "entity": "company"
               }
             ]
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "note": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "snapADDY Grabber Note"
+              }
+            }
           }
         ]
       },
@@ -1303,6 +1319,17 @@
             "lead": [
               {
                 "entity": "lead"
+              },
+              {
+                "entity": "attachments",
+                "config": {
+                  "note": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "snapADDY Visitreport Note"
+                  }
+                }
               }
             ],
             "contact_account": [
@@ -1317,6 +1344,17 @@
                     "entity": "company"
                   }
                 ]
+              },
+              {
+                "entity": "attachments",
+                "config": {
+                  "note": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "snapADDY Visitreport Note"
+                  }
+                }
               }
             ]
           }
