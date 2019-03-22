@@ -1,586 +1,586 @@
 {
-  "sap_c4c": {
-    "meta": {
-      "lead": {
-        "apiName": "LeanLeadCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": "LeadID"
-      },
-      "contact": {
-        "apiName": "ContactCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": "ContactID"
-      },
-      "account": {
-        "apiName": "AccountCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": "AccountID"
-      },
-      "opportunity": {
-        "apiName": "OpportunityCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": "OpportunityID"
-      },
-      "lead_attachment": {
-        "apiName": "LeanLeadAttachmentFolderCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": null,
-        "typeCodes": {
-          "*": "10001",
-          "IMAGE": "10001",
-          "DRAWING": "10001",
-          "BCIMAGE": "10001",
-          "BCIMAGEBACKSIDE": "10001",
-          "NOTE": "10032",
-          "PDF": "10001",
-          "SIGNATURE": "10001"
-        }
-      },
-      "contact_attachment": {
-        "apiName": "ContactAttachmentCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": null,
-        "typeCodes": {
-          "*": "10001",
-          "IMAGE": "10001",
-          "DRAWING": "10001",
-          "BCIMAGE": "10001",
-          "BCIMAGEBACKSIDE": "10001",
-          "NOTE": "10032",
-          "PDF": "10001",
-          "SIGNATURE": "10001"
-        }
-      },
-      "account_attachment": {
-        "apiName": "AccountAttachmentCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": null,
-        "typeCodes": {
-          "*": "10001",
-          "IMAGE": "10001",
-          "DRAWING": "10001",
-          "BCIMAGE": "10001",
-          "BCIMAGEBACKSIDE": "10001",
-          "NOTE": "10032",
-          "PDF": "10001",
-          "SIGNATURE": "10001"
-        }
-      },
-      "opportunity_attachment": {
-        "apiName": "OpportunityAttachmentCollection",
-        "idProperty": "ObjectID",
-        "uuidProperty": "UUID",
-        "entityIdProperty": null,
-        "typeCodes": {
-          "*": "10001",
-          "IMAGE": "10001",
-          "DRAWING": "10001",
-          "BCIMAGE": "10001",
-          "BCIMAGEBACKSIDE": "10001",
-          "NOTE": "10032",
-          "PDF": "10001",
-          "SIGNATURE": "10001"
-        }
-      }
-    },
-    "defaultExport": {
-      "components": {
-        "lead": [
-          {
-            "type": "lead",
-            "mainTemplate": "{{ ContactFirstName }} {{ ContactLastName }}",
-            "detailsTemplate": "{{ Company }}",
-            "duplicateCheckName": "lead",
-            "fields": {},
-            "label": {
-              "de": "Lead",
-              "en": "Lead"
+    "sap_c4c": {
+        "meta": {
+            "lead": {
+                "apiName": "LeanLeadCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": "LeadID"
             },
-            "search": {
-              "ids": [
-                "ContactFirstName",
-                "ContactLastName"
-              ]
-            }
-          }
-        ],
-        "contact_account": [
-          {
-            "type": "contact",
-            "mainTemplate": "{{ FirstName }} {{ LastName }}",
-            "detailsTemplate": "{{ AccountName }}",
-            "duplicateCheckName": "contact",
-            "fields": {},
-            "label": {
-              "de": "Ansprechpartner",
-              "en": "Contact"
+            "contact": {
+                "apiName": "ContactCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": "ContactID"
             },
-            "search": {
-              "ids": [
-                "FirstName",
-                "LastName"
-              ]
-            }
-          },
-          {
-            "type": "account",
-            "mainTemplate": "{{ AccountName }}",
-            "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ CityName }}",
-            "duplicateCheckName": "account",
-            "fields": {},
-            "label": {
-              "de": "Kunde",
-              "en": "Account"
+            "account": {
+                "apiName": "AccountCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": "AccountID"
             },
-            "search": {
-              "ids": [
-                "AccountName"
-              ]
-            }
-          }
-        ]
-      },
-      "workflows": {
-        "lead": [
-          {
-            "entity": "lead"
-          },
-          {
-            "entity": "attachments",
-            "config": {
-              "bcImage": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "VCard front"
-              },
-              "bcImageBackside": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "VCard back"
-              },
-              "drawing": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "Drawing"
-              },
-              "image": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "Profile image"
-              },
-              "attachments": {
-                "entities": [
-                  "lead"
-                ],
-                "name": {
-                  "*": "Attachment_${i}",
-                  "PDF": "Attachment_${i}",
-                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+            "opportunity": {
+                "apiName": "OpportunityCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": "OpportunityID"
+            },
+            "lead_attachment": {
+                "apiName": "LeanLeadAttachmentFolderCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": null,
+                "typeCodes": {
+                    "*": "10001",
+                    "IMAGE": "10001",
+                    "DRAWING": "10001",
+                    "BCIMAGE": "10001",
+                    "BCIMAGEBACKSIDE": "10001",
+                    "NOTE": "10032",
+                    "PDF": "10001",
+                    "SIGNATURE": "10001"
                 }
-              },
-              "note": {
-                "entities": [
-                  "lead"
-                ],
-                "name": "snapADDY Note"
-              }
-            }
-          }
-        ],
-        "contact_account": [
-          {
-            "entity": "account"
-          },
-          {
-            "entity": "contact",
-            "dependsOn": [
-              {
-                "field": "AccountID",
-                "entity": "account",
-                "idType": "entity"
-              },
-              {
-                "field": "AccountUUID",
-                "entity": "account",
-                "idType": "uuid"
-              }
-            ]
-          },
-          {
-            "entity": "attachments",
-            "config": {
-              "bcImage": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "VCard front"
-              },
-              "bcImageBackside": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "VCard back"
-              },
-              "drawing": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "Drawing"
-              },
-              "image": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "Profile image"
-              },
-              "attachments": {
-                "entities": [
-                  "contact"
-                ],
-                "name": {
-                  "*": "Attachment_${i}",
-                  "PDF": "Attachment_${i}",
-                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+            },
+            "contact_attachment": {
+                "apiName": "ContactAttachmentCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": null,
+                "typeCodes": {
+                    "*": "10001",
+                    "IMAGE": "10001",
+                    "DRAWING": "10001",
+                    "BCIMAGE": "10001",
+                    "BCIMAGEBACKSIDE": "10001",
+                    "NOTE": "10032",
+                    "PDF": "10001",
+                    "SIGNATURE": "10001"
                 }
-              },
-              "note": {
-                "entities": [
-                  "contact"
-                ],
-                "name": "snapADDY Note"
-              }
+            },
+            "account_attachment": {
+                "apiName": "AccountAttachmentCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": null,
+                "typeCodes": {
+                    "*": "10001",
+                    "IMAGE": "10001",
+                    "DRAWING": "10001",
+                    "BCIMAGE": "10001",
+                    "BCIMAGEBACKSIDE": "10001",
+                    "NOTE": "10032",
+                    "PDF": "10001",
+                    "SIGNATURE": "10001"
+                }
+            },
+            "opportunity_attachment": {
+                "apiName": "OpportunityAttachmentCollection",
+                "idProperty": "ObjectID",
+                "uuidProperty": "UUID",
+                "entityIdProperty": null,
+                "typeCodes": {
+                    "*": "10001",
+                    "IMAGE": "10001",
+                    "DRAWING": "10001",
+                    "BCIMAGE": "10001",
+                    "BCIMAGEBACKSIDE": "10001",
+                    "NOTE": "10032",
+                    "PDF": "10001",
+                    "SIGNATURE": "10001"
+                }
             }
-          }
-        ]
-      },
-      "mappings": {
-        "lead": {
-          "Name": "{{ topic }}",
-          "ContactGenderCode": "{{ gender + 1 }}",
-          "ContactAcademicTitleCode": "{{ title }}",
-          "Company": "{{ organization }}",
-          "ContactFirstName": "{{ firstName }}",
-          "ContactLastName": "{{ lastName }}",
-          "GroupCode": "{{ }}",
-          "QualificationLevelCode": "{{ }}",
-          "OriginTypeCode": "{{ }}",
-          "PriorityCode": "{{ }}",
-          "ContactEMail": "{{ email }}",
-          "ContactPhone": "{{ phone }}",
-          "ContactMobile": "{{ mobile }}",
-          "AccountEMail": "{{ email }}",
-          "AccountPhone": "{{ phone }}",
-          "AccountMobile": "{{ mobile }}",
-          "AccountFax": "{{ fax }}",
-          "AccountCity": "{{ city }}",
-          "AccountState": "{{ state }}",
-          "AccountCountry": "{{ country }}",
-          "AccountPostalAddressElementsStreetName": "{{ street }}",
-          "AccountPostalAddressElementsStreetPostalCode": "{{ zip }}",
-          "AccountWebsite": "{{ website }}",
-          "AccountPostalAddressElementsPOBoxID": "{{ poBox }}"
         },
-        "contact": {
-          "TitleCode": "{{ (gender === 0? '0002' : ( gender === 1? '0001' : '' )) }}",
-          "GenderCode": "{{ gender + 1 }}",
-          "FirstName": "{{ firstName }}",
-          "LastName": "{{ lastName }}",
-          "JobTitle": "{{ position }}",
-          "StatusCode": "{{ }}",
-          "CategoryCode": "{{ }}",
-          "RoleCode": "{{ }}",
-          "Email": "{{ email }}",
-          "Fax": "{{ fax }}",
-          "Phone": "{{ phone }}",
-          "Mobile": "{{ mobile }}",
-          "BusinessAddressCity": "{{ city }}",
-          "BusinessAddressCountryCode": "{{ country }}",
-          "BusinessAddressStateCode": "{{ state }}",
-          "BusinessAddressStreet": "{{ street }}",
-          "BusinessAddressStreetPostalCode": "{{ zip }}"
+        "defaultExport": {
+            "mappings": {
+                "lead": {
+                    "Name": "{{ topic }}",
+                    "ContactGenderCode": "{{ gender + 1 }}",
+                    "ContactAcademicTitleCode": "{{ title }}",
+                    "Company": "{{ organization }}",
+                    "ContactFirstName": "{{ firstName }}",
+                    "ContactLastName": "{{ lastName }}",
+                    "GroupCode": "{{ }}",
+                    "QualificationLevelCode": "{{ }}",
+                    "OriginTypeCode": "{{ }}",
+                    "PriorityCode": "{{ }}",
+                    "ContactEMail": "{{ email }}",
+                    "ContactPhone": "{{ phone }}",
+                    "ContactMobile": "{{ mobile }}",
+                    "AccountEMail": "{{ email }}",
+                    "AccountPhone": "{{ phone }}",
+                    "AccountMobile": "{{ mobile }}",
+                    "AccountFax": "{{ fax }}",
+                    "AccountCity": "{{ city }}",
+                    "AccountState": "{{ state }}",
+                    "AccountCountry": "{{ country }}",
+                    "AccountPostalAddressElementsStreetName": "{{ street }}",
+                    "AccountPostalAddressElementsStreetPostalCode": "{{ zip }}",
+                    "AccountWebsite": "{{ website }}",
+                    "AccountPostalAddressElementsPOBoxID": "{{ poBox }}"
+                },
+                "contact": {
+                    "TitleCode": "{{ (gender === 0? '0002' : ( gender === 1? '0001' : '' )) }}",
+                    "GenderCode": "{{ gender + 1 }}",
+                    "FirstName": "{{ firstName }}",
+                    "LastName": "{{ lastName }}",
+                    "JobTitle": "{{ position }}",
+                    "StatusCode": "{{ }}",
+                    "CategoryCode": "{{ }}",
+                    "RoleCode": "{{ }}",
+                    "Email": "{{ email }}",
+                    "Fax": "{{ fax }}",
+                    "Phone": "{{ phone }}",
+                    "Mobile": "{{ mobile }}",
+                    "BusinessAddressCity": "{{ city }}",
+                    "BusinessAddressCountryCode": "{{ country }}",
+                    "BusinessAddressStateCode": "{{ state }}",
+                    "BusinessAddressStreet": "{{ street }}",
+                    "BusinessAddressStreetPostalCode": "{{ zip }}"
+                },
+                "account": {
+                    "AccountName": "{{ organization }}",
+                    "RoleCode": "{{ }}",
+                    "StatusCode": "{{ }}",
+                    "Phone": "{{ phone }}",
+                    "Fax": "{{ fax }}",
+                    "Mobile": "{{ mobile }}",
+                    "Web": "{{ website }}",
+                    "Email": "{{ email }}",
+                    "StreetName": "{{ street }}",
+                    "StreetPostalCode": "{{ zip }}",
+                    "CityName": "{{ city }}",
+                    "CountryCode": "{{ country }}",
+                    "RegionCode": "{{ state }}"
+                }
+            },
+            "workflows": {
+                "lead": [
+                    {
+                        "entity": "lead"
+                    },
+                    {
+                        "entity": "attachments",
+                        "config": {
+                            "bcImage": {
+                                "entities": [
+                                    "lead"
+                                ],
+                                "name": "VCard front"
+                            },
+                            "bcImageBackside": {
+                                "entities": [
+                                    "lead"
+                                ],
+                                "name": "VCard back"
+                            },
+                            "drawing": {
+                                "entities": [
+                                    "lead"
+                                ],
+                                "name": "Drawing"
+                            },
+                            "image": {
+                                "entities": [
+                                    "lead"
+                                ],
+                                "name": "Profile image"
+                            },
+                            "attachments": {
+                                "entities": [
+                                    "lead"
+                                ],
+                                "name": {
+                                    "*": "Attachment_${i}",
+                                    "PDF": "Attachment_${i}",
+                                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                                }
+                            },
+                            "note": {
+                                "entities": [
+                                    "lead"
+                                ],
+                                "name": "snapADDY Note"
+                            }
+                        }
+                    }
+                ],
+                "contact_account": [
+                    {
+                        "entity": "account"
+                    },
+                    {
+                        "entity": "contact",
+                        "dependsOn": [
+                            {
+                                "field": "AccountID",
+                                "entity": "account",
+                                "idType": "entity"
+                            },
+                            {
+                                "field": "AccountUUID",
+                                "entity": "account",
+                                "idType": "uuid"
+                            }
+                        ]
+                    },
+                    {
+                        "entity": "attachments",
+                        "config": {
+                            "bcImage": {
+                                "entities": [
+                                    "contact"
+                                ],
+                                "name": "VCard front"
+                            },
+                            "bcImageBackside": {
+                                "entities": [
+                                    "contact"
+                                ],
+                                "name": "VCard back"
+                            },
+                            "drawing": {
+                                "entities": [
+                                    "contact"
+                                ],
+                                "name": "Drawing"
+                            },
+                            "image": {
+                                "entities": [
+                                    "contact"
+                                ],
+                                "name": "Profile image"
+                            },
+                            "attachments": {
+                                "entities": [
+                                    "contact"
+                                ],
+                                "name": {
+                                    "*": "Attachment_${i}",
+                                    "PDF": "Attachment_${i}",
+                                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                                }
+                            },
+                            "note": {
+                                "entities": [
+                                    "contact"
+                                ],
+                                "name": "snapADDY Note"
+                            }
+                        }
+                    }
+                ]
+            },
+            "components": {
+                "lead": [
+                    {
+                        "type": "lead",
+                        "mainTemplate": "{{ ContactFirstName }} {{ ContactLastName }}",
+                        "detailsTemplate": "{{ Company }}",
+                        "duplicateCheckName": "lead",
+                        "fields": {},
+                        "label": {
+                            "de": "Lead",
+                            "en": "Lead"
+                        },
+                        "search": {
+                            "ids": [
+                                "ContactFirstName",
+                                "ContactLastName"
+                            ]
+                        }
+                    }
+                ],
+                "contact_account": [
+                    {
+                        "type": "contact",
+                        "mainTemplate": "{{ FirstName }} {{ LastName }}",
+                        "detailsTemplate": "{{ AccountName }}",
+                        "duplicateCheckName": "contact",
+                        "fields": {},
+                        "label": {
+                            "de": "Ansprechpartner",
+                            "en": "Contact"
+                        },
+                        "search": {
+                            "ids": [
+                                "FirstName",
+                                "LastName"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "account",
+                        "mainTemplate": "{{ AccountName }}",
+                        "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ CityName }}",
+                        "duplicateCheckName": "account",
+                        "fields": {},
+                        "label": {
+                            "de": "Kunde",
+                            "en": "Account"
+                        },
+                        "search": {
+                            "ids": [
+                                "AccountName"
+                            ]
+                        }
+                    }
+                ]
+            }
         },
-        "account": {
-          "AccountName": "{{ organization }}",
-          "RoleCode": "{{ }}",
-          "StatusCode": "{{ }}",
-          "Phone": "{{ phone }}",
-          "Fax": "{{ fax }}",
-          "Mobile": "{{ mobile }}",
-          "Web": "{{ website }}",
-          "Email": "{{ email }}",
-          "StreetName": "{{ street }}",
-          "StreetPostalCode": "{{ zip }}",
-          "CityName": "{{ city }}",
-          "CountryCode": "{{ country }}",
-          "RegionCode": "{{ state }}"
-        }
-      }
-    },
-    "visitreport": {
-      "components": {
-        "*": {
-          "lead": [
-            {
-              "type": "lead",
-              "mainTemplate": "{{ ContactFirstName }} {{ ContactLastName }}",
-              "detailsTemplate": "{{ Company }}",
-              "duplicateCheckName": "lead",
-              "fields": {},
-              "label": {
-                "de": "Lead",
-                "en": "Lead"
-              },
-              "search": {
-                "ids": [
-                  "ContactFirstName",
-                  "ContactLastName"
-                ]
-              }
-            }
-          ],
-          "contact_account": [
-            {
-              "type": "contact",
-              "mainTemplate": "{{ FirstName }} {{ LastName }}",
-              "detailsTemplate": "{{ AccountName }}",
-              "duplicateCheckName": "contact",
-              "fields": {},
-              "label": {
-                "de": "Ansprechpartner",
-                "en": "Contact"
-              },
-              "search": {
-                "ids": [
-                  "FirstName",
-                  "LastName"
-                ]
-              }
-            },
-            {
-              "type": "account",
-              "mainTemplate": "{{ AccountName }}",
-              "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ CityName }}",
-              "duplicateCheckName": "account",
-              "fields": {},
-              "label": {
-                "de": "Kunde",
-                "en": "Account"
-              },
-              "search": {
-                "ids": [
-                  "AccountName"
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "workflows": {
-        "*": {
-          "lead": [
-            {
-              "entity": "lead"
-            },
-            {
-              "entity": "attachments",
-              "config": {
-                "bcImage": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "VCard front"
-                },
-                "bcImageBackside": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "VCard back"
-                },
-                "visitreport_pdf": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "VisitReport"
-                },
-                "drawing": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "Drawing"
-                },
-                "image": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "Profile image"
-                },
-                "attachments": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": {
-                    "*": "Attachment_${i}",
-                    "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
-                  }
-                },
-                "note": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "snapADDY Note"
+        "visitreport": {
+            "mappings": {
+                "*": {
+                    "lead": {
+                        "Name": "{{ topic }}",
+                        "ContactGenderCode": "{{ gender + 1 }}",
+                        "ContactAcademicTitleCode": "{{ title }}",
+                        "Company": "{{ organization }}",
+                        "ContactFirstName": "{{ firstName }}",
+                        "ContactLastName": "{{ lastName }}",
+                        "GroupCode": "{{ }}",
+                        "QualificationLevelCode": "{{ }}",
+                        "OriginTypeCode": "{{ }}",
+                        "PriorityCode": "{{ }}",
+                        "ContactEMail": "{{ email }}",
+                        "ContactPhone": "{{ phone }}",
+                        "ContactMobile": "{{ mobile }}",
+                        "AccountEMail": "{{ email }}",
+                        "AccountPhone": "{{ phone }}",
+                        "AccountMobile": "{{ mobile }}",
+                        "AccountFax": "{{ fax }}",
+                        "AccountCity": "{{ city }}",
+                        "AccountState": "{{ state }}",
+                        "AccountCountry": "{{ country }}",
+                        "AccountPostalAddressElementsStreetName": "{{ street }}",
+                        "AccountPostalAddressElementsStreetPostalCode": "{{ zip }}",
+                        "AccountWebsite": "{{ website }}",
+                        "AccountPostalAddressElementsPOBoxID": "{{ poBox }}"
+                    },
+                    "contact": {
+                        "TitleCode": "{{ (gender === 0? '0002' : ( gender === 1? '0001' : '' )) }}",
+                        "GenderCode": "{{ gender + 1 }}",
+                        "FirstName": "{{ firstName }}",
+                        "LastName": "{{ lastName }}",
+                        "JobTitle": "{{ position }}",
+                        "StatusCode": "{{ }}",
+                        "CategoryCode": "{{ }}",
+                        "RoleCode": "{{ }}",
+                        "Email": "{{ email }}",
+                        "Fax": "{{ fax }}",
+                        "Phone": "{{ phone }}",
+                        "Mobile": "{{ mobile }}",
+                        "BusinessAddressCity": "{{ city }}",
+                        "BusinessAddressCountryCode": "{{ country }}",
+                        "BusinessAddressStateCode": "{{ state }}",
+                        "BusinessAddressStreet": "{{ street }}",
+                        "BusinessAddressStreetPostalCode": "{{ zip }}"
+                    },
+                    "account": {
+                        "AccountName": "{{ organization }}",
+                        "RoleCode": "{{ }}",
+                        "StatusCode": "{{ }}",
+                        "Phone": "{{ phone }}",
+                        "Fax": "{{ fax }}",
+                        "Mobile": "{{ mobile }}",
+                        "Web": "{{ website }}",
+                        "Email": "{{ email }}",
+                        "StreetName": "{{ street }}",
+                        "StreetPostalCode": "{{ zip }}",
+                        "CityName": "{{ city }}",
+                        "CountryCode": "{{ country }}",
+                        "RegionCode": "{{ state }}"
+                    }
                 }
-              }
-            }
-          ],
-          "contact_account": [
-            {
-              "entity": "account"
             },
-            {
-              "entity": "contact",
-              "dependsOn": [
-                {
-                  "field": "AccountID",
-                  "entity": "account",
-                  "idType": "entity"
-                },
-                {
-                  "field": "AccountUUID",
-                  "entity": "account",
-                  "idType": "uuid"
+            "workflows": {
+                "*": {
+                    "lead": [
+                        {
+                            "entity": "lead"
+                        },
+                        {
+                            "entity": "attachments",
+                            "config": {
+                                "bcImage": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": "VCard front"
+                                },
+                                "bcImageBackside": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": "VCard back"
+                                },
+                                "visitreport_pdf": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": "VisitReport"
+                                },
+                                "drawing": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": "Drawing"
+                                },
+                                "image": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": "Profile image"
+                                },
+                                "attachments": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": {
+                                        "*": "Attachment_${i}",
+                                        "PDF": "Attachment_${i}",
+                                        "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                                    }
+                                },
+                                "note": {
+                                    "entities": [
+                                        "lead"
+                                    ],
+                                    "name": "snapADDY Note"
+                                }
+                            }
+                        }
+                    ],
+                    "contact_account": [
+                        {
+                            "entity": "account"
+                        },
+                        {
+                            "entity": "contact",
+                            "dependsOn": [
+                                {
+                                    "field": "AccountID",
+                                    "entity": "account",
+                                    "idType": "entity"
+                                },
+                                {
+                                    "field": "AccountUUID",
+                                    "entity": "account",
+                                    "idType": "uuid"
+                                }
+                            ]
+                        },
+                        {
+                            "entity": "attachments",
+                            "config": {
+                                "bcImage": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": "VCard front"
+                                },
+                                "bcImageBackside": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": "VCard back"
+                                },
+                                "visitreport_pdf": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": "VisitReport"
+                                },
+                                "drawing": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": "Drawing"
+                                },
+                                "image": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": "Profile image"
+                                },
+                                "attachments": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": {
+                                        "*": "Attachment_${i}",
+                                        "PDF": "Attachment_${i}",
+                                        "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                                    }
+                                },
+                                "note": {
+                                    "entities": [
+                                        "contact"
+                                    ],
+                                    "name": "snapADDY Note"
+                                }
+                            }
+                        }
+                    ]
                 }
-              ]
             },
-            {
-              "entity": "attachments",
-              "config": {
-                "bcImage": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "VCard front"
-                },
-                "bcImageBackside": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "VCard back"
-                },
-                "visitreport_pdf": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "VisitReport"
-                },
-                "drawing": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "Drawing"
-                },
-                "image": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "Profile image"
-                },
-                "attachments": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": {
-                    "*": "Attachment_${i}",
-                    "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
-                  }
-                },
-                "note": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "snapADDY Note"
+            "components": {
+                "*": {
+                    "lead": [
+                        {
+                            "type": "lead",
+                            "mainTemplate": "{{ ContactFirstName }} {{ ContactLastName }}",
+                            "detailsTemplate": "{{ Company }}",
+                            "duplicateCheckName": "lead",
+                            "fields": {},
+                            "label": {
+                                "de": "Lead",
+                                "en": "Lead"
+                            },
+                            "search": {
+                                "ids": [
+                                    "ContactFirstName",
+                                    "ContactLastName"
+                                ]
+                            }
+                        }
+                    ],
+                    "contact_account": [
+                        {
+                            "type": "contact",
+                            "mainTemplate": "{{ FirstName }} {{ LastName }}",
+                            "detailsTemplate": "{{ AccountName }}",
+                            "duplicateCheckName": "contact",
+                            "fields": {},
+                            "label": {
+                                "de": "Ansprechpartner",
+                                "en": "Contact"
+                            },
+                            "search": {
+                                "ids": [
+                                    "FirstName",
+                                    "LastName"
+                                ]
+                            }
+                        },
+                        {
+                            "type": "account",
+                            "mainTemplate": "{{ AccountName }}",
+                            "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ CityName }}",
+                            "duplicateCheckName": "account",
+                            "fields": {},
+                            "label": {
+                                "de": "Kunde",
+                                "en": "Account"
+                            },
+                            "search": {
+                                "ids": [
+                                    "AccountName"
+                                ]
+                            }
+                        }
+                    ]
                 }
-              }
             }
-          ]
         }
-      },
-      "mappings": {
-        "*": {
-          "lead": {
-            "Name": "{{ topic }}",
-            "ContactGenderCode": "{{ gender + 1 }}",
-            "ContactAcademicTitleCode": "{{ title }}",
-            "Company": "{{ organization }}",
-            "ContactFirstName": "{{ firstName }}",
-            "ContactLastName": "{{ lastName }}",
-            "GroupCode": "{{ }}",
-            "QualificationLevelCode": "{{ }}",
-            "OriginTypeCode": "{{ }}",
-            "PriorityCode": "{{ }}",
-            "ContactEMail": "{{ email }}",
-            "ContactPhone": "{{ phone }}",
-            "ContactMobile": "{{ mobile }}",
-            "AccountEMail": "{{ email }}",
-            "AccountPhone": "{{ phone }}",
-            "AccountMobile": "{{ mobile }}",
-            "AccountFax": "{{ fax }}",
-            "AccountCity": "{{ city }}",
-            "AccountState": "{{ state }}",
-            "AccountCountry": "{{ country }}",
-            "AccountPostalAddressElementsStreetName": "{{ street }}",
-            "AccountPostalAddressElementsStreetPostalCode": "{{ zip }}",
-            "AccountWebsite": "{{ website }}",
-            "AccountPostalAddressElementsPOBoxID": "{{ poBox }}"
-          },
-          "contact": {
-            "TitleCode": "{{ (gender === 0? '0002' : ( gender === 1? '0001' : '' )) }}",
-            "GenderCode": "{{ gender + 1 }}",
-            "FirstName": "{{ firstName }}",
-            "LastName": "{{ lastName }}",
-            "JobTitle": "{{ position }}",
-            "StatusCode": "{{ }}",
-            "CategoryCode": "{{ }}",
-            "RoleCode": "{{ }}",
-            "Email": "{{ email }}",
-            "Fax": "{{ fax }}",
-            "Phone": "{{ phone }}",
-            "Mobile": "{{ mobile }}",
-            "BusinessAddressCity": "{{ city }}",
-            "BusinessAddressCountryCode": "{{ country }}",
-            "BusinessAddressStateCode": "{{ state }}",
-            "BusinessAddressStreet": "{{ street }}",
-            "BusinessAddressStreetPostalCode": "{{ zip }}"
-          },
-          "account": {
-            "AccountName": "{{ organization }}",
-            "RoleCode": "{{ }}",
-            "StatusCode": "{{ }}",
-            "Phone": "{{ phone }}",
-            "Fax": "{{ fax }}",
-            "Mobile": "{{ mobile }}",
-            "Web": "{{ website }}",
-            "Email": "{{ email }}",
-            "StreetName": "{{ street }}",
-            "StreetPostalCode": "{{ zip }}",
-            "CityName": "{{ city }}",
-            "CountryCode": "{{ country }}",
-            "RegionCode": "{{ state }}"
-          }
-        }
-      }
     }
-  }
 }
