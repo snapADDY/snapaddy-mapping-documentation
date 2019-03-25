@@ -97,7 +97,7 @@
             "entity": "task",
             "dependsOn": [
               {
-                "field": "LeadId",
+                "field": "WhoId",
                 "entity": "lead"
               }
             ]
@@ -313,7 +313,7 @@
               "entity": "task",
               "dependsOn": [
                 {
-                  "field": "LeadId",
+                  "field": "WhoId",
                   "entity": "lead"
                 }
               ]
