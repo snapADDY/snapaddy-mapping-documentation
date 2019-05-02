@@ -10,7 +10,7 @@
             "Anrede": "{{}}",
             "Titel": "{{ title }}",
             "Position": "{{ position }}",
-            "Vorname": "{{ lastName }}",
+            "Vorname": "{{ firstName }}",
             "Nachname": "{{ lastName }}",
             "E-mail": "{{ email }}",
             "Firma": "{{ organization }}",

@@ -371,7 +371,7 @@
           "  note += '\\n\\nVisitReport\\n\\n';",
           "  var result = address.visitreport.result;",
           "  for (var key in result) {",
-          "    note += result[key].question + ' = ' + result[key].text + '\n';",
+          "    note += result[key].question + ' = ' + (result[key].text || '-') + '\n';",
           "  }",
           "}",
           "return note.replace(/\"/g,'\\\\\"');"
