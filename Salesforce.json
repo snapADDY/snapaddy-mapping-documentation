@@ -84,25 +84,6 @@
             "entity": "lead"
           },
           {
-            "entity": "campaignMember",
-            "dependsOn": [
-              {
-                "field": "LeadId",
-                "entity": "lead"
-              }
-            ],
-            "onError": "skip"
-          },
-          {
-            "entity": "task",
-            "dependsOn": [
-              {
-                "field": "LeadId",
-                "entity": "lead"
-              }
-            ]
-          },
-          {
             "entity": "attachments",
             "config": {
               "bcImage": {
@@ -158,25 +139,6 @@
               {
                 "field": "AccountId",
                 "entity": "account"
-              }
-            ]
-          },
-          {
-            "entity": "campaignMember",
-            "dependsOn": [
-              {
-                "field": "ContactId",
-                "entity": "contact"
-              }
-            ],
-            "onError": "skip"
-          },
-          {
-            "entity": "task",
-            "dependsOn": [
-              {
-                "field": "ContactId",
-                "entity": "contact"
               }
             ]
           },
@@ -300,25 +262,6 @@
               "entity": "lead"
             },
             {
-              "entity": "campaignMember",
-              "dependsOn": [
-                {
-                  "field": "LeadId",
-                  "entity": "lead"
-                }
-              ],
-              "onError": "skip"
-            },
-            {
-              "entity": "task",
-              "dependsOn": [
-                {
-                  "field": "LeadId",
-                  "entity": "lead"
-                }
-              ]
-            },
-            {
               "entity": "attachments",
               "config": {
                 "bcImage": {
@@ -380,25 +323,6 @@
                 {
                   "field": "AccountId",
                   "entity": "account"
-                }
-              ]
-            },
-            {
-              "entity": "campaignMember",
-              "dependsOn": [
-                {
-                  "field": "ContactId",
-                  "entity": "contact"
-                }
-              ],
-              "onError": "skip"
-            },
-            {
-              "entity": "task",
-              "dependsOn": [
-                {
-                  "field": "ContactId",
-                  "entity": "contact"
                 }
               ]
             },
