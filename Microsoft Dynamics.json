@@ -84,24 +84,6 @@
             "entity": "lead"
           },
           {
-            "entity": "appointment",
-            "dependsOn": [
-              {
-                "field": "RegardingObjectId",
-                "entity": "lead"
-              }
-            ]
-          },
-          {
-            "entity": "task",
-            "dependsOn": [
-              {
-                "field": "RegardingObjectId",
-                "entity": "lead"
-              }
-            ]
-          },
-          {
             "entity": "attachments",
             "config": {
               "drawing": {
@@ -151,24 +133,6 @@
               {
                 "field": "ParentCustomerId",
                 "entity": "account"
-              }
-            ]
-          },
-          {
-            "entity": "appointment",
-            "dependsOn": [
-              {
-                "field": "RegardingObjectId",
-                "entity": "contact"
-              }
-            ]
-          },
-          {
-            "entity": "task",
-            "dependsOn": [
-              {
-                "field": "RegardingObjectId",
-                "entity": "contact"
               }
             ]
           },
@@ -281,24 +245,6 @@
               "entity": "lead"
             },
             {
-              "entity": "appointment",
-              "dependsOn": [
-                {
-                  "field": "RegardingObjectId",
-                  "entity": "lead"
-                }
-              ]
-            },
-            {
-              "entity": "task",
-              "dependsOn": [
-                {
-                  "field": "RegardingObjectId",
-                  "entity": "lead"
-                }
-              ]
-            },
-            {
               "entity": "attachments",
               "config": {
                 "drawing": {
@@ -354,24 +300,6 @@
                 {
                   "field": "ParentCustomerId",
                   "entity": "account"
-                }
-              ]
-            },
-            {
-              "entity": "appointment",
-              "dependsOn": [
-                {
-                  "field": "RegardingObjectId",
-                  "entity": "contact"
-                }
-              ]
-            },
-            {
-              "entity": "task",
-              "dependsOn": [
-                {
-                  "field": "RegardingObjectId",
-                  "entity": "contact"
                 }
               ]
             },
