@@ -1,0 +1,177 @@
+{
+  "duplicateCheck": {
+    "settings": {},
+    "pipeline": {
+      "stages": [
+        {
+          "tasks": [
+            {
+              "tree": {
+                "operator": "and",
+                "subconditions": [
+                  {
+                    "field": "ContactFirstName",
+                    "operator": "in",
+                    "value": "{{address.firstName}}"
+                  },
+                  {
+                    "field": "ContactLastName",
+                    "operator": "in",
+                    "value": "{{address.lastName}}"
+                  },
+                  {
+                    "field": "Company",
+                    "operator": "in",
+                    "value": "{{address.organization}}"
+                  }
+                ],
+                "filters": [
+                  "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                ]
+              },
+              "entity": "lead",
+              "name": "leadsNameCompany"
+            },
+            {
+              "tree": {
+                "field": "ContactEMail",
+                "operator": "eq",
+                "value": "{{address.email}}",
+                "filters": ["return !isEmailGeneric(address.email)"]
+              },
+              "entity": "lead",
+              "name": "leadsEmail"
+            },
+            {
+              "tree": {
+                "field": "Name",
+                "operator": "in",
+                "value": "{{address.organization}}",
+                "filters": ["return address.organization.length >= 3"]
+              },
+              "entity": "account",
+              "name": "accountsName"
+            },
+            {
+              "tree": {
+                "field": "WebSite",
+                "operator": "eq",
+                "value": "{{address.website}}",
+                "filters": ["return address.website.length >= 5"]
+              },
+              "entity": "account",
+              "name": "accountsWebsite"
+            },
+            {
+              "tree": {
+                "field": "Email",
+                "operator": "eq",
+                "value": "{{address.email}}",
+                "filters": ["return !isEmailGeneric(address.email)"]
+              },
+              "entity": "contact",
+              "name": "contactsEmail"
+            },
+            {
+              "tree": {
+                "operator": "and",
+                "subconditions": [
+                  {
+                    "field": "FirstName",
+                    "operator": "in",
+                    "value": "{{address.firstName}}"
+                  },
+                  {
+                    "field": "LastName",
+                    "operator": "in",
+                    "value": "{{address.lastName}}"
+                  }
+                ],
+                "filters": [
+                  "return address.firstName.length >= 3 || address.lastName.length >= 3"
+                ]
+              },
+              "entity": "contact",
+              "name": "contactsName"
+            }
+          ],
+          "post": [
+            [
+              "pipeline.taskResults['lead'] = collateTaskResults(pipeline, ['leadsEmail', 'leadsNameCompany'], 'ObjectID')",
+              "pipeline.taskResults['account'] = collateTaskResults(pipeline, ['accountsName', 'accountsWebsite'], 'ObjectID')",
+              "pipeline.taskResults['contact'] = collateTaskResults(pipeline, ['contactsName', 'contactsEmail'], 'ObjectID')",
+              "return pipeline"
+            ],
+            [
+              "var sorted = pipeline.taskResults['lead'].duplicates;",
+              "for (var i = 0; i < sorted.length; i++) {",
+              "  e = sorted[i] || {};",
+              "  e._sortKey = 0",
+              "  if ((e.ContactFirstName || '').toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "  if ((e.ContactLastName || '').toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "  if ((e.Company || '').toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
+              "    e._sortKey = e._sortKey + 3;",
+              "  }",
+              "}",
+              "",
+              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
+              "pipeline.taskResults['lead'].duplicates = sorted;",
+              "pipeline.taskResults['lead'].suggested = sorted[0];",
+              "return pipeline;"
+            ],
+            [
+              "var sorted = pipeline.taskResults['contact'].duplicates",
+              "for (var i = 0; i < sorted.length; i++) {",
+              "  e = sorted[i] || {};",
+              "  e._sortKey = 0;",
+              "  if ((e.FirstName || '').toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "  if ((e.LastName || '').toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
+              "    e._sortKey++;",
+              "  }",
+              "}",
+              "",
+              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
+              "pipeline.taskResults['contact'].duplicates = sorted;",
+              "pipeline.taskResults['contact'].suggested = sorted[0];",
+              "return pipeline;"
+            ],
+            [
+              "var sorted = pipeline.taskResults['account'].duplicates",
+              "for (var i = 0; i < sorted.length; i++) {",
+              "  e = sorted[i] || {};",
+              "  e._sortKey = 0;",
+              "  if ((e.StreetPostalCode || '') === address.zip) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "  if ((e.City || '') === address.city) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "  if (e.StreetPostalCode || e.City) {",
+              "    e._sortKey += 1;",
+              "  }",
+              "}",
+              "",
+              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
+              "pipeline.taskResults['account'].duplicates = sorted;",
+              "pipeline.taskResults['account'].suggested = sorted[0];",
+              "return pipeline;"
+            ]
+          ]
+        }
+      ],
+      "mapResults": [
+        "return {",
+        "  lead: pipeline.taskResults['lead'],",
+        "  account: pipeline.taskResults['account'],",
+        "  contact: pipeline.taskResults['contact'],",
+        "};"
+      ]
+    }
+  }
+}
