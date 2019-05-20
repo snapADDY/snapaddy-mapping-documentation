@@ -1,1 +1,1 @@
-[Full snapADDY Mapping documentation](https://snapaddy.github.io/snapaddy-mapping-doc/)
+[Full snapADDY Mapping documentation](https://mapping.snapaddy.com/mapping-samples)
