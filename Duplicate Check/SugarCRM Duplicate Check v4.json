@@ -141,7 +141,83 @@
               },
               "missingDataLabel": "NO_WEBSITE_OR_NAME_ENTERED"
             }
-          ]
+          ],
+          "post": [{
+            "task": "lead",
+            "config": {
+              "rankConditions": [{
+                "source": "firstName",
+                "target": "first_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "lastName",
+                "target": "last_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "email",
+                "target": "email1",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "organization",
+                "target": "account_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "organization",
+                "target": "account_name",
+                "op": "in_lc",
+                "points": 1
+              }]
+            }
+          }, {
+            "task": "contact",
+            "config": {
+              "rankConditions": [{
+                "source": "firstName",
+                "target": "first_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "lastName",
+                "target": "last_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "email",
+                "target": "email1",
+                "op": "eq_lc",
+                "points": 2
+              }]
+            }
+          }, {
+            "task": "account",
+            "config": {
+              "rankConditions": [{
+                "source": "organization",
+                "target": "name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "website",
+                "target": "website",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "zip",
+                "target": "billing_address_postalcode",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "city",
+                "target": "billing_address_city",
+                "op": "eq_lc",
+                "points": 2
+              }]
+            }
+          }]
         }
       ]
     }
