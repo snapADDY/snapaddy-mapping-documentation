@@ -56,7 +56,7 @@
               "tree": {
                 "field": "WebSite",
                 "operator": "eq",
-                "value": "{{address.website}}",
+                "value": "{{ getDomainFromURL(address.website) }}",
                 "filters": ["return address.website.length >= 5"]
               },
               "entity": "account",
