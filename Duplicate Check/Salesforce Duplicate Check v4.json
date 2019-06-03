@@ -8,6 +8,7 @@
               "tasks": [
                 {
                   "entity": "lead",
+                  "name": "lead",
                   "tree": {
                     "operator": "and",
                     "subconditions": [
@@ -59,6 +60,7 @@
                 },
                 {
                   "entity": "contact",
+                  "name": "contact",
                   "tree": {
                     "operator": "or",
                     "subconditions": [
@@ -94,6 +96,7 @@
                 },
                 {
                   "entity": "account",
+                  "name": "account",
                   "tree": {
                     "operator": "OR",
                     "subconditions": [
@@ -287,13 +290,6 @@
                 ]
               ]
             }
-          ],
-          "mapResults": [
-            "return {",
-            "  lead: pipeline.stages[0].results[0],",
-            "  contact: pipeline.stages[0].results[1],",
-            "  account: pipeline.stages[0].results[2],",
-            "}"
           ]
         }
       }
