@@ -22,7 +22,7 @@
                     "subconditions": [
                       {
                         "field": "EMailAddress1",
-                        "operator": "allIn",
+                        "operator": "eq",
                         "value": "{{address.email}}",
                         "filters": [
                           "return !isEmailGeneric(address.email)"
