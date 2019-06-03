@@ -7,38 +7,50 @@
           "tasks": [
             {
               "entity": "lead",
+              "name": "lead",
               "tree": {
-                "operator": "or",
+                "operator": "and",
                 "subconditions": [
                   {
-                    "field": "EMailAddress1",
-                    "operator": "allIn",
-                    "value": "{{ address.email }}",
-                    "filters": [
-                      "return !isEmailGeneric(address.email)"
-                    ]
+                    "operator": "eq",
+                    "field": "StateCode/Value",
+                    "value": 0,
+                    "optional": true
                   },
                   {
-                    "operator": "and",
+                    "operator": "or",
                     "subconditions": [
                       {
-                        "field": "FirstName",
+                        "field": "EMailAddress1",
                         "operator": "allIn",
-                        "value": "{{ address.firstName }}"
+                        "value": "{{address.email}}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
                       },
                       {
-                        "field": "LastName",
-                        "operator": "allIn",
-                        "value": "{{ address.lastName }}"
-                      },
-                      {
-                        "field": "CompanyName",
-                        "operator": "allIn",
-                        "value": "{{ address.organization }}"
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "FirstName",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "LastName",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          },
+                          {
+                            "field": "CompanyName",
+                            "operator": "allIn",
+                            "value": "{{ address.organization }}"
+                          }
+                        ],
+                        "filters": [
+                          "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                        ]
                       }
-                    ],
-                    "filters": [
-                      "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
                     ]
                   }
                 ]
@@ -47,33 +59,45 @@
             },
             {
               "entity": "contact",
+              "name": "contact",
               "tree": {
-                "operator": "or",
+                "operator": "and",
                 "subconditions": [
                   {
-                    "field": "EMailAddress1",
-                    "operator": "allIn",
-                    "value": "{{ address.email }}",
-                    "filters": [
-                      "return !isEmailGeneric(address.email)"
-                    ]
+                    "operator": "eq",
+                    "field": "StateCode/Value",
+                    "value": 0,
+                    "optional": true
                   },
                   {
-                    "operator": "and",
+                    "operator": "or",
                     "subconditions": [
                       {
-                        "field": "FirstName",
-                        "operator": "allIn",
-                        "value": "{{ address.firstName }}"
+                        "field": "EMailAddress1",
+                        "operator": "eq",
+                        "value": "{{ address.email }}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
                       },
                       {
-                        "field": "LastName",
-                        "operator": "allIn",
-                        "value": "{{ address.lastName }}"
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "FirstName",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "LastName",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          }
+                        ],
+                        "filters": [
+                          "return address.firstName.length >= 3 || address.lastName.length >= 3"
+                        ]
                       }
-                    ],
-                    "filters": [
-                      "return address.firstName.length >= 3 || address.lastName.length >= 3"
                     ]
                   }
                 ]
@@ -82,23 +106,35 @@
             },
             {
               "entity": "account",
+              "name": "account",
               "tree": {
-                "operator": "OR",
+                "operator": "and",
                 "subconditions": [
                   {
-                    "field": "WebSiteURL",
-                    "operator": "allIn",
-                    "value": "{{ address.website }}",
-                    "filters": [
-                      "return (getDomainFromURL(address.website) || '').length >= 3"
-                    ]
+                    "operator": "eq",
+                    "field": "StateCode/Value",
+                    "value": 0,
+                    "optional": true
                   },
                   {
-                    "field": "Name",
-                    "operator": "allIn",
-                    "value": "{{ address.organization }}",
-                    "filters": [
-                      "return address.organization.length >= 3"
+                    "operator": "OR",
+                    "subconditions": [
+                      {
+                        "field": "WebSiteURL",
+                        "operator": "in",
+                        "value": "{{ getDomainFromURL(address.website) }}",
+                        "filters": [
+                          "return address.website.length >= 5"
+                        ]
+                      },
+                      {
+                        "field": "Name",
+                        "operator": "allIn",
+                        "value": "{{ address.organization }}",
+                        "filters": [
+                          "return address.organization.length >= 3"
+                        ]
+                      }
                     ]
                   }
                 ]
@@ -248,8 +284,13 @@
               "    e._sort_key++",
               "  }",
               "",
-              "  // ZIP or City match ",
-              "  if (duplicateZip === snapADDYZip || duplicateCity === snapADDYCity) {",
+              "  // ZIP match ",
+              "  if (duplicateZip === snapADDYZip) {",
+              "    e._sortKey += 2;",
+              "  }",
+              "",
+              "  // City match ",
+              "  if (duplicateCity === snapADDYCity) {",
               "    e._sortKey += 2;",
               "  }",
               "}",
@@ -262,13 +303,6 @@
             ]
           ]
         }
-      ],
-      "mapResults": [
-        "return {",
-        "  lead: pipeline.stages[0].results[0],",
-        "  contact: pipeline.stages[0].results[1],",
-        "  account: pipeline.stages[0].results[2],",
-        "}"
       ]
     }
   }
