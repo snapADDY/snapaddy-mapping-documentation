@@ -21,7 +21,7 @@
                   "subconditions": [{
                     "field": "{{ fields.persons.name }}",
                     "operator": "in",
-                    "value": "{{ address.fullName }}",
+                    "value": "{{ address.firstName + ' ' + address.lastName }}",
                     "filters": [
                       "return (address.firstName.length >= 3 || address.lastName.length >= 3)"
                     ]
