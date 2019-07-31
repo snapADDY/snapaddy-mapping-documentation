@@ -237,6 +237,11 @@
             "detailsTemplate": "{{ type }}"
           }
         ]
+      },
+      "config": {
+        "default": {
+          "open": "deal"
+        }
       }
     },
     "visitreport": {
