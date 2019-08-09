@@ -132,7 +132,6 @@
           "BusinessAddressCity": "{{ city }}",
           "BusinessAddressStateCode": "{{ state }}",
           "BusinessAddressCountryCode": "{{ country }}",
-          "CategoryCode": "{{ }}",
           "StatusCode": "{{ }}"
         },
         "account": {
@@ -378,7 +377,6 @@
             "BusinessAddressCity": "{{ city }}",
             "BusinessAddressStateCode": "{{ state }}",
             "BusinessAddressCountryCode": "{{ country }}",
-            "CategoryCode": "{{ }}",
             "StatusCode": "{{ }}"
           },
           "account": {
