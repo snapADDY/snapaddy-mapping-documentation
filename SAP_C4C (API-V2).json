@@ -145,7 +145,7 @@
           "Street": "{{ street }}",
           "StreetPostalCode": "{{ zip }}",
           "City": "{{ city }}",
-          "RegionCode": "{{ state }}",
+          "StateCode": "{{ state }}",
           "CountryCode": "{{ country }}",
           "RoleCode": "{{ }}",
           "StatusCode": "{{ }}"
@@ -391,7 +391,7 @@
             "Street": "{{ street }}",
             "StreetPostalCode": "{{ zip }}",
             "City": "{{ city }}",
-            "RegionCode": "{{ state }}",
+            "StateCode": "{{ state }}",
             "CountryCode": "{{ country }}",
             "RoleCode": "{{ }}",
             "StatusCode": "{{ }}"
