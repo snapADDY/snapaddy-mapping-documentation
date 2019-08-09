@@ -315,7 +315,7 @@
           },
           {
             "type": "account",
-            "mainTemplate": "{{ AccountName }}",
+            "mainTemplate": "{{ Name }}",
             "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ CityName }}",
             "duplicateCheckName": "account",
             "fields": {},
@@ -577,7 +577,7 @@
             },
             {
               "type": "account",
-              "mainTemplate": "{{ AccountName }}",
+              "mainTemplate": "{{ Name }}",
               "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ CityName }}",
               "duplicateCheckName": "account",
               "fields": {},
