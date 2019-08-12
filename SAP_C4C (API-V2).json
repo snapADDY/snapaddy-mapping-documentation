@@ -122,7 +122,6 @@
           "LastName": "{{ lastName }}",
           "GenderCode": "{{ gender + 1 }}",
           "JobTitle": "{{ position }}",
-          "RoleCode": "{{ }}",
           "Email": "{{ email }}",
           "Phone": "{{ phone }}",
           "Mobile": "{{ mobile }}",
