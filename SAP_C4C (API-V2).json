@@ -107,8 +107,8 @@
           "AccountPostalAddressElementsPOBoxID": "{{ poBox }}",
           "AccountPostalAddressElementsStreetPostalCode": "{{ zip }}",
           "AccountCity": "{{ city }}",
-          "AccountState": "{{ state }}",
           "AccountCountry": "{{ country }}",
+          "AccountState": "{{ state }}",
           "AccountWebsite": "{{ website }}",
           "OriginTypeCode": "{{ }}",
           "QualificationLevelCode": "{{ }}",
@@ -129,8 +129,8 @@
           "BusinessAddressStreet": "{{ street }}",
           "BusinessAddressStreetPostalCode": "{{ zip }}",
           "BusinessAddressCity": "{{ city }}",
-          "BusinessAddressStateCode": "{{ state }}",
           "BusinessAddressCountryCode": "{{ country }}",
+          "BusinessAddressStateCode": "{{ state }}",
           "StatusCode": "{{ }}"
         },
         "account": {
@@ -143,8 +143,8 @@
           "Street": "{{ street }}",
           "StreetPostalCode": "{{ zip }}",
           "City": "{{ city }}",
-          "StateCode": "{{ state }}",
           "CountryCode": "{{ country }}",
+          "StateCode": "{{ state }}",
           "RoleCode": "{{ }}",
           "StatusCode": "{{ }}"
         }
@@ -351,8 +351,8 @@
             "AccountPostalAddressElementsPOBoxID": "{{ poBox }}",
             "AccountPostalAddressElementsStreetPostalCode": "{{ zip }}",
             "AccountCity": "{{ city }}",
-            "AccountState": "{{ state }}",
             "AccountCountry": "{{ country }}",
+            "AccountState": "{{ state }}",
             "AccountWebsite": "{{ website }}",
             "OriginTypeCode": "{{ }}",
             "QualificationLevelCode": "{{ }}",
@@ -374,8 +374,8 @@
             "BusinessAddressStreet": "{{ street }}",
             "BusinessAddressStreetPostalCode": "{{ zip }}",
             "BusinessAddressCity": "{{ city }}",
-            "BusinessAddressStateCode": "{{ state }}",
             "BusinessAddressCountryCode": "{{ country }}",
+            "BusinessAddressStateCode": "{{ state }}",
             "StatusCode": "{{ }}"
           },
           "account": {
@@ -388,8 +388,8 @@
             "Street": "{{ street }}",
             "StreetPostalCode": "{{ zip }}",
             "City": "{{ city }}",
-            "StateCode": "{{ state }}",
             "CountryCode": "{{ country }}",
+            "StateCode": "{{ state }}",
             "RoleCode": "{{ }}",
             "StatusCode": "{{ }}"
           }
