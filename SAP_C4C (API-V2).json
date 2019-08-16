@@ -130,8 +130,7 @@
           "BusinessAddressStreetPostalCode": "{{ zip }}",
           "BusinessAddressCity": "{{ city }}",
           "BusinessAddressCountryCode": "{{ country }}",
-          "BusinessAddressStateCode": "{{ state }}",
-          "StatusCode": "{{ }}"
+          "BusinessAddressStateCode": "{{ state }}"
         },
         "account": {
           "Name": "{{ organization }}",
@@ -145,8 +144,7 @@
           "City": "{{ city }}",
           "CountryCode": "{{ country }}",
           "StateCode": "{{ state }}",
-          "RoleCode": "{{ }}",
-          "StatusCode": "{{ }}"
+          "RoleCode": "{{ }}"
         }
       },
       "workflows": {
@@ -375,8 +373,7 @@
             "BusinessAddressStreetPostalCode": "{{ zip }}",
             "BusinessAddressCity": "{{ city }}",
             "BusinessAddressCountryCode": "{{ country }}",
-            "BusinessAddressStateCode": "{{ state }}",
-            "StatusCode": "{{ }}"
+            "BusinessAddressStateCode": "{{ state }}"
           },
           "account": {
             "Name": "{{ organization }}",
@@ -390,8 +387,7 @@
             "City": "{{ city }}",
             "CountryCode": "{{ country }}",
             "StateCode": "{{ state }}",
-            "RoleCode": "{{ }}",
-            "StatusCode": "{{ }}"
+            "RoleCode": "{{ }}"
           }
         }
       },
