@@ -464,6 +464,11 @@
             }
           ]
         }
+      },
+      "config": {
+        "default": {
+          "open": "deal"
+        }
       }
     },
     "code": {
