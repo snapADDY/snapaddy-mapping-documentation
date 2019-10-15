@@ -1,6 +1,6 @@
 {
   "integrations": {
-    "salesforce": {
+    "suite_crm": {
       "duplicateCheck": {
         "pipeline": {
           "stages": [
