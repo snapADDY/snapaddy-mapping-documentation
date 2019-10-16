@@ -45,7 +45,7 @@
             "account_name": "{{ organization }}",
             "lead_source": "{{ lead_source }}",
             "status": "{{ lead_status }}",
-            "assigned_user_id": "{{user_id || _delete}}"
+            "assigned_user_id": "{{ user_id }}"
           },
           "contact": {
             "salutation": "{{ salutation }}",
@@ -63,7 +63,7 @@
             "primary_address_postalcode": "{{ zip }}",
             "primary_address_country": "{{ country }}",
             "lead_source": "{{ lead_source }}",
-            "assigned_user_id": "{{user_id || _delete}}"
+            "assigned_user_id": "{{ user_id }}"
           },
           "account": {
             "name": "{{ organization }}",
@@ -83,7 +83,7 @@
             "shipping_address_country": "{{ country }}",
             "industry": "{{ account_industry }}",
             "account_type": "{{ account_type }}",
-            "assigned_user_id": "{{user_id || _delete}}"
+            "assigned_user_id": "{{ user_id }}"
           },
           "prospect": {
             "salutation": "{{ salutation }}",
@@ -101,7 +101,7 @@
             "primary_address_postalcode": "{{ zip }}",
             "primary_address_country": "{{ country }}",
             "account_name": "{{ organization }}",
-            "assigned_user_id": "{{user_id || _delete}}"
+            "assigned_user_id": "{{ user_id }}"
           },
           "note": {
             "name": "{{ defaultNoteName }}",
@@ -379,7 +379,7 @@
           ]
         }
       },
-      "visitReport": {
+      "visitreport": {
         "mappings": {
           "*": {
             "lead": {
@@ -400,7 +400,7 @@
               "account_name": "{{ organization }}",
               "lead_source": "{{ lead_source }}",
               "status": "{{ lead_status }}",
-              "assigned_user_id": "{{user_id || _delete}}"
+              "assigned_user_id": "{{ user_id }}"
             },
             "contact": {
               "salutation": "{{ salutation }}",
@@ -418,7 +418,7 @@
               "primary_address_postalcode": "{{ zip }}",
               "primary_address_country": "{{ country }}",
               "lead_source": "{{ lead_source }}",
-              "assigned_user_id": "{{user_id || _delete}}"
+              "assigned_user_id": "{{ user_id }}"
             },
             "account": {
               "name": "{{ organization }}",
@@ -438,7 +438,7 @@
               "shipping_address_country": "{{ country }}",
               "industry": "{{ account_industry }}",
               "account_type": "{{ account_type }}",
-              "assigned_user_id": "{{user_id || _delete}}"
+              "assigned_user_id": "{{ user_id }}"
             },
             "prospect": {
               "salutation": "{{ salutation }}",
@@ -456,14 +456,14 @@
               "primary_address_postalcode": "{{ zip }}",
               "primary_address_country": "{{ country }}",
               "account_name": "{{ organization }}",
-              "assigned_user_id": "{{user_id || _delete}}"
+              "assigned_user_id": "{{ user_id }}"
             },
             "note": {
-              "name": "{{ defaultNoteName }}",
+              "name": "{{ 'snapADDY Note' }}",
               "description": "{{ execute(getVisitReportNote) }}"
             },
             "attachmentNote": {
-              "name": "{{ noteName }}"
+              "name": "{{ 'snapADDY Note' }}"
             },
             "attachment": {
               "id": "{{ attachmentObject.noteId }}",
@@ -737,7 +737,33 @@
       },
       "code": {
         "functions": {
-          "getVisitReportNote": []
+          "getVisitReportNote": [
+            "var groups = [];",
+            "address.visitreport.backendData.groups.forEach(function (group) {",
+            "  groups.push([group.id, group.titles.de]);",
+            "});",
+            "",
+            "var noteElements = [];",
+            "address.visitreport.backendData.questions.forEach(function (q) {",
+            "  var qText = address.visitreport.result[q.mappingId].question;",
+            "  var aText = address.visitreport.result[q.mappingId].text ? address.visitreport.result[q.mappingId].text.split(';').join(', ') : '';",
+            "  noteElements.push([q.groupId, q.mappingId, qText, aText]);",
+            "});",
+            "// console.log(noteElements);",
+            "",
+            "var note =",
+            "  address.visitreport.backendData.questionnaires[0].titles.de + '\\n\\n';",
+            "groups.forEach(function (group) {",
+            "  note += group[1] + ':\\n';",
+            "  noteElements.forEach(function (question) {",
+            "    if (question[0] == group[0]) {",
+            "      note += question[2] + ': ' + question[3] + '\\n';",
+            "    }",
+            "  });",
+            "  note += '\\n';",
+            "});",
+            "return note.replace(/\"/g,'');"
+          ]
         }
       }
     }
