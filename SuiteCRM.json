@@ -334,9 +334,7 @@
             "duplicateCheckName": "prospect",
             "label": {
               "en": "Targets",
-              "GB": "Targets",
-              "de": "Zielkontakt",
-              "DE": "Zielkontakt"
+              "de": "Zielkontakt"
             },
             "fields": {
               "assigned_user_id": {
@@ -363,9 +361,7 @@
             "duplicateCheckName": "contact",
             "label": {
               "en": "Contact",
-              "GB": "Contact",
-              "de": "Kontakt",
-              "DE": "Kontakt"
+              "de": "Kontakt"
             },
             "fields": {
               "assigned_user_id": {
@@ -397,9 +393,7 @@
             "duplicateCheckName": "account",
             "label": {
               "en": "Account",
-              "GB": "Account",
-              "de": "Account",
-              "DE": "Account"
+              "de": "Account"
             },
             "fields": {
               "assigned_user_id": {
