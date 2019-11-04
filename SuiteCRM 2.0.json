@@ -169,7 +169,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || \"\" }} - {{firstName || \"\" }} {{lastName || \"\"}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {
@@ -234,7 +234,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || \"\" }} - {{firstName || \"\" }} {{lastName || \"\"}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {
@@ -284,7 +284,7 @@
                   "name": {
                     "*": "Attachment_${i}",
                     "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || \"\" }} - {{firstName || \"\" }} {{lastName || \"\"}} Signatur (${i})"
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
                   }
                 },
                 "note": {
@@ -301,7 +301,7 @@
           "lead": [
             {
               "type": "lead",
-              "duplicateCheckname": "lead",
+              "duplicateCheckName": "lead",
               "label": {
                 "en": "Lead",
                 "de": "Lead"
@@ -320,7 +320,7 @@
           "prospect": [
             {
               "type": "prospect",
-              "duplicateCheckname": "prospect",
+              "duplicateCheckName": "prospect",
               "label": {
                 "en": "Targets",
                 "GB": "Targets",
@@ -341,7 +341,7 @@
           "contact_account": [
             {
               "type": "contact",
-              "duplicateCheckname": "contact",
+              "duplicateCheckName": "contact",
               "label": {
                 "en": "Contact",
                 "GB": "Contact",
@@ -360,7 +360,7 @@
             },
             {
               "type": "account",
-              "duplicateCheckname": "account",
+              "duplicateCheckName": "account",
               "label": {
                 "en": "Account",
                 "GB": "Account",
@@ -481,258 +481,262 @@
           }
         },
         "workflows": {
-          "lead": [
-            {
-              "entity": "lead"
-            },
-            {
-              "entity": "attachments",
-              "config": {
-                "bcImage": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "VCard front"
-                },
-                "bcImageBackside": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "VCard back"
-                },
-                "visitreport_pdf": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "VisitReport"
-                },
-                "drawing": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "Drawing"
-                },
-                "image": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "Profile image"
-                },
-                "attachments": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": {
-                    "*": "Attachment_${i}",
-                    "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || \"\" }} - {{firstName || \"\" }} {{lastName || \"\"}} Signatur (${i})"
+          "*": {
+            "lead": [
+              {
+                "entity": "lead"
+              },
+              {
+                "entity": "attachments",
+                "config": {
+                  "bcImage": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "VCard front"
+                  },
+                  "bcImageBackside": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "VCard back"
+                  },
+                  "visitreport_pdf": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "VisitReport"
+                  },
+                  "drawing": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "Drawing"
+                  },
+                  "image": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "Profile image"
+                  },
+                  "attachments": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": {
+                      "*": "Attachment_${i}",
+                      "PDF": "Attachment_${i}",
+                      "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                    }
+                  },
+                  "note": {
+                    "entities": [
+                      "lead"
+                    ],
+                    "name": "snapADDY Note"
                   }
-                },
-                "note": {
-                  "entities": [
-                    "lead"
-                  ],
-                  "name": "snapADDY Note"
                 }
               }
-            }
-          ],
-          "contact_account": [
-            {
-              "entity": "account"
-            },
-            {
-              "entity": "contact",
-              "dependsOn": [
-                {
-                  "field": "account_id",
-                  "entity": "account"
-                }
-              ]
-            },
-            {
-              "entity": "attachments",
-              "config": {
-                "bcImage": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "VCard front"
-                },
-                "bcImageBackside": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "VCard back"
-                },
-                "visitreport_pdf": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "VisitReport"
-                },
-                "drawing": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "Drawing"
-                },
-                "image": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "Profile image"
-                },
-                "attachments": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": {
-                    "*": "Attachment_${i}",
-                    "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || \"\" }} - {{firstName || \"\" }} {{lastName || \"\"}} Signatur (${i})"
+            ],
+            "contact_account": [
+              {
+                "entity": "account"
+              },
+              {
+                "entity": "contact",
+                "dependsOn": [
+                  {
+                    "field": "account_id",
+                    "entity": "account"
                   }
-                },
-                "note": {
-                  "entities": [
-                    "contact"
-                  ],
-                  "name": "snapADDY Note"
+                ]
+              },
+              {
+                "entity": "attachments",
+                "config": {
+                  "bcImage": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "VCard front"
+                  },
+                  "bcImageBackside": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "VCard back"
+                  },
+                  "visitreport_pdf": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "VisitReport"
+                  },
+                  "drawing": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "Drawing"
+                  },
+                  "image": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "Profile image"
+                  },
+                  "attachments": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": {
+                      "*": "Attachment_${i}",
+                      "PDF": "Attachment_${i}",
+                      "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                    }
+                  },
+                  "note": {
+                    "entities": [
+                      "contact"
+                    ],
+                    "name": "snapADDY Note"
+                  }
                 }
               }
-            }
-          ],
-          "prospect": [
-            {
-              "entity": "prospect"
-            },
-            {
-              "entity": "attachments",
-              "config": {
-                "bcImage": {
-                  "entities": [
-                    "prospect"
-                  ],
-                  "name": "VCard front"
-                },
-                "bcImageBackside": {
-                  "entities": [
-                    "prospect"
-                  ],
-                  "name": "VCard back"
-                },
-                "drawing": {
-                  "entities": [
-                    "prospect"
-                  ],
-                  "name": "Drawing"
-                },
-                "image": {
-                  "entities": [
-                    "prospect"
-                  ],
-                  "name": "Profile image"
-                },
-                "attachments": {
-                  "entities": [
-                    "prospect"
-                  ],
-                  "name": {
-                    "*": "Attachment_${i}",
-                    "PDF": "Attachment_${i}",
-                    "SIGNATURE": "{{visitreport.title || \"\" }} - {{firstName || \"\" }} {{lastName || \"\"}} Signatur (${i})"
+            ],
+            "prospect": [
+              {
+                "entity": "prospect"
+              },
+              {
+                "entity": "attachments",
+                "config": {
+                  "bcImage": {
+                    "entities": [
+                      "prospect"
+                    ],
+                    "name": "VCard front"
+                  },
+                  "bcImageBackside": {
+                    "entities": [
+                      "prospect"
+                    ],
+                    "name": "VCard back"
+                  },
+                  "drawing": {
+                    "entities": [
+                      "prospect"
+                    ],
+                    "name": "Drawing"
+                  },
+                  "image": {
+                    "entities": [
+                      "prospect"
+                    ],
+                    "name": "Profile image"
+                  },
+                  "attachments": {
+                    "entities": [
+                      "prospect"
+                    ],
+                    "name": {
+                      "*": "Attachment_${i}",
+                      "PDF": "Attachment_${i}",
+                      "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i})"
+                    }
+                  },
+                  "note": {
+                    "entities": [
+                      "prospect"
+                    ],
+                    "name": "snapADDY Note"
                   }
-                },
-                "note": {
-                  "entities": [
-                    "prospect"
-                  ],
-                  "name": "snapADDY Note"
                 }
               }
-            }
-          ]
+            ]
+          }
         },
         "components": {
-          "lead": [
-            {
-              "type": "lead",
-              "duplicateCheckname": "lead",
-              "label": {
-                "en": "Lead",
-                "de": "Lead"
+          "*": {
+            "lead": [
+              {
+                "type": "lead",
+                "duplicateCheckname": "lead",
+                "label": {
+                  "en": "Lead",
+                  "de": "Lead"
+                },
+                "fields": {},
+                "search": {
+                  "ids": [
+                    "first_name",
+                    "last_name"
+                  ]
+                },
+                "mainTemplate": "{{ name }}",
+                "detailsTemplate": "{{ account_name }}"
+              }
+            ],
+            "prospect": [
+              {
+                "type": "prospect",
+                "duplicateCheckname": "prospect",
+                "label": {
+                  "en": "Targets",
+                  "GB": "Targets",
+                  "de": "Zielkontakt",
+                  "DE": "Zielkontakt"
+                },
+                "fields": {},
+                "search": {
+                  "ids": [
+                    "first_name",
+                    "last_name"
+                  ]
+                },
+                "mainTemplate": "{{ first_name }} {{ last_name }}",
+                "detailsTemplate": "{{ account_name }}"
+              }
+            ],
+            "contact_account": [
+              {
+                "type": "contact",
+                "duplicateCheckname": "contact",
+                "label": {
+                  "en": "Contact",
+                  "GB": "Contact",
+                  "de": "Kontakt",
+                  "DE": "Kontakt"
+                },
+                "fields": {},
+                "search": {
+                  "ids": [
+                    "first_name",
+                    "last_name"
+                  ]
+                },
+                "mainTemplate": "{{ first_name }} {{ last_name }}",
+                "detailsTemplate": "{{ account_name }}"
               },
-              "fields": {},
-              "search": {
-                "ids": [
-                  "first_name",
-                  "last_name"
-                ]
-              },
-              "mainTemplate": "{{ name }}",
-              "detailsTemplate": "{{ account_name }}"
-            }
-          ],
-          "prospect": [
-            {
-              "type": "prospect",
-              "duplicateCheckname": "prospect",
-              "label": {
-                "en": "Targets",
-                "GB": "Targets",
-                "de": "Zielkontakt",
-                "DE": "Zielkontakt"
-              },
-              "fields": {},
-              "search": {
-                "ids": [
-                  "first_name",
-                  "last_name"
-                ]
-              },
-              "mainTemplate": "{{ first_name }} {{ last_name }}",
-              "detailsTemplate": "{{ account_name }}"
-            }
-          ],
-          "contact_account": [
-            {
-              "type": "contact",
-              "duplicateCheckname": "contact",
-              "label": {
-                "en": "Contact",
-                "GB": "Contact",
-                "de": "Kontakt",
-                "DE": "Kontakt"
-              },
-              "fields": {},
-              "search": {
-                "ids": [
-                  "first_name",
-                  "last_name"
-                ]
-              },
-              "mainTemplate": "{{ first_name }} {{ last_name }}",
-              "detailsTemplate": "{{ account_name }}"
-            },
-            {
-              "type": "account",
-              "duplicateCheckname": "account",
-              "label": {
-                "en": "Account",
-                "GB": "Account",
-                "de": "Account",
-                "DE": "Account"
-              },
-              "fields": {},
-              "search": {
-                "ids": [
-                  "name"
-                ]
-              },
-              "mainTemplate": "{{ name }}",
-              "detailsTemplate": "{{ billing_address_city || shipping_address_city }}"
-            }
-          ]
+              {
+                "type": "account",
+                "duplicateCheckname": "account",
+                "label": {
+                  "en": "Account",
+                  "GB": "Account",
+                  "de": "Account",
+                  "DE": "Account"
+                },
+                "fields": {},
+                "search": {
+                  "ids": [
+                    "name"
+                  ]
+                },
+                "mainTemplate": "{{ name }}",
+                "detailsTemplate": "{{ billing_address_city || shipping_address_city }}"
+              }
+            ]
+          }
         }
       },
       "code": {
