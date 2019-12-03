@@ -25,24 +25,24 @@
           "org_id": "{{ org_id || _delete }}",
           "phone": [
             {
-              "label": "Phone",
+              "label": "work",
               "value": "{{ phone || null }}",
               "primary": true
             },
             {
-              "label": "Mobile",
+              "label": "mobile",
               "value": "{{ mobile || null }}",
               "primary": false
             },
             {
-              "label": "Fax",
+              "label": "other",
               "value": "{{ fax || null }}",
               "primary": false
             }
           ],
           "email": [
             {
-              "label": "",
+              "label": "work",
               "value": "{{ email }}",
               "primary": true
             }
