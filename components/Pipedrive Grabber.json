@@ -38,10 +38,9 @@
                   "label": {
                     "en": "Work",
                     "de": "Geschäftlich",
-                    
-                    "es": "Teléfono",
-                    "fr": "Téléphone",
-                    "it": "Telefono"
+                    "es": "Trabajo",
+                    "fr": "Travail",
+                    "it": "Lavoro"
                   },
                   "value": "work"
                 },
@@ -84,10 +83,9 @@
                   "label": {
                     "en": "Work",
                     "de": "Geschäftlich",
-
-                    "es": "Email",
-                    "fr": "E-Mail",
-                    "it": "E-Mail"
+                    "es": "Trabajo",
+                    "fr": "Travail",
+                    "it": "Lavoro"
                   },
                   "value": "work"
                 }
