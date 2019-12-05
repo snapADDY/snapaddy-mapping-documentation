@@ -28,21 +28,42 @@
               "type": "pipedriveArray",
               "label": {
                 "en": "Phone",
-                "de": ""
+                "de": "Telefon",
+                "es": "Teléfono",
+                "fr": "Téléphone",
+                "it": "Telefono"
               },
               "properties": {
                 "options": [
                   {
-                    "label": "PHONE",
-                    "value": "PHONE"
+                    "label": {
+                      "en": "Work",
+                      "de": "Geschäftlich",
+                      "es": "Trabajo",
+                      "fr": "Travail",
+                      "it": "Lavoro"
+                    },
+                    "value": "work"
                   },
                   {
-                    "label": "MOBILE",
-                    "value": "MOBILE"
+                    "label": {
+                      "en": "Mobile",
+                      "de": "Mobil",
+                      "es": "Móvil",
+                      "fr": "Mobile",
+                      "it": "Mobile"
+                    },
+                    "value": "mobile"
                   },
                   {
-                    "label": "FAX",
-                    "value": "FAX"
+                    "label": {
+                      "en": "Fax",
+                      "de": "Fax",
+                      "es": "Fax",
+                      "fr": "Fax",
+                      "it": "Telefax"
+                    },
+                    "value": "other"
                   }
                 ]
               }
@@ -51,14 +72,23 @@
               "id": "email",
               "type": "pipedriveArray",
               "label": {
-                "en": "Email",
-                "de": ""
+                "en": "E-Mail",
+                "de": "Email",
+                "es": "Correo electrónico",
+                "fr": "E-Mail",
+                "it": "E-Mail"
               },
               "properties": {
                 "options": [
                   {
-                    "label": "EMAIL",
-                    "value": "EMAIL"
+                    "label": {
+                      "en": "Work",
+                      "de": "Geschäftlich",
+                      "es": "Trabajo",
+                      "fr": "Travail",
+                      "it": "Lavoro"
+                    },
+                    "value": "work"
                   }
                 ]
               }
