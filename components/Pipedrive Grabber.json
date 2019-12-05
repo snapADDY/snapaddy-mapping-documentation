@@ -71,9 +71,9 @@
             "id": "email",
             "type": "pipedriveArray",
             "label": {
-              "en": "Email",
+              "en": "E-Mail",
               "de": "Email",
-              "es": "Email",
+              "es": "Correo electrónico",
               "fr": "E-Mail",
               "it": "E-Mail"
             },
