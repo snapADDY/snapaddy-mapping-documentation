@@ -292,7 +292,7 @@
           {
             "type": "contact",
             "mainTemplate": "{{ FirstName }} {{ LastName }}",
-            "detailsTemplate": "{{ AccountName }}",
+            "detailsTemplate": "{{ AccountFormattedName }}",
             "duplicateCheckName": "contact",
             "fields": {},
             "label": {
