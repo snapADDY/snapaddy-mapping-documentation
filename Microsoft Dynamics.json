@@ -202,7 +202,10 @@
             "Address1_PostalCode": "{{ zip }}",
             "Address1_Country": "{{ country }}",
             "Address1_StateOrProvince": "{{ state }}",
-            "CampaignId": "{{ visitreport.campaignId }}"
+            "CampaignId": {
+              "Id": "{{ visitreport.campaignId }}",
+              "LogicalName": "campaign"
+            }
           },
           "contact": {
             "Salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
