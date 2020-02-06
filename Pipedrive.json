@@ -227,6 +227,11 @@
             "detailsTemplate": "{{ type }}"
           }
         ]
+      },
+      "config": {
+        "default": {
+          "open": "deal"
+        }
       }
     },
     "visitreport": {
@@ -449,6 +454,11 @@
               "detailsTemplate": "{{ type }}"
             }
           ]
+        }
+      },
+      "config": {
+        "default": {
+          "open": "deal"
         }
       }
     },
