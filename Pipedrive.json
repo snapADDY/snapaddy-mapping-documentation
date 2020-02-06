@@ -457,8 +457,10 @@
         }
       },
       "config": {
-        "default": {
-          "open": "deal"
+        "*": {
+          "default": {
+            "open": "deal"
+          }
         }
       }
     },
