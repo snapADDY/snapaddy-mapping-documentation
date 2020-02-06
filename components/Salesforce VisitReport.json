@@ -323,9 +323,7 @@
                   "hidden": true
                 }
               }
-            },
-            "detailsTemplate": "",
-            "mainTemplate": ""
+            }
           },
           {
             "type": "task",
@@ -411,14 +409,7 @@
                   "hidden": true
                 }
               }
-            },
-            "search": {
-              "ids": [
-                "Subject"
-              ]
-            },
-            "detailsTemplate": "",
-            "mainTemplate": ""
+            }
           }
         ],
         "contact_account": [
@@ -427,9 +418,7 @@
             "duplicateCheckName": "contact",
             "label": {
               "en": "Contact",
-              "GB": "Contact",
-              "de": "Kontakt",
-              "DE": "Kontakt"
+              "de": "Kontakt"
             },
             "fields": {
               "Id": {
@@ -654,9 +643,7 @@
             "duplicateCheckName": "account",
             "label": {
               "en": "Account",
-              "GB": "Account",
-              "de": "Account",
-              "DE": "Account"
+              "de": "Account"
             },
             "fields": {
               "Id": {
@@ -841,9 +828,7 @@
                   "hidden": true
                 }
               }
-            },
-            "detailsTemplate": "",
-            "mainTemplate": ""
+            }
           },
           {
             "type": "task",
@@ -929,14 +914,7 @@
                   "hidden": true
                 }
               }
-            },
-            "search": {
-              "ids": [
-                "Subject"
-              ]
-            },
-            "detailsTemplate": "",
-            "mainTemplate": ""
+            }
           }
         ]
       }

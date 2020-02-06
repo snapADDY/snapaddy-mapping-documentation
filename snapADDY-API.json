@@ -13,6 +13,7 @@
         "mobile": "{{ mobile }}",
         "website": "{{ website }}",
         "street": "{{ street }}",
+        "street2": "{{ street2 }}",
         "city": "{{ city }}",
         "zip": "{{ zip }}",
         "country": "{{ country }}",

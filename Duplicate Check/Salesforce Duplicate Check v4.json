@@ -22,7 +22,7 @@
                         "subconditions": [
                           {
                             "field": "Email",
-                            "operator": "eq",
+                            "operator": "in",
                             "value": "{{ address.email }}",
                             "filters": [
                               "return !isEmailGeneric(address.email)"
@@ -64,7 +64,7 @@
                     "subconditions": [
                       {
                         "field": "Email",
-                        "operator": "eq",
+                        "operator": "in",
                         "value": "{{ address.email }}",
                         "filters": [
                           "return !isEmailGeneric(address.email)"
@@ -112,34 +112,6 @@
                         "filters": [
                           "return address.organization.length >= 3"
                         ]
-                      },
-                      {
-                        "operator": "AND",
-                        "subconditions": [
-                          {
-                            "field": "Name",
-                            "operator": "allIn",
-                            "value": "{{ address.organization }}"
-                          },
-                          {
-                            "operator": "OR",
-                            "subconditions": [
-                              {
-                                "field": "BillingPostalCode",
-                                "operator": "in",
-                                "value": "{{ address.zip }}"
-                              },
-                              {
-                                "field": "BillingCity",
-                                "operator": "in",
-                                "value": "{{ address.city }}"
-                              }
-                            ]
-                          }
-                        ],
-                        "filters": [
-                          "return address.organization.length >= 3 && (!!address.zip || !!address.city)"
-                        ]
                       }
                     ]
                   },
@@ -149,141 +121,33 @@
               "results": [],
               "post": [
                 [
-                  "var sorted = pipeline.stages[0].results[0].duplicates;",
-                  "for (var i = 0; i < sorted.length; i++) {",
-                  "  var e = sorted[i] || {};",
-                  "  e._sortKey = 0;",
-                  "",
-                  "  var duplicateFirstName = (e.FirstName || '').trim()",
-                  "  var duplicateLastName = (e.LastName || '').trim()",
-                  "  var duplicateEmail = (e.Email || '').trim()",
-                  "  var duplicateCompanyName = (e.CompanyName || '').trim()",
-                  "",
-                  "  var snapADDYFirstName = (address.firstName || '').trim()",
-                  "  var snapADDYLastName = (address.lastName || '').trim()",
-                  "  var snapADDYEmail = (address.email || '').trim()",
-                  "  var snapADDYCompanyName = (address.organization || '').trim()",
-                  "",
-                  "  // FirstName exact match ",
-                  "  if (duplicateFirstName.toLowerCase() === snapADDYFirstName.toLowerCase()) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "",
-                  "  // LastName exact match ",
-                  "  if (duplicateLastName.toLowerCase() === snapADDYLastName.toLowerCase()) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "",
-                  "  // Email exact match ",
-                  "  if (duplicateEmail.toLowerCase() === snapADDYEmail.toLowerCase()) {",
-                  "    e._sortKey++;",
-                  "  }",
-                  "",
-                  "  // Company exact match ",
-                  "  if (duplicateCompanyName.toLowerCase() === snapADDYCompanyName.toLowerCase()) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "",
-                  "  // Company includes match ",
-                  "  if (duplicateCompanyName.toLowerCase().indexOf(snapADDYCompanyName.toLowerCase()) > -1) {",
-                  "    e._sortKey++;",
-                  "  }",
-                  "}",
-                  "",
-                  "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-                  "",
-                  "pipeline.stages[0].results[0].duplicates = sorted;",
-                  "pipeline.stages[0].results[0].suggested = sorted[0];",
-                  "return pipeline;"
+                  "var propertyWeights = []",
+                  "propertyWeights.push({ duplicatePropertyName: 'FirstName', snapaddyPropertyName: 'firstName', weight: 1 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', weight: 1 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'Email', snapaddyPropertyName: 'email', weight: 4 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'CompanyName', snapaddyPropertyName: 'organization', weight: 1 })",
+                  "pipeline.taskResults.lead.duplicates = sortDuplicates(pipeline.taskResults.lead.duplicates, address, propertyWeights, 'DESC')",
+                  "pipeline.taskResults.lead.suggested = pipeline.taskResults.lead.duplicates[0]",
+                  "return pipeline"
                 ],
                 [
-                  "var sorted = pipeline.stages[0].results[1].duplicates;",
-                  "for (var i = 0; i < sorted.length; i++) {",
-                  "  var e = sorted[i] || {};",
-                  "  e._sortKey = 0",
-                  "",
-                  "  var duplicateFirstName = (e.FirstName || '').trim()",
-                  "  var duplicateLastName = (e.LastName || '').trim()",
-                  "  var duplicateEmail = (e.Email || '').trim()",
-                  "",
-                  "  var snapADDYFirstName = (address.firstName || '').trim()",
-                  "  var snapADDYLastName = (address.lastName || '').trim()",
-                  "  var snapADDYEmail = (address.email || '').trim()",
-                  "",
-                  "  // FirstName exact match ",
-                  "  if (duplicateFirstName.toLowerCase() === snapADDYFirstName.toLowerCase()) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "",
-                  "  // LastName exact match ",
-                  "  if (duplicateLastName.toLowerCase() === snapADDYLastName.toLowerCase()) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "",
-                  "  // Company exact match ",
-                  "  if (duplicateEmail.toLowerCase() === snapADDYEmail.toLowerCase()) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "}",
-                  "",
-                  "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-                  "",
-                  "pipeline.stages[0].results[1].duplicates = sorted;",
-                  "pipeline.stages[0].results[1].suggested = sorted[0];",
-                  "return pipeline;"
+                  "var propertyWeights = []",
+                  "propertyWeights.push({ duplicatePropertyName: 'FirstName', snapaddyPropertyName: 'firstName', weight: 1 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', weight: 1 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'Email', snapaddyPropertyName: 'email', weight: 4 })",
+                  "pipeline.taskResults.contact.duplicates = sortDuplicates(pipeline.taskResults.contact.duplicates, address, propertyWeights, 'DESC')",
+                  "pipeline.taskResults.contact.suggested = pipeline.taskResults.contact.duplicates[0]",
+                  "return pipeline"
                 ],
                 [
-                  "var sorted = pipeline.stages[0].results[2].duplicates;",
-                  "for (var i = 0; i < sorted.length; i++) {",
-                  "  var e = sorted[i];",
-                  "  e._sortKey = 0",
-                  "",
-                  "  var duplicateCompanyName = (e.Name || '').trim()",
-                  "  var duplicateWebsite = (e.Website || '').trim()",
-                  "  var duplicateZip = (e.BillingPostalCode || '').trim()",
-                  "  var duplicateCity = (e.BillingCity || '').trim()",
-                  "",
-                  "  var snapADDYCompanyName = (address.organization || '').trim()",
-                  "  var snapADDYWebsite = (address.website || '').trim()",
-                  "  var snapADDYZip = (address.zip || '').trim()",
-                  "  var snapADDYCity = (address.city || '').trim()",
-                  "",
-                  "  // Company exact match ",
-                  "  if (duplicateCompanyName.toLowerCase() === snapADDYCompanyName.toLowerCase()) {",
-                  "    e._sort_key += 2",
-                  "  }",
-                  "",
-                  "  // Company includes match ",
-                  "  if (duplicateCompanyName.toLowerCase().indexOf(snapADDYCompanyName.toLowerCase()) > -1) {",
-                  "    e._sort_key++",
-                  "  }",
-                  "",
-                  "  // Website exact match ",
-                  "  if (duplicateWebsite.toLowerCase() === snapADDYWebsite.toLowerCase()) {",
-                  "    e._sort_key += 2",
-                  "  }",
-                  "",
-                  "  // Website includes match ",
-                  "  if (duplicateWebsite.toLowerCase().indexOf(snapADDYWebsite.toLowerCase()) > -1) {",
-                  "    e._sort_key++",
-                  "  }",
-                  "",
-                  "  // ZIP match ",
-                  "  if (duplicateZip === snapADDYZip) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "",
-                  "  // City match ",
-                  "  if (duplicateCity === snapADDYCity) {",
-                  "    e._sortKey += 2;",
-                  "  }",
-                  "}",
-                  "",
-                  "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-                  "",
-                  "pipeline.stages[0].results[2].duplicates = sorted;",
-                  "pipeline.stages[0].results[2].suggested = sorted[0];",
-                  "return pipeline;"
+                  "var propertyWeights = []",
+                  "propertyWeights.push({ duplicatePropertyName: 'Name', snapaddyPropertyName: 'organization', weight: 3 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'Website', snapaddyPropertyName: 'website', weight: 3 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'BillingCity', snapaddyPropertyName: 'city', weight: 1 })",
+                  "propertyWeights.push({ duplicatePropertyName: 'BillingPostalCode', snapaddyPropertyName: 'zip', weight: 0 })",
+                  "pipeline.taskResults.account.duplicates = sortDuplicates(pipeline.taskResults.account.duplicates, address, propertyWeights, 'DESC')",
+                  "pipeline.taskResults.account.suggested = pipeline.taskResults.account.duplicates[0]",
+                  "return pipeline"
                 ]
               ]
             }

@@ -7,9 +7,7 @@
           "duplicateCheckName": "contact",
           "label": {
             "en": "Person",
-            "EN": "Person",
-            "de": "Person",
-            "DE": "Person"
+            "de": "Person"
           },
           "fields": {
             "name": {
@@ -90,9 +88,7 @@
           "duplicateCheckName": "account",
           "label": {
             "en": "Organization",
-            "EN": "Organization",
-            "de": "Organisation",
-            "DE": "Organisation"
+            "de": "Organisation"
           },
           "fields": {
             "name": {
@@ -128,9 +124,7 @@
           "type": "deal",
           "label": {
             "en": "Deal",
-            "en-GB": "Deal",
-            "de": "Geschäft",
-            "de-DE": "Geschäft"
+            "de": "Geschäft"
           },
           "fields": {
             "title": {
@@ -208,9 +202,7 @@
           "type": "activity",
           "label": {
             "en": "Activity",
-            "EN": "Activity",
-            "de": "Activity",
-            "DE": "Activity"
+            "de": "Activity"
           },
           "fields": {
             "subject": {
@@ -315,15 +307,7 @@
               },
               "properties": {}
             }
-          },
-          "search": {
-            "ids": [
-              "subject",
-              "type"
-            ]
-          },
-          "mainTemplate": "{{ subject }}",
-          "detailsTemplate": "{{ type }}"
+          }
         }
       ]
     }

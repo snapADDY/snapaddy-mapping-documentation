@@ -8,37 +8,47 @@
             {
               "entity": "lead",
               "tree": {
-                "operator": "or",
+                "operator": "and",
                 "subconditions": [
                   {
-                    "field": "EMailAddress1",
-                    "operator": "allIn",
-                    "value": "{{ address.email }}",
-                    "filters": [
-                      "return !isEmailGeneric(address.email)"
-                    ]
+                    "operator": "eq",
+                    "field": "StateCode/Value",
+                    "value": 0
                   },
                   {
-                    "operator": "and",
+                    "operator": "or",
                     "subconditions": [
                       {
-                        "field": "FirstName",
-                        "operator": "allIn",
-                        "value": "{{ address.firstName }}"
+                        "field": "EMailAddress1",
+                        "operator": "in",
+                        "value": "{{address.email}}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
                       },
                       {
-                        "field": "LastName",
-                        "operator": "allIn",
-                        "value": "{{ address.lastName }}"
-                      },
-                      {
-                        "field": "CompanyName",
-                        "operator": "allIn",
-                        "value": "{{ address.organization }}"
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "FirstName",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "LastName",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          },
+                          {
+                            "field": "CompanyName",
+                            "operator": "allIn",
+                            "value": "{{ address.organization }}"
+                          }
+                        ],
+                        "filters": [
+                          "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                        ]
                       }
-                    ],
-                    "filters": [
-                      "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
                     ]
                   }
                 ]
@@ -48,32 +58,42 @@
             {
               "entity": "contact",
               "tree": {
-                "operator": "or",
+                "operator": "and",
                 "subconditions": [
                   {
-                    "field": "EMailAddress1",
-                    "operator": "allIn",
-                    "value": "{{ address.email }}",
-                    "filters": [
-                      "return !isEmailGeneric(address.email)"
-                    ]
+                    "operator": "eq",
+                    "field": "StateCode/Value",
+                    "value": 0
                   },
                   {
-                    "operator": "and",
+                    "operator": "or",
                     "subconditions": [
                       {
-                        "field": "FirstName",
-                        "operator": "allIn",
-                        "value": "{{ address.firstName }}"
+                        "field": "EMailAddress1",
+                        "operator": "in",
+                        "value": "{{ address.email }}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
                       },
                       {
-                        "field": "LastName",
-                        "operator": "allIn",
-                        "value": "{{ address.lastName }}"
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "FirstName",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "LastName",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          }
+                        ],
+                        "filters": [
+                          "return address.firstName.length >= 3 || address.lastName.length >= 3"
+                        ]
                       }
-                    ],
-                    "filters": [
-                      "return address.firstName.length >= 3 || address.lastName.length >= 3"
                     ]
                   }
                 ]
@@ -83,22 +103,32 @@
             {
               "entity": "account",
               "tree": {
-                "operator": "OR",
+                "operator": "and",
                 "subconditions": [
                   {
-                    "field": "WebSiteURL",
-                    "operator": "allIn",
-                    "value": "{{ address.website }}",
-                    "filters": [
-                      "return (getDomainFromURL(address.website) || '').length >= 3"
-                    ]
+                    "operator": "eq",
+                    "field": "StateCode/Value",
+                    "value": 0
                   },
                   {
-                    "field": "Name",
-                    "operator": "allIn",
-                    "value": "{{ address.organization }}",
-                    "filters": [
-                      "return address.organization.length >= 3"
+                    "operator": "OR",
+                    "subconditions": [
+                      {
+                        "field": "WebSiteURL",
+                        "operator": "in",
+                        "value": "{{ getDomainFromURL(address.website) }}",
+                        "filters": [
+                          "return address.website.length >= 5"
+                        ]
+                      },
+                      {
+                        "field": "Name",
+                        "operator": "allIn",
+                        "value": "{{ address.organization }}",
+                        "filters": [
+                          "return address.organization.length >= 3"
+                        ]
+                      }
                     ]
                   }
                 ]
@@ -109,156 +139,33 @@
           "results": [],
           "post": [
             [
-              "var sorted = pipeline.stages[0].results[0].duplicates;",
-              "for (var i = 0; i < sorted.length; i++) {",
-              "  var e = sorted[i] || {};",
-              "  e._sortKey = 0;",
-              "",
-              "  var duplicateFirstName = (e.FirstName || '').trim()",
-              "  var duplicateLastName = (e.LastName || '').trim()",
-              "  var duplicateFullName = (e.FullName || '').trim()",
-              "  var duplicateCompanyName = (e.CompanyName || '').trim()",
-              "",
-              "  var snapADDYFirstName = (address.firstName || '').trim()",
-              "  var snapADDYLastName = (address.lastName || '').trim()",
-              "  var snapADDYCompanyName = (address.organization || '').trim()",
-              "",
-              "  // FirstName exact match ",
-              "  if (duplicateFirstName.toLowerCase() === snapADDYFirstName.toLowerCase()) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "",
-              "  // LastName exact match ",
-              "  if (duplicateLastName.toLowerCase() === snapADDYLastName.toLowerCase()) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "",
-              "  // FullName includes FirstName match ",
-              "  if (duplicateFullName.toLowerCase().indexOf(snapADDYFirstName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "",
-              "  // FullName includes LastName match ",
-              "  if (duplicateFullName.toLowerCase().indexOf(snapADDYLastName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "",
-              "  // Company exact match ",
-              "  if (duplicateCompanyName.toLowerCase() === snapADDYCompanyName.toLowerCase()) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "",
-              "  // Company includes match ",
-              "  if (duplicateCompanyName.toLowerCase().indexOf(snapADDYCompanyName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "}",
-              "",
-              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-              "",
-              "pipeline.stages[0].results[0].duplicates = sorted;",
-              "pipeline.stages[0].results[0].suggested = sorted[0];",
-              "return pipeline;"
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'FirstName', snapaddyPropertyName: 'firstName', weight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', weight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'EMailAddress1', snapaddyPropertyName: 'email', weight: 4 })",
+              "propertyWeights.push({ duplicatePropertyName: 'CompanyName', snapaddyPropertyName: 'organization', weight: 1 })",
+              "pipeline.taskResults.lead.duplicates = sortDuplicates(pipeline.taskResults.lead.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.lead.suggested = pipeline.taskResults.lead.duplicates[0]",
+              "return pipeline"
             ],
             [
-              "var sorted = pipeline.stages[0].results[1].duplicates;",
-              "for (var i = 0; i < sorted.length; i++) {",
-              "  var e = sorted[i] || {};",
-              "  e._sortKey = 0",
-              "",
-              "  var duplicateFirstName = (e.FirstName || '').trim()",
-              "  var duplicateLastName = (e.LastName || '').trim()",
-              "  var duplicateFullName = (e.FullName || '').trim()",
-              "  var duplicateCompanyName = (e.Company || (e.ParentCustomerId && e.ParentCustomerId.Name) || '').trim().toLowerCase()",
-              "",
-              "  var snapADDYFirstName = (address.firstName || '').trim()",
-              "  var snapADDYLastName = (address.lastName || '').trim()",
-              "  var snapADDYCompanyName = (address.organization || '').trim()",
-              "",
-              "  // FirstName exact match ",
-              "  if (duplicateFirstName.toLowerCase() === snapADDYFirstName.toLowerCase()) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "",
-              "  // LastName exact match ",
-              "  if (duplicateLastName.toLowerCase() === snapADDYLastName.toLowerCase()) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "",
-              "  // Name includes match ",
-              "  if (duplicateFullName.toLowerCase().indexOf(snapADDYFirstName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "",
-              "  // Name includes match ",
-              "  if (duplicateFullName.toLowerCase().indexOf(snapADDYLastName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "",
-              "  // Company exact match ",
-              "  if (duplicateCompanyName === snapADDYCompanyName.toLowerCase()) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "",
-              "  // Company includes match ",
-              "  if (duplicateCompanyName.indexOf(snapADDYCompanyName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "}",
-              "",
-              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-              "",
-              "pipeline.stages[0].results[1].duplicates = sorted;",
-              "pipeline.stages[0].results[1].suggested = sorted[0];",
-              "return pipeline;"
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'FirstName', snapaddyPropertyName: 'firstName', weight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', weight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'EMailAddress1', snapaddyPropertyName: 'email', weight: 4 })",
+              "pipeline.taskResults.contact.duplicates = sortDuplicates(pipeline.taskResults.contact.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.contact.suggested = pipeline.taskResults.contact.duplicates[0]",
+              "return pipeline"
             ],
             [
-              "var sorted = pipeline.stages[0].results[2].duplicates;",
-              "for (var i = 0; i < sorted.length; i++) {",
-              "  var e = sorted[i];",
-              "  e._sortKey = 0",
-              "",
-              "  var duplicateCompanyName = (e.Name || '').trim()",
-              "  var duplicateWebsite = (e.WebSiteURL || '').trim()",
-              "  var duplicateZip = (e.Address1_PostalCode || '').trim()",
-              "  var duplicateCity = (e.Address1_City || '').trim()",
-              "",
-              "  var snapADDYCompanyName = (address.organization || '').trim()",
-              "  var snapADDYWebsite = (address.website || '').trim()",
-              "  var snapADDYZip = (address.zip || '').trim()",
-              "  var snapADDYCity = (address.city || '').trim()",
-              "",
-              "  // Company exact match ",
-              "  if (duplicateCompanyName.toLowerCase() === snapADDYCompanyName.toLowerCase()) {",
-              "    e._sort_key += 2",
-              "  }",
-              "",
-              "  // Company includes match ",
-              "  if (duplicateCompanyName.toLowerCase().indexOf(snapADDYCompanyName.toLowerCase()) > -1) {",
-              "    e._sort_key++",
-              "  }",
-              "",
-              "  // Website exact match ",
-              "  if (duplicateWebsite.toLowerCase() === snapADDYWebsite.toLowerCase()) {",
-              "    e._sort_key += 2",
-              "  }",
-              "",
-              "  // Website includes match ",
-              "  if (duplicateWebsite.toLowerCase().indexOf(snapADDYWebsite.toLowerCase()) > -1) {",
-              "    e._sort_key++",
-              "  }",
-              "",
-              "  // ZIP or City match ",
-              "  if (duplicateZip === snapADDYZip || duplicateCity === snapADDYCity) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "}",
-              "",
-              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-              "",
-              "pipeline.stages[0].results[2].duplicates = sorted;",
-              "pipeline.stages[0].results[2].suggested = sorted[0];",
-              "return pipeline;"
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'Name', snapaddyPropertyName: 'organization', weight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'WebSiteURL', snapaddyPropertyName: 'website', weight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'Address1_City', snapaddyPropertyName: 'city', weight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'Address1_PostalCode', snapaddyPropertyName: 'zip', weight: 0 })",
+              "pipeline.taskResults.account.duplicates = sortDuplicates(pipeline.taskResults.account.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.account.suggested = pipeline.taskResults.account.duplicates[0]",
+              "return pipeline"
             ]
           ]
         }

@@ -33,7 +33,7 @@
           "Subject": "{{ topic }}",
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
-          "Salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+          "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
           "JobTitle": "{{ position }}",
           "CompanyName": "{{ organization }}",
           "WebSiteUrl": "{{ website }}",
@@ -50,7 +50,7 @@
         "contact": {
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
-          "Salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+          "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
           "JobTitle": "{{ position }}",
           "MobilePhone": "{{ mobile }}",
           "Fax": "{{ fax }}",
@@ -90,35 +90,35 @@
                 "entities": [
                   "lead"
                 ],
-                "name": "Drawing.png"
+                "name": "Drawing"
               },
               "bcImage": {
                 "entities": [
                   "lead"
                 ],
-                "name": "VCard front.png"
+                "name": "Business card front"
               },
               "bcImageBackside": {
                 "entities": [
                   "lead"
                 ],
-                "name": "VCard back.png"
+                "name": "Business card back"
               },
               "attachments": {
                 "entities": [
                   "lead"
                 ],
                 "name": {
-                  "*": "Attachment_${i}.png",
-                  "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
+                  "*": "Attachment (${i})",
+                  "PDF": "Attachment (${i})",
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur"
                 }
               },
               "note": {
                 "entities": [
                   "lead"
                 ],
-                "name": "Note"
+                "name": "snapADDY Note"
               }
             }
           }
@@ -143,35 +143,35 @@
                 "entities": [
                   "contact"
                 ],
-                "name": "Drawing.png"
+                "name": "Drawing"
               },
               "bcImage": {
                 "entities": [
                   "contact"
                 ],
-                "name": "VCard front.png"
+                "name": "Business card front"
               },
               "bcImageBackside": {
                 "entities": [
                   "contact"
                 ],
-                "name": "VCard back.png"
+                "name": "Business card back"
               },
               "attachments": {
                 "entities": [
                   "contact"
                 ],
                 "name": {
-                  "*": "Attachment_${i}.png",
-                  "PDF": "Attachment_${i}.pdf",
-                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
+                  "*": "Attachment (${i})",
+                  "PDF": "Attachment (${i})",
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur"
                 }
               },
               "note": {
                 "entities": [
                   "contact"
                 ],
-                "name": "Note"
+                "name": "snapADDY Note"
               }
             }
           }
@@ -186,7 +186,7 @@
       "mappings": {
         "*": {
           "lead": {
-            "Salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+            "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
             "Subject": "{{ topic }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",
@@ -202,10 +202,13 @@
             "Address1_PostalCode": "{{ zip }}",
             "Address1_Country": "{{ country }}",
             "Address1_StateOrProvince": "{{ state }}",
-            "CampaignID": "{{ visitreport.campaignId }}"
+            "CampaignId": {
+              "Id": "{{ visitreport.campaignId }}",
+              "LogicalName": "campaign"
+            }
           },
           "contact": {
-            "Salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+            "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",
             "JobTitle": "{{ position }}",
@@ -252,28 +255,28 @@
                   "entities": [
                     "lead"
                   ],
-                  "name": "Drawing.png"
+                  "name": "Drawing"
                 },
                 "bcImage": {
                   "entities": [
                     "lead"
                   ],
-                  "name": "VCard front.png"
+                  "name": "Business card front"
                 },
                 "bcImageBackside": {
                   "entities": [
                     "lead"
                   ],
-                  "name": "VCard back.png"
+                  "name": "Business card back"
                 },
                 "attachments": {
                   "entities": [
                     "lead"
                   ],
                   "name": {
-                    "*": "Attachment_${i}.png",
-                    "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
+                    "*": "Attachment (${i})",
+                    "PDF": "Attachment (${i})",
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur"
                   }
                 },
                 "visitreport_pdf": {
@@ -286,7 +289,7 @@
                   "entities": [
                     "lead"
                   ],
-                  "name": "Note"
+                  "name": "snapADDY Note"
                 }
               }
             }
@@ -311,28 +314,28 @@
                   "entities": [
                     "contact"
                   ],
-                  "name": "Drawing.png"
+                  "name": "Drawing"
                 },
                 "bcImage": {
                   "entities": [
                     "contact"
                   ],
-                  "name": "VCard front.png"
+                  "name": "Business card front"
                 },
                 "bcImageBackside": {
                   "entities": [
                     "contact"
                   ],
-                  "name": "VCard back.png"
+                  "name": "Business card back"
                 },
                 "attachments": {
                   "entities": [
                     "contact"
                   ],
                   "name": {
-                    "*": "Attachment_${i}.png",
-                    "PDF": "Attachment_${i}.pdf",
-                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur (${i}).pdf"
+                    "*": "Attachment (${i})",
+                    "PDF": "Attachment (${i})",
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signatur"
                   }
                 },
                 "visitreport_pdf": {
@@ -345,7 +348,7 @@
                   "entities": [
                     "contact"
                   ],
-                  "name": "Note"
+                  "name": "snapADDY Note"
                 }
               }
             }
@@ -362,20 +365,20 @@
     "code": {
       "functions": {
         "genderMapping": [
-          "  if (address.gender === 0) { return 1; }",
-          "  if (address.gender === 1) { return 2; }",
-          "  return null;                           "
+          "if (address.gender === 0) { return 1; }",
+          "if (address.gender === 1) { return 2; }",
+          "return null;                           "
         ],
         "getVisitReportNote": [
-          "var note = address.note || '';",
+          "var note = address.note ? (address.note + '\\n\\n') : '';",
           "if (address.visitreport && address.visitreport.result) {",
-          "  note += '\\n\\nVisitReport\\n\\n';",
+          "  note += 'VisitReport\\n\\n';",
           "  var result = address.visitreport.result;",
           "  for (var key in result) {",
           "    note += result[key].question + ' = ' + (result[key].text || '-') + '\n';",
           "  }",
           "}",
-          "return note.replace(/\"/g,'\\\\\"');"
+          "return note.replace(/\"/g,'');"
         ]
       }
     }
