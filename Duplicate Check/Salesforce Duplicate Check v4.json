@@ -95,7 +95,7 @@
                 {
                   "entity": "account",
                   "tree": {
-                    "operator": "OR",
+                    "operator": "or",
                     "subconditions": [
                       {
                         "field": "Website",

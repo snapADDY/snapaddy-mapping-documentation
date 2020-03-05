@@ -21,7 +21,7 @@
                       {
                         "field": "EMailAddress1",
                         "operator": "in",
-                        "value": "{{address.email}}",
+                        "value": "{{ address.email }}",
                         "filters": [
                           "return !isEmailGeneric(address.email)"
                         ]
@@ -111,7 +111,7 @@
                     "value": 0
                   },
                   {
-                    "operator": "OR",
+                    "operator": "or",
                     "subconditions": [
                       {
                         "field": "WebSiteURL",
