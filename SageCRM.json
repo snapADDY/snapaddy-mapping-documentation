@@ -45,47 +45,47 @@
     "defaultExport": {
       "mappings": {
         "lead": {
-          "personsalutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+          "personsalutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "personfirstname": "{{ firstName }}",
           "personlastname": "{{ lastName }}",
-          "companywebsite": "{{ website || _delete  }}",
-          "persontitle": "{{ position || _delete  }}",
+          "companywebsite": "{{ website }}",
+          "persontitle": "{{ position }}",
           "personemail": "{{ email }}",
-          "personphonecountrycode": "{{ phone_countrycode || _delete  }}",
-          "personphoneareacode": "{{ phone_areacode || _delete  }}",
-          "personphonenumber": "{{ phone_number || _delete  }}",
-          "personfaxcountrycode": "{{ fax_countrycode || _delete }}",
-          "personfaxareacode": "{{ fax_areacode || _delete }}",
-          "personfaxnumber": "{{ fax_number || _delete  }}",
-          "companyaddress1": "{{ street || _delete  }}",
-          "companycity": "{{ city || _delete  }}",
-          "companypostcode": "{{ zip || _delete  }}",
-          "companystate": "{{ state || _delete  }}",
-          "companycountry": "{{ country || _delete  }}",
+          "personphonecountrycode": "{{ phone_countrycode }}",
+          "personphoneareacode": "{{ phone_areacode }}",
+          "personphonenumber": "{{ phone_number }}",
+          "personfaxcountrycode": "{{ fax_countrycode }}",
+          "personfaxareacode": "{{ fax_areacode }}",
+          "personfaxnumber": "{{ fax_number }}",
+          "companyaddress1": "{{ street }}",
+          "companycity": "{{ city }}",
+          "companypostcode": "{{ zip }}",
+          "companystate": "{{ state }}",
+          "companycountry": "{{ country }}",
           "companyname": "{{ organization }}",
           "source": "{{ }}",
           "status": "{{ }}",
           "stage": "{{ }}",
           "description": "{{ organization }}",
-          "details": "{{note || _delete}}",
-          "assigneduserid": "{{ userId || _delete}}"
+          "details": "{{note}}",
+          "assigneduserid": "{{ userId}}"
         },
         "contact": {
-          "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+          "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "firstname": "{{ firstName }}",
           "lastname": "{{ lastName }}",
-          "title": "{{ title  || _delete }}",
-          "titlecode": "{{ position || _delete }}",
-          "website": "{{ website || _delete }}",
+          "title": "{{ title }}",
+          "titlecode": "{{ position }}",
+          "website": "{{ website }}",
           "address": {
             "entityname": "address",
             "records": [
               {
-                "address1": "{{ street || _delete }}",
-                "city": "{{ city || _delete }}",
-                "state": "{{ state || _delete }}",
-                "postcode": "{{ zip || _delete }}",
-                "country": "{{ country || _delete }}",
+                "address1": "{{ street }}",
+                "city": "{{ city }}",
+                "state": "{{ state }}",
+                "postcode": "{{ zip }}",
+                "country": "{{ country }}",
                 "type": "Business"
               }
             ]
@@ -94,7 +94,7 @@
             "entityname": "email",
             "records": [
               {
-                "emailaddress": "{{ email || _delete }}",
+                "emailaddress": "{{ email }}",
                 "type": "Business"
               }
             ]
@@ -103,21 +103,21 @@
             "entityname": "phone",
             "records": [
               {
-                "countrycode": "{{ phone_countrycode || _delete }}",
-                "areacode": "{{ phone_areacode || _delete }}",
-                "number": "{{ phone_number || _delete }}",
+                "countrycode": "{{ phone_countrycode }}",
+                "areacode": "{{ phone_areacode }}",
+                "number": "{{ phone_number }}",
                 "type": "Business"
               },
               {
-                "countrycode": "{{ fax_countrycode || _delete }}",
-                "areacode": "{{ fax_areacode || _delete }}",
-                "number": "{{ fax_number || _delete }}",
+                "countrycode": "{{ fax_countrycode }}",
+                "areacode": "{{ fax_areacode }}",
+                "number": "{{ fax_number }}",
                 "type": "Fax"
               },
               {
-                "countrycode": "{{ mobile_countrycode || _delete }}",
-                "areacode": "{{ mobile_areacode || _delete }}",
-                "number": "{{ mobile_number || _delete }}",
+                "countrycode": "{{ mobile_countrycode }}",
+                "areacode": "{{ mobile_areacode }}",
+                "number": "{{ mobile_number }}",
                 "type": "Mobile"
               }
             ]
@@ -125,18 +125,18 @@
         },
         "company": {
           "name": "{{ organization }}",
-          "website": "{{ website || _delete }}",
-          "status": "{{ status || _delete }}",
-          "primaryuserid": "{{ userId || _delete }}",
+          "website": "{{ website }}",
+          "status": "{{ status }}",
+          "primaryuserid": "{{ userId }}",
           "address": {
             "entityname": "address",
             "records": [
               {
-                "address1": "{{ street || _delete }}",
-                "city": "{{ city || _delete }}",
-                "state": "{{ state || _delete }}",
-                "postcode": "{{ zip || _delete }}",
-                "country": "{{ country || _delete }}",
+                "address1": "{{ street }}",
+                "city": "{{ city }}",
+                "state": "{{ state }}",
+                "postcode": "{{ zip }}",
+                "country": "{{ country }}",
                 "type": "business"
               }
             ]
@@ -145,7 +145,7 @@
             "entityname": "email",
             "records": [
               {
-                "emailaddress": "{{ email || _delete }}",
+                "emailaddress": "{{ email }}",
                 "type": "business"
               }
             ]
@@ -154,21 +154,21 @@
             "entityname": "phone",
             "records": [
               {
-                "countrycode": "{{ phone_countrycode || _delete }}",
-                "areacode": "{{ phone_areacode || _delete }}",
-                "number": "{{ phone_number || _delete }}",
+                "countrycode": "{{ phone_countrycode }}",
+                "areacode": "{{ phone_areacode }}",
+                "number": "{{ phone_number }}",
                 "type": "business"
               },
               {
-                "countrycode": "{{ fax_countrycode || _delete }}",
-                "areacode": "{{ fax_areacode || _delete }}",
-                "number": "{{ fax_number || _delete }}",
+                "countrycode": "{{ fax_countrycode }}",
+                "areacode": "{{ fax_areacode }}",
+                "number": "{{ fax_number }}",
                 "type": "fax"
               },
               {
-                "countrycode": "{{ mobile_countrycode || _delete }}",
-                "areacode": "{{ mobile_areacode || _delete }}",
-                "number": "{{ mobile_number || _delete }}",
+                "countrycode": "{{ mobile_countrycode }}",
+                "areacode": "{{ mobile_areacode }}",
+                "number": "{{ mobile_number }}",
                 "type": "mobile"
               }
             ]
@@ -187,7 +187,7 @@
                 "entities": [
                   "lead"
                 ],
-                "name": "snapADDY Grabber Note"
+                "name": "snapADDY Note"
               }
             }
           }
@@ -212,7 +212,7 @@
                 "entities": [
                   "contact"
                 ],
-                "name": "snapADDY Grabber Note"
+                "name": "snapADDY Note"
               }
             }
           }
@@ -784,9 +784,7 @@
             "duplicateCheckName": "contact",
             "label": {
               "en": "Contact",
-              "GB": "Contact",
-              "de": "Kontakt",
-              "DE": "Kontakt"
+              "de": "Kontakt"
             },
             "fields": {
               "personid": {
@@ -1184,47 +1182,47 @@
       "mappings": {
         "*": {
           "lead": {
-            "assigneduserid": "{{ userId || _delete }}",
-            "personsalutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+            "assigneduserid": "{{ userId }}",
+            "personsalutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "personfirstname": "{{ firstName }}",
             "personlastname": "{{ lastName }}",
-            "companywebsite": "{{ website || _delete }}",
-            "persontitle": "{{ position || _delete }}",
+            "companywebsite": "{{ website }}",
+            "persontitle": "{{ position }}",
             "personemail": "{{ email }}",
-            "personphonecountrycode": "{{ phone_countrycode || _delete }}",
-            "personphoneareacode": "{{ phone_areacode || _delete }}",
-            "personphonenumber": "{{ phone_number || _delete }}",
-            "personfaxcountrycode": "{{ fax_countrycode || _delete }}",
-            "personfaxareacode": "{{ fax_areacode || _delete }}",
-            "personfaxnumber": "{{ fax_number || _delete }}",
-            "companyaddress1": "{{ street || _delete }}",
-            "companycity": "{{ city || _delete }}",
-            "companypostcode": "{{ zip || _delete }}",
-            "companystate": "{{ state || _delete }}",
-            "companycountry": "{{ country || _delete }}",
+            "personphonecountrycode": "{{ phone_countrycode }}",
+            "personphoneareacode": "{{ phone_areacode }}",
+            "personphonenumber": "{{ phone_number }}",
+            "personfaxcountrycode": "{{ fax_countrycode }}",
+            "personfaxareacode": "{{ fax_areacode }}",
+            "personfaxnumber": "{{ fax_number }}",
+            "companyaddress1": "{{ street }}",
+            "companycity": "{{ city }}",
+            "companypostcode": "{{ zip }}",
+            "companystate": "{{ state }}",
+            "companycountry": "{{ country }}",
             "companyname": "{{ organization }}",
             "source": "{{ }}",
             "status": "{{ }}",
             "stage": "{{ }}",
             "description": "{{ }}",
-            "details": "{{ note || _delete }}"
+            "details": "{{ note }}"
           },
           "contact": {
-            "salutation": "{{ gender == -1? ('') : (gender == 0? ('Herr') : ('Frau')) }}",
+            "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "firstname": "{{ firstName }}",
             "lastname": "{{ lastName }}",
-            "title": "{{ title  || _delete }}",
-            "titlecode": "{{ position || _delete }}",
-            "website": "{{ website || _delete }}",
+            "title": "{{ title }}",
+            "titlecode": "{{ position }}",
+            "website": "{{ website }}",
             "address": {
               "entityname": "address",
               "records": [
                 {
-                  "address1": "{{ street || _delete }}",
-                  "city": "{{ city || _delete }}",
-                  "state": "{{ state || _delete }}",
-                  "postcode": "{{ zip || _delete }}",
-                  "country": "{{ country || _delete }}",
+                  "address1": "{{ street }}",
+                  "city": "{{ city }}",
+                  "state": "{{ state }}",
+                  "postcode": "{{ zip }}",
+                  "country": "{{ country }}",
                   "type": "Business"
                 }
               ]
@@ -1233,7 +1231,7 @@
               "entityname": "email",
               "records": [
                 {
-                  "emailaddress": "{{ email || _delete }}",
+                  "emailaddress": "{{ email }}",
                   "type": "business"
                 }
               ]
@@ -1242,21 +1240,21 @@
               "entityname": "phone",
               "records": [
                 {
-                  "countrycode": "{{ phone_countrycode || _delete }}",
-                  "areacode": "{{ phone_areacode || _delete }}",
-                  "number": "{{ phone_number || _delete }}",
+                  "countrycode": "{{ phone_countrycode }}",
+                  "areacode": "{{ phone_areacode }}",
+                  "number": "{{ phone_number }}",
                   "type": "business"
                 },
                 {
-                  "countrycode": "{{ fax_countrycode || _delete }}",
-                  "areacode": "{{ fax_areacode || _delete }}",
-                  "number": "{{ fax_number || _delete }}",
+                  "countrycode": "{{ fax_countrycode }}",
+                  "areacode": "{{ fax_areacode }}",
+                  "number": "{{ fax_number }}",
                   "type": "fax"
                 },
                 {
-                  "countrycode": "{{ mobile_countrycode || _delete }}",
-                  "areacode": "{{ mobile_areacode || _delete }}",
-                  "number": "{{ mobile_number || _delete }}",
+                  "countrycode": "{{ mobile_countrycode }}",
+                  "areacode": "{{ mobile_areacode }}",
+                  "number": "{{ mobile_number }}",
                   "type": "mobile"
                 }
               ]
@@ -1264,18 +1262,18 @@
           },
           "company": {
             "name": "{{ organization }}",
-            "website": "{{ website || _delete }}",
-            "status": "{{ status || _delete }}",
-            "primaryuserid": "{{ userId || _delete }}",
+            "website": "{{ website }}",
+            "status": "{{ status }}",
+            "primaryuserid": "{{ userId }}",
             "address": {
               "entityname": "address",
               "records": [
                 {
-                  "address1": "{{ street || _delete }}",
-                  "city": "{{ city || _delete }}",
-                  "state": "{{ state || _delete }}",
-                  "postcode": "{{ zip || _delete }}",
-                  "country": "{{ country || _delete }}",
+                  "address1": "{{ street }}",
+                  "city": "{{ city }}",
+                  "state": "{{ state }}",
+                  "postcode": "{{ zip }}",
+                  "country": "{{ country }}",
                   "type": "business"
                 }
               ]
@@ -1284,7 +1282,7 @@
               "entityname": "email",
               "records": [
                 {
-                  "emailaddress": "{{ email || _delete }}",
+                  "emailaddress": "{{ email }}",
                   "type": "business"
                 }
               ]
@@ -1293,21 +1291,21 @@
               "entityname": "phone",
               "records": [
                 {
-                  "countrycode": "{{ phone_countrycode || _delete }}",
-                  "areacode": "{{ phone_areacode || _delete }}",
-                  "number": "{{ phone_number || _delete }}",
+                  "countrycode": "{{ phone_countrycode }}",
+                  "areacode": "{{ phone_areacode }}",
+                  "number": "{{ phone_number }}",
                   "type": "business"
                 },
                 {
-                  "countrycode": "{{ fax_countrycode || _delete }}",
-                  "areacode": "{{ fax_areacode || _delete }}",
-                  "number": "{{ fax_number || _delete }}",
+                  "countrycode": "{{ fax_countrycode }}",
+                  "areacode": "{{ fax_areacode }}",
+                  "number": "{{ fax_number }}",
                   "type": "fax"
                 },
                 {
-                  "countrycode": "{{ mobile_countrycode || _delete }}",
-                  "areacode": "{{ mobile_areacode || _delete }}",
-                  "number": "{{ mobile_number || _delete }}",
+                  "countrycode": "{{ mobile_countrycode }}",
+                  "areacode": "{{ mobile_areacode }}",
+                  "number": "{{ mobile_number }}",
                   "type": "mobile"
                 }
               ]

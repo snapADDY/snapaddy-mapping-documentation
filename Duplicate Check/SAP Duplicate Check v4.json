@@ -12,17 +12,17 @@
                   {
                     "field": "ContactFirstName",
                     "operator": "in",
-                    "value": "{{address.firstName}}"
+                    "value": "{{ address.firstName }}"
                   },
                   {
                     "field": "ContactLastName",
                     "operator": "in",
-                    "value": "{{address.lastName}}"
+                    "value": "{{ address.lastName }}"
                   },
                   {
                     "field": "Company",
-                    "operator": "in",
-                    "value": "{{address.organization}}"
+                    "operator": "allIn",
+                    "value": "{{ address.organization }}"
                   }
                 ],
                 "filters": [
@@ -35,9 +35,11 @@
             {
               "tree": {
                 "field": "ContactEMail",
-                "operator": "eq",
-                "value": "{{address.email}}",
-                "filters": ["return !isEmailGeneric(address.email)"]
+                "operator": "in",
+                "value": "{{ address.email }}",
+                "filters": [
+                  "return !isEmailGeneric(address.email)"
+                ]
               },
               "entity": "lead",
               "name": "leadsEmail"
@@ -45,19 +47,35 @@
             {
               "tree": {
                 "field": "Name",
-                "operator": "in",
-                "value": "{{address.organization}}",
-                "filters": ["return address.organization.length >= 3"]
+                "operator": "allIn",
+                "value": "{{ address.organization }}",
+                "filters": [
+                  "return address.organization.length >= 3"
+                ]
               },
               "entity": "account",
               "name": "accountsName"
             },
             {
               "tree": {
+                "field": "BusinessPartnerFormattedName",
+                "operator": "allIn",
+                "value": "{{ address.organization }}",
+                "filters": [
+                  "return address.organization.length >= 3"
+                ]
+              },
+              "entity": "account",
+              "name": "accountsBusinessPartnerFormattedName"
+            },
+            {
+              "tree": {
                 "field": "WebSite",
-                "operator": "eq",
-                "value": "{{address.website}}",
-                "filters": ["return address.website.length >= 5"]
+                "operator": "in",
+                "value": "{{ getDomainFromURL(address.website) }}",
+                "filters": [
+                  "return address.website.length >= 5"
+                ]
               },
               "entity": "account",
               "name": "accountsWebsite"
@@ -65,9 +83,11 @@
             {
               "tree": {
                 "field": "Email",
-                "operator": "eq",
-                "value": "{{address.email}}",
-                "filters": ["return !isEmailGeneric(address.email)"]
+                "operator": "in",
+                "value": "{{ address.email }}",
+                "filters": [
+                  "return !isEmailGeneric(address.email)"
+                ]
               },
               "entity": "contact",
               "name": "contactsEmail"
@@ -79,12 +99,12 @@
                   {
                     "field": "FirstName",
                     "operator": "in",
-                    "value": "{{address.firstName}}"
+                    "value": "{{ address.firstName }}"
                   },
                   {
                     "field": "LastName",
                     "operator": "in",
-                    "value": "{{address.lastName}}"
+                    "value": "{{ address.lastName }}"
                   }
                 ],
                 "filters": [
@@ -98,69 +118,39 @@
           "post": [
             [
               "pipeline.taskResults['lead'] = collateTaskResults(pipeline, ['leadsEmail', 'leadsNameCompany'], 'ObjectID')",
-              "pipeline.taskResults['account'] = collateTaskResults(pipeline, ['accountsName', 'accountsWebsite'], 'ObjectID')",
+              "pipeline.taskResults['account'] = collateTaskResults(pipeline, ['accountsName', 'accountsWebsite', 'accountsBusinessPartnerFormattedName'], 'ObjectID')",
               "pipeline.taskResults['contact'] = collateTaskResults(pipeline, ['contactsName', 'contactsEmail'], 'ObjectID')",
               "return pipeline"
             ],
             [
-              "var sorted = pipeline.taskResults['lead'].duplicates;",
-              "for (var i = 0; i < sorted.length; i++) {",
-              "  e = sorted[i] || {};",
-              "  e._sortKey = 0",
-              "  if ((e.ContactFirstName || '').toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "  if ((e.ContactLastName || '').toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "  if ((e.Company || '').toLowerCase().indexOf(address.organization.toLowerCase()) > -1) {",
-              "    e._sortKey = e._sortKey + 3;",
-              "  }",
-              "}",
-              "",
-              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-              "pipeline.taskResults['lead'].duplicates = sorted;",
-              "pipeline.taskResults['lead'].suggested = sorted[0];",
-              "return pipeline;"
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'ContactFirstName', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'ContactLastName', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'ContactEmail', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
+              "propertyWeights.push({ duplicatePropertyName: 'Company', snapaddyPropertyName: 'organization', fuzzyWeight: 1 })",
+              "pipeline.taskResults.lead.duplicates = sortDuplicates(pipeline.taskResults.lead.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.lead.suggested = pipeline.taskResults.lead.duplicates[0]",
+              "return pipeline"
             ],
             [
-              "var sorted = pipeline.taskResults['contact'].duplicates",
-              "for (var i = 0; i < sorted.length; i++) {",
-              "  e = sorted[i] || {};",
-              "  e._sortKey = 0;",
-              "  if ((e.FirstName || '').toLowerCase().indexOf(address.firstName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "  if ((e.LastName || '').toLowerCase().indexOf(address.lastName.toLowerCase()) > -1) {",
-              "    e._sortKey++;",
-              "  }",
-              "}",
-              "",
-              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-              "pipeline.taskResults['contact'].duplicates = sorted;",
-              "pipeline.taskResults['contact'].suggested = sorted[0];",
-              "return pipeline;"
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'FirstName', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'Email', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
+              "propertyWeights.push({ duplicatePropertyName: 'AccountFormattedName', snapaddyPropertyName: 'email', fuzzyWeight: 1 })",
+              "pipeline.taskResults.contact.duplicates = sortDuplicates(pipeline.taskResults.contact.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.contact.suggested = pipeline.taskResults.contact.duplicates[0]",
+              "return pipeline"
             ],
             [
-              "var sorted = pipeline.taskResults['account'].duplicates",
-              "for (var i = 0; i < sorted.length; i++) {",
-              "  e = sorted[i] || {};",
-              "  e._sortKey = 0;",
-              "  if ((e.StreetPostalCode || '') === address.zip) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "  if ((e.City || '') === address.city) {",
-              "    e._sortKey += 2;",
-              "  }",
-              "  if (e.StreetPostalCode || e.City) {",
-              "    e._sortKey += 1;",
-              "  }",
-              "}",
-              "",
-              "sorted = sortByKey(sorted, '_sortKey', 'DESC');",
-              "pipeline.taskResults['account'].duplicates = sorted;",
-              "pipeline.taskResults['account'].suggested = sorted[0];",
-              "return pipeline;"
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'BusinessPartnerFormattedName', snapaddyPropertyName: 'organization', fuzzyWeight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'WebSite', snapaddyPropertyName: 'website', fuzzyWeight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'City', snapaddyPropertyName: 'city', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'StreetPostalCode', snapaddyPropertyName: 'zip', fuzzyWeight: 0, exactMatchModifier: 1 })",
+              "pipeline.taskResults.account.duplicates = sortDuplicates(pipeline.taskResults.account.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.account.suggested = pipeline.taskResults.account.duplicates[0]",
+              "return pipeline"
             ]
           ]
         }

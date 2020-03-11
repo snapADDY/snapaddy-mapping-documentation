@@ -657,9 +657,7 @@
               "duplicateCheckName": "account",
               "label": {
                 "en": "Company",
-                "GB": "Company",
-                "de": "Firma",
-                "DE": "Firma"
+                "de": "Firma"
               },
               "fields": {
                 "companyid": {

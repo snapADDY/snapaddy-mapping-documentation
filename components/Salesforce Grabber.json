@@ -283,50 +283,6 @@
           "detailsTemplate": "{{ Company }}"
         },
         {
-          "type": "campaignMember",
-          "label": {
-            "de": "Kampagnenmitglied",
-            "en": "Campaignmember"
-          },
-          "fields": {
-            "CampaignId": {
-              "id": "CampaignId",
-              "label": {
-                "de": "",
-                "en": ""
-              },
-              "type": "input",
-              "properties": {
-                "hidden": true
-              }
-            },
-            "LeadId": {
-              "id": "LeadId",
-              "label": {
-                "de": "",
-                "en": ""
-              },
-              "type": "input",
-              "properties": {
-                "hidden": true
-              }
-            },
-            "ContactId": {
-              "id": "ContactId",
-              "label": {
-                "de": "",
-                "en": ""
-              },
-              "type": "input",
-              "properties": {
-                "hidden": true
-              }
-            }
-          },
-          "detailsTemplate": "",
-          "mainTemplate": ""
-        },
-        {
           "type": "task",
           "label": {
             "de": "Aufgabe",
@@ -410,14 +366,7 @@
                 "hidden": true
               }
             }
-          },
-          "search": {
-            "ids": [
-              "Subject"
-            ]
-          },
-          "detailsTemplate": "",
-          "mainTemplate": ""
+          }
         }
       ],
       "contact_account": [
@@ -426,9 +375,7 @@
           "duplicateCheckName": "contact",
           "label": {
             "en": "Contact",
-            "GB": "Contact",
-            "de": "Kontakt",
-            "DE": "Kontakt"
+            "de": "Kontakt"
           },
           "fields": {
             "Id": {
@@ -653,9 +600,7 @@
           "duplicateCheckName": "account",
           "label": {
             "en": "Account",
-            "GB": "Account",
-            "de": "Account",
-            "DE": "Account"
+            "de": "Account"
           },
           "fields": {
             "Id": {
@@ -801,50 +746,6 @@
           "detailsTemplate": "{{ BillingPostalCode ? (BillingPostalCode + ' - ') : '' }} {{ BillingCity }}"
         },
         {
-          "type": "campaignMember",
-          "label": {
-            "de": "Kampagnenmitglied",
-            "en": "Campaignmember"
-          },
-          "fields": {
-            "CampaignId": {
-              "id": "CampaignId",
-              "label": {
-                "de": "",
-                "en": ""
-              },
-              "type": "input",
-              "properties": {
-                "hidden": true
-              }
-            },
-            "LeadId": {
-              "id": "LeadId",
-              "label": {
-                "de": "",
-                "en": ""
-              },
-              "type": "input",
-              "properties": {
-                "hidden": true
-              }
-            },
-            "ContactId": {
-              "id": "ContactId",
-              "label": {
-                "de": "",
-                "en": ""
-              },
-              "type": "input",
-              "properties": {
-                "hidden": true
-              }
-            }
-          },
-          "detailsTemplate": "",
-          "mainTemplate": ""
-        },
-        {
           "type": "task",
           "label": {
             "de": "Aufgabe",
@@ -928,14 +829,7 @@
                 "hidden": true
               }
             }
-          },
-          "search": {
-            "ids": [
-              "Subject"
-            ]
-          },
-          "detailsTemplate": "",
-          "mainTemplate": ""
+          }
         }
       ]
     }

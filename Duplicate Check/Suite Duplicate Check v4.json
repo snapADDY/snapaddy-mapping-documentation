@@ -1,0 +1,217 @@
+{
+  "duplicateCheck": {
+    "settings": {},
+    "pipeline": {
+      "stages": [
+        {
+          "tasks": [
+            {
+              "entity": "lead",
+              "name": "lead",
+              "tree": {
+                "operator": "and",
+                "subconditions": [
+                  {
+                    "operator": "or",
+                    "subconditions": [
+                      {
+                        "field": "email1",
+                        "operator": "in",
+                        "value": "{{ address.email }}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
+                      },
+                      {
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "first_name",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "last_name",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          },
+                          {
+                            "field": "account_name",
+                            "operator": "allIn",
+                            "value": "{{ address.organization }}"
+                          }
+                        ],
+                        "filters": [
+                          "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_AND_COMPANY_ENTERED"
+            },
+            {
+              "entity": "contact",
+              "name": "contact",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "email1",
+                    "operator": "in",
+                    "value": "{{ address.email }}",
+                    "filters": [
+                      "return !isEmailGeneric(address.email)"
+                    ]
+                  },
+                  {
+                    "operator": "and",
+                    "subconditions": [
+                      {
+                        "field": "first_name",
+                        "operator": "allIn",
+                        "value": "{{ address.firstName }}"
+                      },
+                      {
+                        "field": "last_name",
+                        "operator": "allIn",
+                        "value": "{{ address.lastName }}"
+                      }
+                    ],
+                    "filters": [
+                      "return (address.firstName.length >= 3 || address.lastName.length >= 3)"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_ENTERED"
+            },
+            {
+              "entity": "account",
+              "name": "account",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "website",
+                    "operator": "in",
+                    "value": "{{ getDomainFromURL(address.website) }}",
+                    "filters": [
+                      "return address.website.length >= 5"
+                    ]
+                  },
+                  {
+                    "field": "name",
+                    "operator": "allIn",
+                    "value": "{{ address.organization }}",
+                    "filters": [
+                      "return address.organization.length >= 3"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_WEBSITE_OR_NAME_ENTERED"
+            },
+            {
+              "entity": "prospect",
+              "name": "prospect",
+              "tree": {
+                "operator": "and",
+                "subconditions": [
+                  {
+                    "operator": "or",
+                    "subconditions": [
+                      {
+                        "field": "email1",
+                        "operator": "in",
+                        "value": "{{ address.email }}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
+                      },
+                      {
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "first_name",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "last_name",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          },
+                          {
+                            "field": "account_name",
+                            "operator": "allIn",
+                            "value": "{{ address.organization }}"
+                          }
+                        ],
+                        "filters": [
+                          "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_AND_COMPANY_ENTERED"
+            }
+          ],
+          "post": [
+            [
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'first_name', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'last_name', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'email1', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
+              "propertyWeights.push({ duplicatePropertyName: 'account_name', snapaddyPropertyName: 'organization', fuzzyWeight: 1 })",
+              "pipeline.taskResults.lead.duplicates = sortDuplicates(pipeline.taskResults.lead.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.lead.suggested = pipeline.taskResults.lead.duplicates[0]",
+              "return pipeline"
+            ],
+            [
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'first_name', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'last_name', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'email1', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
+              "propertyWeights.push({ duplicatePropertyName: 'account_name', snapaddyPropertyName: 'organization', fuzzyWeight: 1 })",
+              "pipeline.taskResults.contact.duplicates = sortDuplicates(pipeline.taskResults.contact.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.contact.suggested = pipeline.taskResults.contact.duplicates[0]",
+              "return pipeline"
+            ],
+            [
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'name', snapaddyPropertyName: 'organization', fuzzyWeight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'website', snapaddyPropertyName: 'website', fuzzyWeight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'billing_address_city', snapaddyPropertyName: 'city', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'billing_address_postalcode', snapaddyPropertyName: 'zip', fuzzyWeight: 0, exactMatchModifier: 1 })",
+              "pipeline.taskResults.account.duplicates = sortDuplicates(pipeline.taskResults.account.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.account.suggested = pipeline.taskResults.account.duplicates[0]",
+              "return pipeline"
+            ],
+            [
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'first_name', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'last_name', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'email1', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
+              "propertyWeights.push({ duplicatePropertyName: 'account_name', snapaddyPropertyName: 'organization', fuzzyWeight: 1 })",
+              "pipeline.taskResults.prospect.duplicates = sortDuplicates(pipeline.taskResults.prospect.duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.taskResults.prospect.suggested = pipeline.taskResults.prospect.duplicates[0]",
+              "return pipeline"
+            ]
+          ]
+        }
+      ],
+      "mapResults": [
+        "return {",
+        "  lead: pipeline.taskResults.lead,",
+        "  contact: pipeline.taskResults.contact,",
+        "  account: pipeline.taskResults.account,",
+        "  prospect: pipeline.taskResults.prospect,",
+        "}"
+      ]
+    }
+  }
+}
