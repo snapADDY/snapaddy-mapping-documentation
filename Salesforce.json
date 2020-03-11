@@ -76,6 +76,9 @@
           "Phone": "{{ phone || mobile }}",
           "Fax": "{{ fax }}",
           "Website": "{{ website }}"
+        },
+        "note": {
+          "note": "{{ note }}"
         }
       },
       "workflows": {
@@ -252,6 +255,9 @@
           },
           "campaignMember": {
             "CampaignId": "{{ visitreport.campaignId }}"
+          },
+          "note": {
+            "note": "{{ execute(getVisitReportNote) }}"
           }
         }
       },
@@ -397,6 +403,17 @@
           "} else {",
           "  return '';",
           "}"
+        ],
+        "getVisitReportNote": [
+           "var note = address.note ? (address.note + '\\n\\n') : '';",
+          "if (address.visitreport && address.visitreport.result) {",
+          "  note += 'VisitReport\\n\\n';",
+          "  var result = address.visitreport.result;",
+          "  for (var key in result) {",
+          "    note += result[key].question + ' = ' + (result[key].text || '-') + '\n';",
+          "  }",
+          "}",
+          "return note.replace(/\"/g,'');"
         ]
       }
     }

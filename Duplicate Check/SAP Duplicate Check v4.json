@@ -118,7 +118,7 @@
           "post": [
             [
               "pipeline.taskResults['lead'] = collateTaskResults(pipeline, ['leadsEmail', 'leadsNameCompany'], 'ObjectID')",
-              "pipeline.taskResults['account'] = collateTaskResults(pipeline, ['accountsName', 'accountsWebsite'], 'ObjectID')",
+              "pipeline.taskResults['account'] = collateTaskResults(pipeline, ['accountsName', 'accountsWebsite', 'accountsBusinessPartnerFormattedName'], 'ObjectID')",
               "pipeline.taskResults['contact'] = collateTaskResults(pipeline, ['contactsName', 'contactsEmail'], 'ObjectID')",
               "return pipeline"
             ],

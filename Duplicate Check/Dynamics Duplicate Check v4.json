@@ -144,8 +144,8 @@
               "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
               "propertyWeights.push({ duplicatePropertyName: 'EMailAddress1', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
               "propertyWeights.push({ duplicatePropertyName: 'CompanyName', snapaddyPropertyName: 'organization', fuzzyWeight: 1 })",
-              "pipeline.taskResults.lead.duplicates = sortDuplicates(pipeline.taskResults.lead.duplicates, address, propertyWeights, 'DESC')",
-              "pipeline.taskResults.lead.suggested = pipeline.taskResults.lead.duplicates[0]",
+              "pipeline.stages[0].results[0].duplicates = sortDuplicates(pipeline.stages[0].results[0].duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.stages[0].results[0].suggested = pipeline.stages[0].results[0].duplicates[0]",
               "return pipeline"
             ],
             [
@@ -153,8 +153,8 @@
               "propertyWeights.push({ duplicatePropertyName: 'FirstName', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
               "propertyWeights.push({ duplicatePropertyName: 'LastName', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
               "propertyWeights.push({ duplicatePropertyName: 'EMailAddress1', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
-              "pipeline.taskResults.contact.duplicates = sortDuplicates(pipeline.taskResults.contact.duplicates, address, propertyWeights, 'DESC')",
-              "pipeline.taskResults.contact.suggested = pipeline.taskResults.contact.duplicates[0]",
+              "pipeline.stages[0].results[1].duplicates = sortDuplicates(pipeline.stages[0].results[1].duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.stages[0].results[1].suggested = pipeline.stages[0].results[1].duplicates[0]",
               "return pipeline"
             ],
             [
@@ -163,8 +163,8 @@
               "propertyWeights.push({ duplicatePropertyName: 'WebSiteURL', snapaddyPropertyName: 'website', fuzzyWeight: 3 })",
               "propertyWeights.push({ duplicatePropertyName: 'Address1_City', snapaddyPropertyName: 'city', fuzzyWeight: 1 })",
               "propertyWeights.push({ duplicatePropertyName: 'Address1_PostalCode', snapaddyPropertyName: 'zip', fuzzyWeight: 0, exactMatchModifier: 1 })",
-              "pipeline.taskResults.account.duplicates = sortDuplicates(pipeline.taskResults.account.duplicates, address, propertyWeights, 'DESC')",
-              "pipeline.taskResults.account.suggested = pipeline.taskResults.account.duplicates[0]",
+              "pipeline.stages[0].results[2].duplicates = sortDuplicates(pipeline.stages[0].results[2].duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.stages[0].results[2].suggested = pipeline.stages[0].results[2].duplicates[0]",
               "return pipeline"
             ]
           ]
