@@ -45,7 +45,7 @@
     "defaultExport": {
       "mappings": {
         "lead": {
-          "personsalutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "personsalutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "personfirstname": "{{ firstName }}",
           "personlastname": "{{ lastName }}",
           "companywebsite": "{{ website }}",
@@ -71,7 +71,7 @@
           "assigneduserid": "{{ userId}}"
         },
         "contact": {
-          "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "firstname": "{{ firstName }}",
           "lastname": "{{ lastName }}",
           "title": "{{ title }}",
@@ -1183,7 +1183,7 @@
         "*": {
           "lead": {
             "assigneduserid": "{{ userId }}",
-            "personsalutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "personsalutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "personfirstname": "{{ firstName }}",
             "personlastname": "{{ lastName }}",
             "companywebsite": "{{ website }}",
@@ -1208,7 +1208,7 @@
             "details": "{{ note }}"
           },
           "contact": {
-            "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "firstname": "{{ firstName }}",
             "lastname": "{{ lastName }}",
             "title": "{{ title }}",

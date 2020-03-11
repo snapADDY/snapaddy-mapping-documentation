@@ -95,6 +95,7 @@
         "lead": {
           "Name": "{{ topic }}",
           "ContactAcademicTitleCode": "{{ title }}",
+          "ContactFormOfAddressCode": "{{ gender === 0? '0002' : (gender === 1? '0001' : '') }}",
           "ContactFirstName": "{{ firstName }}",
           "ContactLastName": "{{ lastName }}",
           "ContactGenderCode": "{{ gender + 1 }}",
@@ -116,7 +117,7 @@
           "GroupCode": "{{ }}"
         },
         "contact": {
-          "TitleCode": "{{ (gender === 0? '0002' : ( gender === 1? '0001' : '' )) }}",
+          "TitleCode": "{{ gender === 0? '0002' : (gender === 1? '0001' : '') }}",
           "AcademicTitleCode": "{{ title }}",
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
@@ -337,6 +338,7 @@
           "lead": {
             "Name": "{{ topic }}",
             "ContactAcademicTitleCode": "{{ title }}",
+            "ContactFormOfAddressCode": "{{ gender === 0? '0002' : (gender === 1? '0001' : '') }}",
             "ContactFirstName": "{{ firstName }}",
             "ContactLastName": "{{ lastName }}",
             "ContactGenderCode": "{{ gender + 1 }}",
@@ -358,7 +360,7 @@
             "GroupCode": "{{ }}"
           },
           "contact": {
-            "TitleCode": "{{ (gender === 0? '0002' : ( gender === 1? '0001' : '' )) }}",
+            "TitleCode": "{{ gender === 0? '0002' : (gender === 1? '0001' : '') }}",
             "AcademicTitleCode": "{{ title }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",

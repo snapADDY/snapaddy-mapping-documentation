@@ -33,7 +33,7 @@
           "Subject": "{{ topic }}",
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
-          "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "JobTitle": "{{ position }}",
           "CompanyName": "{{ organization }}",
           "WebSiteUrl": "{{ website }}",
@@ -50,7 +50,7 @@
         "contact": {
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
-          "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "JobTitle": "{{ position }}",
           "MobilePhone": "{{ mobile }}",
           "Fax": "{{ fax }}",
@@ -186,7 +186,7 @@
       "mappings": {
         "*": {
           "lead": {
-            "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "Subject": "{{ topic }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",
@@ -208,7 +208,7 @@
             }
           },
           "contact": {
-            "Salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",
             "JobTitle": "{{ position }}",

@@ -22,7 +22,7 @@
       "mappings": {
         "lead": {
           "email1": "{{ email }}",
-          "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "first_name": "{{ firstName }}",
           "last_name": "{{ lastName }}",
           "title": "{{ position }}",
@@ -41,7 +41,7 @@
         },
         "contact": {
           "email1": "{{ email }}",
-          "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "first_name": "{{ firstName }}",
           "last_name": "{{ lastName }}",
           "title": "{{ position }}",
@@ -340,7 +340,7 @@
         "*": {
           "lead": {
             "email1": "{{ email }}",
-            "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "first_name": "{{ firstName }}",
             "last_name": "{{ lastName }}",
             "title": "{{ position }}",
@@ -359,7 +359,7 @@
           },
           "contact": {
             "email1": "{{ email }}",
-            "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "first_name": "{{ firstName }}",
             "last_name": "{{ lastName }}",
             "title": "{{ position }}",
