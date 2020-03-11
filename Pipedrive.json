@@ -41,7 +41,7 @@
           ],
           "email": [
             {
-              "label": "",
+              "label": "work",
               "value": "{{ email }}",
               "primary": true
             }

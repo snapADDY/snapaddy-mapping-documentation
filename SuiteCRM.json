@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "layout": {},
   "customFields": [],
   "integrations": {
@@ -743,6 +744,422 @@
             "return note.replace(/\"/g,'');"
           ]
         }
+=======
+  "suite_crm": {
+    "meta": {
+      "lead": {
+        "apiName": "Leads",
+        "idProperty": "id"
+      },
+      "contact": {
+        "apiName": "Contacts",
+        "idProperty": "id"
+      },
+      "account": {
+        "apiName": "Accounts",
+        "idProperty": "id"
+      },
+      "prospect": {
+        "apiName": "Prospects",
+        "idProperty": "id"
+      }
+    },
+    "defaultExport": {
+      "mappings": {
+        "lead": {
+          "salutation": "{{ gender === -1? ('') : (gender === 0 ? ('Mr.') : ('Ms.')) }}",
+          "first_name": "{{ firstName }}",
+          "last_name": "{{ lastName }}",
+          "website": "{{ website }}",
+          "title": "{{ position }}",
+          "email1": "{{ email }}",
+          "phone_work": "{{ phone }}",
+          "phone_mobile": "{{ mobile }}",
+          "phone_fax": "{{ fax }}",
+          "primary_address_street": "{{ street }}",
+          "primary_address_city": "{{ city }}",
+          "primary_address_state": "{{ state }}",
+          "primary_address_postalcode": "{{ zip }}",
+          "primary_address_country": "{{ country }}",
+          "account_name": "{{ organization }}",
+          "lead_source": "{{ lead_source }}",
+          "status": "{{ lead_status }}",
+          "assigned_user_id": "{{user_id || _delete}}"
+        },
+        "contact": {
+          "salutation": "{{ gender === -1? ('') : (gender === 0 ? ('Mr.') : ('Ms.')) }}",
+          "first_name": "{{ firstName }}",
+          "last_name": "{{ lastName }}",
+          "title": "{{ position }}",
+          "website": "{{ website }}",
+          "email1": "{{ email }}",
+          "phone_work": "{{ phone }}",
+          "phone_mobile": "{{ mobile }}",
+          "phone_fax": "{{ fax }}",
+          "primary_address_street": "{{ street }}",
+          "primary_address_city": "{{ city }}",
+          "primary_address_state": "{{ state }}",
+          "primary_address_postalcode": "{{ zip }}",
+          "primary_address_country": "{{ country }}",
+          "lead_source": "{{ lead_source }}",
+          "account_id": "{{ accountId || _delete }}",
+          "assigned_user_id": "{{user_id || _delete}}"
+        },
+        "account": {
+          "name": "{{ organization }}",
+          "phone_office": "{{ phone }}",
+          "phone_fax": "{{ fax }}",
+          "email1": "{{ email }}",
+          "website": "{{ website }}",
+          "billing_address_street": "{{ street }}",
+          "shipping_address_street": "{{ street }}",
+          "billing_address_city": "{{ city }}",
+          "shipping_address_city": "{{ city }}",
+          "billing_address_state": "{{ state }}",
+          "shipping_address_state": "{{ state }}",
+          "billing_address_postalcode": "{{ zip }}",
+          "shipping_address_postalcode": "{{ zip }}",
+          "billing_address_country": "{{ country }}",
+          "shipping_address_country": "{{ country }}",
+          "industry": "{{ account_industry }}",
+          "account_type": "{{ account_type }}",
+          "assigned_user_id": "{{user_id || _delete}}"
+        },
+        "prospect": {
+          "salutation": "{{ gender === -1? ('') : (gender === 0 ? ('Mr.') : ('Ms.')) }}",
+          "first_name": "{{ firstName }}",
+          "last_name": "{{ lastName }}",
+          "website": "{{ website }}",
+          "title": "{{ position }}",
+          "email1": "{{ email }}",
+          "phone_work": "{{ phone }}",
+          "phone_mobile": "{{ mobile }}",
+          "phone_fax": "{{ fax }}",
+          "primary_address_street": "{{ street }}",
+          "primary_address_city": "{{ city }}",
+          "primary_address_state": "{{ state }}",
+          "primary_address_postalcode": "{{ zip }}",
+          "primary_address_country": "{{ country }}",
+          "account_name": "{{ organization }}",
+          "assigned_user_id": "{{user_id || _delete}}"
+        },
+        "note": {
+          "name": "{{ defaultNoteName }}",
+          "description": "{{ note }}"
+        },
+        "attachmentNote": {
+          "name": "{{ noteName }}"
+        },
+        "attachment": {
+          "id": "{{ attachmentObject.noteId }}",
+          "filename": "{{ attachmentObject.fileName }}",
+          "file": "{{ attachmentObject.fileBase64 }}"
+        },
+        "meeting": {
+          "name": "",
+          "location": "",
+          "date_start": "",
+          "date_end": "",
+          "duration": "",
+          "description": "",
+          "status": ""
+        },
+        "task": {
+          "name": "",
+          "date_start": "",
+          "date_due": "",
+          "description": "",
+          "status": "",
+          "priority": ""
+        }
+      },
+      "workflows": {
+        "lead": [
+          {
+            "entity": "lead"
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "VCard front"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "VCard back"
+              },
+              "visitreport_pdf": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "VisitReport"
+              },
+              "drawing": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "Drawing"
+              },
+              "image": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "Profile image"
+              },
+              "attachments": {
+                "entities": [
+                  "lead"
+                ],
+                "name": {
+                  "*": "Attachment_${i}",
+                  "PDF": "Attachment_${i}",
+                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                }
+              },
+              "note": {
+                "entities": [
+                  "lead"
+                ],
+                "name": "snapADDY Note"
+              }
+            }
+          }
+        ],
+        "contact_account": [
+          {
+            "entity": "account"
+          },
+          {
+            "entity": "contact",
+            "dependsOn": [
+              {
+                "field": "account_id",
+                "entity": "account"
+              }
+            ]
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "VCard front"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "VCard back"
+              },
+              "visitreport_pdf": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "VisitReport"
+              },
+              "drawing": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Drawing"
+              },
+              "image": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Profile image"
+              },
+              "attachments": {
+                "entities": [
+                  "contact"
+                ],
+                "name": {
+                  "*": "Attachment_${i}",
+                  "PDF": "Attachment_${i}",
+                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                }
+              },
+              "note": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "snapADDY Note"
+              }
+            }
+          }
+        ],
+        "prospect": [
+          {
+            "entity": "prospect"
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "prospect"
+                ],
+                "name": "VCard front"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "prospect"
+                ],
+                "name": "VCard back"
+              },
+              "drawing": {
+                "entities": [
+                  "prospect"
+                ],
+                "name": "Drawing"
+              },
+              "image": {
+                "entities": [
+                  "prospect"
+                ],
+                "name": "Profile image"
+              },
+              "attachments": {
+                "entities": [
+                  "prospect"
+                ],
+                "name": {
+                  "*": "Attachment_${i}",
+                  "PDF": "Attachment_${i}",
+                  "SIGNATURE": "{{visitreport.title || '' }} - {{firstName || '' }} {{lastName || ''}} Signatur (${i})"
+                }
+              },
+              "note": {
+                "entities": [
+                  "prospect"
+                ],
+                "name": "snapADDY Note"
+              }
+            }
+          }
+        ]
+      },
+      "components": {
+        "lead": [
+          {
+            "type": "lead",
+            "duplicateCheckName": "lead",
+            "label": {
+              "en": "Lead",
+              "de": "Lead"
+            },
+            "fields": {
+              "assigned_user_id": {
+                "id": "assigned_user_id",
+                "type": "input",
+                "properties": {
+                  "hidden": true
+                }
+              }
+            },
+            "search": {
+              "ids": [
+                "first_name",
+                "last_name"
+              ]
+            },
+            "mainTemplate": "{{ first_name }} {{ last_name }}",
+            "detailsTemplate": "{{ account_name }}"
+          }
+        ],
+        "prospect": [
+          {
+            "type": "prospect",
+            "duplicateCheckName": "prospect",
+            "label": {
+              "en": "Targets",
+              "de": "Zielkontakt"
+            },
+            "fields": {
+              "assigned_user_id": {
+                "id": "assigned_user_id",
+                "type": "input",
+                "properties": {
+                  "hidden": true
+                }
+              }
+            },
+            "search": {
+              "ids": [
+                "first_name",
+                "last_name"
+              ]
+            },
+            "mainTemplate": "{{ first_name }} {{ last_name }}",
+            "detailsTemplate": "{{ account_name }}"
+          }
+        ],
+        "contact_account": [
+          {
+            "type": "contact",
+            "duplicateCheckName": "contact",
+            "label": {
+              "en": "Contact",
+              "de": "Kontakt"
+            },
+            "fields": {
+              "assigned_user_id": {
+                "id": "assigned_user_id",
+                "type": "input",
+                "properties": {
+                  "hidden": true
+                }
+              },
+              "account_id": {
+                "id": "account_id",
+                "type": "input",
+                "properties": {
+                  "hidden": true
+                }
+              }
+            },
+            "search": {
+              "ids": [
+                "first_name",
+                "last_name"
+              ]
+            },
+            "mainTemplate": "{{ first_name }} {{ last_name }}",
+            "detailsTemplate": "{{ account_name }}"
+          },
+          {
+            "type": "account",
+            "duplicateCheckName": "account",
+            "label": {
+              "en": "Account",
+              "de": "Account"
+            },
+            "fields": {
+              "assigned_user_id": {
+                "id": "assigned_user_id",
+                "type": "input",
+                "properties": {
+                  "hidden": true
+                }
+              }
+            },
+            "search": {
+              "ids": [
+                "name"
+              ]
+            },
+            "mainTemplate": "{{ name }}",
+            "detailsTemplate": "{{ billing_address_city || shipping_address_city }}"
+          }
+        ]
+>>>>>>> master
       }
     }
   }
