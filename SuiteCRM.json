@@ -81,7 +81,7 @@
           "assigned_user_id": "{{ user_id }}"
         },
         "prospect": {
-          "salutation": "{{ salutation }}",
+          "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Mrs.') : '') }}",
           "first_name": "{{ firstName }}",
           "last_name": "{{ lastName }}",
           "website": "{{ website }}",
@@ -428,7 +428,7 @@
             "assigned_user_id": "{{ user_id }}"
           },
           "prospect": {
-            "salutation": "{{ salutation }}",
+            "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Mrs.') : '') }}",
             "first_name": "{{ firstName }}",
             "last_name": "{{ lastName }}",
             "website": "{{ website }}",
