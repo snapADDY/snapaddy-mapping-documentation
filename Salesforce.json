@@ -41,8 +41,7 @@
           "Fax": "{{ fax }}",
           "Email": "{{ email }}",
           "Website": "{{ website }}",
-          "Status": "{{  }}",
-          "RecordTypeId": "{{  }}"
+          "Status": "{{  }}"
         },
         "contact": {
           "LastName": "{{ lastName }}",
@@ -57,12 +56,10 @@
           "MobilePhone": "{{ mobile }}",
           "Phone": "{{ phone }}",
           "Fax": "{{ fax }}",
-          "Email": "{{ email }}",
-          "RecordTypeId": "{{  }}"
+          "Email": "{{ email }}"
         },
         "account": {
           "Name": "{{ organization }}",
-          "RecordTypeId": "{{  }}",
           "BillingStreet": "{{ street }}",
           "BillingCity": "{{ city }}",
           "BillingState": "{{ state }}",
@@ -217,8 +214,7 @@
             "Fax": "{{ fax }}",
             "Email": "{{ email }}",
             "Website": "{{ website }}",
-            "Status": "{{  }}",
-            "RecordTypeId": "{{  }}"
+            "Status": "{{  }}"
           },
           "contact": {
             "LastName": "{{ lastName }}",
@@ -233,12 +229,10 @@
             "MobilePhone": "{{ mobile }}",
             "Phone": "{{ phone }}",
             "Fax": "{{ fax }}",
-            "Email": "{{ email }}",
-            "RecordTypeId": "{{  }}"
+            "Email": "{{ email }}"
           },
           "account": {
             "Name": "{{ organization }}",
-            "RecordTypeId": "{{  }}",
             "BillingStreet": "{{ street }}",
             "BillingCity": "{{ city }}",
             "BillingState": "{{ state }}",

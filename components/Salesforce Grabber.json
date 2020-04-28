@@ -44,19 +44,6 @@
                 "required": false
               }
             },
-            "RecordTypeId": {
-              "id": "RecordTypeId",
-              "type": "select",
-              "label": {
-                "en": "RecordType",
-                "de": "Datensatztyp"
-              },
-              "properties": {
-                "hidden": false,
-                "required": false,
-                "defaultValue": ""
-              }
-            },
             "Salutation": {
               "id": "Salutation",
               "type": "select",
@@ -390,19 +377,6 @@
                 "identifier": true
               }
             },
-            "RecordTypeId": {
-              "id": "RecordTypeId",
-              "type": "select",
-              "label": {
-                "en": "RecordType",
-                "de": "Datensatztyp"
-              },
-              "properties": {
-                "hidden": false,
-                "required": false,
-                "defaultValue": ""
-              }
-            },
             "AccountId": {
               "id": "AccountId",
               "type": "input",
@@ -613,19 +587,6 @@
               "properties": {
                 "hidden": true,
                 "identifier": true
-              }
-            },
-            "RecordTypeId": {
-              "id": "RecordTypeId",
-              "type": "select",
-              "label": {
-                "en": "RecordType",
-                "de": "Datensatztyp"
-              },
-              "properties": {
-                "hidden": false,
-                "required": false,
-                "defaultValue": ""
               }
             },
             "Name": {
