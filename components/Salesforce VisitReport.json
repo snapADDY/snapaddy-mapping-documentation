@@ -38,7 +38,7 @@
                 "id": "LeadSource",
                 "type": "select",
                 "label": {
-                  "en": "LeadSource",
+                  "en": "Lead Source",
                   "de": "Lead-Quelle"
                 },
                 "properties": {
@@ -84,7 +84,7 @@
                 "id": "FirstName",
                 "type": "input",
                 "label": {
-                  "en": "FirstName",
+                  "en": "First Name",
                   "de": "Vorname"
                 },
                 "properties": {
@@ -96,7 +96,7 @@
                 "id": "LastName",
                 "type": "input",
                 "label": {
-                  "en": "LastName",
+                  "en": "Last Name",
                   "de": "Nachname"
                 },
                 "properties": {
@@ -180,7 +180,7 @@
                 "id": "PostalCode",
                 "type": "input",
                 "label": {
-                  "en": "PostalCode",
+                  "en": "Postal Code",
                   "de": "PLZ"
                 },
                 "properties": {
@@ -216,7 +216,7 @@
                 "id": "MobilePhone",
                 "type": "input",
                 "label": {
-                  "en": "MobilePhone",
+                  "en": "Mobile Phone",
                   "de": "Mobiltelefon"
                 },
                 "properties": {
@@ -240,7 +240,7 @@
                 "id": "Email",
                 "type": "input",
                 "label": {
-                  "en": "Email",
+                  "en": "E-mail",
                   "de": "E-Mail"
                 },
                 "properties": {
@@ -450,7 +450,7 @@
                 "id": "FirstName",
                 "type": "input",
                 "label": {
-                  "en": "FirstName",
+                  "en": "First Name",
                   "de": "Vorname"
                 },
                 "properties": {
@@ -462,7 +462,7 @@
                 "id": "LastName",
                 "type": "input",
                 "label": {
-                  "en": "LastName",
+                  "en": "Last Name",
                   "de": "Nachname"
                 },
                 "properties": {
@@ -498,7 +498,7 @@
                 "id": "MailingStreet",
                 "type": "input",
                 "label": {
-                  "en": "MailingStreet",
+                  "en": "Mailing Street",
                   "de": "Straße (Postanschrift)"
                 },
                 "properties": {
@@ -510,7 +510,7 @@
                 "id": "MailingCity",
                 "type": "input",
                 "label": {
-                  "en": "MailingCity",
+                  "en": "Mailing City",
                   "de": "Stadt (Postanschrift)"
                 },
                 "properties": {
@@ -522,7 +522,7 @@
                 "id": "MailingState",
                 "type": "input",
                 "label": {
-                  "en": "MailingState",
+                  "en": "Mailing State",
                   "de": "Bundesland (Postanschrift)"
                 },
                 "properties": {
@@ -534,7 +534,7 @@
                 "id": "MailingPostalCode",
                 "type": "input",
                 "label": {
-                  "en": "MailingPostalCode",
+                  "en": "Mailing Postal Code",
                   "de": "PLZ (Postanschrift)"
                 },
                 "properties": {
@@ -546,7 +546,7 @@
                 "id": "MailingCountry",
                 "type": "input",
                 "label": {
-                  "en": "MailingCountry",
+                  "en": "Mailing Country",
                   "de": "Land (Postanschrift)"
                 },
                 "properties": {
@@ -558,7 +558,7 @@
                 "id": "MobilePhone",
                 "type": "input",
                 "label": {
-                  "en": "MobilePhone",
+                  "en": "Mobile Phone",
                   "de": "Mobiltelefon"
                 },
                 "properties": {
@@ -594,8 +594,8 @@
                 "id": "Email",
                 "type": "input",
                 "label": {
-                  "en": "Email",
-                  "de": "Email"
+                  "en": "E-mail",
+                  "de": "E-Mail"
                 },
                 "properties": {
                   "required": false,
@@ -648,7 +648,7 @@
                 "id": "BillingStreet",
                 "type": "input",
                 "label": {
-                  "en": "BillingStreet",
+                  "en": "Billing Street",
                   "de": "Straße (Rechnungsanschrift)"
                 },
                 "properties": {
@@ -660,7 +660,7 @@
                 "id": "BillingCity",
                 "type": "input",
                 "label": {
-                  "en": "BillingCity",
+                  "en": "Billing City",
                   "de": "Stadt (Rechnungsanschrift)"
                 },
                 "properties": {
@@ -672,7 +672,7 @@
                 "id": "BillingState",
                 "type": "input",
                 "label": {
-                  "en": "BillingState",
+                  "en": "Billing State",
                   "de": "Bundesland (Rechnungsanschrift)"
                 },
                 "properties": {
@@ -684,7 +684,7 @@
                 "id": "BillingPostalCode",
                 "type": "input",
                 "label": {
-                  "en": "BillingPostalCode",
+                  "en": "Billing Postal Code",
                   "de": "PLZ (Rechnungsanschrift)"
                 },
                 "properties": {
@@ -696,7 +696,7 @@
                 "id": "BillingCountry",
                 "type": "input",
                 "label": {
-                  "en": "BillingCountry",
+                  "en": "Billing Country",
                   "de": "Land (Rechnungsanschrift)"
                 },
                 "properties": {
