@@ -255,7 +255,7 @@
                 "personlastname"
               ]
             },
-            "mainTemplate": "{{ personsalutation }} {{ personfirstname }} {{ personlastname }}",
+            "mainTemplate": "{{ personfirstname || '' }} {{ personlastname || '' }}",
             "detailsTemplate": "{{ company }}"
           }
         ],
@@ -648,7 +648,7 @@
                 "lastname"
               ]
             },
-            "mainTemplate": "{{ salutation }} {{ firstname }} {{ lastname }}",
+            "mainTemplate": "{{ firstname || '' }} {{ lastname || '' }}",
             "detailsTemplate": "{{ email.records[0].emailaddress }}"
           },
           {
@@ -984,7 +984,7 @@
               ]
             },
             "mainTemplate": "{{ name }}",
-            "detailsTemplate": "{{ address.records[0].postcode }} {{ address.records[0].city }}"
+            "detailsTemplate": "{{ address.records[0].postcode || '' }} {{ address.records[0].city || '' }}"
           }
         ]
       }

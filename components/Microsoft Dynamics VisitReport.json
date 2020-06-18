@@ -190,7 +190,7 @@
                 "FullName"
               ]
             },
-            "mainTemplate": "{{ FirstName }} {{ LastName }}",
+            "mainTemplate": "{{ FirstName || '' }} {{ LastName || '' }}",
             "detailsTemplate": "{{ CompanyName }}"
           },
           {
@@ -477,7 +477,7 @@
                 "FullName"
               ]
             },
-            "mainTemplate": "{{ FirstName }} {{ LastName }}",
+            "mainTemplate": "{{ FirstName || '' }} {{ LastName || '' }}",
             "detailsTemplate": "{{ Company }}"
           },
           {
@@ -590,7 +590,7 @@
               ]
             },
             "mainTemplate": "{{ Name }}",
-            "detailsTemplate": "{{ Address1_PostalCode }} - {{ Address1_City }}"
+            "detailsTemplate": "{{ Address1_PostalCode || '' }} - {{ Address1_City || '' }}"
           },
           {
             "type": "appointment",

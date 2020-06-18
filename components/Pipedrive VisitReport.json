@@ -148,7 +148,7 @@
             ]
           },
           "mainTemplate": "{{ name }}",
-          "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality }}"
+          "detailsTemplate": "{{ address_postal_code ? address_postal_code + ' - ' : '' }} {{ address_locality || '' }}"
         },
         {
           "type": "deal",
@@ -226,7 +226,7 @@
             ]
           },
           "mainTemplate": "{{ title }}",
-          "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{ org_name }}"
+          "detailsTemplate": "{{ person_name ? person_name + ' - ' : '' }} {{ org_name || '' }}"
         },
         {
           "type": "activity",

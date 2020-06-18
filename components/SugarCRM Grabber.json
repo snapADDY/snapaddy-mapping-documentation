@@ -208,7 +208,7 @@
               "last_name"
             ]
           },
-          "mainTemplate": "{{ first_name }} {{ last_name }}",
+          "mainTemplate": "{{ first_name || '' }} {{ last_name || '' }}",
           "detailsTemplate": "{{ account_name }}"
         }
       ],
@@ -381,7 +381,7 @@
               "last_name"
             ]
           },
-          "mainTemplate": "{{ first_name }} {{ last_name }}",
+          "mainTemplate": "{{ first_name || '' }} {{ last_name || '' }}",
           "detailsTemplate": "{{ account_name }}"
         }
       ],
@@ -566,7 +566,7 @@
               "last_name"
             ]
           },
-          "mainTemplate": "{{ first_name }} {{ last_name }}",
+          "mainTemplate": "{{ first_name || '' }} {{ last_name || '' }}",
           "detailsTemplate": "{{ account_name }}"
         },
         {

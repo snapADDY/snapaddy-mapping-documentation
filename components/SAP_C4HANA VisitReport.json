@@ -5,7 +5,7 @@
         "lead": [
           {
             "type": "lead",
-            "mainTemplate": "{{ ContactFirstName }} {{ ContactLastName }}",
+            "mainTemplate": "{{ ContactFirstName || '' }} {{ ContactLastName || '' }}",
             "detailsTemplate": "{{ Company || ContactEMail }}",
             "duplicateCheckName": "lead",
             "fields": {
@@ -267,7 +267,7 @@
         "contact_account": [
           {
             "type": "contact",
-            "mainTemplate": "{{ FirstName }} {{ LastName }}",
+            "mainTemplate": "{{ FirstName || '' }} {{ LastName || '' }}",
             "detailsTemplate": "{{ AccountFormattedName }}",
             "duplicateCheckName": "contact",
             "fields": {
@@ -426,7 +426,7 @@
           {
             "type": "account",
             "mainTemplate": "{{ BusinessPartnerFormattedName || Name }}",
-            "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ City }}",
+            "detailsTemplate": "{{ StreetPostalCode ? StreetPostalCode + ' - ' : '' }}{{ City || '' }}",
             "duplicateCheckName": "account",
             "fields": {
               "Name": {
