@@ -27,35 +27,31 @@
                 "id": "salutation",
                 "type": "select",
                 "label": {
-                  "en": "salutation",
-                  "de": ""
+                  "en": "Salutation",
+                  "de": "Anrede"
                 },
-                "properties": {
-                  "required": false
-                }
+                "properties": {}
               },
               "first_name": {
                 "id": "first_name",
                 "type": "input",
                 "label": {
-                  "en": "first_name",
-                  "de": ""
+                  "en": "First Name",
+                  "de": "Vorname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "last_name": {
                 "id": "last_name",
                 "type": "input",
                 "label": {
-                  "en": "last_name",
-                  "de": ""
+                  "en": "Last Name",
+                  "de": "Nachname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "full_name": {
@@ -66,177 +62,134 @@
                   "de": ""
                 },
                 "properties": {
-                  "hidden": true,
-                  "defaultValue": ""
-                }
-              },
-              "website": {
-                "id": "website",
-                "type": "input",
-                "label": {
-                  "en": "website",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "title": {
-                "id": "title",
-                "type": "input",
-                "label": {
-                  "en": "title",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "email1": {
-                "id": "email1",
-                "type": "input",
-                "label": {
-                  "en": "email1",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_work": {
-                "id": "phone_work",
-                "type": "input",
-                "label": {
-                  "en": "phone_work",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_mobile": {
-                "id": "phone_mobile",
-                "type": "input",
-                "label": {
-                  "en": "phone_mobile",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_fax": {
-                "id": "phone_fax",
-                "type": "input",
-                "label": {
-                  "en": "phone_fax",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_street": {
-                "id": "primary_address_street",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_street",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_city": {
-                "id": "primary_address_city",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_city",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_postalcode": {
-                "id": "primary_address_postalcode",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_postalcode",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_state": {
-                "id": "primary_address_state",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_state",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_country": {
-                "id": "primary_address_country",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_country",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               },
               "account_name": {
                 "id": "account_name",
                 "type": "input",
                 "label": {
-                  "en": "account_name",
-                  "de": ""
+                  "en": "Company",
+                  "de": "Firma"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "title": {
+                "id": "title",
+                "type": "input",
+                "label": {
+                  "en": "Title",
+                  "de": "Titel"
+                },
+                "properties": {}
+              },
+              "phone_work": {
+                "id": "phone_work",
+                "type": "input",
+                "label": {
+                  "en": "Phone",
+                  "de": "Telefon"
+                },
+                "properties": {}
+              },
+              "phone_mobile": {
+                "id": "phone_mobile",
+                "type": "input",
+                "label": {
+                  "en": "Mobile",
+                  "de": "Mobil"
+                },
+                "properties": {}
+              },
+              "phone_fax": {
+                "id": "phone_fax",
+                "type": "input",
+                "label": {
+                  "en": "Fax",
+                  "de": "Fax"
+                },
+                "properties": {}
+              },
+              "email1": {
+                "id": "email1",
+                "type": "input",
+                "label": {
+                  "en": "Email",
+                  "de": "E-Mail"
+                },
+                "properties": {}
+              },
+              "website": {
+                "id": "website",
+                "type": "input",
+                "label": {
+                  "en": "Website",
+                  "de": "Website"
+                },
+                "properties": {}
+              },
+              "primary_address_street": {
+                "id": "primary_address_street",
+                "type": "input",
+                "label": {
+                  "en": "Street",
+                  "de": "Straße"
+                },
+                "properties": {}
+              },
+              "primary_address_postalcode": {
+                "id": "primary_address_postalcode",
+                "type": "input",
+                "label": {
+                  "en": "Postal Code",
+                  "de": "PLZ"
+                },
+                "properties": {}
+              },
+              "primary_address_city": {
+                "id": "primary_address_city",
+                "type": "input",
+                "label": {
+                  "en": "City",
+                  "de": "Stadt"
+                },
+                "properties": {}
+              },
+              "primary_address_state": {
+                "id": "primary_address_state",
+                "type": "input",
+                "label": {
+                  "en": "State",
+                  "de": "Bundesland"
+                },
+                "properties": {}
+              },
+              "primary_address_country": {
+                "id": "primary_address_country",
+                "type": "input",
+                "label": {
+                  "en": "Country",
+                  "de": "Land"
+                },
+                "properties": {}
               },
               "lead_source": {
                 "id": "lead_source",
                 "type": "select",
                 "label": {
-                  "en": "lead_source",
-                  "de": ""
+                  "en": "Lead Source",
+                  "de": "Leadquelle"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "status": {
                 "id": "status",
                 "type": "select",
                 "label": {
-                  "en": "status",
-                  "de": ""
+                  "en": "Status",
+                  "de": "Status"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "assigned_user_id": {
                 "id": "assigned_user_id",
@@ -246,9 +199,7 @@
                   "de": "UserId"
                 },
                 "properties": {
-                  "required": false,
-                  "hidden": true,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               }
             },
@@ -268,9 +219,7 @@
             "duplicateCheckName": "prospect",
             "label": {
               "en": "Targets",
-              "GB": "Targets",
-              "de": "Zielkontakt",
-              "DE": "Zielkontakt"
+              "de": "Zielkontakt"
             },
             "fields": {
               "id": {
@@ -289,169 +238,131 @@
                 "id": "salutation",
                 "type": "select",
                 "label": {
-                  "en": "salutation",
-                  "de": ""
+                  "en": "Salutation",
+                  "de": "Anrede"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "first_name": {
                 "id": "first_name",
                 "type": "input",
                 "label": {
-                  "en": "first_name",
-                  "de": ""
+                  "en": "First Name",
+                  "de": "Vorname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "last_name": {
                 "id": "last_name",
                 "type": "input",
                 "label": {
-                  "en": "last_name",
-                  "de": ""
+                  "en": "Last Name",
+                  "de": "Nachname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
-                }
-              },
-              "title": {
-                "id": "title",
-                "type": "input",
-                "label": {
-                  "en": "title",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "email1": {
-                "id": "email1",
-                "type": "input",
-                "label": {
-                  "en": "email1",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_work": {
-                "id": "phone_work",
-                "type": "input",
-                "label": {
-                  "en": "phone_work",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_mobile": {
-                "id": "phone_mobile",
-                "type": "input",
-                "label": {
-                  "en": "phone_mobile",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_fax": {
-                "id": "phone_fax",
-                "type": "input",
-                "label": {
-                  "en": "phone_fax",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_street": {
-                "id": "primary_address_street",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_street",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_city": {
-                "id": "primary_address_city",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_city",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_postalcode": {
-                "id": "primary_address_postalcode",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_postalcode",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_state": {
-                "id": "primary_address_state",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_state",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_country": {
-                "id": "primary_address_country",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_country",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "account_name": {
                 "id": "account_name",
                 "type": "input",
                 "label": {
-                  "en": "account_name",
-                  "de": ""
+                  "en": "Company",
+                  "de": "Firma"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "title": {
+                "id": "title",
+                "type": "input",
+                "label": {
+                  "en": "Title",
+                  "de": "Titel"
+                },
+                "properties": {}
+              },
+              "phone_work": {
+                "id": "phone_work",
+                "type": "input",
+                "label": {
+                  "en": "Phone",
+                  "de": "Telefon"
+                },
+                "properties": {}
+              },
+              "phone_mobile": {
+                "id": "phone_mobile",
+                "type": "input",
+                "label": {
+                  "en": "Mobile",
+                  "de": "Mobil"
+                },
+                "properties": {}
+              },
+              "phone_fax": {
+                "id": "phone_fax",
+                "type": "input",
+                "label": {
+                  "en": "Fax",
+                  "de": "Fax"
+                },
+                "properties": {}
+              },
+              "email1": {
+                "id": "email1",
+                "type": "input",
+                "label": {
+                  "en": "Email",
+                  "de": "E-Mail"
+                },
+                "properties": {}
+              },
+              "primary_address_street": {
+                "id": "primary_address_street",
+                "type": "input",
+                "label": {
+                  "en": "Street",
+                  "de": "Straße"
+                },
+                "properties": {}
+              },
+              "primary_address_city": {
+                "id": "primary_address_city",
+                "type": "input",
+                "label": {
+                  "en": "City",
+                  "de": "Stadt"
+                },
+                "properties": {}
+              },
+              "primary_address_postalcode": {
+                "id": "primary_address_postalcode",
+                "type": "input",
+                "label": {
+                  "en": "Postal Code",
+                  "de": "Bundesland"
+                },
+                "properties": {}
+              },
+              "primary_address_state": {
+                "id": "primary_address_state",
+                "type": "input",
+                "label": {
+                  "en": "State",
+                  "de": "Bundesland"
+                },
+                "properties": {}
+              },
+              "primary_address_country": {
+                "id": "primary_address_country",
+                "type": "input",
+                "label": {
+                  "en": "Country",
+                  "de": "Land"
+                },
+                "properties": {}
               },
               "assigned_user_id": {
                 "id": "assigned_user_id",
@@ -461,9 +372,7 @@
                   "de": "UserId"
                 },
                 "properties": {
-                  "required": false,
-                  "hidden": true,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               }
             },
@@ -483,9 +392,7 @@
             "duplicateCheckName": "contact",
             "label": {
               "en": "Contact",
-              "GB": "Contact",
-              "de": "Kontakt",
-              "DE": "Kontakt"
+              "de": "Kontakt"
             },
             "fields": {
               "id": {
@@ -500,173 +407,6 @@
                   "identifier": true
                 }
               },
-              "salutation": {
-                "id": "salutation",
-                "type": "select",
-                "label": {
-                  "en": "salutation",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "first_name": {
-                "id": "first_name",
-                "type": "input",
-                "label": {
-                  "en": "first_name",
-                  "de": ""
-                },
-                "properties": {
-                  "required": true,
-                  "defaultValue": ""
-                }
-              },
-              "last_name": {
-                "id": "last_name",
-                "type": "input",
-                "label": {
-                  "en": "last_name",
-                  "de": ""
-                },
-                "properties": {
-                  "required": true,
-                  "defaultValue": ""
-                }
-              },
-              "title": {
-                "id": "title",
-                "type": "input",
-                "label": {
-                  "en": "title",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "email1": {
-                "id": "email1",
-                "type": "input",
-                "label": {
-                  "en": "email1",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_work": {
-                "id": "phone_work",
-                "type": "input",
-                "label": {
-                  "en": "phone_work",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_mobile": {
-                "id": "phone_mobile",
-                "type": "input",
-                "label": {
-                  "en": "phone_mobile",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "phone_fax": {
-                "id": "phone_fax",
-                "type": "input",
-                "label": {
-                  "en": "phone_fax",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_street": {
-                "id": "primary_address_street",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_street",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_city": {
-                "id": "primary_address_city",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_city",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_state": {
-                "id": "primary_address_state",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_state",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_postalcode": {
-                "id": "primary_address_postalcode",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_postalcode",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "primary_address_country": {
-                "id": "primary_address_country",
-                "type": "input",
-                "label": {
-                  "en": "primary_address_country",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "lead_source": {
-                "id": "lead_source",
-                "type": "select",
-                "label": {
-                  "en": "lead_source",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false
-                }
-              },
               "account_id": {
                 "id": "account_id",
                 "type": "input",
@@ -675,23 +415,139 @@
                   "de": ""
                 },
                 "properties": {
-                  "required": false,
                   "hidden": true,
-                  "defaultValue": "",
                   "identifier": true
                 }
               },
-              "account_name": {
-                "id": "account_name",
+              "salutation": {
+                "id": "salutation",
+                "type": "select",
+                "label": {
+                  "en": "Salutation",
+                  "de": "Anrede"
+                },
+                "properties": {}
+              },
+              "first_name": {
+                "id": "first_name",
                 "type": "input",
                 "label": {
-                  "en": "account_name",
-                  "de": ""
+                  "en": "First Name",
+                  "de": "Vorname"
                 },
                 "properties": {
-                  "required": false,
-                  "defaultValue": ""
+                  "required": true
                 }
+              },
+              "last_name": {
+                "id": "last_name",
+                "type": "input",
+                "label": {
+                  "en": "Last Name",
+                  "de": "Nachname"
+                },
+                "properties": {
+                  "required": true
+                }
+              },
+              "title": {
+                "id": "title",
+                "type": "input",
+                "label": {
+                  "en": "Title",
+                  "de": "Titel"
+                },
+                "properties": {}
+              },
+              "phone_work": {
+                "id": "phone_work",
+                "type": "input",
+                "label": {
+                  "en": "Phone",
+                  "de": "Telefon"
+                },
+                "properties": {}
+              },
+              "phone_mobile": {
+                "id": "phone_mobile",
+                "type": "input",
+                "label": {
+                  "en": "Mobile",
+                  "de": "Mobil"
+                },
+                "properties": {}
+              },
+              "phone_fax": {
+                "id": "phone_fax",
+                "type": "input",
+                "label": {
+                  "en": "Fax",
+                  "de": "Fax"
+                },
+                "properties": {}
+              },
+              "email1": {
+                "id": "email1",
+                "type": "input",
+                "label": {
+                  "en": "Email",
+                  "de": "E-Mail"
+                },
+                "properties": {}
+              },
+              "primary_address_street": {
+                "id": "primary_address_street",
+                "type": "input",
+                "label": {
+                  "en": "Street",
+                  "de": "Straße"
+                },
+                "properties": {}
+              },
+              "primary_address_postalcode": {
+                "id": "primary_address_postalcode",
+                "type": "input",
+                "label": {
+                  "en": "Postal Code",
+                  "de": "PLZ"
+                },
+                "properties": {}
+              },
+              "primary_address_city": {
+                "id": "primary_address_city",
+                "type": "input",
+                "label": {
+                  "en": "City",
+                  "de": "Stadt"
+                },
+                "properties": {}
+              },
+              "primary_address_state": {
+                "id": "primary_address_state",
+                "type": "input",
+                "label": {
+                  "en": "State",
+                  "de": "Bundesland"
+                },
+                "properties": {}
+              },
+              "primary_address_country": {
+                "id": "primary_address_country",
+                "type": "input",
+                "label": {
+                  "en": "Country",
+                  "de": "Land"
+                },
+                "properties": {}
+              },
+              "lead_source": {
+                "id": "lead_source",
+                "type": "select",
+                "label": {
+                  "en": "Lead Source",
+                  "de": "Leadquelle"
+                },
+                "properties": {}
               },
               "assigned_user_id": {
                 "id": "assigned_user_id",
@@ -701,9 +557,7 @@
                   "de": "UserId"
                 },
                 "properties": {
-                  "required": false,
-                  "hidden": true,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               }
             },
@@ -721,9 +575,7 @@
             "duplicateCheckName": "account",
             "label": {
               "en": "Account",
-              "GB": "Account",
-              "de": "Account",
-              "DE": "Account"
+              "de": "Account"
             },
             "fields": {
               "id": {
@@ -742,181 +594,138 @@
                 "id": "name",
                 "type": "input",
                 "label": {
-                  "en": "name",
-                  "de": ""
+                  "en": "Name",
+                  "de": "Name"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "phone_office": {
                 "id": "phone_office",
                 "type": "input",
                 "label": {
-                  "en": "phone_office",
-                  "de": ""
+                  "en": "Phone",
+                  "de": "Telefon"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "phone_fax": {
                 "id": "phone_fax",
                 "type": "input",
                 "label": {
-                  "en": "phone_fax",
-                  "de": ""
+                  "en": "Fax",
+                  "de": "Fax"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "email1": {
                 "id": "email1",
                 "type": "input",
                 "label": {
-                  "en": "email1",
-                  "de": ""
+                  "en": "Email",
+                  "de": "E-Mail"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "website": {
                 "id": "website",
                 "type": "input",
                 "label": {
-                  "en": "website",
-                  "de": ""
+                  "en": "Website",
+                  "de": "Website"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "billing_address_street": {
                 "id": "billing_address_street",
                 "type": "input",
                 "label": {
-                  "en": "billing_address_street",
-                  "de": ""
+                  "en": "Street (Billing Address)",
+                  "de": "Straße (Rechnungsadresse)"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "shipping_address_street": {
-                "id": "shipping_address_street",
-                "type": "input",
-                "label": {
-                  "en": "shipping_address_street",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "billing_address_city": {
-                "id": "billing_address_city",
-                "type": "input",
-                "label": {
-                  "en": "billing_address_city",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "shipping_address_city": {
-                "id": "shipping_address_city",
-                "type": "input",
-                "label": {
-                  "en": "shipping_address_city",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "billing_address_state": {
-                "id": "billing_address_state",
-                "type": "input",
-                "label": {
-                  "en": "billing_address_state",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "shipping_address_state": {
-                "id": "shipping_address_state",
-                "type": "input",
-                "label": {
-                  "en": "shipping_address_state",
-                  "de": ""
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "billing_address_postalcode": {
                 "id": "billing_address_postalcode",
                 "type": "input",
                 "label": {
-                  "en": "billing_address_postalcode",
-                  "de": ""
+                  "en": "Postal Code (Billing Address)",
+                  "de": "PLZ (Rechnungsadresse)"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
-              "shipping_address_postalcode": {
-                "id": "shipping_address_postalcode",
+              "billing_address_city": {
+                "id": "billing_address_city",
                 "type": "input",
                 "label": {
-                  "en": "shipping_address_postalcode",
-                  "de": ""
+                  "en": "City (Billing Address)",
+                  "de": "Stadt (Rechnungsadresse)"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "billing_address_state": {
+                "id": "billing_address_state",
+                "type": "input",
+                "label": {
+                  "en": "State (Billing Address)",
+                  "de": "Bundesland (Rechnungsadresse)"
+                },
+                "properties": {}
               },
               "billing_address_country": {
                 "id": "billing_address_country",
                 "type": "input",
                 "label": {
-                  "en": "billing_address_country",
-                  "de": ""
+                  "en": "Country (Billing Address)",
+                  "de": "Land (Rechnungsadresse)"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "shipping_address_street": {
+                "id": "shipping_address_street",
+                "type": "input",
+                "label": {
+                  "en": "Street (Shipping Address)",
+                  "de": "Straße (Lieferadresse)"
+                },
+                "properties": {}
+              },
+              "shipping_address_postalcode": {
+                "id": "shipping_address_postalcode",
+                "type": "input",
+                "label": {
+                  "en": "Postal Code (Shipping Address)",
+                  "de": "PLZ (Lieferadresse)"
+                },
+                "properties": {}
+              },
+              "shipping_address_city": {
+                "id": "shipping_address_city",
+                "type": "input",
+                "label": {
+                  "en": "City (Shipping Address)",
+                  "de": "Stadt (Lieferadresse)"
+                },
+                "properties": {}
+              },
+              "shipping_address_state": {
+                "id": "shipping_address_state",
+                "type": "input",
+                "label": {
+                  "en": "State (Shipping Address)",
+                  "de": "Bundesland (Lieferadresse)"
+                },
+                "properties": {}
               },
               "shipping_address_country": {
                 "id": "shipping_address_country",
                 "type": "input",
                 "label": {
-                  "en": "shipping_address_country",
-                  "de": ""
+                  "en": "Country (Shipping Address)",
+                  "de": "Land (Lieferadresse)"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "industry": {
                 "id": "industry",
@@ -925,10 +734,7 @@
                   "en": "industry",
                   "de": ""
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "account_type": {
                 "id": "account_type",
@@ -937,9 +743,7 @@
                   "en": "account_type",
                   "de": ""
                 },
-                "properties": {
-                  "required": false
-                }
+                "properties": {}
               },
               "assigned_user_id": {
                 "id": "assigned_user_id",
@@ -949,9 +753,7 @@
                   "de": "UserId"
                 },
                 "properties": {
-                  "required": false,
-                  "hidden": true,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               }
             },

@@ -33,6 +33,15 @@
                 "required": true
               }
             },
+            "Salutation": {
+              "id": "Salutation",
+              "type": "input",
+              "label": {
+                "en": "Salutation",
+                "de": "Anrede"
+              },
+              "properties": {}
+            },
             "FullName": {
               "id": "FullName",
               "type": "input",
@@ -52,8 +61,7 @@
                 "de": "Vorname"
               },
               "properties": {
-                "required": true,
-                "defaultValue": ""
+                "required": true
               }
             },
             "LastName": {
@@ -64,32 +72,7 @@
                 "de": "Nachname"
               },
               "properties": {
-                "required": true,
-                "defaultValue": ""
-              }
-            },
-            "Salutation": {
-              "id": "Salutation",
-              "type": "input",
-              "label": {
-                "en": "Salutation",
-                "de": "Anrede"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "JobTitle": {
-              "id": "JobTitle",
-              "type": "input",
-              "label": {
-                "en": "Job Title",
-                "de": "Position"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
+                "required": true
               }
             },
             "CompanyName": {
@@ -99,34 +82,16 @@
                 "en": "Company Name",
                 "de": "Firma"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
-            "WebSiteUrl": {
-              "id": "WebSiteUrl",
+            "JobTitle": {
+              "id": "JobTitle",
               "type": "input",
               "label": {
-                "en": "Website",
-                "de": "Website"
+                "en": "Job Title",
+                "de": "Position"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "EMailAddress1": {
-              "id": "EMailAddress1",
-              "type": "input",
-              "label": {
-                "en": "E-Mail Address",
-                "de": "E-Mail-Adresse"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Telephone1": {
               "id": "Telephone1",
@@ -135,10 +100,7 @@
                 "en": "Phone",
                 "de": "Telefon"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "MobilePhone": {
               "id": "MobilePhone",
@@ -147,10 +109,7 @@
                 "en": "Mobile",
                 "de": "Mobil"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Fax": {
               "id": "Fax",
@@ -159,10 +118,25 @@
                 "en": "Fax",
                 "de": "Fax"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
+            },
+            "EMailAddress1": {
+              "id": "EMailAddress1",
+              "type": "input",
+              "label": {
+                "en": "E-Mail Address",
+                "de": "E-Mail-Adresse"
+              },
+              "properties": {}
+            },
+            "WebSiteUrl": {
+              "id": "WebSiteUrl",
+              "type": "input",
+              "label": {
+                "en": "Website",
+                "de": "Website"
+              },
+              "properties": {}
             },
             "Address1_Line1": {
               "id": "Address1_Line1",
@@ -171,22 +145,7 @@
                 "en": "Street",
                 "de": "Straße"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_City": {
-              "id": "Address1_City",
-              "type": "input",
-              "label": {
-                "en": "City",
-                "de": "Stadt"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Address1_PostalCode": {
               "id": "Address1_PostalCode",
@@ -195,22 +154,16 @@
                 "en": "Zip",
                 "de": "PLZ"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
-            "Address1_Country": {
-              "id": "Address1_Country",
+            "Address1_City": {
+              "id": "Address1_City",
               "type": "input",
               "label": {
-                "en": "Country",
-                "de": "Land"
+                "en": "City",
+                "de": "Stadt"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Address1_StateOrProvince": {
               "id": "Address1_StateOrProvince",
@@ -219,10 +172,16 @@
                 "en": "State",
                 "de": "Bundesland"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
+            },
+            "Address1_Country": {
+              "id": "Address1_Country",
+              "type": "input",
+              "label": {
+                "en": "Country",
+                "de": "Land"
+              },
+              "properties": {}
             }
           },
           "search": {
@@ -235,7 +194,6 @@
         },
         {
           "type": "appointment",
-          "duplicateCheckName": "appointment",
           "label": {
             "en": "Appointment",
             "de": "Appointment"
@@ -273,14 +231,7 @@
               },
               "properties": {}
             }
-          },
-          "search": {
-            "ids": [
-              "Subject"
-            ]
-          },
-          "mainTemplate": "{{ Subject }}",
-          "detailsTemplate": ""
+          }
         },
         {
           "type": "task",
@@ -353,6 +304,15 @@
                 "identifier": true
               }
             },
+            "Salutation": {
+              "id": "Salutation",
+              "type": "input",
+              "label": {
+                "en": "Salutation",
+                "de": "Anrede"
+              },
+              "properties": {}
+            },
             "FullName": {
               "id": "FullName",
               "type": "input",
@@ -372,8 +332,7 @@
                 "de": "Vorname"
               },
               "properties": {
-                "required": true,
-                "defaultValue": ""
+                "required": true
               }
             },
             "LastName": {
@@ -384,152 +343,7 @@
                 "de": "Nachname"
               },
               "properties": {
-                "required": true,
-                "defaultValue": ""
-              }
-            },
-            "Salutation": {
-              "id": "Salutation",
-              "type": "input",
-              "label": {
-                "en": "Salutation",
-                "de": "Anrede"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "JobTitle": {
-              "id": "JobTitle",
-              "type": "input",
-              "label": {
-                "en": "Job Title",
-                "de": "Position"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Telephone1": {
-              "id": "Telephone1",
-              "type": "input",
-              "label": {
-                "en": "Phone",
-                "de": "Telefon"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "MobilePhone": {
-              "id": "MobilePhone",
-              "type": "input",
-              "label": {
-                "en": "Mobile",
-                "de": "Mobil"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Fax": {
-              "id": "Fax",
-              "type": "input",
-              "label": {
-                "en": "Fax",
-                "de": "Fax"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "WebSiteUrl": {
-              "id": "WebSiteUrl",
-              "type": "input",
-              "label": {
-                "en": "Website",
-                "de": "Website"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "EMailAddress1": {
-              "id": "EMailAddress1",
-              "type": "input",
-              "label": {
-                "en": "E-Mail Address",
-                "de": "E-Mail-Adresse"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_Line1": {
-              "id": "Address1_Line1",
-              "type": "input",
-              "label": {
-                "en": "Street",
-                "de": "Straße"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_City": {
-              "id": "Address1_City",
-              "type": "input",
-              "label": {
-                "en": "City",
-                "de": "Stadt"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_PostalCode": {
-              "id": "Address1_PostalCode",
-              "type": "input",
-              "label": {
-                "en": "Zip",
-                "de": "PLZ"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_Country": {
-              "id": "Address1_Country",
-              "type": "input",
-              "label": {
-                "en": "Country",
-                "de": "Land"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_StateOrProvince": {
-              "id": "Address1_StateOrProvince",
-              "type": "input",
-              "label": {
-                "en": "State",
-                "de": "Bundesland"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
+                "required": true
               }
             },
             "GenderCode": {
@@ -540,8 +354,6 @@
                 "de": "Geschlecht"
               },
               "properties": {
-                "required": false,
-                "defaultValue": "",
                 "options": [
                   {
                     "label": {
@@ -566,6 +378,105 @@
                   }
                 ]
               }
+            },
+            "JobTitle": {
+              "id": "JobTitle",
+              "type": "input",
+              "label": {
+                "en": "Job Title",
+                "de": "Position"
+              },
+              "properties": {}
+            },
+            "Telephone1": {
+              "id": "Telephone1",
+              "type": "input",
+              "label": {
+                "en": "Phone",
+                "de": "Telefon"
+              },
+              "properties": {}
+            },
+            "MobilePhone": {
+              "id": "MobilePhone",
+              "type": "input",
+              "label": {
+                "en": "Mobile",
+                "de": "Mobil"
+              },
+              "properties": {}
+            },
+            "Fax": {
+              "id": "Fax",
+              "type": "input",
+              "label": {
+                "en": "Fax",
+                "de": "Fax"
+              },
+              "properties": {}
+            },
+            "EMailAddress1": {
+              "id": "EMailAddress1",
+              "type": "input",
+              "label": {
+                "en": "E-Mail Address",
+                "de": "E-Mail-Adresse"
+              },
+              "properties": {}
+            },
+            "WebSiteUrl": {
+              "id": "WebSiteUrl",
+              "type": "input",
+              "label": {
+                "en": "Website",
+                "de": "Website"
+              },
+              "properties": {}
+            },
+            "Address1_Line1": {
+              "id": "Address1_Line1",
+              "type": "input",
+              "label": {
+                "en": "Street",
+                "de": "Straße"
+              },
+              "properties": {}
+            },
+            "Address1_PostalCode": {
+              "id": "Address1_PostalCode",
+              "type": "input",
+              "label": {
+                "en": "Zip",
+                "de": "PLZ"
+              },
+              "properties": {}
+            },
+            "Address1_City": {
+              "id": "Address1_City",
+              "type": "input",
+              "label": {
+                "en": "City",
+                "de": "Stadt"
+              },
+              "properties": {}
+            },
+            "Address1_StateOrProvince": {
+              "id": "Address1_StateOrProvince",
+              "type": "input",
+              "label": {
+                "en": "State",
+                "de": "Bundesland"
+              },
+              "properties": {}
+            },
+            "Address1_Country": {
+              "id": "Address1_Country",
+              "type": "input",
+              "label": {
+                "en": "Country",
+                "de": "Land"
+              },
+              "properties": {}
             }
           },
           "search": {
@@ -604,8 +515,7 @@
                 "de": "Name"
               },
               "properties": {
-                "required": true,
-                "defaultValue": ""
+                "required": true
               }
             },
             "Telephone1": {
@@ -615,10 +525,7 @@
                 "en": "Phone",
                 "de": "Telefon"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Fax": {
               "id": "Fax",
@@ -627,10 +534,7 @@
                 "en": "Fax",
                 "de": "Fax"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "WebSiteURL": {
               "id": "WebSiteURL",
@@ -639,10 +543,7 @@
                 "en": "Website",
                 "de": "Website"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Address1_Line1": {
               "id": "Address1_Line1",
@@ -651,22 +552,7 @@
                 "en": "Street",
                 "de": "Straße"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
-            },
-            "Address1_City": {
-              "id": "Address1_City",
-              "type": "input",
-              "label": {
-                "en": "City",
-                "de": "Stadt"
-              },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Address1_PostalCode": {
               "id": "Address1_PostalCode",
@@ -675,22 +561,16 @@
                 "en": "Zip",
                 "de": "PLZ"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
-            "Address1_Country": {
-              "id": "Address1_Country",
+            "Address1_City": {
+              "id": "Address1_City",
               "type": "input",
               "label": {
-                "en": "Country",
-                "de": "Land"
+                "en": "City",
+                "de": "Stadt"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
             },
             "Address1_StateOrProvince": {
               "id": "Address1_StateOrProvince",
@@ -699,10 +579,16 @@
                 "en": "State",
                 "de": "Bundesland"
               },
-              "properties": {
-                "required": false,
-                "defaultValue": ""
-              }
+              "properties": {}
+            },
+            "Address1_Country": {
+              "id": "Address1_Country",
+              "type": "input",
+              "label": {
+                "en": "Country",
+                "de": "Land"
+              },
+              "properties": {}
             }
           },
           "search": {

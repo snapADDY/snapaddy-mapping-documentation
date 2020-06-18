@@ -27,6 +27,15 @@
                 "type": "input",
                 "properties": {}
               },
+              "ContactAcademicTitleCode": {
+                "id": "ContactAcademicTitleCode",
+                "label": {
+                  "de": "Ansprechpartnerinformationen - akademischer Titel",
+                  "en": "Contact Information - Academic Title"
+                },
+                "type": "select",
+                "properties": {}
+              },
               "ContactFirstName": {
                 "id": "ContactFirstName",
                 "label": {
@@ -41,6 +50,154 @@
                 "label": {
                   "de": "Nachname des Ansprechpartners",
                   "en": "Last Name"
+                },
+                "type": "input",
+                "properties": {
+                  "required": true
+                }
+              },
+              "ContactGenderCode": {
+                "id": "ContactGenderCode",
+                "label": {
+                  "de": "Ansprechpartnerinformationen - Geschlecht",
+                  "en": "Contact Information - Gender"
+                },
+                "type": "select",
+                "properties": {}
+              },
+              "Company": {
+                "id": "Company",
+                "label": {
+                  "de": "Unternehmen",
+                  "en": "Company"
+                },
+                "type": "input",
+                "properties": {
+                  "required": true
+                }
+              },
+              "ContactPhone": {
+                "id": "ContactPhone",
+                "label": {
+                  "de": "Ansprechpartnerinformationen - Telefon",
+                  "en": "Contact Information - Phone"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "ContactMobile": {
+                "id": "ContactMobile",
+                "label": {
+                  "de": "Ansprechpartnerinformationen - Mobiltelefon",
+                  "en": "Contact Information - Mobile"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "ContactEMail": {
+                "id": "ContactEMail",
+                "label": {
+                  "de": "Ansprechpartnerinformationen - E-Mail",
+                  "en": "Contact Information - E-mail"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountPhone": {
+                "id": "AccountPhone",
+                "label": {
+                  "de": "Kundeninformationen - Telefon",
+                  "en": "Account Information - Phone"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountMobile": {
+                "id": "AccountMobile",
+                "label": {
+                  "de": "Kundeninformationen - Mobiltelefon",
+                  "en": "Account Information - Mobile"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountFax": {
+                "id": "AccountFax",
+                "label": {
+                  "de": "Kundeninformationen - Fax",
+                  "en": "Account Information - Fax"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountEMail": {
+                "id": "AccountEMail",
+                "label": {
+                  "de": "Kundeninformationen - E-Mail",
+                  "en": "Account Information - Email"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountWebsite": {
+                "id": "AccountWebsite",
+                "label": {
+                  "de": "Kundeninformationen - Website",
+                  "en": "Account Information - Website"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountPostalAddressElementsStreetName": {
+                "id": "AccountPostalAddressElementsStreetName",
+                "label": {
+                  "de": "Kundeninformationen - Straße",
+                  "en": "Account Information - Street"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountPostalAddressElementsPOBoxID": {
+                "id": "AccountPostalAddressElementsPOBoxID",
+                "label": {
+                  "de": "Kundeninformationen - Postfach",
+                  "en": "Account Information - PO Box"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountPostalAddressElementsStreetPostalCode": {
+                "id": "AccountPostalAddressElementsStreetPostalCode",
+                "label": {
+                  "de": "Kundeninformationen - Postleitzahl",
+                  "en": "Account Information - Postal Code"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountCity": {
+                "id": "AccountCity",
+                "label": {
+                  "de": "Kundeninformationen - Ort",
+                  "en": "Account Information - City"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountState": {
+                "id": "AccountState",
+                "label": {
+                  "de": "Kundeninformationen - Bundesland",
+                  "en": "Account Information - State"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "AccountCountry": {
+                "id": "AccountCountry",
+                "label": {
+                  "de": "Kundeninformationen - Land",
+                  "en": "Account Information - Country"
                 },
                 "type": "input",
                 "properties": {}
@@ -81,155 +238,11 @@
                 "type": "select",
                 "properties": {}
               },
-              "ContactGenderCode": {
-                "id": "ContactGenderCode",
+              "CampaignID": {
+                "id": "CampaignID",
                 "label": {
-                  "de": "Ansprechpartnerinformationen - Geschlecht",
-                  "en": "Contact Information - Gender"
-                },
-                "type": "select",
-                "properties": {}
-              },
-              "ContactAcademicTitleCode": {
-                "id": "ContactAcademicTitleCode",
-                "label": {
-                  "de": "Ansprechpartnerinformationen - akademischer Titel",
-                  "en": "Contact Information - Academic Title"
-                },
-                "type": "select",
-                "properties": {}
-              },
-              "ContactPhone": {
-                "id": "ContactPhone",
-                "label": {
-                  "de": "Ansprechpartnerinformationen - Telefon",
-                  "en": "Contact Information - Phone"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "ContactMobile": {
-                "id": "ContactMobile",
-                "label": {
-                  "de": "Ansprechpartnerinformationen - Mobiltelefon",
-                  "en": "Contact Information - Mobile"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "ContactEMail": {
-                "id": "ContactEMail",
-                "label": {
-                  "de": "Ansprechpartnerinformationen - E-Mail",
-                  "en": "Contact Information - E-mail"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Company": {
-                "id": "Company",
-                "label": {
-                  "de": "Unternehmen",
-                  "en": "Company"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountFax": {
-                "id": "AccountFax",
-                "label": {
-                  "de": "Kundeninformationen - Fax",
-                  "en": "Account Information - Fax"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountPhone": {
-                "id": "AccountPhone",
-                "label": {
-                  "de": "Kundeninformationen - Telefon",
-                  "en": "Account Information - Phone"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountMobile": {
-                "id": "AccountMobile",
-                "label": {
-                  "de": "Kundeninformationen - Mobiltelefon",
-                  "en": "Account Information - Mobile"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountEMail": {
-                "id": "AccountEMail",
-                "label": {
-                  "de": "Kundeninformationen - E-Mail",
-                  "en": "Account Information - Email"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountCity": {
-                "id": "AccountCity",
-                "label": {
-                  "de": "Kundeninformationen - Ort",
-                  "en": "Account Information - City"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountState": {
-                "id": "AccountState",
-                "label": {
-                  "de": "Kundeninformationen - Bundesland",
-                  "en": "Account Information - State"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountCountry": {
-                "id": "AccountCountry",
-                "label": {
-                  "de": "Kundeninformationen - Land",
-                  "en": "Account Information - Country"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountPostalAddressElementsStreetName": {
-                "id": "AccountPostalAddressElementsStreetName",
-                "label": {
-                  "de": "Kundeninformationen - Straße",
-                  "en": "Account Information - Street"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountPostalAddressElementsStreetPostalCode": {
-                "id": "AccountPostalAddressElementsStreetPostalCode",
-                "label": {
-                  "de": "Kundeninformationen - Postleitzahl",
-                  "en": "Account Information - Postal Code"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountWebsite": {
-                "id": "AccountWebsite",
-                "label": {
-                  "de": "Kundeninformationen - Website",
-                  "en": "Account Information - Website"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "AccountPostalAddressElementsPOBoxID": {
-                "id": "AccountPostalAddressElementsPOBoxID",
-                "label": {
-                  "de": "Kundeninformationen - Postfach",
-                  "en": "Account Information - PO Box"
+                  "de": "Campaign Id",
+                  "en": "Campaign ID"
                 },
                 "type": "input",
                 "properties": {}
@@ -267,15 +280,6 @@
                 "type": "select",
                 "properties": {}
               },
-              "GenderCode": {
-                "id": "GenderCode",
-                "label": {
-                  "de": "Geschlecht",
-                  "en": "Gender"
-                },
-                "type": "select",
-                "properties": {}
-              },
               "FirstName": {
                 "id": "FirstName",
                 "label": {
@@ -294,40 +298,20 @@
                 "type": "input",
                 "properties": {}
               },
+              "GenderCode": {
+                "id": "GenderCode",
+                "label": {
+                  "de": "Geschlecht",
+                  "en": "Gender"
+                },
+                "type": "select",
+                "properties": {}
+              },
               "JobTitle": {
                 "id": "JobTitle",
                 "label": {
                   "de": "Stellenbezeichnung",
                   "en": "Job Title"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "StatusCode": {
-                "id": "StatusCode",
-                "label": {
-                  "de": "Status",
-                  "en": "Status"
-                },
-                "type": "select",
-                "properties": {
-                  "defaultValue": "2"
-                }
-              },
-              "Email": {
-                "id": "Email",
-                "label": {
-                  "de": "E-Mail",
-                  "en": "E-mail"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Fax": {
-                "id": "Fax",
-                "label": {
-                  "de": "Fax",
-                  "en": "Fax"
                 },
                 "type": "input",
                 "properties": {}
@@ -346,6 +330,24 @@
                 "label": {
                   "de": "Mobiltelefon",
                   "en": "Mobile"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "Fax": {
+                "id": "Fax",
+                "label": {
+                  "de": "Fax",
+                  "en": "Fax"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "Email": {
+                "id": "Email",
+                "label": {
+                  "de": "E-Mail",
+                  "en": "E-mail"
                 },
                 "type": "input",
                 "properties": {}
@@ -377,6 +379,15 @@
                 "type": "input",
                 "properties": {}
               },
+              "BusinessAddressStateCode": {
+                "id": "BusinessAddressStateCode",
+                "label": {
+                  "de": "Bundesland",
+                  "en": "State"
+                },
+                "type": "select",
+                "properties": {}
+              },
               "BusinessAddressCountryCode": {
                 "id": "BusinessAddressCountryCode",
                 "label": {
@@ -386,14 +397,16 @@
                 "type": "select",
                 "properties": {}
               },
-              "BusinessAddressStateCode": {
-                "id": "BusinessAddressStateCode",
+              "StatusCode": {
+                "id": "StatusCode",
                 "label": {
-                  "de": "Bundesland",
-                  "en": "State"
+                  "de": "Status",
+                  "en": "Status"
                 },
                 "type": "select",
-                "properties": {}
+                "properties": {
+                  "defaultValue": "2"
+                }
               }
             },
             "label": {
@@ -425,40 +438,11 @@
                 "type": "input",
                 "properties": {}
               },
-              "LifeCycleStatusCode": {
-                "id": "LifeCycleStatusCode",
-                "label": {
-                  "de": "Status",
-                  "en": "Status"
-                },
-                "type": "select",
-                "properties": {
-                  "defaultValue": "2"
-                }
-              },
-              "RoleCode": {
-                "id": "RoleCode",
-                "label": {
-                  "de": "Rolle",
-                  "en": "Role"
-                },
-                "type": "select",
-                "properties": {}
-              },
               "Phone": {
                 "id": "Phone",
                 "label": {
                   "de": "Telefon",
                   "en": "Phone"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Fax": {
-                "id": "Fax",
-                "label": {
-                  "de": "Fax",
-                  "en": "Fax"
                 },
                 "type": "input",
                 "properties": {}
@@ -472,11 +456,11 @@
                 "type": "input",
                 "properties": {}
               },
-              "WebSite": {
-                "id": "WebSite",
+              "Fax": {
+                "id": "Fax",
                 "label": {
-                  "de": "Website",
-                  "en": "Website"
+                  "de": "Fax",
+                  "en": "Fax"
                 },
                 "type": "input",
                 "properties": {}
@@ -486,6 +470,15 @@
                 "label": {
                   "de": "E-Mail",
                   "en": "E-mail"
+                },
+                "type": "input",
+                "properties": {}
+              },
+              "WebSite": {
+                "id": "WebSite",
+                "label": {
+                  "de": "Website",
+                  "en": "Website"
                 },
                 "type": "input",
                 "properties": {}
@@ -517,6 +510,15 @@
                 "type": "input",
                 "properties": {}
               },
+              "StateCode": {
+                "id": "StateCode",
+                "label": {
+                  "de": "Bundesland",
+                  "en": "State"
+                },
+                "type": "select",
+                "properties": {}
+              },
               "CountryCode": {
                 "id": "CountryCode",
                 "label": {
@@ -526,11 +528,22 @@
                 "type": "select",
                 "properties": {}
               },
-              "StateCode": {
-                "id": "StateCode",
+              "LifeCycleStatusCode": {
+                "id": "LifeCycleStatusCode",
                 "label": {
-                  "de": "Bundesland",
-                  "en": "State"
+                  "de": "Status",
+                  "en": "Status"
+                },
+                "type": "select",
+                "properties": {
+                  "defaultValue": "2"
+                }
+              },
+              "RoleCode": {
+                "id": "RoleCode",
+                "label": {
+                  "de": "Rolle",
+                  "en": "Role"
                 },
                 "type": "select",
                 "properties": {}

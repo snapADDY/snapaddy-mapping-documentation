@@ -31,51 +31,51 @@
       "mappings": {
         "lead": {
           "Subject": "{{ topic }}",
+          "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
-          "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
-          "JobTitle": "{{ position }}",
           "CompanyName": "{{ organization }}",
-          "WebSiteUrl": "{{ website }}",
-          "EMailAddress1": "{{ email }}",
+          "JobTitle": "{{ position }}",
           "Telephone1": "{{ phone }}",
           "MobilePhone": "{{ mobile }}",
           "Fax": "{{ fax }}",
+          "EMailAddress1": "{{ email }}",
+          "WebSiteUrl": "{{ website }}",
           "Address1_Line1": "{{ street }}",
-          "Address1_City": "{{ city }}",
           "Address1_PostalCode": "{{ zip }}",
-          "Address1_Country": "{{ country }}",
-          "Address1_StateOrProvince": "{{ state }}"
+          "Address1_City": "{{ city }}",
+          "Address1_StateOrProvince": "{{ state }}",
+          "Address1_Country": "{{ country }}"
         },
         "contact": {
+          "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
           "FirstName": "{{ firstName }}",
           "LastName": "{{ lastName }}",
-          "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
-          "JobTitle": "{{ position }}",
-          "MobilePhone": "{{ mobile }}",
-          "Fax": "{{ fax }}",
-          "Telephone1": "{{ phone }}",
-          "WebSiteUrl": "{{ website }}",
-          "EMailAddress1": "{{ email }}",
-          "Address1_Line1": "{{ street }}",
-          "Address1_City": "{{ city }}",
-          "Address1_PostalCode": "{{ zip }}",
-          "Address1_Country": "{{ country }}",
-          "Address1_StateOrProvince": "{{ state }}",
           "GenderCode": {
             "Value": "{{ execute(genderMapping) }}"
-          }
+          },
+          "JobTitle": "{{ position }}",
+          "Telephone1": "{{ phone }}",
+          "MobilePhone": "{{ mobile }}",
+          "Fax": "{{ fax }}",
+          "EMailAddress1": "{{ email }}",
+          "WebSiteUrl": "{{ website }}",
+          "Address1_Line1": "{{ street }}",
+          "Address1_PostalCode": "{{ zip }}",
+          "Address1_City": "{{ city }}",
+          "Address1_StateOrProvince": "{{ state }}",
+          "Address1_Country": "{{ country }}"
         },
         "account": {
           "Name": "{{ organization }}",
-          "WebSiteURL": "{{ website }}",
           "Telephone1": "{{ phone }}",
           "Fax": "{{ fax }}",
+          "WebSiteURL": "{{ website }}",
           "Address1_Line1": "{{ street }}",
           "Address1_PostalCode": "{{ zip }}",
           "Address1_City": "{{ city }}",
-          "Address1_Country": "{{ country }}",
-          "Address1_StateOrProvince": "{{ state }}"
+          "Address1_StateOrProvince": "{{ state }}",
+          "Address1_Country": "{{ country }}"
         }
       },
       "workflows": {
@@ -186,22 +186,22 @@
       "mappings": {
         "*": {
           "lead": {
-            "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "Subject": "{{ topic }}",
+            "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",
-            "JobTitle": "{{ position }}",
             "CompanyName": "{{ organization }}",
-            "WebSiteUrl": "{{ website }}",
-            "EMailAddress1": "{{ email }}",
+            "JobTitle": "{{ position }}",
             "Telephone1": "{{ phone }}",
             "MobilePhone": "{{ mobile }}",
             "Fax": "{{ fax }}",
+            "EMailAddress1": "{{ email }}",
+            "WebSiteUrl": "{{ website }}",
             "Address1_Line1": "{{ street }}",
-            "Address1_City": "{{ city }}",
             "Address1_PostalCode": "{{ zip }}",
-            "Address1_Country": "{{ country }}",
+            "Address1_City": "{{ city }}",
             "Address1_StateOrProvince": "{{ state }}",
+            "Address1_Country": "{{ country }}",
             "CampaignId": {
               "Id": "{{ visitreport.campaignId }}",
               "LogicalName": "campaign"
@@ -211,31 +211,31 @@
             "Salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
             "FirstName": "{{ firstName }}",
             "LastName": "{{ lastName }}",
-            "JobTitle": "{{ position }}",
-            "MobilePhone": "{{ mobile }}",
-            "Fax": "{{ fax }}",
-            "Telephone1": "{{ phone }}",
-            "WebSiteUrl": "{{ website }}",
-            "EMailAddress1": "{{ email }}",
-            "Address1_Line1": "{{ street }}",
-            "Address1_City": "{{ city }}",
-            "Address1_PostalCode": "{{ zip }}",
-            "Address1_Country": "{{ country }}",
-            "Address1_StateOrProvince": "{{ state }}",
             "GenderCode": {
               "Value": "{{ execute(genderMapping) }}"
-            }
+            },
+            "JobTitle": "{{ position }}",
+            "Telephone1": "{{ phone }}",
+            "MobilePhone": "{{ mobile }}",
+            "Fax": "{{ fax }}",
+            "EMailAddress1": "{{ email }}",
+            "WebSiteUrl": "{{ website }}",
+            "Address1_Line1": "{{ street }}",
+            "Address1_PostalCode": "{{ zip }}",
+            "Address1_City": "{{ city }}",
+            "Address1_StateOrProvince": "{{ state }}",
+            "Address1_Country": "{{ country }}"
           },
           "account": {
             "Name": "{{ organization }}",
-            "WebSiteURL": "{{ website }}",
             "Telephone1": "{{ phone }}",
             "Fax": "{{ fax }}",
+            "WebSiteURL": "{{ website }}",
             "Address1_Line1": "{{ street }}",
-            "Address1_PostalCode": "{{ zip }}",
             "Address1_City": "{{ city }}",
-            "Address1_Country": "{{ country }}",
-            "Address1_StateOrProvince": "{{ state }}"
+            "Address1_PostalCode": "{{ zip }}",
+            "Address1_StateOrProvince": "{{ state }}",
+            "Address1_Country": "{{ country }}"
           },
           "note": {
             "note": "{{ execute(getVisitReportNote) }}"
