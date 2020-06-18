@@ -23,28 +23,6 @@
                   "identifier": true
                 }
               },
-              "Status": {
-                "id": "Status",
-                "type": "select",
-                "label": {
-                  "en": "Status",
-                  "de": "Lead-Status"
-                },
-                "properties": {
-                  "required": false
-                }
-              },
-              "LeadSource": {
-                "id": "LeadSource",
-                "type": "select",
-                "label": {
-                  "en": "Lead Source",
-                  "de": "Lead-Quelle"
-                },
-                "properties": {
-                  "required": false
-                }
-              },
               "Salutation": {
                 "id": "Salutation",
                 "type": "select",
@@ -53,8 +31,6 @@
                   "de": "Anrede"
                 },
                 "properties": {
-                  "required": false,
-                  "defaultValue": "",
                   "options": [
                     {
                       "label": {
@@ -88,8 +64,7 @@
                   "de": "Vorname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "LastName": {
@@ -100,8 +75,7 @@
                   "de": "Nachname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "Name": {
@@ -112,20 +86,7 @@
                   "de": "Name"
                 },
                 "properties": {
-                  "hidden": true,
-                  "defaultValue": ""
-                }
-              },
-              "Title": {
-                "id": "Title",
-                "type": "input",
-                "label": {
-                  "en": "Title",
-                  "de": "Titel"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               },
               "Company": {
@@ -136,69 +97,17 @@
                   "de": "Firma"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
-              "Street": {
-                "id": "Street",
+              "Title": {
+                "id": "Title",
                 "type": "input",
                 "label": {
-                  "en": "Street",
-                  "de": "Straße"
+                  "en": "Title",
+                  "de": "Titel"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "City": {
-                "id": "City",
-                "type": "input",
-                "label": {
-                  "en": "City",
-                  "de": "Stadt"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "State": {
-                "id": "State",
-                "type": "input",
-                "label": {
-                  "en": "State",
-                  "de": "Bundesland"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "PostalCode": {
-                "id": "PostalCode",
-                "type": "input",
-                "label": {
-                  "en": "Postal Code",
-                  "de": "PLZ"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "Country": {
-                "id": "Country",
-                "type": "input",
-                "label": {
-                  "en": "Country",
-                  "de": "Land"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Phone": {
                 "id": "Phone",
@@ -207,10 +116,7 @@
                   "en": "Phone",
                   "de": "Telefon"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "MobilePhone": {
                 "id": "MobilePhone",
@@ -219,10 +125,7 @@
                   "en": "Mobile Phone",
                   "de": "Mobiltelefon"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Fax": {
                 "id": "Fax",
@@ -231,22 +134,16 @@
                   "en": "Fax",
                   "de": "Fax"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Email": {
                 "id": "Email",
                 "type": "input",
                 "label": {
-                  "en": "E-mail",
+                  "en": "Email",
                   "de": "E-Mail"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Website": {
                 "id": "Website",
@@ -255,10 +152,70 @@
                   "en": "Website",
                   "de": "Website"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "Street": {
+                "id": "Street",
+                "type": "input",
+                "label": {
+                  "en": "Street",
+                  "de": "Straße"
+                },
+                "properties": {}
+              },
+              "PostalCode": {
+                "id": "PostalCode",
+                "type": "input",
+                "label": {
+                  "en": "Postal Code",
+                  "de": "PLZ"
+                },
+                "properties": {}
+              },
+              "City": {
+                "id": "City",
+                "type": "input",
+                "label": {
+                  "en": "City",
+                  "de": "Stadt"
+                },
+                "properties": {}
+              },
+              "State": {
+                "id": "State",
+                "type": "input",
+                "label": {
+                  "en": "State",
+                  "de": "Bundesland"
+                },
+                "properties": {}
+              },
+              "Country": {
+                "id": "Country",
+                "type": "input",
+                "label": {
+                  "en": "Country",
+                  "de": "Land"
+                },
+                "properties": {}
+              },
+              "Status": {
+                "id": "Status",
+                "type": "select",
+                "label": {
+                  "en": "Status",
+                  "de": "Lead-Status"
+                },
+                "properties": {}
+              },
+              "LeadSource": {
+                "id": "LeadSource",
+                "type": "select",
+                "label": {
+                  "en": "Lead Source",
+                  "de": "Lead-Quelle"
+                },
+                "properties": {}
               }
             },
             "search": {
@@ -429,8 +386,6 @@
                 },
                 "properties": {
                   "hidden": true,
-                  "required": false,
-                  "defaultValue": "",
                   "identifier": true
                 }
               },
@@ -441,10 +396,7 @@
                   "en": "Salutation",
                   "de": "Anrede"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "FirstName": {
                 "id": "FirstName",
@@ -453,10 +405,7 @@
                   "en": "First Name",
                   "de": "Vorname"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "LastName": {
                 "id": "LastName",
@@ -466,8 +415,7 @@
                   "de": "Nachname"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "Name": {
@@ -478,8 +426,7 @@
                   "de": "Name"
                 },
                 "properties": {
-                  "hidden": true,
-                  "defaultValue": ""
+                  "hidden": true
                 }
               },
               "Title": {
@@ -489,82 +436,7 @@
                   "en": "Title",
                   "de": "Titel"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "MailingStreet": {
-                "id": "MailingStreet",
-                "type": "input",
-                "label": {
-                  "en": "Mailing Street",
-                  "de": "Straße (Postanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "MailingCity": {
-                "id": "MailingCity",
-                "type": "input",
-                "label": {
-                  "en": "Mailing City",
-                  "de": "Stadt (Postanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "MailingState": {
-                "id": "MailingState",
-                "type": "input",
-                "label": {
-                  "en": "Mailing State",
-                  "de": "Bundesland (Postanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "MailingPostalCode": {
-                "id": "MailingPostalCode",
-                "type": "input",
-                "label": {
-                  "en": "Mailing Postal Code",
-                  "de": "PLZ (Postanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "MailingCountry": {
-                "id": "MailingCountry",
-                "type": "input",
-                "label": {
-                  "en": "Mailing Country",
-                  "de": "Land (Postanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "MobilePhone": {
-                "id": "MobilePhone",
-                "type": "input",
-                "label": {
-                  "en": "Mobile Phone",
-                  "de": "Mobiltelefon"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Phone": {
                 "id": "Phone",
@@ -573,10 +445,16 @@
                   "en": "Phone",
                   "de": "Telefon"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "MobilePhone": {
+                "id": "MobilePhone",
+                "type": "input",
+                "label": {
+                  "en": "Mobile Phone",
+                  "de": "Mobiltelefon"
+                },
+                "properties": {}
               },
               "Fax": {
                 "id": "Fax",
@@ -585,22 +463,61 @@
                   "en": "Fax",
                   "de": "Fax"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Email": {
                 "id": "Email",
                 "type": "input",
                 "label": {
-                  "en": "E-mail",
+                  "en": "Email",
                   "de": "E-Mail"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "MailingStreet": {
+                "id": "MailingStreet",
+                "type": "input",
+                "label": {
+                  "en": "Mailing Street",
+                  "de": "Straße (Postanschrift)"
+                },
+                "properties": {}
+              },
+              "MailingPostalCode": {
+                "id": "MailingPostalCode",
+                "type": "input",
+                "label": {
+                  "en": "Mailing Postal Code",
+                  "de": "PLZ (Postanschrift)"
+                },
+                "properties": {}
+              },
+              "MailingCity": {
+                "id": "MailingCity",
+                "type": "input",
+                "label": {
+                  "en": "Mailing City",
+                  "de": "Stadt (Postanschrift)"
+                },
+                "properties": {}
+              },
+              "MailingState": {
+                "id": "MailingState",
+                "type": "input",
+                "label": {
+                  "en": "Mailing State",
+                  "de": "Bundesland (Postanschrift)"
+                },
+                "properties": {}
+              },
+              "MailingCountry": {
+                "id": "MailingCountry",
+                "type": "input",
+                "label": {
+                  "en": "Mailing Country",
+                  "de": "Land (Postanschrift)"
+                },
+                "properties": {}
               }
             },
             "search": {
@@ -640,68 +557,7 @@
                   "de": "Name"
                 },
                 "properties": {
-                  "required": true,
-                  "defaultValue": ""
-                }
-              },
-              "BillingStreet": {
-                "id": "BillingStreet",
-                "type": "input",
-                "label": {
-                  "en": "Billing Street",
-                  "de": "Straße (Rechnungsanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "BillingCity": {
-                "id": "BillingCity",
-                "type": "input",
-                "label": {
-                  "en": "Billing City",
-                  "de": "Stadt (Rechnungsanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "BillingState": {
-                "id": "BillingState",
-                "type": "input",
-                "label": {
-                  "en": "Billing State",
-                  "de": "Bundesland (Rechnungsanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "BillingPostalCode": {
-                "id": "BillingPostalCode",
-                "type": "input",
-                "label": {
-                  "en": "Billing Postal Code",
-                  "de": "PLZ (Rechnungsanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
-              },
-              "BillingCountry": {
-                "id": "BillingCountry",
-                "type": "input",
-                "label": {
-                  "en": "Billing Country",
-                  "de": "Land (Rechnungsanschrift)"
-                },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
+                  "required": true
                 }
               },
               "Phone": {
@@ -711,10 +567,7 @@
                   "en": "Phone",
                   "de": "Telefon"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Fax": {
                 "id": "Fax",
@@ -723,10 +576,7 @@
                   "en": "Fax",
                   "de": "Fax"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
               },
               "Website": {
                 "id": "Website",
@@ -735,10 +585,52 @@
                   "en": "Website",
                   "de": "Website"
                 },
-                "properties": {
-                  "required": false,
-                  "defaultValue": ""
-                }
+                "properties": {}
+              },
+              "BillingStreet": {
+                "id": "BillingStreet",
+                "type": "input",
+                "label": {
+                  "en": "Billing Street",
+                  "de": "Straße (Rechnungsanschrift)"
+                },
+                "properties": {}
+              },
+              "BillingPostalCode": {
+                "id": "BillingPostalCode",
+                "type": "input",
+                "label": {
+                  "en": "Billing Postal Code",
+                  "de": "PLZ (Rechnungsanschrift)"
+                },
+                "properties": {}
+              },
+              "BillingCity": {
+                "id": "BillingCity",
+                "type": "input",
+                "label": {
+                  "en": "Billing City",
+                  "de": "Stadt (Rechnungsanschrift)"
+                },
+                "properties": {}
+              },
+              "BillingState": {
+                "id": "BillingState",
+                "type": "input",
+                "label": {
+                  "en": "Billing State",
+                  "de": "Bundesland (Rechnungsanschrift)"
+                },
+                "properties": {}
+              },
+              "BillingCountry": {
+                "id": "BillingCountry",
+                "type": "input",
+                "label": {
+                  "en": "Billing Country",
+                  "de": "Land (Rechnungsanschrift)"
+                },
+                "properties": {}
               }
             },
             "search": {

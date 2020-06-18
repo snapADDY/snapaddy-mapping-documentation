@@ -66,12 +66,12 @@
                 "hidden": true
               }
             },
-            "website": {
-              "id": "website",
+            "account_name": {
+              "id": "account_name",
               "type": "input",
               "label": {
-                "en": "Website",
-                "de": "Website"
+                "en": "Company",
+                "de": "Firma"
               },
               "properties": {}
             },
@@ -81,15 +81,6 @@
               "label": {
                 "en": "Title",
                 "de": "Titel"
-              },
-              "properties": {}
-            },
-            "email1": {
-              "id": "email1",
-              "type": "input",
-              "label": {
-                "en": "Email",
-                "de": "E-Mail"
               },
               "properties": {}
             },
@@ -120,6 +111,24 @@
               },
               "properties": {}
             },
+            "email1": {
+              "id": "email1",
+              "type": "input",
+              "label": {
+                "en": "Email",
+                "de": "E-Mail"
+              },
+              "properties": {}
+            },
+            "website": {
+              "id": "website",
+              "type": "input",
+              "label": {
+                "en": "Website",
+                "de": "Website"
+              },
+              "properties": {}
+            },
             "primary_address_street": {
               "id": "primary_address_street",
               "type": "input",
@@ -129,21 +138,21 @@
               },
               "properties": {}
             },
-            "primary_address_city": {
-              "id": "primary_address_city",
-              "type": "input",
-              "label": {
-                "en": "City",
-                "de": "Stadt"
-              },
-              "properties": {}
-            },
             "primary_address_postalcode": {
               "id": "primary_address_postalcode",
               "type": "input",
               "label": {
                 "en": "ZIP",
                 "de": "PLZ"
+              },
+              "properties": {}
+            },
+            "primary_address_city": {
+              "id": "primary_address_city",
+              "type": "input",
+              "label": {
+                "en": "City",
+                "de": "Stadt"
               },
               "properties": {}
             },
@@ -165,21 +174,12 @@
               },
               "properties": {}
             },
-            "account_name": {
-              "id": "account_name",
-              "type": "input",
-              "label": {
-                "en": "Company",
-                "de": "Firma"
-              },
-              "properties": {}
-            },
             "lead_source": {
               "id": "lead_source",
               "type": "select",
               "label": {
                 "en": "Lead source",
-                "de": "Lead-Quelle"
+                "de": "Leadquelle"
               },
               "properties": {}
             },
@@ -266,21 +266,21 @@
                 "required": true
               }
             },
+            "account_name": {
+              "id": "account_name",
+              "type": "input",
+              "label": {
+                "en": "Company",
+                "de": "Firma"
+              },
+              "properties": {}
+            },
             "title": {
               "id": "title",
               "type": "input",
               "label": {
                 "en": "Title",
                 "de": "Titel"
-              },
-              "properties": {}
-            },
-            "email1": {
-              "id": "email1",
-              "type": "input",
-              "label": {
-                "en": "Email",
-                "de": "E-Mail"
               },
               "properties": {}
             },
@@ -311,6 +311,15 @@
               },
               "properties": {}
             },
+            "email1": {
+              "id": "email1",
+              "type": "input",
+              "label": {
+                "en": "Email",
+                "de": "E-Mail"
+              },
+              "properties": {}
+            },
             "primary_address_street": {
               "id": "primary_address_street",
               "type": "input",
@@ -320,21 +329,21 @@
               },
               "properties": {}
             },
-            "primary_address_city": {
-              "id": "primary_address_city",
-              "type": "input",
-              "label": {
-                "en": "City",
-                "de": "Stadt"
-              },
-              "properties": {}
-            },
             "primary_address_postalcode": {
               "id": "primary_address_postalcode",
               "type": "input",
               "label": {
                 "en": "ZIP",
                 "de": "PLZ"
+              },
+              "properties": {}
+            },
+            "primary_address_city": {
+              "id": "primary_address_city",
+              "type": "input",
+              "label": {
+                "en": "City",
+                "de": "Stadt"
               },
               "properties": {}
             },
@@ -353,15 +362,6 @@
               "label": {
                 "en": "Country",
                 "de": "Land"
-              },
-              "properties": {}
-            },
-            "account_name": {
-              "id": "account_name",
-              "type": "input",
-              "label": {
-                "en": "Company",
-                "de": "Firma"
               },
               "properties": {}
             },
@@ -448,15 +448,6 @@
               },
               "properties": {}
             },
-            "email1": {
-              "id": "email1",
-              "type": "input",
-              "label": {
-                "en": "Email",
-                "de": "E-Mail"
-              },
-              "properties": {}
-            },
             "phone_work": {
               "id": "phone_work",
               "type": "input",
@@ -484,12 +475,30 @@
               },
               "properties": {}
             },
+            "email1": {
+              "id": "email1",
+              "type": "input",
+              "label": {
+                "en": "Email",
+                "de": "E-Mail"
+              },
+              "properties": {}
+            },
             "primary_address_street": {
               "id": "primary_address_street",
               "type": "input",
               "label": {
                 "en": "Street",
                 "de": "Straße"
+              },
+              "properties": {}
+            },
+            "primary_address_postalcode": {
+              "id": "primary_address_postalcode",
+              "type": "input",
+              "label": {
+                "en": "ZIP",
+                "de": "PLZ"
               },
               "properties": {}
             },
@@ -511,15 +520,6 @@
               },
               "properties": {}
             },
-            "primary_address_postalcode": {
-              "id": "primary_address_postalcode",
-              "type": "input",
-              "label": {
-                "en": "ZIP",
-                "de": "PLZ"
-              },
-              "properties": {}
-            },
             "primary_address_country": {
               "id": "primary_address_country",
               "type": "input",
@@ -534,7 +534,7 @@
               "type": "select",
               "label": {
                 "en": "Lead source",
-                "de": "Lead-Quelle"
+                "de": "Leadquelle"
               },
               "properties": {}
             },
@@ -549,15 +549,6 @@
                 "hidden": true,
                 "identifier": true
               }
-            },
-            "account_name": {
-              "id": "account_name",
-              "type": "input",
-              "label": {
-                "en": "Company",
-                "de": "Firma"
-              },
-              "properties": {}
             },
             "assigned_user_id": {
               "id": "assigned_user_id",
@@ -656,6 +647,15 @@
               },
               "properties": {}
             },
+            "billing_address_postalcode": {
+              "id": "billing_address_postalcode",
+              "type": "input",
+              "label": {
+                "en": "ZIP (billing address)",
+                "de": "PLZ (Rechnungsanschrift)"
+              },
+              "properties": {}
+            },
             "billing_address_city": {
               "id": "billing_address_city",
               "type": "input",
@@ -671,15 +671,6 @@
               "label": {
                 "en": "State (billing address)",
                 "de": "Bundesland (Rechnungsanschrift)"
-              },
-              "properties": {}
-            },
-            "billing_address_postalcode": {
-              "id": "billing_address_postalcode",
-              "type": "input",
-              "label": {
-                "en": "ZIP (billing address)",
-                "de": "PLZ (Rechnungsanschrift)"
               },
               "properties": {}
             },
@@ -701,6 +692,15 @@
               },
               "properties": {}
             },
+            "shipping_address_postalcode": {
+              "id": "shipping_address_postalcode",
+              "type": "input",
+              "label": {
+                "en": "ZIP (shipping address)",
+                "de": "PLZ (Lieferanschrift)"
+              },
+              "properties": {}
+            },
             "shipping_address_city": {
               "id": "shipping_address_city",
               "type": "input",
@@ -716,15 +716,6 @@
               "label": {
                 "en": "State (shipping address)",
                 "de": "Bundesland (Lieferanschrift)"
-              },
-              "properties": {}
-            },
-            "shipping_address_postalcode": {
-              "id": "shipping_address_postalcode",
-              "type": "input",
-              "label": {
-                "en": "ZIP (shipping address)",
-                "de": "PLZ (Lieferanschrift)"
               },
               "properties": {}
             },
