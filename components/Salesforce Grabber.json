@@ -223,7 +223,7 @@
               "LastName"
             ]
           },
-          "mainTemplate": "{{ FirstName }} {{ LastName }}",
+          "mainTemplate": "{{ FirstName || '' }} {{ LastName || '' }}",
           "detailsTemplate": "{{ Company }}"
         },
         {
@@ -483,7 +483,7 @@
               "LastName"
             ]
           },
-          "mainTemplate": "{{ FirstName }} {{ LastName }}",
+          "mainTemplate": "{{ FirstName || '' }} {{ LastName || '' }}",
           "detailsTemplate": "{{ Email }}"
         },
         {
@@ -596,7 +596,7 @@
             ]
           },
           "mainTemplate": "{{ Name }}",
-          "detailsTemplate": "{{ BillingPostalCode ? (BillingPostalCode + ' - ') : '' }} {{ BillingCity }}"
+          "detailsTemplate": "{{ BillingPostalCode ? (BillingPostalCode + ' - ') : '' }} {{ BillingCity || '' }}"
         },
         {
           "type": "task",
