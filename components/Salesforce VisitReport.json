@@ -8,7 +8,10 @@
             "duplicateCheckName": "lead",
             "label": {
               "en": "Lead",
-              "de": "Lead"
+              "de": "Lead",
+              "it": "Iniziative",
+              "es": "Leads",
+              "fr": "Intérêts potentiels"
             },
             "fields": {
               "Id": {
