@@ -19,7 +19,7 @@
               },
               {
                 "property": "lastname",
-                "value": "{{ lastName }}"
+                "value": "{{ hubspot.lastname || lastName }}"
               },
               {
                 "property": "company",
