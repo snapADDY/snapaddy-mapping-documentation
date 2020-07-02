@@ -1,0 +1,106 @@
+{
+  "hubspot-mail": {
+    "visitreport": {
+      "mappings": {
+        "*": {
+          "contact": {
+            "properties": [
+              {
+                "property": "email",
+                "value": "{{ hubspot.email || email }}"
+              },
+              {
+                "property": "salutation",
+                "value": "{{ hubspot.salutation || salutation }}"
+              },
+              {
+                "property": "firstname",
+                "value": "{{ hubspot.firstname || firstName }}"
+              },
+              {
+                "property": "lastname",
+                "value": "{{ lastName }}"
+              },
+              {
+                "property": "company",
+                "value": "{{ hubspot.company || organization }}"
+              },
+              {
+                "property": "phone",
+                "value": "{{ hubspot.phone || phone }}"
+              },
+              {
+                "property": "mobilephone",
+                "value": "{{ hubspot.mobilephone || mobile }}"
+              },
+              {
+                "property": "fax",
+                "value": "{{ hubspot.fax || fax }}"
+              },
+              {
+                "property": "jobtitle",
+                "value": "{{ hubspot.jobtitle || position }}"
+              },
+              {
+                "property": "address",
+                "value": "{{ hubspot.address || street }}"
+              },
+              {
+                "property": "city",
+                "value": "{{ hubspot.city || city }}"
+              },
+              {
+                "property": "state",
+                "value": "{{ hubspot.state || state }}"
+              },
+              {
+                "property": "zip",
+                "value": "{{ hubspot.zip || zip }}"
+              },
+              {
+                "property": "country",
+                "value": "{{ hubspot.country || country }}"
+              },
+              {
+                "property": "testprop",
+                "value": "{{ hubspot.country || website }}"
+              }
+            ]
+          },
+          "company": {
+            "properties": [
+              {
+                "name": "name",
+                "value": "{{ hubspot.name || organization }}"
+              },
+              {
+                "name": "address",
+                "value": "{{ hubspot.address || street }}"
+              },
+              {
+                "name": "city",
+                "value": "{{ hubspot.city || city }}"
+              },
+              {
+                "name": "state",
+                "value": "{{ hubspot.state || state }}"
+              },
+              {
+                "name": "zip",
+                "value": "{{ hubspot.zip || zip }}"
+              },
+              {
+                "name": "country",
+                "value": "{{ hubspot.country || country }}"
+              },
+              {
+                "name": "website",
+                "value": "{{ hubspot.website || website }}"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
