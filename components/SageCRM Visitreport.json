@@ -8,7 +8,10 @@
             "duplicateCheckName": "lead",
             "label": {
               "en": "Lead",
-              "de": "Interessent"
+              "de": "Interessent",
+              "it": "Iniziative",
+              "es": "Leads",
+              "fr": "Intérêts potentiels"
             },
             "fields": {
               "leadid": {
@@ -40,7 +43,10 @@
                 "type": "select",
                 "label": {
                   "en": "Salutation",
-                  "de": "Anrede"
+                  "de": "Anrede",
+                  "it": "Saluto",
+                  "es": "Tratamiento",
+                  "fr": "Civilité"
                 },
                 "properties": {}
               },
@@ -49,7 +55,10 @@
                 "type": "input",
                 "label": {
                   "en": "Firstname",
-                  "de": "Vorname"
+                  "de": "Vorname",
+                  "it": "Nome",
+                  "es": "Nombre",
+                  "fr": "Prénom"
                 },
                 "properties": {
                   "required": true
@@ -60,7 +69,10 @@
                 "type": "input",
                 "label": {
                   "en": "Lastname",
-                  "de": "Nachname"
+                  "de": "Nachname",
+                  "it": "Cognome",
+                  "es": "Appellidos",
+                  "fr": "Nom"
                 },
                 "properties": {
                   "required": true
@@ -71,7 +83,10 @@
                 "type": "input",
                 "label": {
                   "en": "Companyname",
-                  "de": "Firmenname"
+                  "de": "Firmenname",
+                  "it": "Società",
+                  "es": "Compañia",
+                  "fr": "Société"
                 },
                 "properties": {
                   "required": true
@@ -82,7 +97,10 @@
                 "type": "input",
                 "label": {
                   "en": "Title",
-                  "de": "Titel"
+                  "de": "Titel",
+                  "it": "Titolo",
+                  "es": "Titulo académica",
+                  "fr": "Titre académique"
                 },
                 "properties": {}
               },
@@ -91,7 +109,10 @@
                 "type": "input",
                 "label": {
                   "en": "Phone - Countrycode",
-                  "de": "Telefon - Landesvorwahl"
+                  "de": "Telefon - Landesvorwahl",
+                  "it": "Telefono - Codice paese",
+                  "es": "Teléfono - Código de país",
+                  "fr": "Téléphone - Code de pays"
                 },
                 "properties": {}
               },
@@ -100,7 +121,10 @@
                 "type": "input",
                 "label": {
                   "en": "Phone - AreaCode",
-                  "de": "Telefon - Ortsvorwahl"
+                  "de": "Telefon - Ortsvorwahl",
+                  "it": "Telefono - Prefisso telefonico",
+                  "es": "Teléfono - Código de área",
+                  "fr": "Téléphone - Indicatif régional"
                 },
                 "properties": {}
               },
@@ -109,7 +133,10 @@
                 "type": "input",
                 "label": {
                   "en": "Phone",
-                  "de": "Telefonnummer"
+                  "de": "Telefonnummer",
+                  "it": "Numero di telefono",
+                  "es": "Número de teléfono",
+                  "fr": "Numéro de téléphone"
                 },
                 "properties": {}
               },
@@ -118,7 +145,10 @@
                 "type": "input",
                 "label": {
                   "en": "Fax - Countrycode",
-                  "de": "Fax - Landesvorwahl"
+                  "de": "Fax - Landesvorwahl",
+                  "it": "Fax - Codice paese",
+                  "es": "Fax - Código de país",
+                  "fr": "Fax - Code de pays"
                 },
                 "properties": {}
               },
@@ -127,7 +157,10 @@
                 "type": "input",
                 "label": {
                   "en": "Fax - AreaCode",
-                  "de": "Fax - Ortsvorwahl"
+                  "de": "Fax - Ortsvorwahl",
+                  "it": "Fax - Prefisso telefonico",
+                  "es": "Fax - Código de área",
+                  "fr": "Fax - Indicatif régional"
                 },
                 "properties": {}
               },
@@ -136,7 +169,10 @@
                 "type": "input",
                 "label": {
                   "en": "Fax",
-                  "de": "Faxnummer"
+                  "de": "Faxnummer",
+                  "it": "Numero di fax",
+                  "es": "Número de fax",
+                  "fr": "Numéro de télécopie"
                 },
                 "properties": {}
               },
@@ -144,8 +180,11 @@
                 "id": "personemail",
                 "type": "input",
                 "label": {
-                  "en": "Email",
-                  "de": "E-Mail"
+                  "en": "E-mail",
+                  "de": "E-Mail",
+                  "it": "E-mail",
+                  "es": "Correo electrónico",
+                  "fr": "Adresse e-mail"
                 },
                 "properties": {}
               },
@@ -154,7 +193,10 @@
                 "type": "input",
                 "label": {
                   "en": "Website",
-                  "de": "Website"
+                  "de": "Website",
+                  "it": "Sito Web",
+                  "es": "Sito Web",
+                  "fr": "Site Web"
                 },
                 "properties": {}
               },
@@ -163,7 +205,10 @@
                 "type": "input",
                 "label": {
                   "en": "Address 1",
-                  "de": "Adresse 1"
+                  "de": "Adresse 1",
+                  "it": "Indirizzo 1",
+                  "es": "Dirección 1",
+                  "fr": "Adresse 1"
                 },
                 "properties": {}
               },
@@ -172,7 +217,10 @@
                 "type": "input",
                 "label": {
                   "en": "Zip",
-                  "de": "PLZ"
+                  "de": "PLZ",
+                  "it": "Codice postale",
+                  "es": "Código postal",
+                  "fr": "Code postal"
                 },
                 "properties": {}
               },
@@ -181,7 +229,10 @@
                 "type": "input",
                 "label": {
                   "en": "City",
-                  "de": "Stadt"
+                  "de": "Stadt",
+                  "it": "Città",
+                  "es": "Cuidad",
+                  "fr": "Ville"
                 },
                 "properties": {}
               },
@@ -190,7 +241,10 @@
                 "type": "input",
                 "label": {
                   "en": "State",
-                  "de": "Bundesland"
+                  "de": "Bundesland",
+                  "it": "Stato",
+                  "es": "Estado o provincia",
+                  "fr": "Région/Province"
                 },
                 "properties": {}
               },
@@ -199,7 +253,10 @@
                 "type": "input",
                 "label": {
                   "en": "Country",
-                  "de": "Land"
+                  "de": "Land",
+                  "it": "Paese",
+                  "es": "Pais",
+                  "fr": "Pays"
                 },
                 "properties": {}
               },
@@ -208,7 +265,10 @@
                 "type": "select",
                 "label": {
                   "en": "Source",
-                  "de": "Quelle"
+                  "de": "Quelle",
+                  "it": "Fonte",
+                  "es": "Origen",
+                  "fr": "Origine"
                 },
                 "properties": {}
               },
@@ -217,7 +277,10 @@
                 "type": "select",
                 "label": {
                   "en": "Status",
-                  "de": "Status"
+                  "de": "Status",
+                  "it": "Stato",
+                  "es": "Estado",
+                  "fr": "Statut"
                 },
                 "properties": {}
               },
@@ -226,7 +289,10 @@
                 "type": "select",
                 "label": {
                   "en": "Stage",
-                  "de": "Phase"
+                  "de": "Phase",
+                  "it": "Fase",
+                  "es": "Fase",
+                  "fr": "Phase"
                 },
                 "properties": {}
               },
@@ -235,7 +301,10 @@
                 "type": "input",
                 "label": {
                   "en": "Description",
-                  "de": "Beschreibung"
+                  "de": "Beschreibung",
+                  "it": "Descrizione",
+                  "es": "Descripción",
+                  "fr": "Description"
                 },
                 "properties": {}
               },
@@ -244,7 +313,10 @@
                 "type": "textArea",
                 "label": {
                   "en": "Details",
-                  "de": "Details"
+                  "de": "Details",
+                  "it": "Dettagli",
+                  "es": "Detalles",
+                  "fr": "Détails"
                 },
                 "properties": {}
               }
@@ -265,7 +337,10 @@
             "duplicateCheckName": "contact",
             "label": {
               "en": "Person",
-              "de": "Person"
+              "de": "Person",
+              "it": "Persona",
+              "es": "Persona",
+              "fr": "Personne"
             },
             "fields": {
               "personid": {
@@ -308,7 +383,10 @@
                 "type": "select",
                 "label": {
                   "en": "Salutation",
-                  "de": "Anrede"
+                  "de": "Anrede",
+                  "it": "Saluto",
+                  "es": "Tratamiento",
+                  "fr": "Civilité"
                 },
                 "properties": {}
               },
@@ -317,7 +395,10 @@
                 "type": "input",
                 "label": {
                   "en": "Title",
-                  "de": "Titel"
+                  "de": "Titel",
+                  "it": "Titolo",
+                  "es": "Titulo académica",
+                  "fr": "Titre académique"
                 },
                 "properties": {}
               },
@@ -326,7 +407,10 @@
                 "type": "input",
                 "label": {
                   "en": "Firstname",
-                  "de": "Vorname"
+                  "de": "Vorname",
+                  "it": "Nome",
+                  "es": "Nombre",
+                  "fr": "Prénom"
                 },
                 "properties": {
                   "required": true
@@ -337,7 +421,10 @@
                 "type": "input",
                 "label": {
                   "en": "LastName",
-                  "de": "Nachname"
+                  "de": "Nachname",
+                  "it": "Cognome",
+                  "es": "Appellidos",
+                  "fr": "Nom"
                 },
                 "properties": {
                   "required": true
@@ -348,7 +435,10 @@
                 "type": "select",
                 "label": {
                   "en": "Gender",
-                  "de": "Geschlecht"
+                  "de": "Geschlecht",
+                  "it": "Genere",
+                  "es": "Género",
+                  "fr": "Genre"
                 },
                 "properties": {}
               },
@@ -357,7 +447,10 @@
                 "type": "select",
                 "label": {
                   "en": "Position",
-                  "de": "Funktion"
+                  "de": "Funktion",
+                  "it": "Posizione",
+                  "es": "Posición",
+                  "fr": "Titre du poste"
                 },
                 "properties": {}
               },
@@ -365,7 +458,10 @@
                 "id": "phone",
                 "label": {
                   "en": "Phone",
-                  "de": "Telefonnummer"
+                  "de": "Telefonnummer",
+                  "it": "Telefono",
+                  "es": "Teléfono",
+                  "fr": "Téléphone"
                 },
                 "type": "sageSubPhone",
                 "properties": {
@@ -374,7 +470,10 @@
                       "id": "countrycode",
                       "label": {
                         "en": "Countrycode",
-                        "de": "Ländervorwahl"
+                        "de": "Ländervorwahl",
+                        "it": "Codice paese",
+                        "es": "Código de país",
+                        "fr": "Code de pays"
                       },
                       "type": "input"
                     },
@@ -382,7 +481,10 @@
                       "id": "areacode",
                       "label": {
                         "en": "Areacode",
-                        "de": "Ortsvorwahl"
+                        "de": "Ortsvorwahl",
+                        "it": "Prefisso telefonico",
+                        "es": "Código de área",
+                        "fr": "Indicatif régional"
                       },
                       "type": "input"
                     },
@@ -390,7 +492,10 @@
                       "id": "number",
                       "label": {
                         "en": "Phone",
-                        "de": "Telefonnummer"
+                        "de": "Telefonnummer",
+                        "it": "Numero di telefono",
+                        "es": "Número de teléfono",
+                        "fr": "Numéro de téléphone"
                       },
                       "type": "input"
                     },
@@ -398,7 +503,10 @@
                       "id": "type",
                       "label": {
                         "en": "Type",
-                        "de": "Typ"
+                        "de": "Typ",
+                        "it": "Tipo",
+                        "es": "Tipo",
+                        "fr": "Tapez"
                       },
                       "type": "select",
                       "properties": {
@@ -406,35 +514,50 @@
                           {
                             "label": {
                               "en": "Business",
-                              "de": "Geschäftlich"
+                              "de": "Geschäftlich",
+                              "es": "Trabajo",
+                              "fr": "Travail",
+                              "it": "Lavoro"
                             },
                             "value": "business"
                           },
                           {
                             "label": {
                               "en": "Fax",
-                              "de": "Fax"
+                              "de": "Fax",
+                              "es": "Fax",
+                              "fr": "Télécopie",
+                              "it": "Fax"
                             },
                             "value": "fax"
                           },
                           {
                             "label": {
                               "en": "Home",
-                              "de": "Privat"
+                              "de": "Privat",
+                              "es": "Privado",
+                              "fr": "Privat",
+                              "it": "Privato"
                             },
                             "value": "home"
                           },
                           {
                             "label": {
                               "en": "Mobile",
-                              "de": "Mobil"
+                              "de": "Mobil",
+                              "es": "Móvil",
+                              "fr": "Mobile",
+                              "it": "Mobile"
                             },
                             "value": "mobile"
                           },
                           {
                             "label": {
                               "en": "Pager",
-                              "de": "Pager"
+                              "de": "Pager",
+                              "es": "Pager",
+                              "fr": "Pager",
+                              "it": "Pager"
                             },
                             "value": "pager"
                           }
@@ -447,8 +570,11 @@
               "email": {
                 "id": "email",
                 "label": {
-                  "en": "Email",
-                  "de": "E-Mail"
+                  "en": "E-mail",
+                  "de": "E-Mail",
+                  "es": "Correo electrónico",
+                  "fr": "E-mail",
+                  "it": "E-mail"
                 },
                 "type": "sageSubEmail",
                 "properties": {
@@ -457,7 +583,10 @@
                       "id": "emailaddress",
                       "label": {
                         "en": "Address",
-                        "de": "Adresse"
+                        "de": "Adresse",
+                        "it": "Indirizzo",
+                        "es": "Dirección",
+                        "fr": "Adresse"
                       },
                       "type": "input"
                     },
@@ -465,7 +594,10 @@
                       "id": "type",
                       "label": {
                         "en": "Type",
-                        "de": "Typ"
+                        "de": "Typ",
+                        "it": "Tipo",
+                        "es": "Tipo",
+                        "fr": "Tapez"
                       },
                       "type": "select",
                       "properties": {
@@ -473,14 +605,20 @@
                           {
                             "label": {
                               "en": "Business",
-                              "de": "Geschäftlich"
+                              "de": "Geschäftlich",
+                              "es": "Trabajo",
+                              "fr": "Travail",
+                              "it": "Lavoro"
                             },
                             "value": "business"
                           },
                           {
                             "label": {
                               "en": "Home",
-                              "de": "Privat"
+                              "de": "Privat",
+                              "es": "Privado",
+                              "fr": "Privat",
+                              "it": "Privato"
                             },
                             "value": "home"
                           }
@@ -495,7 +633,10 @@
                 "type": "input",
                 "label": {
                   "en": "Website",
-                  "de": "Website"
+                  "de": "Website",
+                  "it": "Sito Web",
+                  "es": "Sito Web",
+                  "fr": "Site Web"
                 },
                 "properties": {}
               },
@@ -503,7 +644,10 @@
                 "id": "address",
                 "label": {
                   "en": "Primary address",
-                  "de": "Hauptadresse"
+                  "de": "Hauptadresse",
+                  "it": "Indirizzo principale",
+                  "es": "Dirección principal",
+                  "fr": "Adresse principale"
                 },
                 "type": "sageSubAddress",
                 "properties": {
@@ -512,7 +656,10 @@
                       "id": "address1",
                       "label": {
                         "en": "Address 1",
-                        "de": "Adresse 1"
+                        "de": "Adresse 1",
+                        "it": "Indirizzo 1",
+                        "es": "Dirección 1",
+                        "fr": "Adresse 1"
                       },
                       "type": "input"
                     },
@@ -520,7 +667,10 @@
                       "id": "address2",
                       "label": {
                         "en": "Address 2",
-                        "de": "Adresse 2"
+                        "de": "Adresse 2",
+                        "it": "Indirizzo 2",
+                        "es": "Dirección 2",
+                        "fr": "Adresse 2"
                       },
                       "type": "input"
                     },
@@ -528,7 +678,10 @@
                       "id": "address3",
                       "label": {
                         "en": "Address 3",
-                        "de": "Adresse 3"
+                        "de": "Adresse 3",
+                        "it": "Indirizzo 3",
+                        "es": "Dirección 3",
+                        "fr": "Adresse 3"
                       },
                       "type": "input"
                     },
@@ -536,7 +689,10 @@
                       "id": "address4",
                       "label": {
                         "en": "Address 4",
-                        "de": "Adresse 4"
+                        "de": "Adresse 4",
+                        "it": "Indirizzo 4",
+                        "es": "Dirección 4",
+                        "fr": "Adresse 4"
                       },
                       "type": "input"
                     },
@@ -544,7 +700,10 @@
                       "id": "address5",
                       "label": {
                         "en": "Address 5",
-                        "de": "Adresse 5"
+                        "de": "Adresse 5",
+                        "it": "Indirizzo 5",
+                        "es": "Dirección 5",
+                        "fr": "Adresse 5"
                       },
                       "type": "input"
                     },
@@ -552,7 +711,10 @@
                       "id": "city",
                       "label": {
                         "en": "City",
-                        "de": "Stadt"
+                        "de": "Stadt",
+                        "it": "Città",
+                        "es": "Cuidad",
+                        "fr": "Ville"
                       },
                       "type": "input"
                     },
@@ -560,7 +722,10 @@
                       "id": "postcode",
                       "label": {
                         "en": "Zip",
-                        "de": "PLZ"
+                        "de": "PLZ",
+                        "it": "Codice postale",
+                        "es": "Código postal",
+                        "fr": "Code postal"
                       },
                       "type": "input"
                     },
@@ -568,7 +733,10 @@
                       "id": "state",
                       "label": {
                         "en": "State",
-                        "de": "Bundesland"
+                        "de": "Bundesland",
+                        "it": "Stato",
+                        "es": "Estado o provincia",
+                        "fr": "Région/Province"
                       },
                       "type": "input"
                     },
@@ -576,7 +744,10 @@
                       "id": "country",
                       "label": {
                         "en": "Country",
-                        "de": "Land"
+                        "de": "Land",
+                        "it": "Paese",
+                        "es": "Pais",
+                        "fr": "Pays"
                       },
                       "type": "input"
                     },
@@ -584,7 +755,10 @@
                       "id": "type",
                       "label": {
                         "en": "Type",
-                        "de": "Typ"
+                        "de": "Typ",
+                        "it": "Tipo",
+                        "es": "Tipo",
+                        "fr": "Tapez"
                       },
                       "type": "multiselect",
                       "properties": {
@@ -592,28 +766,40 @@
                           {
                             "label": {
                               "en": "Business",
-                              "de": "Geschäftlich"
+                              "de": "Geschäftlich",
+                              "es": "Trabajo",
+                              "fr": "Travail",
+                              "it": "Lavoro"
                             },
                             "value": "business"
                           },
                           {
                             "label": {
                               "en": "Billing",
-                              "de": "Rechnungsadresse"
+                              "de": "Rechnungsadresse",
+                              "it": "Indirizzo della fatturazione",
+                              "es": "Dirección de correo",
+                              "fr": "Adresse de facturation"
                             },
                             "value": "billing"
                           },
                           {
                             "label": {
                               "en": "Shipping",
-                              "de": "Lieferadresse"
+                              "de": "Lieferadresse",
+                              "it": "Indirizzo postale",
+                              "es": "Dirección de envio",
+                              "fr": "Adresse d'expédition"
                             },
                             "value": "shipping"
                           },
                           {
                             "label": {
                               "en": "home",
-                              "de": "Privat"
+                              "de": "Privat",
+                              "es": "Privado",
+                              "fr": "Privat",
+                              "it": "Privato"
                             },
                             "value": "home"
                           }
@@ -628,7 +814,10 @@
                 "type": "select",
                 "label": {
                   "en": "Source",
-                  "de": "Quelle"
+                  "de": "Quelle",
+                  "it": "Fonte",
+                  "es": "Origen",
+                  "fr": "Origine"
                 },
                 "properties": {}
               },
@@ -637,7 +826,10 @@
                 "type": "select",
                 "label": {
                   "en": "Status",
-                  "de": "Status"
+                  "de": "Status",
+                  "it": "Stato",
+                  "es": "Estado",
+                  "fr": "Statut"
                 },
                 "properties": {}
               }
@@ -656,7 +848,10 @@
             "duplicateCheckName": "account",
             "label": {
               "en": "Company",
-              "de": "Firma"
+              "de": "Firma",
+              "it": "Società",
+              "es": "Compañia",
+              "fr": "Société"
             },
             "fields": {
               "companyid": {
@@ -700,7 +895,10 @@
                 "type": "input",
                 "label": {
                   "en": "Name",
-                  "de": "Name"
+                  "de": "Name",
+                  "it": "Nome",
+                  "es": "Nombre",
+                  "fr": "Nom"
                 },
                 "properties": {
                   "required": true
@@ -710,7 +908,10 @@
                 "id": "phone",
                 "label": {
                   "en": "Phone",
-                  "de": "Telefonnummer"
+                  "de": "Telefonnummer",
+                  "it": "Telefono",
+                  "es": "Teléfono",
+                  "fr": "Téléphone"
                 },
                 "type": "sageSubPhone",
                 "properties": {
@@ -719,7 +920,10 @@
                       "id": "countrycode",
                       "label": {
                         "en": "Countrycode",
-                        "de": "Ländervorwahl"
+                        "de": "Ländervorwahl",
+                        "it": "Codice paese",
+                        "es": "Código de país",
+                        "fr": "Code de pays"
                       },
                       "type": "input"
                     },
@@ -727,7 +931,10 @@
                       "id": "areacode",
                       "label": {
                         "en": "Areacode",
-                        "de": "Ortsvorwahl"
+                        "de": "Ortsvorwahl",
+                        "it": "Prefisso telefonico",
+                        "es": "Código de área",
+                        "fr": "Indicatif régional"
                       },
                       "type": "input"
                     },
@@ -735,7 +942,10 @@
                       "id": "number",
                       "label": {
                         "en": "Phone",
-                        "de": "Telefonnummer"
+                        "de": "Telefonnummer",
+                        "it": "Numero di telefono",
+                        "es": "Número de teléfono",
+                        "fr": "Numéro de téléphone"
                       },
                       "type": "input"
                     },
@@ -743,7 +953,10 @@
                       "id": "type",
                       "label": {
                         "en": "Type",
-                        "de": "Typ"
+                        "de": "Typ",
+                        "it": "Tipo",
+                        "es": "Tipo",
+                        "fr": "Tapez"
                       },
                       "type": "select",
                       "properties": {
@@ -751,35 +964,50 @@
                           {
                             "label": {
                               "en": "Business",
-                              "de": "Geschäftlich"
+                              "de": "Geschäftlich",
+                              "es": "Trabajo",
+                              "fr": "Travail",
+                              "it": "Lavoro"
                             },
                             "value": "business"
                           },
                           {
                             "label": {
                               "en": "Fax",
-                              "de": "Fax"
+                              "de": "Fax",
+                              "es": "Fax",
+                              "fr": "Télécopie",
+                              "it": "Fax"
                             },
                             "value": "fax"
                           },
                           {
                             "label": {
                               "en": "Home",
-                              "de": "Privat"
+                              "de": "Privat",
+                              "es": "Privado",
+                              "fr": "Privat",
+                              "it": "Privato"
                             },
                             "value": "home"
                           },
                           {
                             "label": {
                               "en": "Mobile",
-                              "de": "Mobil"
+                              "de": "Mobil",
+                              "es": "Móvil",
+                              "fr": "Mobile",
+                              "it": "Mobile"
                             },
                             "value": "mobile"
                           },
                           {
                             "label": {
                               "en": "Pager",
-                              "de": "Pager"
+                              "de": "Pager",
+                              "es": "Pager",
+                              "fr": "Pager",
+                              "it": "Pager"
                             },
                             "value": "pager"
                           }
@@ -792,8 +1020,11 @@
               "email": {
                 "id": "email",
                 "label": {
-                  "en": "Email",
-                  "de": "E-Mail"
+                  "en": "E-mail",
+                  "de": "E-Mail",
+                  "es": "Correo electrónico",
+                  "fr": "E-mail",
+                  "it": "E-mail"
                 },
                 "type": "sageSubEmail",
                 "properties": {
@@ -802,7 +1033,10 @@
                       "id": "emailaddress",
                       "label": {
                         "en": "Address",
-                        "de": "Adresse"
+                        "de": "Adresse",
+                        "it": "Indirizzo",
+                        "es": "Dirección",
+                        "fr": "Adresse"
                       },
                       "type": "input"
                     },
@@ -810,7 +1044,10 @@
                       "id": "type",
                       "label": {
                         "en": "Type",
-                        "de": "Typ"
+                        "de": "Typ",
+                        "it": "Tipo",
+                        "es": "Tipo",
+                        "fr": "Tapez"
                       },
                       "type": "select",
                       "properties": {
@@ -818,14 +1055,20 @@
                           {
                             "label": {
                               "en": "Business",
-                              "de": "Geschäftlich"
+                              "de": "Geschäftlich",
+                              "es": "Trabajo",
+                              "fr": "Travail",
+                              "it": "Lavoro"
                             },
                             "value": "business"
                           },
                           {
                             "label": {
                               "en": "Home",
-                              "de": "Privat"
+                              "de": "Privat",
+                              "es": "Privado",
+                              "fr": "Privat",
+                              "it": "Privato"
                             },
                             "value": "home"
                           }
@@ -840,7 +1083,10 @@
                 "type": "input",
                 "label": {
                   "en": "Website",
-                  "de": "Website"
+                  "de": "Website",
+                  "it": "Sito Web",
+                  "es": "Sito Web",
+                  "fr": "Site Web"
                 },
                 "properties": {}
               },
@@ -848,7 +1094,10 @@
                 "id": "address",
                 "label": {
                   "en": "Primary address",
-                  "de": "Hauptadresse"
+                  "de": "Hauptadresse",
+                  "it": "Indirizzo principale",
+                  "es": "Dirección principal",
+                  "fr": "Adresse principale"
                 },
                 "type": "sageSubAddress",
                 "properties": {
@@ -857,7 +1106,10 @@
                       "id": "address1",
                       "label": {
                         "en": "Address 1",
-                        "de": "Adresse 1"
+                        "de": "Adresse 1",
+                        "it": "Indirizzo 1",
+                        "es": "Dirección 1",
+                        "fr": "Adresse 1"
                       },
                       "type": "input"
                     },
@@ -865,7 +1117,10 @@
                       "id": "address2",
                       "label": {
                         "en": "Address 2",
-                        "de": "Adresse 2"
+                        "de": "Adresse 2",
+                        "it": "Indirizzo 2",
+                        "es": "Dirección 2",
+                        "fr": "Adresse 2"
                       },
                       "type": "input"
                     },
@@ -873,7 +1128,10 @@
                       "id": "address3",
                       "label": {
                         "en": "Address 3",
-                        "de": "Adresse 3"
+                        "de": "Adresse 3",
+                        "it": "Indirizzo 3",
+                        "es": "Dirección 3",
+                        "fr": "Adresse 3"
                       },
                       "type": "input"
                     },
@@ -881,7 +1139,10 @@
                       "id": "address4",
                       "label": {
                         "en": "Address 4",
-                        "de": "Adresse 4"
+                        "de": "Adresse 4",
+                        "it": "Indirizzo 4",
+                        "es": "Dirección 4",
+                        "fr": "Adresse 4"
                       },
                       "type": "input"
                     },
@@ -889,7 +1150,10 @@
                       "id": "address5",
                       "label": {
                         "en": "Address 5",
-                        "de": "Adresse 5"
+                        "de": "Adresse 5",
+                        "it": "Indirizzo 5",
+                        "es": "Dirección 5",
+                        "fr": "Adresse 5"
                       },
                       "type": "input"
                     },
@@ -897,7 +1161,10 @@
                       "id": "city",
                       "label": {
                         "en": "City",
-                        "de": "Stadt"
+                        "de": "Stadt",
+                        "it": "Città",
+                        "es": "Cuidad",
+                        "fr": "Ville"
                       },
                       "type": "input"
                     },
@@ -905,7 +1172,10 @@
                       "id": "postcode",
                       "label": {
                         "en": "Zip",
-                        "de": "PLZ"
+                        "de": "PLZ",
+                        "it": "Codice postale",
+                        "es": "Código postal",
+                        "fr": "Code postal"
                       },
                       "type": "input"
                     },
@@ -913,7 +1183,10 @@
                       "id": "state",
                       "label": {
                         "en": "State",
-                        "de": "Bundesland"
+                        "de": "Bundesland",
+                        "it": "Stato",
+                        "es": "Estado o provincia",
+                        "fr": "Région/Province"
                       },
                       "type": "input"
                     },
@@ -921,7 +1194,10 @@
                       "id": "country",
                       "label": {
                         "en": "Country",
-                        "de": "Land"
+                        "de": "Land",
+                        "it": "Paese",
+                        "es": "Pais",
+                        "fr": "Pays"
                       },
                       "type": "input"
                     },
@@ -929,7 +1205,10 @@
                       "id": "type",
                       "label": {
                         "en": "Type",
-                        "de": "Typ"
+                        "de": "Typ",
+                        "it": "Tipo",
+                        "es": "Tipo",
+                        "fr": "Tapez"
                       },
                       "type": "multiselect",
                       "properties": {
@@ -937,28 +1216,40 @@
                           {
                             "label": {
                               "en": "Business",
-                              "de": "Geschäftlich"
+                              "de": "Geschäftlich",
+                              "es": "Trabajo",
+                              "fr": "Travail",
+                              "it": "Lavoro"
                             },
                             "value": "business"
                           },
                           {
                             "label": {
                               "en": "Billing",
-                              "de": "Rechnungsadresse"
+                              "de": "Rechnungsadresse",
+                              "it": "Indirizzo della fatturazione",
+                              "es": "Dirección de correo",
+                              "fr": "Adresse de facturation"
                             },
                             "value": "billing"
                           },
                           {
                             "label": {
                               "en": "Shipping",
-                              "de": "Lieferadresse"
+                              "de": "Lieferadresse",
+                              "it": "Indirizzo postale",
+                              "es": "Dirección de envio",
+                              "fr": "Adresse d'expédition"
                             },
                             "value": "shipping"
                           },
                           {
                             "label": {
                               "en": "home",
-                              "de": "Privat"
+                              "de": "Privat",
+                              "es": "Privado",
+                              "fr": "Privat",
+                              "it": "Privato"
                             },
                             "value": "home"
                           }
@@ -973,7 +1264,10 @@
                 "type": "input",
                 "label": {
                   "en": "Status",
-                  "de": "Status"
+                  "de": "Status",
+                  "it": "Stato",
+                  "es": "Estado",
+                  "fr": "Statut"
                 },
                 "properties": {}
               }

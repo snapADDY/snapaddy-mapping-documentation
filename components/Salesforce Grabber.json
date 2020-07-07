@@ -36,14 +36,7 @@
                 "fr": "Civilité"
               },
               "properties": {
-                "options": [
-                  {
-                    "label": {
-                      "en": "",
-                      "de": ""
-                    },
-                    "value": -1
-                  },
+                "options": [                  
                   {
                     "label": {
                       "en": "Mr",
@@ -61,7 +54,6 @@
                       "it": "Sig.ra",
                       "es": "Sra.",
                       "fr": "Mme"
-
                     },
                     "value": 1
                   }
@@ -399,9 +391,9 @@
           "label": {
             "en": "Contact",
             "de": "Kontakt",
-            "it": "Contatti",
-            "es": "Contactos",
-            "fr": "Contacts"
+            "it": "Contatto",
+            "es": "Contacto",
+            "fr": "Contact"
           },
           "fields": {
             "Id": {
@@ -613,9 +605,9 @@
           "label": {
             "en": "Account",
             "de": "Account",
-            "it": "Clienti",
-            "es": "Clientes",
-            "fr": "Comptes"
+            "it": "Cliente",
+            "es": "Cliente",
+            "fr": "Client"
           },
           "fields": {
             "Id": {
