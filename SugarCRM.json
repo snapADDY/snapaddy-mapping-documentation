@@ -21,7 +21,7 @@
     "defaultExport": {
       "mappings": {
         "lead": {
-          "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
+          "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Ms.') : '') }}",
           "first_name": "{{ firstName }}",
           "last_name": "{{ lastName }}",
           "account_name": "{{ organization }}",
@@ -40,7 +40,7 @@
           "status": "{{  }}"
         },
         "contact": {
-          "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
+          "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Ms.') : '') }}",
           "first_name": "{{ firstName }}",
           "last_name": "{{ lastName }}",
           "title": "{{ position }}",
@@ -75,7 +75,7 @@
           "industry": "{{ account_industry }}"
         },
         "prospect": {
-          "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+          "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Ms.') : '') }}",
           "first_name": "{{ firstName }}",
           "last_name": "{{ lastName }}",
           "account_name": "{{ organization }}",
@@ -338,7 +338,7 @@
       "mappings": {
         "*": {
           "lead": {
-            "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
+            "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Ms.') : '') }}",
             "first_name": "{{ firstName }}",
             "last_name": "{{ lastName }}",
             "account_name": "{{ organization }}",
@@ -357,7 +357,7 @@
             "status": "{{  }}"
           },
           "contact": {
-            "salutation": "{{ gender == 0 ? ('Herr') : (gender == 1 ? ('Frau') : '') }}",
+            "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Ms.') : '') }}",
             "first_name": "{{ firstName }}",
             "last_name": "{{ lastName }}",
             "title": "{{ position }}",
@@ -392,7 +392,7 @@
             "industry": "{{ account_industry }}"
           },
           "prospect": {
-            "salutation": "{{ gender == -1 ? ('') : (gender == 0 ? ('Herr') : ('Frau')) }}",
+            "salutation": "{{ gender == 0 ? ('Mr.') : (gender == 1 ? ('Ms.') : '') }}",
             "first_name": "{{ firstName }}",
             "last_name": "{{ lastName }}",
             "account_name": "{{ organization }}",
