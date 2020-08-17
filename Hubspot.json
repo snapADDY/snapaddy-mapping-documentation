@@ -1,0 +1,254 @@
+{
+  "hubspot": {
+    "meta": {
+      "contact": {
+        "apiName": "contacts",
+        "idProperty": "id"
+      },
+      "account": {
+        "apiName": "companies",
+        "idProperty": "id"
+      },
+      "deal": {
+        "apiName": "deals",
+        "idProperty": "id"
+      }
+    },
+    "defaultExport": {
+      "mappings": {
+        "contact": {
+          "salutation": "{{ gender === 0 ? 'Herr' : (gender === 1 ? 'Frau' : '' ) }}",
+          "firstname": "{{ firstName }}",
+          "lastname": "{{ lastName }}",
+          "jobtitle": "{{ position }}",
+          "phone": "{{ phone }}",
+          "mobilephone": "{{ mobile }}",
+          "fax": "{{ fax }}",
+          "email": "{{ email }}",
+          "address": "{{ street }}",
+          "zip": "{{ zip }}",
+          "city": "{{ city }}",
+          "state": "{{ state }}",
+          "country": "{{ execute(countryMapping) }}"
+        },
+        "account": {
+          "name": "{{ organization }}",
+          "phone": "{{ phone }}",
+          "domain": "{{ website }}",
+          "address": "{{ street }}",
+          "zip": "{{ zip }}",
+          "city": "{{ city }}",
+          "state": "{{ state }}",
+          "country": "{{ country }}"
+        },
+        "deal": {
+          "dealname": "{{ organization + ' Deal' }}",
+          "pipeline": "{{  }}",
+          "dealstage": "{{  }}",
+          "amount": "{{  }}"
+        },
+        "note": {
+          "note": "{{ note }}"
+        }
+      },
+      "workflows": {
+        "contact_account": [
+          {
+            "entity": "account"
+          },
+          {
+            "entity": "contact",
+            "dependsOn": [
+              {
+                "field": "associatedcompanyid",
+                "entity": "account"
+              }
+            ]
+          },
+          {
+            "entity": "deal",
+            "dependsOn": [
+              {
+                "field": "contact",
+                "entity": "contact"
+              },
+              {
+                "field": "company",
+                "entity": "account"
+              }
+            ]
+          },
+          {
+            "entity": "attachments",
+            "config": {
+              "bcImage": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Business card front"
+              },
+              "bcImageBackside": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Business card back"
+              },
+              "drawing": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Drawing"
+              },
+              "image": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Profile image"
+              },
+              "attachments": {
+                "entities": [
+                  "contact"
+                ],
+                "name": {
+                  "*": "Attachment (${i})",
+                  "PDF": "Attachment (${i})",
+                  "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signature"
+                }
+              },
+              "note": {
+                "entities": [
+                  "contact"
+                ],
+                "name": "Note"
+              }
+            }
+          }
+        ]
+      },
+      "components": {
+        "contact_account": []
+      }
+    },
+    "visitreport": {
+      "mappings": {
+        "*": {
+          "contact": {
+            "salutation": "{{ gender === 0 ? 'Herr' : (gender === 1 ? 'Frau' : '' ) }}",
+            "firstname": "{{ firstName }}",
+            "lastname": "{{ lastName }}",
+            "jobtitle": "{{ position }}",
+            "phone": "{{ phone }}",
+            "mobilephone": "{{ mobile }}",
+            "fax": "{{ fax }}",
+            "email": "{{ email }}",
+            "address": "{{ street }}",
+            "zip": "{{ zip }}",
+            "city": "{{ city }}",
+            "state": "{{ state }}",
+            "country": "{{ execute(countryMapping) }}"
+          },
+          "account": {
+            "name": "{{ organization }}",
+            "phone": "{{ phone }}",
+            "domain": "{{ website }}",
+            "address": "{{ street }}",
+            "zip": "{{ zip }}",
+            "city": "{{ city }}",
+            "state": "{{ state }}",
+            "country": "{{ country }}"
+          },
+          "deal": {
+            "dealname": "{{ organization + ' Deal' }}",
+            "pipeline": "{{  }}",
+            "dealstage": "{{  }}",
+            "amount": "{{  }}"
+          },
+          "note": {
+            "note": "{{ note }}"
+          }
+        }
+      },
+      "workflows": {
+        "*": {
+          "contact_account": [
+            {
+              "entity": "account"
+            },
+            {
+              "entity": "contact",
+              "dependsOn": [
+                {
+                  "field": "associatedcompanyid",
+                  "entity": "account"
+                }
+              ]
+            },
+            {
+              "entity": "deal",
+              "dependsOn": [
+                {
+                  "field": "contact",
+                  "entity": "contact"
+                },
+                {
+                  "field": "company",
+                  "entity": "account"
+                }
+              ]
+            },
+            {
+              "entity": "attachments",
+              "config": {
+                "bcImage": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Business card front"
+                },
+                "bcImageBackside": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Business card back"
+                },
+                "drawing": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Drawing"
+                },
+                "image": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Profile image"
+                },
+                "attachments": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": {
+                    "*": "Attachment (${i})",
+                    "PDF": "Attachment (${i})",
+                    "SIGNATURE": "{{ visitreport.title || '' }} - {{ firstName || '' }} {{ lastName || '' }} Signature"
+                  }
+                },
+                "note": {
+                  "entities": [
+                    "contact"
+                  ],
+                  "name": "Note"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "components": {
+        "*": {
+          "contact_account": []
+        }
+      }
+    }
+  }
+}
