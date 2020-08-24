@@ -29,7 +29,7 @@
           "zip": "{{ zip }}",
           "city": "{{ city }}",
           "state": "{{ state }}",
-          "country": "{{ execute(countryMapping) }}"
+          "country": "{{ country }}"
         },
         "account": {
           "name": "{{ organization }}",
