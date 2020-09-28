@@ -1,0 +1,283 @@
+{
+  "defaultExport": {
+    "components": {
+      "contact_account": [
+        {
+          "type": "contact",
+          "duplicateCheckName": "contact",
+          "fields": {
+            "salutation": {
+              "id": "salutation",
+              "type": "input",
+              "label": {
+                "de": "Anrede",
+                "en": "Salutation"
+              }
+            },
+            "firstname": {
+              "id": "firstname",
+              "type": "input",
+              "label": {
+                "de": "Vorname",
+                "en": "First name"
+              }
+            },
+            "lastname": {
+              "id": "lastname",
+              "type": "input",
+              "label": {
+                "de": "Nachname",
+                "en": "Last name"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "jobtitle": {
+              "id": "jobtitle",
+              "type": "input",
+              "label": {
+                "de": "Position",
+                "en": "Job title"
+              }
+            },
+            "phone": {
+              "id": "phone",
+              "type": "input",
+              "label": {
+                "de": "Telefon",
+                "en": "Phone"
+              }
+            },
+            "mobilephone": {
+              "id": "mobilephone",
+              "type": "input",
+              "label": {
+                "de": "Mobil",
+                "en": "Mobile"
+              }
+            },
+            "fax": {
+              "id": "fax",
+              "type": "input",
+              "label": {
+                "de": "Fax",
+                "en": "Fax"
+              }
+            },
+            "email": {
+              "id": "email",
+              "type": "input",
+              "label": {
+                "de": "Email",
+                "en": "Email"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "address": {
+              "id": "address",
+              "type": "input",
+              "label": {
+                "de": "Straße",
+                "en": "Street"
+              }
+            },
+            "zip": {
+              "id": "zip",
+              "type": "input",
+              "label": {
+                "de": "PLZ",
+                "en": "ZIP"
+              }
+            },
+            "city": {
+              "id": "city",
+              "type": "input",
+              "label": {
+                "de": "Stadt",
+                "en": "City"
+              }
+            },
+            "state": {
+              "id": "state",
+              "type": "input",
+              "label": {
+                "de": "Bundesland",
+                "en": "State"
+              }
+            },
+            "country": {
+              "id": "country",
+              "type": "input",
+              "label": {
+                "de": "Land",
+                "en": "Country"
+              }
+            }
+          },
+          "label": {
+            "de": "Kontakt",
+            "en": "Contact",
+            "it": "Contatti",
+            "es": "Contactos",
+            "fr": "Contacts"
+          },
+          "search": {
+            "ids": [
+              "firstname"
+            ]
+          }
+        },
+        {
+          "type": "account",
+          "duplicateCheckName": "account",
+          "fields": {
+            "name": {
+              "id": "name",
+              "type": "input",
+              "label": {
+                "de": "Name",
+                "en": "Name"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "phone": {
+              "id": "phone",
+              "type": "input",
+              "label": {
+                "de": "Telefon",
+                "en": "Phone"
+              }
+            },
+            "domain": {
+              "id": "domain",
+              "type": "input",
+              "label": {
+                "de": "Website",
+                "en": "Website"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "address": {
+              "id": "address",
+              "type": "input",
+              "label": {
+                "de": "Straße",
+                "en": "Street"
+              }
+            },
+            "zip": {
+              "id": "zip",
+              "type": "input",
+              "label": {
+                "de": "PLZ",
+                "en": "ZIP"
+              }
+            },
+            "city": {
+              "id": "city",
+              "type": "input",
+              "label": {
+                "de": "Stadt",
+                "en": "City"
+              }
+            },
+            "state": {
+              "id": "state",
+              "type": "input",
+              "label": {
+                "de": "Bundesland",
+                "en": "State"
+              }
+            },
+            "country": {
+              "id": "country",
+              "type": "input",
+              "label": {
+                "de": "Land",
+                "en": "Country"
+              }
+            }
+          },
+          "label": {
+            "de": "Unternehmen",
+            "en": "Company",
+            "it": "Azienda",
+            "es": "Empresa",
+            "fr": "Enterprise"
+          },
+          "search": {
+            "ids": [
+              "name"
+            ]
+          }
+        },
+        {
+          "type": "deal",
+          "duplicateCheckName": "deal",
+          "fields": {
+            "dealname": {
+              "id": "dealname",
+              "type": "input",
+              "label": {
+                "de": "Name",
+                "en": "Name"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "pipeline": {
+              "id": "pipeline",
+              "type": "select",
+              "label": {
+                "de": "Pipeline",
+                "en": "Pipeline"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "dealstage": {
+              "id": "dealstage",
+              "type": "select",
+              "label": {
+                "de": "Stage",
+                "en": "Stage"
+              },
+              "properties": {
+                "required": true
+              }
+            },
+            "amount": {
+              "id": "amount",
+              "type": "number",
+              "label": {
+                "de": "Wert",
+                "en": "Amount"
+              }
+            }
+          },
+          "label": {
+            "de": "Geschäft",
+            "en": "Deal",
+            "it": "Affari",
+            "es": "Negocio",
+            "fr": "Transaction"
+          },
+          "search": {
+            "ids": [
+              "dealname"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
