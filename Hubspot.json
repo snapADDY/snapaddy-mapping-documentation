@@ -60,7 +60,7 @@
             "entity": "contact",
             "dependsOn": [
               {
-                "field": "associatedcompanyid",
+                "field": "company",
                 "entity": "account"
               }
             ]
@@ -178,7 +178,7 @@
               "entity": "contact",
               "dependsOn": [
                 {
-                  "field": "associatedcompanyid",
+                  "field": "company",
                   "entity": "account"
                 }
               ]
