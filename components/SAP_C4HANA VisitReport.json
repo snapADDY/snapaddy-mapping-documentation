@@ -349,144 +349,189 @@
             "detailsTemplate": "{{ AccountFormattedName }}",
             "duplicateCheckName": "contact",
             "fields": {
-              "TitleCode": {
-                "id": "TitleCode",
-                "label": {
-                  "de": "Anrede",
-                  "en": "Salutation"
-                },
-                "type": "select",
-                "properties": {}
+            "TitleCode": {
+              "id": "TitleCode",
+              "label": {
+                "de": "Anrede",
+                "en": "Salutation",
+                "it": "Saluto",
+                "es": "Tratamiento",
+                "fr": "Civilité"
               },
-              "FirstName": {
-                "id": "FirstName",
-                "label": {
-                  "de": "Vorname",
-                  "en": "First Name"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "LastName": {
-                "id": "LastName",
-                "label": {
-                  "de": "Nachname",
-                  "en": "Last Name"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "GenderCode": {
-                "id": "GenderCode",
-                "label": {
-                  "de": "Geschlecht",
-                  "en": "Gender"
-                },
-                "type": "select",
-                "properties": {}
-              },
-              "JobTitle": {
-                "id": "JobTitle",
-                "label": {
-                  "de": "Stellenbezeichnung",
-                  "en": "Job Title"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Phone": {
-                "id": "Phone",
-                "label": {
-                  "de": "Telefon",
-                  "en": "Phone"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Mobile": {
-                "id": "Mobile",
-                "label": {
-                  "de": "Mobiltelefon",
-                  "en": "Mobile"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Fax": {
-                "id": "Fax",
-                "label": {
-                  "de": "Fax",
-                  "en": "Fax"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "Email": {
-                "id": "Email",
-                "label": {
-                  "de": "E-Mail",
-                  "en": "E-mail"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "BusinessAddressStreet": {
-                "id": "BusinessAddressStreet",
-                "label": {
-                  "de": "Straße",
-                  "en": "Street"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "BusinessAddressStreetPostalCode": {
-                "id": "BusinessAddressStreetPostalCode",
-                "label": {
-                  "de": "Postleitzahl",
-                  "en": "Postal Code"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "BusinessAddressCity": {
-                "id": "BusinessAddressCity",
-                "label": {
-                  "de": "Ort",
-                  "en": "City"
-                },
-                "type": "input",
-                "properties": {}
-              },
-              "BusinessAddressStateCode": {
-                "id": "BusinessAddressStateCode",
-                "label": {
-                  "de": "Bundesland",
-                  "en": "State"
-                },
-                "type": "select",
-                "properties": {}
-              },
-              "BusinessAddressCountryCode": {
-                "id": "BusinessAddressCountryCode",
-                "label": {
-                  "de": "Land",
-                  "en": "Country"
-                },
-                "type": "select",
-                "properties": {}
-              },
-              "StatusCode": {
-                "id": "StatusCode",
-                "label": {
-                  "de": "Status",
-                  "en": "Status"
-                },
-                "type": "select",
-                "properties": {
-                  "defaultValue": "2"
-                }
-              }
+              "type": "select",
+              "properties": {}
             },
+            "FirstName": {
+              "id": "FirstName",
+              "label": {
+                "de": "Vorname",
+                "en": "First Name",
+                "it": "Nome",
+                "es": "Nombre",
+                "fr": "Prénom"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "LastName": {
+              "id": "LastName",
+              "label": {
+                "de": "Nachname",
+                "en": "Last Name",
+                "it": "Cognome",
+                "es": "Appellidos",
+                "fr": "Nom"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "GenderCode": {
+              "id": "GenderCode",
+              "label": {
+                "de": "Geschlecht",
+                "en": "Gender",
+                "it": "Genere",
+                "es": "Género",
+                "fr": "Genre"
+              },
+              "type": "select",
+              "properties": {}
+            },
+            "JobTitle": {
+              "id": "JobTitle",
+              "label": {
+                "de": "Stellenbezeichnung",
+                "en": "Job Title",
+                "it": "Posizione",
+                "es": "Posición",
+                "fr": "Titre du poste"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "Phone": {
+              "id": "Phone",
+              "label": {
+                "de": "Telefon",
+                "en": "Phone",
+                "it": "Telefono",
+                "es": "Teléfono",
+                "fr": "Téléphone"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "Mobile": {
+              "id": "Mobile",
+              "label": {
+                "de": "Mobiltelefon",
+                "en": "Mobile",
+                "it": "Telefono cellulare",
+                "es": "Móvil",
+                "fr": "Téléphone mobile"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "Fax": {
+              "id": "Fax",
+              "label": {
+                "de": "Fax",
+                "en": "Fax",
+                "it": "Fax",
+                "es": "Fax",
+                "fr": "Télécopie"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "Email": {
+              "id": "Email",
+              "label": {
+                "de": "E-Mail",
+                "en": "E-mail",
+                "it": "E-mail",
+                "es": "Correo electrónico",
+                "fr": "Adresse e-mail"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "BusinessAddressStreet": {
+              "id": "BusinessAddressStreet",
+              "label": {
+                "de": "Straße",
+                "en": "Street",
+                "it": "Via",
+                "es": "Calle",
+                "fr": "Rue"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "BusinessAddressStreetPostalCode": {
+              "id": "BusinessAddressStreetPostalCode",
+              "label": {
+                "de": "Postleitzahl",
+                "en": "Postal Code",
+                "it": "Codice postale",
+                "es": "Código postal",
+                "fr": "Code postal"
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "BusinessAddressCity": {
+              "id": "BusinessAddressCity",
+              "label": {
+                "de": "Ort",
+                "en": "City",
+                "it": "Città",
+                "es": "Cuidad",
+                "fr": "Ville"              
+              },
+              "type": "input",
+              "properties": {}
+            },
+            "BusinessAddressStateCode": {
+              "id": "BusinessAddressStateCode",
+              "label": {
+                "de": "Bundesland",
+                "en": "State",
+                "it": "Stato",
+                "es": "Estado o provincia",
+                "fr": "Région/Province"
+              },
+              "type": "select",
+              "properties": {}
+            },
+            "BusinessAddressCountryCode": {
+              "id": "BusinessAddressCountryCode",
+              "label": {
+                "de": "Land",
+                "en": "Country",
+                "it": "Paese",
+                "es": "Pais",
+                "fr": "Pays"
+              },
+              "type": "select",
+              "properties": {}
+            },
+            "StatusCode": {
+              "id": "StatusCode",
+              "label": {
+                "de": "Status",
+                "en": "Status",
+                "it": "Condizione",
+                "es": "Estado",
+                "fr": "Statut"
+              },
+              "type": "select",
+              "properties": {
+                "defaultValue": "2"
+              }
+            }
+          },
             "label": {
               "de": "Ansprechpartner",
               "en": "Contact",
