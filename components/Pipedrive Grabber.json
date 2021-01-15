@@ -6,7 +6,10 @@
         "duplicateCheckName": "contact",
         "label": {
           "en": "Person",
-          "de": "Person"
+          "de": "Person",
+          "it": "Persona",
+          "es": "Persona",
+          "fr": "Personne"
         },
         "fields": {
           "name": {
@@ -14,7 +17,10 @@
             "type": "input",
             "label": {
               "en": "Name",
-              "de": ""
+              "de": "Name",
+              "es": "Nombre",
+              "fr": "Nom",
+              "it": "Nome"
             },
             "properties": {
               "required": true
@@ -69,11 +75,11 @@
             "id": "email",
             "type": "pipedriveArray",
             "label": {
-              "en": "E-Mail",
-              "de": "Email",
+              "en": "E-mail",
+              "de": "E-Mail",
               "es": "Correo electrónico",
-              "fr": "E-Mail",
-              "it": "E-Mail"
+              "fr": "E-mail",
+              "it": "E-mail"
             },
             "properties": {
               "options": [
@@ -117,7 +123,10 @@
         "duplicateCheckName": "account",
         "label": {
           "en": "Organization",
-          "de": "Organisation"
+          "de": "Organisation",
+          "es": "Organización",
+          "fr": "Organisation",
+          "it": "Organizzazione"
         },
         "fields": {
           "name": {
@@ -125,7 +134,10 @@
             "type": "input",
             "label": {
               "de": "Name",
-              "en": "Name"
+              "en": "Name",
+              "es": "Nombre",
+              "fr": "Nom",
+              "it": "Nome"
             },
             "properties": {
               "required": true
@@ -136,7 +148,10 @@
             "type": "input",
             "label": {
               "de": "Adresse",
-              "en": "Address"
+              "en": "Address",
+              "it": "Indirizzo",
+              "es": "Dirección",
+              "fr": "Adresse"
             },
             "properties": {}
           }
@@ -153,7 +168,10 @@
         "type": "deal",
         "label": {
           "de": "Geschäft",
-          "en": "Deal"
+          "en": "Deal",
+          "it": "Affare",
+          "es": "Negocio",
+          "fr": "Affaire"
         },
         "fields": {
           "title": {
@@ -161,7 +179,10 @@
             "type": "input",
             "label": {
               "de": "Titel",
-              "en": "Title"
+              "en": "Title",
+              "it": "Titolo",
+              "es": "Título",
+              "fr": "Titre"
             },
             "properties": {
               "required": true
@@ -172,7 +193,10 @@
             "type": "input",
             "label": {
               "de": "Wert",
-              "en": "Value"
+              "en": "Value",
+              "it": "Valore",
+              "es": "Valor",
+              "fr": "Valeur"
             },
             "properties": {}
           },
@@ -181,7 +205,10 @@
             "type": "select",
             "label": {
               "en": "Currency",
-              "de": ""
+              "de": "Währung",
+              "it": "Valuta",
+              "es": "Moneda",
+              "fr": "Monnaie"
             },
             "properties": {}
           },
@@ -189,8 +216,11 @@
             "id": "stage_id",
             "type": "select",
             "label": {
-              "en": "StageId",
-              "de": ""
+              "en": "Stage",
+              "de": "Phase",
+              "it": "Fase",
+              "es": "Fase",
+              "fr": "Phase"
             },
             "properties": {}
           },
@@ -231,15 +261,21 @@
         "type": "activity",
         "label": {
           "en": "Activity",
-          "de": "Activity"
+          "de": "Activity",
+          "it": "Attività",
+          "es": "Actividad",
+          "fr": "Activité"
         },
         "fields": {
           "subject": {
             "id": "subject",
             "type": "input",
             "label": {
-              "en": "subject",
-              "de": ""
+              "en": "Subject",
+                "de": "Betreff",
+                "it": "Tema",
+                "es": "Tema",
+                "fr": "Sujet"
             },
             "properties": {}
           },
@@ -247,8 +283,11 @@
             "id": "done",
             "type": "input",
             "label": {
-              "en": "done",
-              "de": ""
+              "en": "Done",
+                "de": "Fertig",
+                "it": "Fatto",
+                "es": "Hecho",
+                "fr": "Fait"
             },
             "properties": {}
           },
@@ -256,8 +295,11 @@
             "id": "due_date",
             "type": "input",
             "label": {
-              "en": "due_date",
-              "de": ""
+              "en": "Due date",
+                "de": "Fälligkeitsdatum",
+                "it": "Scadenza",
+                "es": "Fecha de vencimiento",
+                "fr": "Date d'échéance"
             },
             "properties": {}
           },
@@ -265,8 +307,11 @@
             "id": "due_time",
             "type": "input",
             "label": {
-              "en": "due_time",
-              "de": ""
+              "en": "Due time",
+                "de": "Fälligkeit",
+                "it": "Tempo di scadenza",
+                "es": "Tiempo de espera",
+                "fr": "Le moment venu"
             },
             "properties": {}
           },
@@ -274,8 +319,11 @@
             "id": "duration",
             "type": "input",
             "label": {
-              "en": "duration",
-              "de": ""
+              "en": "Duration",
+              "de": "Dauer",
+              "it": "Durata",
+              "es": "Duración",
+              "fr": "Durée"
             },
             "properties": {}
           },
@@ -283,8 +331,11 @@
             "id": "type",
             "type": "select",
             "label": {
-              "en": "type",
-              "de": ""
+              "en": "Type",
+              "de": "Typ",
+              "it": "Tipo",
+              "es": "Tipo",
+              "fr": "Tapez"
             },
             "properties": {
               "options": [],
@@ -331,8 +382,11 @@
             "id": "note",
             "type": "textArea",
             "label": {
-              "en": "note",
-              "de": ""
+              "en": "Note",
+                "de": "Notiz",
+                "it": "Nota",
+                "es": "Nota",
+                "fr": "Note"
             },
             "properties": {}
           }
