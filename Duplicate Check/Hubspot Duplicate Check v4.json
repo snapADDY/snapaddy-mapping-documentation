@@ -1,0 +1,100 @@
+{
+  "duplicateCheck": {
+    "pipeline": {
+      "stages": [
+        {
+          "tasks": [
+            {
+              "entity": "contact",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "email",
+                    "operator": "eq",
+                    "value": "{{ address.email }}",
+                    "filters": [
+                      "return !isEmailGeneric(address.email)"
+                    ]
+                  },
+                  {
+                    "operator": "and",
+                    "subconditions": [
+                      {
+                        "field": "firstname",
+                        "operator": "in",
+                        "value": "{{ address.firstName }}"
+                      },
+                      {
+                        "field": "lastname",
+                        "operator": "in",
+                        "value": "{{ address.lastName }}"
+                      }
+                    ],
+                    "filters": [
+                      "return (address.firstName.length >= 3 || address.lastName.length >= 3)"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_ENTERED"
+            },
+            {
+              "entity": "account",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "domain",
+                    "operator": "eq",
+                    "value": "{{ getDomainFromURL(address.website) }}",
+                    "filters": [
+                      "return address.website.length > 5"
+                    ]
+                  },
+                  {
+                    "field": "name",
+                    "operator": "in",
+                    "value": "{{ address.organization }}",
+                    "filters": [
+                      "return address.organization.length >= 3"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_WEBSITE_OR_NAME_ENTERED"
+            }
+          ],
+          "results": [],
+          "post": [
+            [
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'firstname', snapaddyPropertyName: 'firstName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'lastname', snapaddyPropertyName: 'lastName', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'email', snapaddyPropertyName: 'email', fuzzyWeight: 4 })",
+              "pipeline.stages[0].results[0].duplicates = sortDuplicates(pipeline.stages[0].results[0].duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.stages[0].results[0].suggested = pipeline.stages[0].results[0].duplicates[0]",
+              "return pipeline"
+            ],
+            [
+              "var propertyWeights = []",
+              "propertyWeights.push({ duplicatePropertyName: 'name', snapaddyPropertyName: 'organization', fuzzyWeight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'domain', snapaddyPropertyName: 'website', fuzzyWeight: 3 })",
+              "propertyWeights.push({ duplicatePropertyName: 'city', snapaddyPropertyName: 'city', fuzzyWeight: 1 })",
+              "propertyWeights.push({ duplicatePropertyName: 'zip', snapaddyPropertyName: 'zip', fuzzyWeight: 0, exactMatchModifier: 1 })",
+              "pipeline.stages[0].results[1].duplicates = sortDuplicates(pipeline.stages[0].results[1].duplicates, address, propertyWeights, 'DESC')",
+              "pipeline.stages[0].results[1].suggested = pipeline.stages[0].results[1].duplicates[0]",
+              "return pipeline"
+            ]
+          ]
+        }
+      ],
+      "mapResults": [
+        "return {",
+        "  contact: pipeline.stages[0].results[0],",
+        "  account: pipeline.stages[0].results[1],",
+        "}"
+      ]
+    }
+  }
+}
