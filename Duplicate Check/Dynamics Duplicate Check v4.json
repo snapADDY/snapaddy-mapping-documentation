@@ -1,6 +1,5 @@
 {
   "duplicateCheck": {
-    "settings": {},
     "pipeline": {
       "stages": [
         {
