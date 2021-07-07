@@ -1,0 +1,225 @@
+{
+  "duplicateCheck": {
+    "settings": {},
+    "pipeline": {
+      "stages": [
+        {
+          "tasks": [
+            {
+              "entity": "lead",
+              "name": "lead",
+              "tree": {
+                "operator": "and",
+                "subconditions": [
+                  {
+                    "operator": "or",
+                    "subconditions": [
+                      {
+                        "field": "email1",
+                        "operator": "eq",
+                        "value": "{{ address.email }}",
+                        "filters": [
+                          "return !isEmailGeneric(address.email)"
+                        ]
+                      },
+                      {
+                        "operator": "and",
+                        "subconditions": [
+                          {
+                            "field": "first_name",
+                            "operator": "allIn",
+                            "value": "{{ address.firstName }}"
+                          },
+                          {
+                            "field": "last_name",
+                            "operator": "allIn",
+                            "value": "{{ address.lastName }}"
+                          },
+                          {
+                            "field": "account_name",
+                            "operator": "allIn",
+                            "value": "{{ address.organization }}"
+                          }
+                        ],
+                        "filters": [
+                          "return (address.firstName.length >= 3 || address.lastName.length >= 3) && address.organization.length >= 3"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_AND_COMPANY_ENTERED"
+            },
+            {
+              "entity": "contact",
+              "name": "contact",
+              "tree": {
+                "operator": "or",
+                "subconditions": [
+                  {
+                    "field": "email1",
+                    "operator": "eq",
+                    "value": "{{ address.email }}",
+                    "filters": [
+                      "return !isEmailGeneric(address.email)"
+                    ]
+                  },
+                  {
+                    "operator": "and",
+                    "subconditions": [
+                      {
+                        "field": "first_name",
+                        "operator": "allIn",
+                        "value": "{{ address.firstName }}"
+                      },
+                      {
+                        "field": "last_name",
+                        "operator": "allIn",
+                        "value": "{{ address.lastName }}"
+                      }
+                    ],
+                    "filters": [
+                      "return (address.firstName.length >= 3 || address.lastName.length >= 3)"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_ENTERED"
+            },
+            {
+              "entity": "account",
+              "name": "account",
+              "tree": {
+                "operator": "OR",
+                "subconditions": [
+                  {
+                    "field": "website",
+                    "operator": "in",
+                    "value": "{{ getDomainFromURL(address.website) }}",
+                    "filters": [
+                      "return address.website.length > 5"
+                    ]
+                  },
+                  {
+                    "field": "name",
+                    "operator": "allIn",
+                    "value": "{{ address.organization }}",
+                    "filters": [
+                      "return address.organization.length >= 3"
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "subconditions": [
+                      {
+                        "field": "name",
+                        "operator": "allIn",
+                        "value": "{{ address.organization }}"
+                      },
+                      {
+                        "operator": "OR",
+                        "subconditions": [
+                          {
+                            "field": "billing_address_postal",
+                            "operator": "in",
+                            "value": "{{ address.zip }}"
+                          },
+                          {
+                            "field": "billing_address_city",
+                            "operator": "in",
+                            "value": "{{ address.city }}"
+                          }
+                        ]
+                      }
+                    ],
+                    "filters": [
+                      "return address.organization.length >= 3 && (!!address.zip || !!address.city)"
+                    ]
+                  }
+                ]
+              },
+              "missingDataLabel": "NO_WEBSITE_OR_NAME_ENTERED"
+            }
+          ],
+          "post": [{
+            "task": "lead",
+            "config": {
+              "rankConditions": [{
+                "source": "firstName",
+                "target": "first_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "lastName",
+                "target": "last_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "email",
+                "target": "email1",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "organization",
+                "target": "account_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "organization",
+                "target": "account_name",
+                "op": "in_lc",
+                "points": 1
+              }]
+            }
+          }, {
+            "task": "contact",
+            "config": {
+              "rankConditions": [{
+                "source": "firstName",
+                "target": "first_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "lastName",
+                "target": "last_name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "email",
+                "target": "email1",
+                "op": "eq_lc",
+                "points": 2
+              }]
+            }
+          }, {
+            "task": "account",
+            "config": {
+              "rankConditions": [{
+                "source": "organization",
+                "target": "name",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "website",
+                "target": "website",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "zip",
+                "target": "billing_address_postalcode",
+                "op": "eq_lc",
+                "points": 2
+              }, {
+                "source": "city",
+                "target": "billing_address_city",
+                "op": "eq_lc",
+                "points": 2
+              }]
+            }
+          }]
+        }
+      ]
+    }
+  }
+}
