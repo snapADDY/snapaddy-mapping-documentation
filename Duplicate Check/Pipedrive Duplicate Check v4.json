@@ -1,0 +1,70 @@
+{
+  "duplicateCheck": {
+    "settings": {},
+    "pipeline": {
+      "stages": [
+        {
+          "tasks": [
+            {
+              "name": "person",
+              "entity": "person",
+              "tree": {
+                "operator": "and",
+                "preserve": true,
+                "subconditions": [{
+                  "operator": "and",
+                  "preserve": true,
+                  "subconditions": []
+                }, {
+                  "operator": "or",
+                  "preserve": true,
+                  "subconditions": [{
+                    "field": "{{ fields.persons.name }}",
+                    "operator": "in",
+                    "value": "{{ address.firstName + ' ' + address.lastName }}",
+                    "filters": [
+                      "return (address.firstName.length >= 3 || address.lastName.length >= 3)"
+                    ]
+                  }, {
+                    "field": "{{ fields.persons.email }}",
+                    "operator": "eq",
+                    "value": "{{ address.email }}",
+                    "filters": [
+                      "return isEmailGeneric(tree.value) ? false : true;"
+                    ]
+                  }]
+                }]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_AND_COMPANY_ENTERED"
+            },
+            {
+              "name": "organization",
+              "entity": "organization",
+              "tree": {
+                "operator": "and",
+                "preserve": true,
+                "subconditions": [{
+                  "operator": "or",
+                  "preserve": true,
+                  "subconditions": []
+                }, {
+                  "operator": "and",
+                  "preserve": true,
+                  "subconditions": [{
+                    "field": "{{ fields.organizations.name }}",
+                    "operator": "allIn",
+                    "value": "{{ address.organization }}",
+                    "filters": [
+                      "return (address.organization.length > 3);"
+                    ]
+                  }]
+                }]
+              },
+              "missingDataLabel": "NO_EMAIL_OR_NAME_ENTERED"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
